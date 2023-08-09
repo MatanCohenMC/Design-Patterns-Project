@@ -22,12 +22,12 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object i_Sender, EventArgs e)
         {
 
         }
 
-        private void fetch_posts_button_Click(object sender, EventArgs e)
+        private void fetch_posts_button_Click(object i_Sender, EventArgs e)
         {
             m_FetchButtonPressed?.Invoke("PostsForm");
         }

@@ -397,3 +397,14 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /FacebookWinFormsApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/FacebookWinFormsApp/obj/x64/Debug/DesignTimeResolveAssemblyReferences.cache
+/FacebookWinFormsApp/obj/x64/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.AssemblyReference.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.CoreCompileInputs.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.FileListAbsolute.txt
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.GenerateResource.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.exe
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.pdb
+/FacebookWinFormsApp/obj/x64/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.AssemblyReference.cache
+/FacebookWinFormsApp/obj/x64/Debug/FacebookApp.csproj.AssemblyReference.cache

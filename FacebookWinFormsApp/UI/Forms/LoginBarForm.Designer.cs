@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ButtonLogout = new System.Windows.Forms.Button();
-            this.ButtonLogin = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.pictureBoxUserProfile = new System.Windows.Forms.PictureBox();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
             this.labelAppID = new System.Windows.Forms.Label();
@@ -115,8 +115,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button ButtonLogout;
-        private System.Windows.Forms.Button ButtonLogin;
+        private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBoxUserProfile;
         private System.Windows.Forms.TextBox textBoxAppID;
         private System.Windows.Forms.Label labelAppID;

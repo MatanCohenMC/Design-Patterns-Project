@@ -10,17 +10,13 @@ namespace FacebookApp.UI.Forms
     {
         private readonly NavigationBarForm r_NavigationBarForm;
         private readonly LoginBarForm r_LoginBar;
-        private Form m_CurrentForm;
-        private FormsController m_FormsController = FormsController.Instance;
         private User m_LoggedInUser;
 
         public AppMainForm(NavigationBarForm i_NavigationBarForm, LoginBarForm i_LoginBarForm)
         {
             this.r_NavigationBarForm = i_NavigationBarForm;
-            r_LoginBar = i_LoginBarForm;
+            this.r_LoginBar = i_LoginBarForm;
 
-            r_NavigationBarForm.SetDisplayFormEventHandler(setDisplayPanel);
-            r_NavigationBarForm.m_ButtonPressed += OnButtonPressed;
             r_LoginBar.m_LoginButtonPressed += LoginButtonPressed;
 
             InitializeComponent();
@@ -31,7 +27,7 @@ namespace FacebookApp.UI.Forms
 
         private void LoginButtonPressed()
         {
-            r_LoginBar.Login();
+            //m_FormsController.InitiateLogin();
         }
 
         private void setNavigationBar()
@@ -50,24 +46,11 @@ namespace FacebookApp.UI.Forms
             this.r_LoginBar.Show();
         }
 
-        private void setDisplayPanel(Form i_Form)
-        {
-            if (m_CurrentForm != null)
-            {
-                panelDisplay.Controls.Remove(m_CurrentForm);
-            }
-            m_CurrentForm = i_Form;
-            m_CurrentForm.Dock = DockStyle.Fill;
-            m_CurrentForm.TopLevel = false;
-            panelDisplay.Controls.Add(m_CurrentForm);
-            m_CurrentForm.Show();
-
-        }
 
         private void OnButtonPressed(string parameter)
         {
             // Call the setDisplayPanel function when the button is pressed with the provided parameter
-            setDisplayPanel(m_FormsController.GetForm(parameter));
+            //setDisplayPanel(m_FormsController.GetForm(parameter));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -84,5 +67,7 @@ namespace FacebookApp.UI.Forms
         {
 
         }
+
+
     }
 }

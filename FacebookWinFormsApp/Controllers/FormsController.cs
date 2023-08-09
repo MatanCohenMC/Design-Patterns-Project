@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using FacebookApp.UI.Forms;
 using FacebookApp.UI;
 using FacebookApp.UI.Forms;
 using FacebookApp.Interfaces;
+using FacebookApp.Models;
 using FacebookWrapper;
 
 
@@ -17,14 +19,17 @@ namespace FacebookApp.Controllers
     {
         private Dictionary<string, Form> m_FormsDictionary;
         private static FormsController s_Instance = null;
-        
+        private Form m_CurrentForm;
+        private Login m_Login;
+
         private FormsController()
         {
-            InitializeForms();
+            m_Login = Login.Instance;
+            initializeForms();
         }
         // //
 
-        private void InitializeForms()
+        private void initializeForms()
         {
             m_FormsDictionary = new Dictionary<string, Form>();
 
@@ -45,11 +50,48 @@ namespace FacebookApp.Controllers
             AddForm(formNamePages, pagesForm);
 
             string formNamePosts = "PostsForm";
-            PostsForm postsForm = new PostsForm();
-            postsForm.m_FetchButtonPressed += fetchUserFormData;
+            Form postsForm = new PostsForm();
             AddForm(formNamePosts, postsForm);
 
-            
+
+            string formNameNavigationBarForm = "NavigationBarForm";
+            NavigationBarForm navigationBarForm = new NavigationBarForm();
+            navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+            AddForm(formNameNavigationBarForm, navigationBarForm);
+
+            string formNameLoginBarForm = "LoginBarForm";
+            LoginBarForm loginBarForm = new LoginBarForm();
+            loginBarForm.m_LoginButtonPressed += loginToApp;
+
+            AddForm(formNameLoginBarForm, loginBarForm);
+            string formNameAppMainForm = "AppMainForm";
+            Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
+            AddForm(formNameAppMainForm, appMainForm);
+
+        }
+
+        private void loginToApp()
+        {
+            LoginBarForm loginForm = GetForm("LoginBarForm") as LoginBarForm;
+            if(loginForm != null)
+            {
+                string appId = loginForm.TextBoxAppIdString;
+                m_Login.LoginToApp(appId);
+                if(m_Login.IsLoggedIn())
+                {
+                    loginForm.ButtonLogin.Text = "Logged in";
+                    // $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+                    loginForm.ButtonLogin.BackColor = Color.LightGreen;
+                    loginForm.PictureBoxUserProfile.ImageLocation = m_Login.LoginResult.LoggedInUser.PictureNormalURL;
+                    loginForm.ButtonLogin.Enabled = false;
+                    loginForm.ButtonLogout.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show(m_Login.LoginResult.ErrorMessage, "Login Failed");
+                }
+            }
+
         }
 
         public static FormsController Instance
@@ -82,11 +124,7 @@ namespace FacebookApp.Controllers
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
 
-            NavigationBarForm navigationBarForm = new NavigationBarForm();
-            LoginBarForm loginBarForm = new LoginBarForm();
-
-            Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
-            Application.Run(appMainForm);
+            Application.Run(GetForm("AppMainForm"));
         }
 
         private void fetchUserFormData(string i_FormName)
@@ -106,9 +144,31 @@ namespace FacebookApp.Controllers
         }
 
 
+        public void InitiateLogin()
+        {
+            LoginBarForm loginBarForm = m_FormsDictionary["LoginBarForm"] as LoginBarForm;
+        }
 
 
+        private void setDisplayPanel(string i_FormName)
+        {
+            Form formToSet = GetForm(i_FormName);
+            Form appMainForm = GetForm("AppMainForm");
+            if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+            {
+                if (m_CurrentForm != null)
+                {
+                    panelDisplay.Controls.Remove(m_CurrentForm);
+                }
+                m_CurrentForm = formToSet;
+                m_CurrentForm.Dock = DockStyle.Fill;
+                m_CurrentForm.TopLevel = false;
+                panelDisplay.Controls.Add(m_CurrentForm);
+                m_CurrentForm.Show();
+            }
+            
 
+        }
 
     }
 }
