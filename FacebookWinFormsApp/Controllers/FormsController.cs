@@ -34,23 +34,28 @@ namespace FacebookApp.Controllers
             m_FormsDictionary = new Dictionary<string, Form>();
 
             string formNameAlbums = "AlbumsForm";
-            Form albumsForm = new AlbumsForm();
+            AlbumsForm albumsForm = new AlbumsForm();
+            albumsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNameAlbums, albumsForm);
 
             string formNameEvents = "EventsForm";
-            Form eventsForm = new EventsForm();
+            EventsForm eventsForm = new EventsForm();
+            eventsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNameEvents, eventsForm);
 
             string formNameGroups = "GroupsForm";
-            Form groupsForm = new GroupsForm();
+            GroupsForm groupsForm = new GroupsForm();
+            groupsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNameGroups, groupsForm);
 
             string formNamePages = "PagesForm";
-            Form pagesForm = new FormPages();
+            FormPages pagesForm = new FormPages();
+            pagesForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNamePages, pagesForm);
 
             string formNamePosts = "PostsForm";
-            Form postsForm = new PostsForm();
+            PostsForm postsForm = new PostsForm();
+            postsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNamePosts, postsForm);
 
 
@@ -92,7 +97,7 @@ namespace FacebookApp.Controllers
                     {
                         if(String.IsNullOrEmpty(m_Login.LoginResult.ErrorMessage))
                         {
-                            MessageBox.Show("Login Failed");
+                            MessageBox.Show("Login Failed, try again");
                         }
                         else
                         {
@@ -160,10 +165,7 @@ namespace FacebookApp.Controllers
         }
 
 
-        public void InitiateLogin()
-        {
-            LoginBarForm loginBarForm = m_FormsDictionary["LoginBarForm"] as LoginBarForm;
-        }
+
 
 
         private void setDisplayPanel(string i_FormName)
