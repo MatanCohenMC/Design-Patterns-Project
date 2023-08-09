@@ -30,22 +30,26 @@
         {
             this.buttonFetchEvents = new System.Windows.Forms.Button();
             this.Pagelabel = new System.Windows.Forms.Label();
-            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.descriptionLable = new System.Windows.Forms.Label();
             this.textBoxEventDescription = new System.Windows.Forms.TextBox();
             this.labelDate = new System.Windows.Forms.Label();
             this.labelLocation = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBoxLocation = new System.Windows.Forms.TextBox();
+            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchEvents
             // 
-            this.buttonFetchEvents.Location = new System.Drawing.Point(159, 325);
+            this.buttonFetchEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFetchEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchEvents.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonFetchEvents.Location = new System.Drawing.Point(12, 11);
+            this.buttonFetchEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFetchEvents.Name = "buttonFetchEvents";
-            this.buttonFetchEvents.Size = new System.Drawing.Size(132, 34);
+            this.buttonFetchEvents.Size = new System.Drawing.Size(135, 40);
             this.buttonFetchEvents.TabIndex = 11;
             this.buttonFetchEvents.Text = "Fetch Events";
             this.buttonFetchEvents.UseVisualStyleBackColor = true;
@@ -54,57 +58,56 @@
             // Pagelabel
             // 
             this.Pagelabel.AutoSize = true;
-            this.Pagelabel.Location = new System.Drawing.Point(535, 63);
+            this.Pagelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pagelabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.Pagelabel.Location = new System.Drawing.Point(835, 67);
             this.Pagelabel.Name = "Pagelabel";
-            this.Pagelabel.Size = new System.Drawing.Size(96, 20);
+            this.Pagelabel.Size = new System.Drawing.Size(118, 25);
             this.Pagelabel.TabIndex = 10;
             this.Pagelabel.Text = "Event Photo";
             this.Pagelabel.Click += new System.EventHandler(this.Pagelabel_Click);
             // 
-            // pictureBoxPage
-            // 
-            this.pictureBoxPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPage.Location = new System.Drawing.Point(505, 91);
-            this.pictureBoxPage.Name = "pictureBoxPage";
-            this.pictureBoxPage.Size = new System.Drawing.Size(161, 125);
-            this.pictureBoxPage.TabIndex = 9;
-            this.pictureBoxPage.TabStop = false;
-            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
-            // 
             // listBoxEvents
             // 
+            this.listBoxEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 20;
-            this.listBoxEvents.Location = new System.Drawing.Point(96, 92);
+            this.listBoxEvents.ItemHeight = 25;
+            this.listBoxEvents.Location = new System.Drawing.Point(12, 74);
+            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(269, 204);
+            this.listBoxEvents.Size = new System.Drawing.Size(318, 329);
             this.listBoxEvents.TabIndex = 8;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
             // descriptionLable
             // 
             this.descriptionLable.AutoSize = true;
-            this.descriptionLable.Location = new System.Drawing.Point(416, 235);
+            this.descriptionLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLable.ForeColor = System.Drawing.SystemColors.Control;
+            this.descriptionLable.Location = new System.Drawing.Point(366, 73);
             this.descriptionLable.Name = "descriptionLable";
-            this.descriptionLable.Size = new System.Drawing.Size(93, 20);
+            this.descriptionLable.Size = new System.Drawing.Size(115, 25);
             this.descriptionLable.TabIndex = 12;
             this.descriptionLable.Text = "Description:";
             this.descriptionLable.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxEventDescription
             // 
-            this.textBoxEventDescription.Location = new System.Drawing.Point(505, 235);
+            this.textBoxEventDescription.Location = new System.Drawing.Point(487, 71);
+            this.textBoxEventDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEventDescription.Multiline = true;
             this.textBoxEventDescription.Name = "textBoxEventDescription";
-            this.textBoxEventDescription.Size = new System.Drawing.Size(200, 53);
+            this.textBoxEventDescription.Size = new System.Drawing.Size(230, 123);
             this.textBoxEventDescription.TabIndex = 17;
             // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(451, 374);
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelDate.Location = new System.Drawing.Point(422, 314);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(48, 20);
+            this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 18;
             this.labelDate.Text = "Date:";
             this.labelDate.Click += new System.EventHandler(this.label1_Click_1);
@@ -112,35 +115,52 @@
             // labelLocation
             // 
             this.labelLocation.AutoSize = true;
-            this.labelLocation.Location = new System.Drawing.Point(425, 309);
+            this.labelLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLocation.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelLocation.Location = new System.Drawing.Point(389, 220);
             this.labelLocation.Name = "labelLocation";
-            this.labelLocation.Size = new System.Drawing.Size(74, 20);
+            this.labelLocation.Size = new System.Drawing.Size(92, 25);
             this.labelLocation.TabIndex = 20;
             this.labelLocation.Text = "Location:";
             this.labelLocation.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(505, 374);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 26);
-            this.textBox2.TabIndex = 21;
-            // 
             // textBoxLocation
             // 
-            this.textBoxLocation.Location = new System.Drawing.Point(505, 306);
+            this.textBoxLocation.Location = new System.Drawing.Point(487, 220);
+            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(200, 53);
+            this.textBoxLocation.Size = new System.Drawing.Size(230, 65);
             this.textBoxLocation.TabIndex = 22;
+            // 
+            // pictureBoxPage
+            // 
+            this.pictureBoxPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPage.Location = new System.Drawing.Point(788, 103);
+            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxPage.Name = "pictureBoxPage";
+            this.pictureBoxPage.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxPage.TabIndex = 9;
+            this.pictureBoxPage.TabStop = false;
+            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(487, 314);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(230, 65);
+            this.textBox1.TabIndex = 23;
             // 
             // EventsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
+            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBoxLocation);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.labelLocation);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.textBoxEventDescription);
@@ -150,8 +170,10 @@
             this.Controls.Add(this.pictureBoxPage);
             this.Controls.Add(this.listBoxEvents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventsForm";
             this.Text = "EventsForm";
+            this.Load += new System.EventHandler(this.EventsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -168,7 +190,7 @@
         private System.Windows.Forms.TextBox textBoxEventDescription;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelLocation;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBoxLocation;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

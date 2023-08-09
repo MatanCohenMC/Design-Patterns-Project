@@ -43,7 +43,7 @@
             this.postListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.postListBox.FormattingEnabled = true;
             this.postListBox.ItemHeight = 25;
-            this.postListBox.Location = new System.Drawing.Point(12, 53);
+            this.postListBox.Location = new System.Drawing.Point(12, 74);
             this.postListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.postListBox.Name = "postListBox";
             this.postListBox.Size = new System.Drawing.Size(318, 329);
@@ -55,10 +55,11 @@
             this.fetch_posts_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fetch_posts_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.fetch_posts_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetch_posts_button.ForeColor = System.Drawing.SystemColors.Control;
             this.fetch_posts_button.Location = new System.Drawing.Point(12, 11);
             this.fetch_posts_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fetch_posts_button.Name = "fetch_posts_button";
-            this.fetch_posts_button.Size = new System.Drawing.Size(125, 32);
+            this.fetch_posts_button.Size = new System.Drawing.Size(130, 40);
             this.fetch_posts_button.TabIndex = 1;
             this.fetch_posts_button.Text = "Fetch Posts";
             this.fetch_posts_button.UseVisualStyleBackColor = true;
@@ -68,7 +69,8 @@
             // 
             this.totalLikesLable.AutoSize = true;
             this.totalLikesLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLikesLable.Location = new System.Drawing.Point(714, 108);
+            this.totalLikesLable.ForeColor = System.Drawing.SystemColors.Control;
+            this.totalLikesLable.Location = new System.Drawing.Point(677, 126);
             this.totalLikesLable.Name = "totalLikesLable";
             this.totalLikesLable.Size = new System.Drawing.Size(113, 25);
             this.totalLikesLable.TabIndex = 2;
@@ -78,7 +80,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(833, 105);
+            this.textBox1.Location = new System.Drawing.Point(796, 123);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(71, 30);
@@ -89,7 +91,7 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(485, 53);
+            this.listBox1.Location = new System.Drawing.Point(424, 74);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(177, 329);
@@ -99,17 +101,19 @@
             // 
             this.commentsLable.AutoSize = true;
             this.commentsLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentsLable.Location = new System.Drawing.Point(366, 53);
+            this.commentsLable.ForeColor = System.Drawing.SystemColors.Control;
+            this.commentsLable.Location = new System.Drawing.Point(419, 47);
             this.commentsLable.Name = "commentsLable";
-            this.commentsLable.Size = new System.Drawing.Size(113, 25);
+            this.commentsLable.Size = new System.Drawing.Size(107, 25);
             this.commentsLable.TabIndex = 5;
-            this.commentsLable.Text = "Comments:";
+            this.commentsLable.Text = "Comments";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(693, 60);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(656, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 6;
@@ -118,7 +122,7 @@
             // textBoxCreatedDate
             // 
             this.textBoxCreatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCreatedDate.Location = new System.Drawing.Point(833, 57);
+            this.textBoxCreatedDate.Location = new System.Drawing.Point(796, 71);
             this.textBoxCreatedDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCreatedDate.Name = "textBoxCreatedDate";
             this.textBoxCreatedDate.Size = new System.Drawing.Size(177, 30);

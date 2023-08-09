@@ -28,7 +28,7 @@ namespace FacebookApp.UI.Forms
 
         public ListBox GetListBox()
         {
-            return this.listBoxPages;
+            return this.listBoxLikedPages;
         }
 
         public IEnumerable<string> FetchListBoxData()

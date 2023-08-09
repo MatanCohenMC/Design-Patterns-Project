@@ -35,10 +35,6 @@ namespace FacebookApp.UI.Forms
             if (m_LoginResult == null)
             {
                 r_Login.LoginToApp(textBoxAppID.Text);
-                /*m_LoginResult = FacebookService.Login(textBoxAppID.Text,
-                    "email", "public_profile", "user_age_range", "user_birthday",
-                    "user_events", "user_friends", "user_gender", "user_hometown", "user_likes",
-                    "user_link", "user_location", "user_photos", "user_posts", "user_videos");*/
                 m_LoginResult = r_Login.m_LoginResult;
                 if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage))
                 {
@@ -49,11 +45,6 @@ namespace FacebookApp.UI.Forms
                     ButtonLogin.Enabled = false;
                     ButtonLogout.Enabled = true;
                 }
-
-                /*if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
-                {
-                    m_LoggedInUser = m_LoginResult.LoggedInUser;
-                }*/
                 else
                 {
                     MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");

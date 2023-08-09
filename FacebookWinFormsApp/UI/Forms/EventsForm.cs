@@ -71,5 +71,10 @@ namespace FacebookApp.UI.Forms
         {
             return m_Events.FetchUserEvents();
         }
+
+        private void EventsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

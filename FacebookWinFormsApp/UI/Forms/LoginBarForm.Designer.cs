@@ -86,7 +86,7 @@
             // 
             this.labelAppID.AutoSize = true;
             this.labelAppID.ForeColor = System.Drawing.Color.White;
-            this.labelAppID.Location = new System.Drawing.Point(2, 233);
+            this.labelAppID.Location = new System.Drawing.Point(0, 234);
             this.labelAppID.Name = "labelAppID";
             this.labelAppID.Size = new System.Drawing.Size(51, 16);
             this.labelAppID.TabIndex = 56;
