@@ -16,17 +16,12 @@ namespace FacebookApp.UI.Forms
 
     public partial class NavigationBarForm : Form
     {
-        private DisplayFormEventHandler displayFormEventHandler;
-        private FormsController m_FormsController = FormsController.Instance;
 
         public Action<string> m_ButtonPressed;
 
 
 
-        public void SetDisplayFormEventHandler(DisplayFormEventHandler i_DisplayFormEventHandler)
-        {
-            this.displayFormEventHandler = i_DisplayFormEventHandler;
-        }
+
 
 
         public NavigationBarForm()

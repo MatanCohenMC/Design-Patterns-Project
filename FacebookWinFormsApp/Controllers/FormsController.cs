@@ -17,7 +17,8 @@ namespace FacebookApp.Controllers
     {
         private Dictionary<string, Form> m_FormsDictionary;
         private static FormsController s_Instance = null;
-        
+        private Form m_CurrentForm;
+
         private FormsController()
         {
             InitializeForms();
@@ -45,11 +46,23 @@ namespace FacebookApp.Controllers
             AddForm(formNamePages, pagesForm);
 
             string formNamePosts = "PostsForm";
-            PostsForm postsForm = new PostsForm();
-            postsForm.m_FetchButtonPressed += fetchUserFormData;
+            Form postsForm = new PostsForm();
             AddForm(formNamePosts, postsForm);
 
-            
+
+            string formNameNavigationBarForm = "NavigationBarForm";
+            NavigationBarForm navigationBarForm = new NavigationBarForm();
+            navigationBarForm.m_ButtonPressed += setDisplayPanel;
+            AddForm(formNameNavigationBarForm, navigationBarForm);
+
+            string formNameLoginBarForm = "LoginBarForm";
+            LoginBarForm loginBarForm = new LoginBarForm();
+            AddForm(formNameLoginBarForm, loginBarForm);
+
+            string formNameAppMainForm = "AppMainForm";
+            Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
+            AddForm(formNameAppMainForm, appMainForm);
+
         }
 
         public static FormsController Instance
@@ -82,11 +95,7 @@ namespace FacebookApp.Controllers
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
 
-            NavigationBarForm navigationBarForm = new NavigationBarForm();
-            LoginBarForm loginBarForm = new LoginBarForm();
-
-            Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
-            Application.Run(appMainForm);
+            Application.Run(GetForm("AppMainForm"));
         }
 
         private void fetchUserFormData(string i_FormName)
@@ -106,9 +115,31 @@ namespace FacebookApp.Controllers
         }
 
 
+        public void InitiateLogin()
+        {
+            LoginBarForm loginBarForm = m_FormsDictionary["LoginBarForm"] as LoginBarForm;
+        }
 
 
+        private void setDisplayPanel(string i_FormName)
+        {
+            Form formToSet = GetForm(i_FormName);
+            Form appMainForm = GetForm("AppMainForm");
+            if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+            {
+                if (m_CurrentForm != null)
+                {
+                    panelDisplay.Controls.Remove(m_CurrentForm);
+                }
+                m_CurrentForm = formToSet;
+                m_CurrentForm.Dock = DockStyle.Fill;
+                m_CurrentForm.TopLevel = false;
+                panelDisplay.Controls.Add(m_CurrentForm);
+                m_CurrentForm.Show();
+            }
+            
 
+        }
 
     }
 }
