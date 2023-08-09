@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Dtos;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
 
@@ -67,9 +68,12 @@ namespace FacebookApp.UI.Forms
             return this.listBoxEvents;
         }
 
-        public IEnumerable<string> FetchListBoxData()
+        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
         {
-            return m_Events.FetchUserEvents();
+            //return m_Events.FetchUserEvents();
+            DataDtos = m_Events.FetchUserEvents();
+            listOfFormProperties = new List<string>();
+
         }
 
         private void EventsForm_Load(object sender, EventArgs e)

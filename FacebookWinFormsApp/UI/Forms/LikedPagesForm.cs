@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Models;
+using FacebookApp.Dtos;
 
 namespace FacebookApp.UI.Forms
 {
@@ -31,9 +32,15 @@ namespace FacebookApp.UI.Forms
             return this.listBoxLikedPages;
         }
 
-        public IEnumerable<string> FetchListBoxData()
+        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
         {
-            return r_Pages.FetchUserPages();
+            DataDtos = r_Pages.FetchUserLikedPages();
+
+            listOfFormProperties = (List<string>)DataDtos
+                .SelectMany(dto => dto.Data.Keys)
+                .Distinct();
+
+
         }
     }
 }

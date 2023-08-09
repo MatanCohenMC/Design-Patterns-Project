@@ -62,6 +62,7 @@
             this.buttonFetchAlbum.TabIndex = 59;
             this.buttonFetchAlbum.Text = "Fetch Albums";
             this.buttonFetchAlbum.UseVisualStyleBackColor = true;
+            this.buttonFetchAlbum.Click += new System.EventHandler(this.fetch_albums_button_Click);
             // 
             // label1
             // 

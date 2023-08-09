@@ -47,6 +47,7 @@
             this.listBoxGroup.Name = "listBoxGroup";
             this.listBoxGroup.Size = new System.Drawing.Size(318, 329);
             this.listBoxGroup.TabIndex = 0;
+            this.listBoxGroup
             // 
             // Photolabel
             // 

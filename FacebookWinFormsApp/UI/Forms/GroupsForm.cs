@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
+using FacebookApp.Dtos;
 
 namespace FacebookApp.UI.Forms
 {
@@ -38,9 +39,14 @@ namespace FacebookApp.UI.Forms
             return this.listBoxGroup;
         }
 
-        public IEnumerable<string> FetchListBoxData()
+        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
         {
-            return m_Groups.FetchUserGroups();
+            DataDtos = m_Groups.FetchUserGroups();
+            listOfFormProperties = DataDtos                .SelectMany(dto => dto.Data.Keys)
+                .Distinct()
+                .ToList();
+
+
         }
     }
 }

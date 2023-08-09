@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookApp.Dtos;
 
 namespace FacebookApp.Models
 {
@@ -13,6 +14,11 @@ namespace FacebookApp.Models
             List<string> likedPages = new List<string>();
 
             return likedPages;
+        }
+
+        public List<DataDto> FetchUserLikedPages()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Dtos;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
 
@@ -43,9 +45,12 @@ namespace FacebookApp.UI.Forms
             return this.listBoxAlbums;
         }
 
-        public IEnumerable<string> FetchListBoxData()
+        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
         {
-            return r_Albums.FetchUserAlbums();
+            DataDtos = r_Albums.FetchUserAlbums();
+
+            listOfFormProperties = (List<string>)DataDtos.SelectMany(dto => dto.Data.Keys).Distinct().ToList();
+
         }
     }
 }

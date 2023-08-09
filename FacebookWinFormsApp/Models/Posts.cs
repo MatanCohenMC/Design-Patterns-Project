@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Dtos;
 
 namespace FacebookApp.Models
 {
@@ -18,7 +19,7 @@ namespace FacebookApp.Models
             r_User = login.LoggedInUser;
         }
 
-        public List<string> FetchUserPosts()
+        public List<DataDto> FetchUserPosts()
         {
             List<string> postsMessages = new List<string>();
 
@@ -43,7 +44,7 @@ namespace FacebookApp.Models
                 postsMessages.Add("No Posts to retrieve :(");
             }
 
-            return postsMessages;
+            return new List<DataDto>();
         }
     }
 }

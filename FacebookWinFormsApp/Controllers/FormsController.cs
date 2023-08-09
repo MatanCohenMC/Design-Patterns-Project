@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Dtos;
 using FacebookApp.UI.Forms;
 using FacebookApp.UI;
 using FacebookApp.UI.Forms;
@@ -152,20 +153,43 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IDataHandler dataHandler = m_FormsDictionary[i_FormName] as IDataHandler;
-            ListBox formListBox = componentHandler?.GetListBox();
-            formListBox?.Items.Clear();
+            FetchDataToListBox(componentHandler, dataHandler);
+            //FetchDataToPictureBox(componentHandler, dataHandler);
+            //FetchDataToTextBox(componentHandler, dataHandler);
+            //FetchDataToLabel(componentHandler, dataHandler);
 
-            foreach (string post in dataHandler.FetchListBoxData())
-            {
-                formListBox?.Items.Add(post);
-            }
             //TODO: should add a picture box to the form
             //TODO: should load extra data about the list box items such as date and total likes and comments to a static dictionary later display it on the form
 
         }
 
+        private static void FetchDataToListBox(IComponentHandler componentHandler, IDataHandler dataHandler)
+        {
+            System.ComponentModel.IContainer container = componentHandler?.GetListBox();
+            container?.Items.Clear();
 
+            List<string> listOfFormProperties = null;
+            List<DataDto> dataDtos = null;
 
+            if (dataHandler != null)
+            {
+                dataHandler.FetchListBoxData(out listOfFormProperties,out dataDtos);
+
+                if (listOfFormProperties != null && dataDtos != null)
+                {
+                    foreach (string propertyName in listOfFormProperties)
+                    {
+
+                        if(propertyName == container.Name)
+                        {
+                            container.add(dataDtos.Data[propertyName]);
+                        }
+
+                    }
+                }
+            }
+
+        }
 
 
         private void setDisplayPanel(string i_FormName)

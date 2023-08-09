@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Dtos;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 
@@ -42,9 +43,14 @@ namespace FacebookApp.UI.Forms
 
         }
 
-        public IEnumerable<string> FetchListBoxData()
+        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
         {
-            return m_Posts.FetchUserPosts();
+            DataDtos = m_Posts.FetchUserPosts();
+
+            listOfFormProperties = (List<string>)DataDtos
+                .SelectMany(dto => dto.Data.Keys)
+                .Distinct();
+
         }
 
         public ListBox GetListBox()
