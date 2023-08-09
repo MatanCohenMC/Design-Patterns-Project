@@ -29,10 +29,9 @@ namespace FacebookApp.UI.Forms
             FacebookWrapper.FacebookService.s_CollectionLimit = 25;
         }
 
-        private User LoginButtonPressed()
+        private void LoginButtonPressed()
         {
-            m_LoggedInUser = r_LoginBar.Login();
-            return m_LoggedInUser;
+            r_LoginBar.Login();
         }
 
         private void setNavigationBar()
