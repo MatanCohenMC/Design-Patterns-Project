@@ -39,25 +39,25 @@ namespace FacebookApp.UI.Forms
                     "email", "public_profile", "user_age_range", "user_birthday",
                     "user_events", "user_friends", "user_gender", "user_hometown", "user_likes",
                     "user_link", "user_location", "user_photos", "user_posts", "user_videos");*/
-                m_LoginResult = r_Login.m_LoginResult;
-                if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage))
-                {
-                    ButtonLogin.Text = "Logged in";
-                    // $"Logged in as {m_LoginResult.LoggedInUser.Name}";
-                    ButtonLogin.BackColor = Color.LightGreen;
-                    pictureBoxUserProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-                    ButtonLogin.Enabled = false;
-                    ButtonLogout.Enabled = true;
-                }
+                //m_LoginResult = r_Login.m_LoginResult;
+                //if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage))
+                //{
+                //    ButtonLogin.Text = "Logged in";
+                //    // $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+                //    ButtonLogin.BackColor = Color.LightGreen;
+                //    pictureBoxUserProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
+                //    ButtonLogin.Enabled = false;
+                //    ButtonLogout.Enabled = true;
+                //}
 
                 /*if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
                 {
                     m_LoggedInUser = m_LoginResult.LoggedInUser;
                 }*/
-                else
-                {
-                    MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");
-                }
+                //else
+                //{
+                //    MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");
+                //}
             }
         }
 
@@ -79,5 +79,40 @@ namespace FacebookApp.UI.Forms
         {
 
         }
+
+        public string TextBoxAppIdString
+        {
+            get
+            {
+                return textBoxAppID.Text;
+            }
+        }
+
+        public Button ButtonLogin
+        {
+            get
+            {
+                return buttonLogin;
+            }
+        } 
+        public Button ButtonLogout
+        {
+            get
+            {
+                return buttonLogout;
+            }
+        }
+
+
+        public System.Windows.Forms.PictureBox PictureBoxUserProfile
+        {
+            get
+            {
+                return pictureBoxUserProfile;
+            }
+        }
+
+
+
     }
 }

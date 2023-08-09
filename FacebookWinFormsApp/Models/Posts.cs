@@ -15,7 +15,7 @@ namespace FacebookApp.Models
 
         public Posts()
         {
-            r_User = login.m_LoggedInUser;
+            r_User = login.LoggedInUser;
         }
 
         public List<string> FetchUserPosts()

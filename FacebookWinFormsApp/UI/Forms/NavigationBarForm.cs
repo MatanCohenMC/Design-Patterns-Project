@@ -17,7 +17,7 @@ namespace FacebookApp.UI.Forms
     public partial class NavigationBarForm : Form
     {
 
-        public Action<string> m_ButtonPressed;
+        public Action<string> m_OnSubFormButtonPressed;
 
 
 
@@ -36,32 +36,32 @@ namespace FacebookApp.UI.Forms
 
         private void ButtonPosts_Click(object sender, EventArgs e)
         {
-            m_ButtonPressed?.Invoke("PostsForm");
+            m_OnSubFormButtonPressed?.Invoke("PostsForm");
 
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("PostsForm"));
         }
 
         private void ButtonAlbums_Click(object i_Sender, EventArgs i_E)
         {
-            m_ButtonPressed?.Invoke("AlbumsForm");
+            m_OnSubFormButtonPressed?.Invoke("AlbumsForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("AlbumsForm"));
         }
 
         private void ButtonEvents_Click(object i_Sender, EventArgs i_E)
         {
-            m_ButtonPressed?.Invoke("EventsForm");
+            m_OnSubFormButtonPressed?.Invoke("EventsForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("EventsForm"));
         }
 
         private void ButtonGroups_Click(object i_Sender, EventArgs i_E)
         {
-            m_ButtonPressed?.Invoke("GroupsForm");
+            m_OnSubFormButtonPressed?.Invoke("GroupsForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("GroupsForm"));
         }
 
         private void ButtonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
-            m_ButtonPressed?.Invoke("PagesForm");
+            m_OnSubFormButtonPressed?.Invoke("PagesForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("PagesForm"));
         }
     }

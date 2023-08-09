@@ -68,9 +68,6 @@ namespace FacebookApp.UI.Forms
 
         }
 
-        public System.Windows.Forms.Panel GetPanelDisplay()
-        {
-            return this.panelDisplay;
-        }
+
     }
 }
