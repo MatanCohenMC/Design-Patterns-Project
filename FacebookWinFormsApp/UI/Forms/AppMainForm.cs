@@ -17,17 +17,11 @@ namespace FacebookApp.UI.Forms
             this.r_NavigationBarForm = i_NavigationBarForm;
             this.r_LoginBar = i_LoginBarForm;
 
-            r_LoginBar.m_LoginButtonPressed += LoginButtonPressed;
 
             InitializeComponent();
             setNavigationBar();
             setLoginBar();
             FacebookWrapper.FacebookService.s_CollectionLimit = 25;
-        }
-
-        private void LoginButtonPressed()
-        {
-            //m_FormsController.InitiateLogin();
         }
 
         private void setNavigationBar()
@@ -46,12 +40,6 @@ namespace FacebookApp.UI.Forms
             this.r_LoginBar.Show();
         }
 
-
-        private void OnButtonPressed(string parameter)
-        {
-            // Call the setDisplayPanel function when the button is pressed with the provided parameter
-            //setDisplayPanel(m_FormsController.GetForm(parameter));
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

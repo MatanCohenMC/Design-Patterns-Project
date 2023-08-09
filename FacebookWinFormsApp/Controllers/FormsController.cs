@@ -77,18 +77,34 @@ namespace FacebookApp.Controllers
             {
                 string appId = loginForm.TextBoxAppIdString;
                 m_Login.LoginToApp(appId);
-                if(m_Login.IsLoggedIn())
+
+                try
                 {
-                    loginForm.ButtonLogin.Text = "Logged in";
-                    // $"Logged in as {m_LoginResult.LoggedInUser.Name}";
-                    loginForm.ButtonLogin.BackColor = Color.LightGreen;
-                    loginForm.PictureBoxUserProfile.ImageLocation = m_Login.LoginResult.LoggedInUser.PictureNormalURL;
-                    loginForm.ButtonLogin.Enabled = false;
-                    loginForm.ButtonLogout.Enabled = true;
+                    if (m_Login.LoginResult != null && m_Login.LoginResult.LoggedInUser != null)
+                    {
+                        loginForm.ButtonLogin.Text = "Logged in";
+                        loginForm.ButtonLogin.BackColor = Color.LightGreen;
+                        loginForm.PictureBoxUserProfile.ImageLocation = m_Login.LoginResult.LoggedInUser.PictureNormalURL;
+                        loginForm.ButtonLogin.Enabled = false;
+                        loginForm.ButtonLogout.Enabled = true;
+                    }
+                    else
+                    {
+                        if(String.IsNullOrEmpty(m_Login.LoginResult.ErrorMessage))
+                        {
+                            MessageBox.Show("Login Failed");
+                        }
+                        else
+                        {
+                            MessageBox.Show(m_Login.LoginResult.ErrorMessage, "Login Failed");
+                        }
+
+                        loginForm.PictureBoxUserProfile.ImageLocation = null;
+                    }
                 }
-                else
+                catch (NullReferenceException)
                 {
-                    MessageBox.Show(m_Login.LoginResult.ErrorMessage, "Login Failed");
+                    loginForm.PictureBoxUserProfile.ImageLocation = null;
                 }
             }
 
