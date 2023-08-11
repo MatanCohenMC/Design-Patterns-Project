@@ -8,19 +8,9 @@ namespace FacebookApp.Dtos
 {
     public class DataDto
     {
-        public string Name { get; set; }
-        //dictionary has key of album data name and value of album data value
-
         public Dictionary<string, string> Data { get; set; } = new Dictionary<string, string>();
 
         public DataDto() { }
-
-        public void AddName(string i_Name)
-        {
-            Name = i_Name;
-            Data.Add("Name", i_Name);
-        }
-
 
         public void AddPicture(string i_Picture)
         {

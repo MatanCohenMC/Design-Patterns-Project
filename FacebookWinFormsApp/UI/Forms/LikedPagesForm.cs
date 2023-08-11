@@ -10,13 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Models;
 using FacebookApp.Dtos;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class FormPages : Form, IComponentHandler, IDataHandler
+    public partial class FormPages : Form, IComponentHandler, IDataHandler, IListBoxHandler
     {
-        private readonly LikedPages r_Pages = new LikedPages();
+        private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<string> m_FetchButtonPressed;
+        private Login m_Login = Login.Instance;
+
         public FormPages()
         {
             InitializeComponent();
@@ -32,15 +35,26 @@ namespace FacebookApp.UI.Forms
             return this.listBoxLikedPages;
         }
 
-        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataDtos = r_Pages.FetchUserLikedPages();
+            DataList = r_LikedPages.FetchUserLikedPages();
 
-            listOfFormProperties = (List<string>)DataDtos
-                .SelectMany(dto => dto.Data.Keys)
-                .Distinct();
+        }
 
 
+        private void ListBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string PictureAlbumURL;
+            r_LikedPages.GetPictureAlbumURL(out PictureAlbumURL, listBoxLikedPages.SelectedIndex);
+
+            if (PictureAlbumURL != null)
+            {
+                pictureBoxPage.LoadAsync(PictureAlbumURL);
+            }
+            else
+            {
+                pictureBoxPage.Image = pictureBoxPage.ErrorImage;
+            }
         }
     }
 }

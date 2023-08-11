@@ -11,32 +11,49 @@ namespace FacebookApp.Models
 {
     public class Albums
     {
-        private Login m_Login;
-        private User m_LoggedInUser;
+        private readonly Login r_Login = Login.Instance;
 
-        //dictionary with key of album name and value of dictionary of album data
-        //the inner dictionary has key of album data name and value of album data value
-        private Dictionary<string, Dictionary<string, string> > m_AlbumsDataDictionary;
+        public List<Dictionary<string, string>> m_DataList { get; private set; }
+
         public Albums()
         {
-            m_Login= Login.Instance;
+            m_DataList = new List<Dictionary<string, string>>();
         }
-         
-        public List<DataDto> FetchUserAlbums()
-        {
-            List<DataDto> albumsNames = new List<DataDto>();
 
-            foreach(Album album in m_Login.LoggedInUser.Albums)
+        public List<Dictionary<string, string>> FetchUserAlbums()
+        {
+            List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
+
+            foreach(Album album in r_Login.LoggedInUser.Albums)
             {
-                DataDto dataDto = new DataDto();
-                dataDto.AddName(album.Name);
-                dataDto.AddPicture(album.PictureAlbumURL);
-                dataDto.AddDescription(album.Description);
-                dataDto.AddDate(album.CreatedTime.ToString());
-                albumsNames.Add(dataDto);
+                Dictionary<string, string> albumDictionary = new Dictionary<string, string>();
+
+                if(album.Name != null)
+                {
+                    albumDictionary["ListBoxText"] = album.Name;
+                    albumDictionary["Picture"] = album.PictureAlbumURL;
+                    albumDictionary["Description"] = album.Description;
+                    albumDictionary["Location"] = album.Location;
+                }
+
+                dataList.Add(albumDictionary);
             }
 
-            return albumsNames;
+            if(dataList.Count == 0)
+            {
+                Dictionary<string, string> noAlbumDictionary = new Dictionary<string, string>();
+                noAlbumDictionary["ListBoxText"] = "No Posts to retrieve :(";
+                dataList.Add(noAlbumDictionary);
+            }
+
+            m_DataList = dataList;
+            return dataList;
+        }
+
+        public void GetPictureAlbumURL(out string pictureAlbumURL, int selectedIndex)
+        {
+            Dictionary<string, string> albumData = m_DataList[selectedIndex];
+            pictureAlbumURL = albumData["Picture"];
         }
     }
 }

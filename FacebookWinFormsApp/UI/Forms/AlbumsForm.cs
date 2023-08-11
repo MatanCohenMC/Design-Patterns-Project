@@ -11,14 +11,16 @@ using System.Windows.Forms;
 using FacebookApp.Dtos;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
+using FacebookWrapper.ObjectModel;
 
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler
+    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
     {
         private readonly Albums r_Albums = new Albums();
         public Action<string> m_FetchButtonPressed;
+        private Login m_Login = Login.Instance;
 
         public AlbumsForm()
         {
@@ -45,12 +47,24 @@ namespace FacebookApp.UI.Forms
             return this.listBoxAlbums;
         }
 
-        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataDtos = r_Albums.FetchUserAlbums();
+            DataList = r_Albums.FetchUserAlbums();
+        }
 
-            listOfFormProperties = (List<string>)DataDtos.SelectMany(dto => dto.Data.Keys).Distinct().ToList();
+        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string PictureAlbumURL;
+            r_Albums.GetPictureAlbumURL(out PictureAlbumURL, listBoxAlbums.SelectedIndex);
 
+            if (PictureAlbumURL != null)
+            {
+                pictureBoxAlbum.LoadAsync(PictureAlbumURL);
+            }
+            else
+            {
+                pictureBoxAlbum.Image = pictureBoxAlbum.ErrorImage;
+            }
         }
     }
 }

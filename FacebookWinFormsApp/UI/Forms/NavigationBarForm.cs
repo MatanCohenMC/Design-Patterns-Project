@@ -19,11 +19,6 @@ namespace FacebookApp.UI.Forms
 
         public Action<string> m_OnSubFormButtonPressed;
 
-
-
-
-
-
         public NavigationBarForm()
         {
             InitializeComponent();

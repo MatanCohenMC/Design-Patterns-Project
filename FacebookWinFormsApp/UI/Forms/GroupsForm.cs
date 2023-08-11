@@ -39,14 +39,14 @@ namespace FacebookApp.UI.Forms
             return this.listBoxGroup;
         }
 
-        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataDtos = m_Groups.FetchUserGroups();
+            /*DataDtos = m_Groups.FetchUserGroups();
             listOfFormProperties = DataDtos                .SelectMany(dto => dto.Data.Keys)
                 .Distinct()
-                .ToList();
+                .ToList();*/
 
-
+            DataList = new List<Dictionary<string, string>>();
         }
     }
 }

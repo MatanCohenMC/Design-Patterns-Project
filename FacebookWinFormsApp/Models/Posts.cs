@@ -11,40 +11,39 @@ namespace FacebookApp.Models
 {
     public class Posts
     {
-        private Login login = Login.Instance;
-        private readonly User r_User;
-
-        public Posts()
+        private readonly Login r_Login = Login.Instance;
+        
+        public List<Dictionary<string, string>> FetchUserPosts()
         {
-            r_User = login.LoggedInUser;
-        }
+            List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
-        public List<DataDto> FetchUserPosts()
-        {
-            List<string> postsMessages = new List<string>();
-
-            foreach (Post post in r_User.Posts)
+            foreach (Post post in r_Login.LoggedInUser.Posts)
             {
+                Dictionary<string, string> postDictionary = new Dictionary<string, string>();
+
                 if (post.Message != null)
                 {
-                    postsMessages.Add(post.Message);
-                }
-                else if (post.Caption != null)
-                {
-                    postsMessages.Add(post.Caption);
+                    postDictionary["ListBoxText"] = post.Message;
+                    postDictionary["Comment"] = post.Comments.ToString();
+                    postDictionary["Caption"] = post.Caption;
+                    postDictionary["CreatedTime"] = post.CreatedTime.ToString();
                 }
                 else
                 {
-                    postsMessages.Add(string.Format("[{0}]", post.Type));
+                    postDictionary["Type"] = string.Format("[{0}]", post.Type);
                 }
+
+                dataList.Add(postDictionary);
             }
 
-            if (postsMessages.Count == 0)
+            if (dataList.Count == 0)
             {
-                postsMessages.Add("No Posts to retrieve :(");
+                Dictionary<string, string> noPostsDictionary = new Dictionary<string, string>();
+                noPostsDictionary["ListBoxText"] = "No Posts to retrieve :(";
+                dataList.Add(noPostsDictionary);
             }
 
-            return new List<DataDto>();
+            return dataList;
         }
     }
 }
