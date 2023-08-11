@@ -65,7 +65,6 @@
             this.Pagelabel.Size = new System.Drawing.Size(118, 25);
             this.Pagelabel.TabIndex = 10;
             this.Pagelabel.Text = "Event Photo";
-            this.Pagelabel.Click += new System.EventHandler(this.Pagelabel_Click);
             // 
             // listBoxEvents
             // 
@@ -89,7 +88,6 @@
             this.descriptionLable.Size = new System.Drawing.Size(115, 25);
             this.descriptionLable.TabIndex = 12;
             this.descriptionLable.Text = "Description:";
-            this.descriptionLable.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxEventDescription
             // 
@@ -110,7 +108,6 @@
             this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 18;
             this.labelDate.Text = "Date:";
-            this.labelDate.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labelLocation
             // 
@@ -122,7 +119,6 @@
             this.labelLocation.Size = new System.Drawing.Size(92, 25);
             this.labelLocation.TabIndex = 20;
             this.labelLocation.Text = "Location:";
-            this.labelLocation.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // textBoxLocation
             // 
@@ -142,7 +138,6 @@
             this.pictureBoxPage.Size = new System.Drawing.Size(220, 210);
             this.pictureBoxPage.TabIndex = 9;
             this.pictureBoxPage.TabStop = false;
-            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
             // 
             // textBox1
             // 
@@ -173,7 +168,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventsForm";
             this.Text = "EventsForm";
-            this.Load += new System.EventHandler(this.EventsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

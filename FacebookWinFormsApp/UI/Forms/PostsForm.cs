@@ -13,11 +13,11 @@ using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsForm : Form, IComponentHandler, IDataHandler
+    public partial class PostsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
     {
         private readonly Posts m_Posts = new Posts();
-
         public Action<string> m_FetchButtonPressed;
+
         public PostsForm()
         {
             InitializeComponent();
@@ -43,19 +43,19 @@ namespace FacebookApp.UI.Forms
 
         }
 
-        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataDtos = m_Posts.FetchUserPosts();
+            DataList = m_Posts.FetchUserPosts();
 
-            listOfFormProperties = (List<string>)DataDtos
-                .SelectMany(dto => dto.Data.Keys)
-                .Distinct();
+            //listOfFormProperties = (List<string>)DataDtos
+            //    .SelectMany(dto => dto.Data.Keys)
+            //    .Distinct();
 
         }
 
         public ListBox GetListBox()
         {
-            return this.listBox1;
+            return this.listBoxPosts;
         }
     }
 }

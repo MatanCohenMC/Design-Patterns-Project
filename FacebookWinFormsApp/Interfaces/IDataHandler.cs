@@ -10,6 +10,6 @@ namespace FacebookApp.Interfaces
 {
     public interface IDataHandler
     {
-        void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos);
+        void FetchListBoxData(out List<Dictionary<string, string>> DataList);
     }
 }

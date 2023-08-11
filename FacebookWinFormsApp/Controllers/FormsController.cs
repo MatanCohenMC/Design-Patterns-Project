@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Dtos;
 using FacebookApp.UI.Forms;
 using FacebookApp.UI;
-using FacebookApp.UI.Forms;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookWrapper;
@@ -153,7 +154,8 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IDataHandler dataHandler = m_FormsDictionary[i_FormName] as IDataHandler;
-            FetchDataToListBox(componentHandler, dataHandler);
+            //fetchData(componentHandler, dataHandler);
+            fetchDataToListBox(componentHandler, dataHandler);
             //FetchDataToPictureBox(componentHandler, dataHandler);
             //FetchDataToTextBox(componentHandler, dataHandler);
             //FetchDataToLabel(componentHandler, dataHandler);
@@ -163,24 +165,98 @@ namespace FacebookApp.Controllers
 
         }
 
-        private static void FetchDataToListBox(IComponentHandler componentHandler, IDataHandler dataHandler)
+        private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
-            System.ComponentModel.IContainer container = componentHandler?.GetListBox();
-            container?.Items.Clear();
+            Type componentType = i_ComponentHandler.GetType();
 
-            List<string> listOfFormProperties = null;
+            if (typeof(IListBoxHandler).IsAssignableFrom(componentType))
+            {
+                MethodInfo listBoxMethod = componentType.GetMethod("GetListBox");
+                if (listBoxMethod != null)
+                {
+                    ListBox listBox = (ListBox)listBoxMethod.Invoke(i_ComponentHandler, null);
+                    listBox?.Items.Clear();
+                    List<Dictionary<string, string>> dataList;
+
+                    if (i_DataHandler != null)
+                    {
+                        i_DataHandler.FetchListBoxData(out dataList);
+
+                        foreach (Dictionary<string, string> data in dataList)
+                        {
+                            if (data.ContainsKey("ListBoxText"))
+                            {
+                                listBox.Items.Add(data["ListBoxText"]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        /*private static void FetchDataDTO(IComponentHandler componentHandler, IDataHandler dataHandler)
+        {
+            Control control = componentHandler?.GetListBox() as ListBox;
+            
+            
+            if (control != null)
+            {
+                // Dispose and remove components in reverse order
+                for (int i = control.Components.Count - 1; i >= 0; i--)
+                {
+                    System.ComponentModel.IComponent component = container.Components[i];
+
+                    if (component is IDisposable disposableComponent)
+                    {
+                        disposableComponent.Dispose();
+                    }
+
+                    container.Remove(component);
+                }
+            }
+
             List<DataDto> dataDtos = null;
 
             if (dataHandler != null)
             {
-                dataHandler.FetchListBoxData(out listOfFormProperties,out dataDtos);
+                dataHandler.FetchListBoxData(out dataDtos);
+
+                foreach (List<DataDto> data in dataDtos)
+                {
+                    if (data["Message"] != null)
+                    {
+                        control.Add(data["Message"].ToString());
+                        control.AccessibilityObject.Value =
+                    }
+                }
+
+                List<string> messages = new List<string>();
+
+                foreach (Dictionary<string, string> data in DataList)
+                {
+                    if (data.ContainsKey("Message"))
+                    {
+                        messages.Add(data["Message"]);
+                    }
+                }
+
+                foreach (string message in messages)
+                {
+                    // Add the message to the container
+                    // Note: You need to replace the following line with the appropriate method to add to your container
+                    control.Add(message);
+                }
 
                 if (listOfFormProperties != null && dataDtos != null)
                 {
                     foreach (string propertyName in listOfFormProperties)
                     {
 
-                        if(propertyName == container.Name)
+                        if (propertyName == container.Name)
                         {
                             container.add(dataDtos.Data[propertyName]);
                         }
@@ -189,7 +265,7 @@ namespace FacebookApp.Controllers
                 }
             }
 
-        }
+        }*/
 
 
         private void setDisplayPanel(string i_FormName)
@@ -208,8 +284,6 @@ namespace FacebookApp.Controllers
                 panelDisplay.Controls.Add(m_CurrentForm);
                 m_CurrentForm.Show();
             }
-            
-
         }
 
     }

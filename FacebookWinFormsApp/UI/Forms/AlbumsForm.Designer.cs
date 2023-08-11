@@ -1,4 +1,6 @@
-﻿namespace FacebookApp.UI.Forms
+﻿using System;
+
+namespace FacebookApp.UI.Forms
 {
     partial class AlbumsForm
     {
@@ -50,6 +52,7 @@
             this.listBoxAlbums.Name = "listBoxAlbums";
             this.listBoxAlbums.Size = new System.Drawing.Size(318, 329);
             this.listBoxAlbums.TabIndex = 60;
+            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
             // buttonFetchAlbum
             // 

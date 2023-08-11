@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.postListBox = new System.Windows.Forms.ListBox();
+            this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.fetch_posts_button = new System.Windows.Forms.Button();
             this.totalLikesLable = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxComments = new System.Windows.Forms.ListBox();
             this.commentsLable = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCreatedDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // postListBox
+            // listBoxPosts
             // 
-            this.postListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postListBox.FormattingEnabled = true;
-            this.postListBox.ItemHeight = 25;
-            this.postListBox.Location = new System.Drawing.Point(12, 74);
-            this.postListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.postListBox.Name = "postListBox";
-            this.postListBox.Size = new System.Drawing.Size(318, 329);
-            this.postListBox.TabIndex = 0;
-            this.postListBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPosts.FormattingEnabled = true;
+            this.listBoxPosts.ItemHeight = 25;
+            this.listBoxPosts.Location = new System.Drawing.Point(12, 74);
+            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPosts.Name = "listBoxPosts";
+            this.listBoxPosts.Size = new System.Drawing.Size(318, 329);
+            this.listBoxPosts.TabIndex = 0;
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // fetch_posts_button
             // 
@@ -86,16 +86,16 @@
             this.textBox1.Size = new System.Drawing.Size(71, 30);
             this.textBox1.TabIndex = 3;
             // 
-            // listBox1
+            // listBoxComments
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(424, 74);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(177, 329);
-            this.listBox1.TabIndex = 4;
+            this.listBoxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxComments.FormattingEnabled = true;
+            this.listBoxComments.ItemHeight = 25;
+            this.listBoxComments.Location = new System.Drawing.Point(424, 74);
+            this.listBoxComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxComments.Name = "listBoxComments";
+            this.listBoxComments.Size = new System.Drawing.Size(177, 329);
+            this.listBoxComments.TabIndex = 4;
             // 
             // commentsLable
             // 
@@ -137,11 +137,11 @@
             this.Controls.Add(this.textBoxCreatedDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.commentsLable);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxComments);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.totalLikesLable);
             this.Controls.Add(this.fetch_posts_button);
-            this.Controls.Add(this.postListBox);
+            this.Controls.Add(this.listBoxPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PostsForm";
@@ -154,11 +154,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox postListBox;
+        private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.Button fetch_posts_button;
         private System.Windows.Forms.Label totalLikesLable;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxComments;
         private System.Windows.Forms.Label commentsLable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxCreatedDate;

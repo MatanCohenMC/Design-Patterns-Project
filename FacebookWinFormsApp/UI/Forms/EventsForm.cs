@@ -14,10 +14,11 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsForm : Form, IComponentHandler, IDataHandler
+    public partial class EventsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
     {
         private readonly Events m_Events = new Events();
         public Action<string> m_FetchButtonPressed;
+
         public EventsForm()
         {
             InitializeComponent();
@@ -28,57 +29,25 @@ namespace FacebookApp.UI.Forms
 
         }
 
-        private void Pagelabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxPage_Click(object sender, EventArgs e)
+        private void buttonFetchEvents_Click(object sender, EventArgs e)
         {
             m_FetchButtonPressed?.Invoke("EventsForm");
         }
 
-        private void buttonFetchEvents_Click(object sender, EventArgs e)
+
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
+            DataList = m_Events.FetchUserEvents();
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
+            //listOfFormProperties = (List<string>)DataDtos
+            //    .SelectMany(dto => dto.Data.Keys)
+            //    .Distinct();
 
         }
 
         public ListBox GetListBox()
         {
             return this.listBoxEvents;
-        }
-
-        public void FetchListBoxData(out List<string> listOfFormProperties, out List<DataDto> DataDtos)
-        {
-            //return m_Events.FetchUserEvents();
-            DataDtos = m_Events.FetchUserEvents();
-            listOfFormProperties = new List<string>();
-
-        }
-
-        private void EventsForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
