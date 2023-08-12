@@ -74,7 +74,6 @@
             this.listBoxLikedPages.Size = new System.Drawing.Size(318, 329);
             this.listBoxLikedPages.TabIndex = 4;
             this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.ListBoxLikedPages_SelectedIndexChanged);
-
             // 
             // pictureBoxPage
             // 
@@ -84,6 +83,7 @@
             this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxPage.Name = "pictureBoxPage";
             this.pictureBoxPage.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPage.TabIndex = 5;
             this.pictureBoxPage.TabStop = false;
             // 

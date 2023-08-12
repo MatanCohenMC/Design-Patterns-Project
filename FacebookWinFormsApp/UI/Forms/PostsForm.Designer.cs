@@ -38,7 +38,7 @@
             this.textBoxCreatedDate = new System.Windows.Forms.TextBox();
             this.pictureBoxPosts = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxPostLocation = new System.Windows.Forms.TextBox();
+            this.textBoxLocation = new System.Windows.Forms.TextBox();
             this.textBoxPostsCaption = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
@@ -154,15 +154,15 @@
             this.label2.TabIndex = 63;
             this.label2.Text = "Location:";
             // 
-            // textBoxPostLocation
+            // textBoxLocation
             // 
-            this.textBoxPostLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostLocation.Location = new System.Drawing.Point(455, 314);
-            this.textBoxPostLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxPostLocation.Multiline = true;
-            this.textBoxPostLocation.Name = "textBoxPostLocation";
-            this.textBoxPostLocation.Size = new System.Drawing.Size(177, 78);
-            this.textBoxPostLocation.TabIndex = 64;
+            this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLocation.Location = new System.Drawing.Point(455, 314);
+            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxLocation.Multiline = true;
+            this.textBoxLocation.Name = "textBoxLocation";
+            this.textBoxLocation.Size = new System.Drawing.Size(177, 78);
+            this.textBoxLocation.TabIndex = 64;
             // 
             // textBoxPostsCaption
             // 
@@ -193,7 +193,7 @@
             this.ClientSize = new System.Drawing.Size(1045, 414);
             this.Controls.Add(this.textBoxPostsCaption);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxPostLocation);
+            this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBoxPosts);
             this.Controls.Add(this.textBoxCreatedDate);
@@ -226,7 +226,7 @@
         private System.Windows.Forms.TextBox textBoxCreatedDate;
         private System.Windows.Forms.PictureBox pictureBoxPosts;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxPostLocation;
+        private System.Windows.Forms.TextBox textBoxLocation;
         private System.Windows.Forms.TextBox textBoxPostsCaption;
         private System.Windows.Forms.Label label3;
     }

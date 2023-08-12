@@ -79,7 +79,6 @@ namespace FacebookApp.UI.Forms
             this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 62;
             this.label1.Text = "Latest Picture";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBoxAlbum
             // 
@@ -90,7 +89,6 @@ namespace FacebookApp.UI.Forms
             this.pictureBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbum.TabIndex = 61;
             this.pictureBoxAlbum.TabStop = false;
-            this.pictureBoxAlbum.Click += new System.EventHandler(this.pictureBoxAlbum_Click);
             // 
             // textBoxUpdatedTime
             // 
@@ -164,7 +162,6 @@ namespace FacebookApp.UI.Forms
             this.textBoxPictureAmount.Name = "textBoxPictureAmount";
             this.textBoxPictureAmount.Size = new System.Drawing.Size(57, 32);
             this.textBoxPictureAmount.TabIndex = 70;
-            this.textBoxPictureAmount.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -176,7 +173,6 @@ namespace FacebookApp.UI.Forms
             this.label2.Size = new System.Drawing.Size(180, 25);
             this.label2.TabIndex = 69;
             this.label2.Text = "Amount of pictures:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // AlbumsForm
             // 

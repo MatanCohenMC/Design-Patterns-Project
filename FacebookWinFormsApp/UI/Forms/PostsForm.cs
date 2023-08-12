@@ -24,14 +24,29 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
+        private void fetch_posts_button_Click(object i_Sender, EventArgs e)
+        {
+            m_FetchButtonPressed?.Invoke("PostsForm");
+        }
+
+        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
+        {
+            DataList = r_Posts.FetchUserPosts();
+        }
+
+        public ListBox GetListBox()
+        {
+            return this.listBoxPosts;
+        }
+
         private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs e)
         {
             setComments();
             setCreatedDate();
-            setPicture();
-            setLocation();
+            SetPostPicture();
             setTotalLikes();
             setCaption();
+            setPostLocation();
         }
 
         private void setCaption()
@@ -59,28 +74,9 @@ namespace FacebookApp.UI.Forms
             textBoxLikes.Text = postTotalLikes;
         }
 
-        private void setLocation()
+        private void SetPostPicture()
         {
-            string postLocation;
-
-            textBoxPostLocation.Text = string.Empty;
-            r_Posts.GetLocation(out postLocation, listBoxPosts.SelectedIndex);
-            textBoxPostLocation.Text = postLocation;
-        }
-
-        private void setPicture()
-        {
-            string PictureAlbumURL;
-
-            r_Posts.GetPictureURL(out PictureAlbumURL, listBoxPosts.SelectedIndex);
-            if (PictureAlbumURL != null)
-            {
-                pictureBoxPosts.LoadAsync(PictureAlbumURL);
-            }
-            else
-            {
-                pictureBoxPosts.Image = null;
-            }
+            FormUtility.SetPicture(listBoxPosts, pictureBoxPosts, index => r_Posts.GetPictureURL(index));
         }
 
         private void setCreatedDate()
@@ -115,19 +111,9 @@ namespace FacebookApp.UI.Forms
             }
         }
 
-        private void fetch_posts_button_Click(object i_Sender, EventArgs e)
+        private void setPostLocation()
         {
-            m_FetchButtonPressed?.Invoke("PostsForm");
-        }
-
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
-        {
-            DataList = r_Posts.FetchUserPosts();
-        }
-
-        public ListBox GetListBox()
-        {
-            return this.listBoxPosts;
+            FormUtility.SetLocation(listBoxPosts, textBoxLocation, index => r_Posts.GetLocation(index));
         }
     }
 }
