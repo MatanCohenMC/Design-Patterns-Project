@@ -31,7 +31,7 @@
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.fetch_posts_button = new System.Windows.Forms.Button();
             this.totalLikesLable = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxLikes = new System.Windows.Forms.TextBox();
             this.listBoxComments = new System.Windows.Forms.ListBox();
             this.commentsLable = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(318, 329);
             this.listBoxPosts.TabIndex = 0;
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // fetch_posts_button
             // 
@@ -75,16 +75,15 @@
             this.totalLikesLable.Size = new System.Drawing.Size(113, 25);
             this.totalLikesLable.TabIndex = 2;
             this.totalLikesLable.Text = "Total Likes:";
-            this.totalLikesLable.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // textBoxLikes
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(796, 123);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 30);
-            this.textBox1.TabIndex = 3;
+            this.textBoxLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLikes.Location = new System.Drawing.Point(796, 123);
+            this.textBoxLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxLikes.Name = "textBoxLikes";
+            this.textBoxLikes.Size = new System.Drawing.Size(71, 30);
+            this.textBoxLikes.TabIndex = 3;
             // 
             // listBoxComments
             // 
@@ -138,7 +137,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.commentsLable);
             this.Controls.Add(this.listBoxComments);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxLikes);
             this.Controls.Add(this.totalLikesLable);
             this.Controls.Add(this.fetch_posts_button);
             this.Controls.Add(this.listBoxPosts);
@@ -146,7 +145,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PostsForm";
             this.Text = "PostsForm";
-            this.Load += new System.EventHandler(this.PostsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +155,7 @@
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.Button fetch_posts_button;
         private System.Windows.Forms.Label totalLikesLable;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxLikes;
         private System.Windows.Forms.ListBox listBoxComments;
         private System.Windows.Forms.Label commentsLable;
         private System.Windows.Forms.Label label1;

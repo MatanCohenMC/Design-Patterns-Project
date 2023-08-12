@@ -44,6 +44,11 @@ namespace FacebookApp.UI.Forms
 
         private void ListBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
+            setPicture();
+        }
+
+        private void setPicture()
+        {
             string PictureAlbumURL;
             r_LikedPages.GetPictureAlbumURL(out PictureAlbumURL, listBoxLikedPages.SelectedIndex);
 

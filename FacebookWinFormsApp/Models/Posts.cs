@@ -12,7 +12,9 @@ namespace FacebookApp.Models
     public class Posts
     {
         private readonly Login r_Login = Login.Instance;
-        
+        public List<Dictionary<string, string>> m_DataList { get; private set; }
+
+
         public List<Dictionary<string, string>> FetchUserPosts()
         {
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
@@ -24,9 +26,11 @@ namespace FacebookApp.Models
                 if (post.Message != null)
                 {
                     postDictionary["ListBoxText"] = post.Message;
-                    postDictionary["Comment"] = post.Comments.ToString();
+                    postDictionary["Comments"] = post.Comments.ToString();
                     postDictionary["Caption"] = post.Caption;
                     postDictionary["CreatedTime"] = post.CreatedTime.ToString();
+                    postDictionary["Picture"] = post.PictureURL;
+                    postDictionary["Place"] = post.Place.ToString();// or "Name"
                 }
                 else
                 {
@@ -43,7 +47,19 @@ namespace FacebookApp.Models
                 dataList.Add(noPostsDictionary);
             }
 
+            m_DataList = dataList;
             return dataList;
+        }
+
+        public void GetCreatedDate(out string i_PostCreatedDate, int i_SelectedIndex)
+        {
+            Dictionary<string, string> postData = m_DataList[i_SelectedIndex];
+            i_PostCreatedDate = postData["CreatedTime"];
+        }
+
+        public void GetComments(out ICollection<Comment> i_PostComments, int i_SelectedIndex)
+        {
+            i_PostComments = r_Login.LoggedInUser.Posts[i_SelectedIndex].Comments;
         }
     }
 }
