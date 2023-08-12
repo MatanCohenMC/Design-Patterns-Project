@@ -54,6 +54,60 @@ namespace FacebookApp.UI.Forms
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
+            setPicture();
+            SetLocation();
+            setDescription();
+            setGetUpdatedTime();
+            setPictureCount();
+        }
+
+        private void setPictureCount()
+        {
+            string albumPictureCount;
+            r_Albums.GetPictureCount(out albumPictureCount, listBoxAlbums.SelectedIndex);
+
+            if (albumPictureCount != null && albumPictureCount != String.Empty)
+            {
+                textBoxPictureAmount.Text = albumPictureCount;
+            }
+            else
+            {
+                textBoxPictureAmount.Text = "0";
+            }
+        }
+
+        private void setGetUpdatedTime()
+        {
+            string albumUpdatedTime;
+            r_Albums.GetUpdatedTime(out albumUpdatedTime, listBoxAlbums.SelectedIndex);
+
+            if (albumUpdatedTime != null && albumUpdatedTime != String.Empty)
+            {
+                textBoxUpdatedTime.Text = albumUpdatedTime;
+            }
+            else
+            {
+                textBoxUpdatedTime.Text = "No updated time mentioned.";
+            }
+        }
+
+        private void SetLocation()
+        {
+            string albumLocation;
+            r_Albums.GetLocation(out albumLocation, listBoxAlbums.SelectedIndex);
+
+            if (albumLocation != null)
+            {
+                textBoxLocation.Text = albumLocation;
+            }
+            else
+            {
+                textBoxLocation.Text = "No Location mentioned.";
+            }
+        }
+
+        private void setPicture()
+        {
             string PictureAlbumURL;
             r_Albums.GetPictureAlbumURL(out PictureAlbumURL, listBoxAlbums.SelectedIndex);
 
@@ -65,6 +119,31 @@ namespace FacebookApp.UI.Forms
             {
                 pictureBoxAlbum.Image = pictureBoxAlbum.ErrorImage;
             }
+        }
+
+        private void setDescription()
+        {
+            string albumDescription;
+            r_Albums.GetDiscription(out albumDescription, listBoxAlbums.SelectedIndex);
+
+            if (albumDescription != null)
+            {
+                textBoxDescription.Text = albumDescription;
+            }
+            else
+            {
+                textBoxDescription.Text = "No description mentioned.";
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

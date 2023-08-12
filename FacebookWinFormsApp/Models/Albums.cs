@@ -34,6 +34,8 @@ namespace FacebookApp.Models
                     albumDictionary["Picture"] = album.PictureAlbumURL;
                     albumDictionary["Description"] = album.Description;
                     albumDictionary["Location"] = album.Location;
+                    albumDictionary["PictureCount"] = album.Count.ToString(); // new
+                    albumDictionary["UpdatedTime"] = album.UpdateTime.ToString();
                 }
 
                 dataList.Add(albumDictionary);
@@ -54,6 +56,30 @@ namespace FacebookApp.Models
         {
             Dictionary<string, string> albumData = m_DataList[selectedIndex];
             pictureAlbumURL = albumData["Picture"];
+        }
+
+        public void GetDiscription(out string albumDescription, int selectedIndex)
+        {
+            Dictionary<string, string> albumData = m_DataList[selectedIndex];
+            albumDescription = albumData["Description"];
+        }
+
+        public void GetLocation(out string albumLocation, int selectedIndex)
+        {
+            Dictionary<string, string> albumData = m_DataList[selectedIndex];
+            albumLocation = albumData["Location"];
+        }
+
+        public void GetUpdatedTime(out string albumUpdatedTime, int selectedIndex)
+        {
+            Dictionary<string, string> albumData = m_DataList[selectedIndex];
+            albumUpdatedTime = albumData["UpdatedTime"];
+        }
+
+        public void GetPictureCount(out string albumPictureCount, int selectedIndex)
+        {
+            Dictionary<string, string> albumData = m_DataList[selectedIndex];
+            albumPictureCount = albumData["PictureCount"];
         }
     }
 }
