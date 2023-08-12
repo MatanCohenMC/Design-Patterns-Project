@@ -29,35 +29,80 @@ namespace FacebookApp.UI.Forms
             setComments();
             setCreatedDate();
             setPicture();
+            setLocation();
+            setTotalLikes();
+            setCaption();
+        }
+
+        private void setCaption()
+        {
+            string postCaption;
+
+            textBoxPostsCaption.Text = string.Empty;
+            r_Posts.GetCaption(out postCaption, listBoxPosts.SelectedIndex);
+            if (postCaption != null)
+            {
+                textBoxPostsCaption.Text = postCaption;
+            }
+            else
+            {
+                textBoxPostsCaption.Text = "No caption";
+            }
+        }
+
+        private void setTotalLikes()
+        {
+            string postTotalLikes;
+
+            textBoxLikes.Text = string.Empty;
+            r_Posts.GetTotalLikes(out postTotalLikes, listBoxPosts.SelectedIndex);
+            textBoxLikes.Text = postTotalLikes;
+        }
+
+        private void setLocation()
+        {
+            string postLocation;
+
+            textBoxPostLocation.Text = string.Empty;
+            r_Posts.GetLocation(out postLocation, listBoxPosts.SelectedIndex);
+            textBoxPostLocation.Text = postLocation;
         }
 
         private void setPicture()
         {
-            throw new NotImplementedException();
+            string PictureAlbumURL;
+
+            r_Posts.GetPictureURL(out PictureAlbumURL, listBoxPosts.SelectedIndex);
+            if (PictureAlbumURL != null)
+            {
+                pictureBoxPosts.LoadAsync(PictureAlbumURL);
+            }
+            else
+            {
+                pictureBoxPosts.Image = null;
+            }
         }
 
         private void setCreatedDate()
         {
             string postCreatedDate;
-            r_Posts.GetCreatedDate(out postCreatedDate, listBoxPosts.SelectedIndex);
 
-            if (postCreatedDate != null && postCreatedDate != String.Empty)
-            {
-                textBoxCreatedDate.Text = postCreatedDate;
-            }
-            else
-            {
-                textBoxCreatedDate.Text = "No created date mentioned.";
-            }
+            textBoxCreatedDate.Text = String.Empty;
+            r_Posts.GetCreatedDate(out postCreatedDate, listBoxPosts.SelectedIndex);
+            textBoxCreatedDate.Text = postCreatedDate;
         }
 
         private void setComments()
         {
             ICollection<Comment> postComments;
+
             r_Posts.GetComments(out postComments, listBoxPosts.SelectedIndex);
             listBoxComments.Items.Clear();
-
-            if (postComments.Count == 0)
+            if(postComments == null)
+            {
+                listBoxComments.Items.Add("Unknown");
+            }
+            else if (postComments.Count == 0)
             {
                 listBoxComments.Items.Add("No comments");
             }

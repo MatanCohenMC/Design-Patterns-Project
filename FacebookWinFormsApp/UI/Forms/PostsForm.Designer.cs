@@ -36,6 +36,12 @@
             this.commentsLable = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCreatedDate = new System.Windows.Forms.TextBox();
+            this.pictureBoxPosts = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxPostLocation = new System.Windows.Forms.TextBox();
+            this.textBoxPostsCaption = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxPosts
@@ -70,7 +76,7 @@
             this.totalLikesLable.AutoSize = true;
             this.totalLikesLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLikesLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalLikesLable.Location = new System.Drawing.Point(677, 126);
+            this.totalLikesLable.Location = new System.Drawing.Point(664, 367);
             this.totalLikesLable.Name = "totalLikesLable";
             this.totalLikesLable.Size = new System.Drawing.Size(113, 25);
             this.totalLikesLable.TabIndex = 2;
@@ -79,10 +85,10 @@
             // textBoxLikes
             // 
             this.textBoxLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLikes.Location = new System.Drawing.Point(796, 123);
+            this.textBoxLikes.Location = new System.Drawing.Point(783, 364);
             this.textBoxLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLikes.Name = "textBoxLikes";
-            this.textBoxLikes.Size = new System.Drawing.Size(71, 30);
+            this.textBoxLikes.Size = new System.Drawing.Size(220, 30);
             this.textBoxLikes.TabIndex = 3;
             // 
             // listBoxComments
@@ -90,10 +96,10 @@
             this.listBoxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxComments.FormattingEnabled = true;
             this.listBoxComments.ItemHeight = 25;
-            this.listBoxComments.Location = new System.Drawing.Point(424, 74);
+            this.listBoxComments.Location = new System.Drawing.Point(455, 155);
             this.listBoxComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxComments.Name = "listBoxComments";
-            this.listBoxComments.Size = new System.Drawing.Size(177, 329);
+            this.listBoxComments.Size = new System.Drawing.Size(306, 129);
             this.listBoxComments.TabIndex = 4;
             // 
             // commentsLable
@@ -101,18 +107,18 @@
             this.commentsLable.AutoSize = true;
             this.commentsLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commentsLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.commentsLable.Location = new System.Drawing.Point(419, 47);
+            this.commentsLable.Location = new System.Drawing.Point(342, 155);
             this.commentsLable.Name = "commentsLable";
-            this.commentsLable.Size = new System.Drawing.Size(107, 25);
+            this.commentsLable.Size = new System.Drawing.Size(113, 25);
             this.commentsLable.TabIndex = 5;
-            this.commentsLable.Text = "Comments";
+            this.commentsLable.Text = "Comments:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(656, 74);
+            this.label1.Location = new System.Drawing.Point(643, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 6;
@@ -121,11 +127,63 @@
             // textBoxCreatedDate
             // 
             this.textBoxCreatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCreatedDate.Location = new System.Drawing.Point(796, 71);
+            this.textBoxCreatedDate.Location = new System.Drawing.Point(783, 312);
             this.textBoxCreatedDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCreatedDate.Name = "textBoxCreatedDate";
-            this.textBoxCreatedDate.Size = new System.Drawing.Size(177, 30);
+            this.textBoxCreatedDate.Size = new System.Drawing.Size(220, 30);
             this.textBoxCreatedDate.TabIndex = 7;
+            // 
+            // pictureBoxPosts
+            // 
+            this.pictureBoxPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPosts.Location = new System.Drawing.Point(783, 74);
+            this.pictureBoxPosts.Name = "pictureBoxPosts";
+            this.pictureBoxPosts.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxPosts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPosts.TabIndex = 62;
+            this.pictureBoxPosts.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(357, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Location:";
+            // 
+            // textBoxPostLocation
+            // 
+            this.textBoxPostLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPostLocation.Location = new System.Drawing.Point(455, 314);
+            this.textBoxPostLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPostLocation.Multiline = true;
+            this.textBoxPostLocation.Name = "textBoxPostLocation";
+            this.textBoxPostLocation.Size = new System.Drawing.Size(177, 78);
+            this.textBoxPostLocation.TabIndex = 64;
+            // 
+            // textBoxPostsCaption
+            // 
+            this.textBoxPostsCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPostsCaption.Location = new System.Drawing.Point(455, 74);
+            this.textBoxPostsCaption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPostsCaption.Multiline = true;
+            this.textBoxPostsCaption.Name = "textBoxPostsCaption";
+            this.textBoxPostsCaption.Size = new System.Drawing.Size(306, 59);
+            this.textBoxPostsCaption.TabIndex = 66;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(363, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Caption:";
             // 
             // PostsForm
             // 
@@ -133,6 +191,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.textBoxPostsCaption);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxPostLocation);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBoxPosts);
             this.Controls.Add(this.textBoxCreatedDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.commentsLable);
@@ -145,6 +208,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PostsForm";
             this.Text = "PostsForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +224,10 @@
         private System.Windows.Forms.Label commentsLable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxCreatedDate;
+        private System.Windows.Forms.PictureBox pictureBoxPosts;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxPostLocation;
+        private System.Windows.Forms.TextBox textBoxPostsCaption;
+        private System.Windows.Forms.Label label3;
     }
 }

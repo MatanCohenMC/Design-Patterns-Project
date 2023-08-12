@@ -67,7 +67,7 @@ namespace FacebookApp.Models
         public void GetLocation(out string albumLocation, int selectedIndex)
         {
             Dictionary<string, string> albumData = m_DataList[selectedIndex];
-            albumLocation = albumData["Description"];
+            albumLocation = albumData["Location"];
         }
 
         public void GetUpdatedTime(out string albumUpdatedTime, int selectedIndex)
