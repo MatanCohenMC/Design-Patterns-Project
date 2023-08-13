@@ -80,25 +80,45 @@ namespace FacebookApp.Models
             }
         }
 
-        public void GetPictureURL(out string picturePostURL, int selectedIndex)
+        public string GetPictureURL(int i_SelectedIndex)
         {
+            string pictureURL;
+
             try
             {
-                Dictionary<string, string> postData = m_DataList[selectedIndex];
-                picturePostURL = postData["Picture"];
+                Dictionary<string, string> postData = m_DataList[i_SelectedIndex];
+                pictureURL = postData["Picture"];
             }
             catch(Exception)
             {
                 MessageBox.Show("Couldn't load the picture.");
-                picturePostURL = null;
+                pictureURL = string.Empty;
             }
+
+            return pictureURL;
         }
 
-        public void GetLocation(out string postLocation, int selectedIndex)
+        /*public void GetLocation(out string i_PostLocation, int i_SelectedIndex)
         {
             try
             {
-                Dictionary<string, string> postData = m_DataList[selectedIndex];
+                Dictionary<string, string> postData = m_DataList[i_SelectedIndex];
+                i_PostLocation = postData["Place"];
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Couldn't load the location.");
+                i_PostLocation = "Unknown";
+            }
+        }*/
+
+        public string GetLocation(int i_SelectedIndex)
+        {
+            string postLocation;
+
+            try
+            {
+                Dictionary<string, string> postData = m_DataList[i_SelectedIndex];
                 postLocation = postData["Place"];
             }
             catch(Exception)
@@ -106,15 +126,17 @@ namespace FacebookApp.Models
                 MessageBox.Show("Couldn't load the location.");
                 postLocation = "Unknown";
             }
+
+            return postLocation;
         }
 
-        public void GetTotalLikes(out string totalLikes, int selectedIndex)
+        public void GetTotalLikes(out string i_TotalLikes, int i_SelectedIndex)
         {
             try
             {
                 int countOfUsers = 0;
 
-                ICollection<User> usersThatLikedThePost = r_Login.LoggedInUser.Posts[selectedIndex].LikedBy;
+                ICollection<User> usersThatLikedThePost = r_Login.LoggedInUser.Posts[i_SelectedIndex].LikedBy;
                 foreach (User user in usersThatLikedThePost)
                 {
                     if (user != null)
@@ -127,12 +149,12 @@ namespace FacebookApp.Models
                     }
                 }
 
-                totalLikes = countOfUsers.ToString();
+                i_TotalLikes = countOfUsers.ToString();
             }
             catch(Exception)
             {
                 MessageBox.Show("Couldn't load the users that liked the post.");
-                totalLikes = "Unknown";
+                i_TotalLikes = "Unknown";
             }
         }
 

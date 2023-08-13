@@ -27,16 +27,6 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void pictureBoxAlbum_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void fetch_albums_button_Click(object sender, EventArgs e)
         {
             m_FetchButtonPressed?.Invoke("AlbumsForm");
@@ -44,7 +34,7 @@ namespace FacebookApp.UI.Forms
 
         public ListBox GetListBox()
         {
-            return this.listBoxAlbums;
+            return listBoxAlbums;
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
@@ -54,8 +44,8 @@ namespace FacebookApp.UI.Forms
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setPicture();
-            SetLocation();
+            SetAlbumPicture();
+            setAlbumLocation();
             setDescription();
             setGetUpdatedTime();
             setPictureCount();
@@ -64,8 +54,8 @@ namespace FacebookApp.UI.Forms
         private void setPictureCount()
         {
             string albumPictureCount;
-            r_Albums.GetPictureCount(out albumPictureCount, listBoxAlbums.SelectedIndex);
 
+            r_Albums.GetPictureCount(out albumPictureCount, listBoxAlbums.SelectedIndex);
             if (albumPictureCount != null && albumPictureCount != String.Empty)
             {
                 textBoxPictureAmount.Text = albumPictureCount;
@@ -79,71 +69,27 @@ namespace FacebookApp.UI.Forms
         private void setGetUpdatedTime()
         {
             string albumUpdatedTime;
+
             r_Albums.GetUpdatedTime(out albumUpdatedTime, listBoxAlbums.SelectedIndex);
-
-            if (albumUpdatedTime != null && albumUpdatedTime != String.Empty)
-            {
-                textBoxUpdatedTime.Text = albumUpdatedTime;
-            }
-            else
-            {
-                textBoxUpdatedTime.Text = "No updated time mentioned.";
-            }
+            textBoxUpdatedTime.Text = !string.IsNullOrEmpty(albumUpdatedTime) ? albumUpdatedTime : "No updated time mentioned.";
         }
 
-        private void SetLocation()
+        private void SetAlbumPicture()
         {
-            string albumLocation;
-            r_Albums.GetLocation(out albumLocation, listBoxAlbums.SelectedIndex);
-
-            if (albumLocation != null)
-            {
-                textBoxLocation.Text = albumLocation;
-            }
-            else
-            {
-                textBoxLocation.Text = "No Location mentioned.";
-            }
-        }
-
-        private void setPicture()
-        {
-            string PictureAlbumURL;
-            r_Albums.GetPictureAlbumURL(out PictureAlbumURL, listBoxAlbums.SelectedIndex);
-
-            if (PictureAlbumURL != null)
-            {
-                pictureBoxAlbum.LoadAsync(PictureAlbumURL);
-            }
-            else
-            {
-                pictureBoxAlbum.Image = pictureBoxAlbum.ErrorImage;
-            }
+            FormUtility.SetPicture(listBoxAlbums, pictureBoxAlbum, index => r_Albums.GetPictureURL(index));
         }
 
         private void setDescription()
         {
             string albumDescription;
-            r_Albums.GetDiscription(out albumDescription, listBoxAlbums.SelectedIndex);
 
-            if (albumDescription != null)
-            {
-                textBoxDescription.Text = albumDescription;
-            }
-            else
-            {
-                textBoxDescription.Text = "No description mentioned.";
-            }
+            r_Albums.GetDescription(out albumDescription, listBoxAlbums.SelectedIndex);
+            textBoxDescription.Text = albumDescription ?? "No description mentioned.";
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void setAlbumLocation()
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            FormUtility.SetLocation(listBoxAlbums, textBoxLocation, index => r_Albums.GetLocation(index));
         }
     }
 }

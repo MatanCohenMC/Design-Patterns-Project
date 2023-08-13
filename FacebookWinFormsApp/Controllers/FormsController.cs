@@ -154,11 +154,7 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IDataHandler dataHandler = m_FormsDictionary[i_FormName] as IDataHandler;
-            //fetchData(componentHandler, dataHandler);
             fetchDataToListBox(componentHandler, dataHandler);
-            //FetchDataToPictureBox(componentHandler, dataHandler);
-            //FetchDataToTextBox(componentHandler, dataHandler);
-            //FetchDataToLabel(componentHandler, dataHandler);
 
             //TODO: should add a picture box to the form
             //TODO: should load extra data about the list box items such as date and total likes and comments to a static dictionary later display it on the form
@@ -193,80 +189,6 @@ namespace FacebookApp.Controllers
                 }
             }
         }
-
-
-
-
-
-        /*private static void FetchDataDTO(IComponentHandler componentHandler, IDataHandler dataHandler)
-        {
-            Control control = componentHandler?.GetListBox() as ListBox;
-            
-            
-            if (control != null)
-            {
-                // Dispose and remove components in reverse order
-                for (int i = control.Components.Count - 1; i >= 0; i--)
-                {
-                    System.ComponentModel.IComponent component = container.Components[i];
-
-                    if (component is IDisposable disposableComponent)
-                    {
-                        disposableComponent.Dispose();
-                    }
-
-                    container.Remove(component);
-                }
-            }
-
-            List<DataDto> dataDtos = null;
-
-            if (dataHandler != null)
-            {
-                dataHandler.FetchListBoxData(out dataDtos);
-
-                foreach (List<DataDto> data in dataDtos)
-                {
-                    if (data["Message"] != null)
-                    {
-                        control.Add(data["Message"].ToString());
-                        control.AccessibilityObject.Value =
-                    }
-                }
-
-                List<string> messages = new List<string>();
-
-                foreach (Dictionary<string, string> data in DataList)
-                {
-                    if (data.ContainsKey("Message"))
-                    {
-                        messages.Add(data["Message"]);
-                    }
-                }
-
-                foreach (string message in messages)
-                {
-                    // Add the message to the container
-                    // Note: You need to replace the following line with the appropriate method to add to your container
-                    control.Add(message);
-                }
-
-                if (listOfFormProperties != null && dataDtos != null)
-                {
-                    foreach (string propertyName in listOfFormProperties)
-                    {
-
-                        if (propertyName == container.Name)
-                        {
-                            container.add(dataDtos.Data[propertyName]);
-                        }
-
-                    }
-                }
-            }
-
-        }*/
-
 
         private void setDisplayPanel(string i_FormName)
         {
