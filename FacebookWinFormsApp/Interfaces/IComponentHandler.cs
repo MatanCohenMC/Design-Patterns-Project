@@ -10,6 +10,6 @@ namespace FacebookApp.Interfaces
 {
     public interface IComponentHandler
     {
-        
+        ListBox GetListBox();
     }
 }

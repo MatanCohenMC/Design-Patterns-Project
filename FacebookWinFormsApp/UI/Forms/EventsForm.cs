@@ -14,10 +14,12 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
+    public partial class EventsForm : Form, IComponentHandler, IDataHandler
     {
-        private readonly Events m_Events = new Events();
+        private readonly Events r_Events = new Events();
+        private readonly string r_FormName = "EventsForm";
         public Action<string> m_FetchButtonPressed;
+        public Action<string> m_SelectedIndexChanged;
 
         public EventsForm()
         {
@@ -26,28 +28,58 @@ namespace FacebookApp.UI.Forms
 
         private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
 
         private void buttonFetchEvents_Click(object sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke("EventsForm");
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
-
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataList = m_Events.FetchUserEvents();
-
-            //listOfFormProperties = (List<string>)DataDtos
-            //    .SelectMany(dto => dto.Data.Keys)
-            //    .Distinct();
-
+            DataList = r_Events.FetchUserEvents();
         }
 
         public ListBox GetListBox()
         {
-            return this.listBoxEvents;
+            return listBoxEvents;
+        }
+
+        public TextBox GetDescriptionTextBox()
+        {
+            return textBoxDescription;
+        }
+        public string GetDescriptionByIndex(int i_Index)
+        {
+            return r_Events.GetDescription(i_Index);
+        }
+
+        public TextBox GetLocationTextBox()
+        {
+            return textBoxLocation;
+        }
+        public string GetLocationByIndex(int i_Index)
+        {
+            return r_Events.GetLocation(i_Index);
+        }
+
+        public TextBox GetDateTextBox()
+        {
+            return textBoxDate;
+        }
+        public string GetDateByIndex(int i_Index)
+        {
+            return r_Events.GetDate(i_Index);
+        }
+
+        public PictureBox GetPictureBox()
+        {
+            return pictureBoxEvent;
+        }
+
+        public string GetPictureUrlByIndex(int i_Index)
+        {
+            return r_Events.GetPictureUrl(i_Index);
         }
     }
-}

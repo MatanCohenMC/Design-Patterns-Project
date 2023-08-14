@@ -32,13 +32,13 @@
             this.Pagelabel = new System.Windows.Forms.Label();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.descriptionLable = new System.Windows.Forms.Label();
-            this.textBoxEventDescription = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.labelDate = new System.Windows.Forms.Label();
             this.labelLocation = new System.Windows.Forms.Label();
             this.textBoxLocation = new System.Windows.Forms.TextBox();
-            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
+            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
+            this.textBoxDate = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchEvents
@@ -89,14 +89,14 @@
             this.descriptionLable.TabIndex = 12;
             this.descriptionLable.Text = "Description:";
             // 
-            // textBoxEventDescription
+            // textBoxDescription
             // 
-            this.textBoxEventDescription.Location = new System.Drawing.Point(487, 71);
-            this.textBoxEventDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxEventDescription.Multiline = true;
-            this.textBoxEventDescription.Name = "textBoxEventDescription";
-            this.textBoxEventDescription.Size = new System.Drawing.Size(230, 123);
-            this.textBoxEventDescription.TabIndex = 17;
+            this.textBoxDescription.Location = new System.Drawing.Point(487, 71);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(230, 123);
+            this.textBoxDescription.TabIndex = 17;
             // 
             // labelDate
             // 
@@ -129,24 +129,24 @@
             this.textBoxLocation.Size = new System.Drawing.Size(230, 65);
             this.textBoxLocation.TabIndex = 22;
             // 
-            // pictureBoxPage
+            // pictureBoxEvent
             // 
-            this.pictureBoxPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPage.Location = new System.Drawing.Point(788, 103);
-            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxPage.Name = "pictureBoxPage";
-            this.pictureBoxPage.Size = new System.Drawing.Size(220, 210);
-            this.pictureBoxPage.TabIndex = 9;
-            this.pictureBoxPage.TabStop = false;
+            this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxEvent.Location = new System.Drawing.Point(788, 103);
+            this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxEvent.Name = "pictureBoxEvent";
+            this.pictureBoxEvent.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxEvent.TabIndex = 9;
+            this.pictureBoxEvent.TabStop = false;
             // 
-            // textBox1
+            // textBoxDate
             // 
-            this.textBox1.Location = new System.Drawing.Point(487, 314);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 65);
-            this.textBox1.TabIndex = 23;
+            this.textBoxDate.Location = new System.Drawing.Point(487, 314);
+            this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDate.Multiline = true;
+            this.textBoxDate.Name = "textBoxDate";
+            this.textBoxDate.Size = new System.Drawing.Size(230, 65);
+            this.textBoxDate.TabIndex = 23;
             // 
             // EventsForm
             // 
@@ -154,21 +154,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.labelLocation);
             this.Controls.Add(this.labelDate);
-            this.Controls.Add(this.textBoxEventDescription);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.descriptionLable);
             this.Controls.Add(this.buttonFetchEvents);
             this.Controls.Add(this.Pagelabel);
-            this.Controls.Add(this.pictureBoxPage);
+            this.Controls.Add(this.pictureBoxEvent);
             this.Controls.Add(this.listBoxEvents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventsForm";
             this.Text = "EventsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,13 +178,13 @@
 
         private System.Windows.Forms.Button buttonFetchEvents;
         private System.Windows.Forms.Label Pagelabel;
-        private System.Windows.Forms.PictureBox pictureBoxPage;
+        private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.Label descriptionLable;
-        private System.Windows.Forms.TextBox textBoxEventDescription;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelLocation;
         private System.Windows.Forms.TextBox textBoxLocation;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDate;
     }
 }

@@ -32,9 +32,8 @@ namespace FacebookApp.Models
                 {
                     albumDictionary["ListBoxText"] = album.Name;
                     albumDictionary["Picture"] = album.PictureAlbumURL;
-                    albumDictionary["Description"] = album.Description;
                     albumDictionary["Location"] = album.Location;
-                    albumDictionary["PictureCount"] = album.Count.ToString(); // new
+                    albumDictionary["PictureCount"] = album.Count.ToString();
                     albumDictionary["UpdatedTime"] = album.UpdateTime.ToString();
                 }
 
@@ -52,44 +51,24 @@ namespace FacebookApp.Models
             return dataList;
         }
 
-        /*public void GetPictureAlbumURL(out string i_PictureAlbumUrl, int i_SelectedIndex)
-        {
-            Dictionary<string, string> albumData = m_DataList[i_SelectedIndex];
-            i_PictureAlbumUrl = albumData["Picture"];
-        }*/
-
-        public string GetPictureURL(int i_SelectedIndex)
+        public string GetPictureUrl(int i_SelectedIndex)
         {
             return m_DataList[i_SelectedIndex]["Picture"];
         }
-
-        public void GetDescription(out string i_AlbumDescription, int i_SelectedIndex)
-        {
-            Dictionary<string, string> albumData = m_DataList[i_SelectedIndex];
-            i_AlbumDescription = albumData["Description"];
-        }
-
-        /*public void GetLocation(out string i_AlbumLocation, int i_SelectedIndex)
-        {
-            Dictionary<string, string> albumData = m_DataList[i_SelectedIndex];
-            i_AlbumLocation = albumData["Location"];
-        }*/
 
         public string GetLocation(int i_SelectedIndex)
         {
             return m_DataList[i_SelectedIndex]["Location"];
         }
 
-        public void GetUpdatedTime(out string i_AlbumUpdatedTime, int i_SelectedIndex)
+        public string GetUpdatedTime(int i_SelectedIndex)
         {
-            Dictionary<string, string> albumData = m_DataList[i_SelectedIndex];
-            i_AlbumUpdatedTime = albumData["UpdatedTime"];
+            return m_DataList[i_SelectedIndex]["UpdatedTime"];
         }
 
-        public void GetPictureCount(out string i_AlbumPictureCount, int i_SelectedIndex)
+        public string GetPictureCount(int i_SelectedIndex)
         {
-            Dictionary<string, string> albumData = m_DataList[i_SelectedIndex];
-            i_AlbumPictureCount = albumData["PictureCount"];
+            return m_DataList[i_SelectedIndex]["PictureCount"];
         }
     }
 }

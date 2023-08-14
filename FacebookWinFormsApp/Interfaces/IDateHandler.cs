@@ -7,8 +7,9 @@ using System.Windows.Forms;
 
 namespace FacebookApp.Interfaces
 {
-    public interface IListBoxHandler
+    public interface IDateHandler
     {
-        ListBox GetListBox();
+        TextBox GetDateTextBox();
+        string GetDateByIndex(int i_Index);
     }
 }

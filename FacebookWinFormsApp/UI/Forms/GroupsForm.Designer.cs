@@ -58,7 +58,6 @@
             this.Photolabel.Size = new System.Drawing.Size(122, 25);
             this.Photolabel.TabIndex = 2;
             this.Photolabel.Text = "Group Photo";
-            this.Photolabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonFetchGroups
             // 

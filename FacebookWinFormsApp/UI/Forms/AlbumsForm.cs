@@ -12,15 +12,17 @@ using FacebookApp.Dtos;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
 using FacebookWrapper.ObjectModel;
+using CefSharp.ModelBinding;
 
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
+    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IDateHandler, IDescriptionHandler
     {
         private readonly Albums r_Albums = new Albums();
+        private readonly string r_FormName = "AlbumsForm";
         public Action<string> m_FetchButtonPressed;
-        private Login m_Login = Login.Instance;
+        public Action<string> m_SelectedIndexChanged;
 
         public AlbumsForm()
         {
@@ -29,12 +31,7 @@ namespace FacebookApp.UI.Forms
 
         private void fetch_albums_button_Click(object sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke("AlbumsForm");
-        }
-
-        public ListBox GetListBox()
-        {
-            return listBoxAlbums;
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
@@ -44,52 +41,52 @@ namespace FacebookApp.UI.Forms
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SetAlbumPicture();
-            setAlbumLocation();
-            setDescription();
-            setGetUpdatedTime();
-            setPictureCount();
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
 
-        private void setPictureCount()
+        public ListBox GetListBox()
         {
-            string albumPictureCount;
-
-            r_Albums.GetPictureCount(out albumPictureCount, listBoxAlbums.SelectedIndex);
-            if (albumPictureCount != null && albumPictureCount != String.Empty)
-            {
-                textBoxPictureAmount.Text = albumPictureCount;
-            }
-            else
-            {
-                textBoxPictureAmount.Text = "0";
-            }
+            return listBoxAlbums;
         }
 
-        private void setGetUpdatedTime()
+        public PictureBox GetPictureBox()
         {
-            string albumUpdatedTime;
-
-            r_Albums.GetUpdatedTime(out albumUpdatedTime, listBoxAlbums.SelectedIndex);
-            textBoxUpdatedTime.Text = !string.IsNullOrEmpty(albumUpdatedTime) ? albumUpdatedTime : "No updated time mentioned.";
+            return pictureBoxAlbum; 
         }
 
-        private void SetAlbumPicture()
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            FormUtility.SetPicture(listBoxAlbums, pictureBoxAlbum, index => r_Albums.GetPictureURL(index));
+            return r_Albums.GetPictureUrl(i_Index);
         }
 
-        private void setDescription()
+        public TextBox GetLocationTextBox()
         {
-            string albumDescription;
-
-            r_Albums.GetDescription(out albumDescription, listBoxAlbums.SelectedIndex);
-            textBoxDescription.Text = albumDescription ?? "No description mentioned.";
+            return textBoxLocation;
         }
 
-        private void setAlbumLocation()
+        public string GetLocationByIndex(int i_Index)
         {
-            FormUtility.SetLocation(listBoxAlbums, textBoxLocation, index => r_Albums.GetLocation(index));
+            return r_Albums.GetLocation(i_Index);
+        }
+
+        public TextBox GetUpdatedTimeTextBox()
+        {
+            return textBoxUpdatedTime;
+        }
+
+        public string GetUpdatedTimeByIndex(int i_Index)
+        {
+            return r_Albums.GetUpdatedTime(i_Index);
+        }
+
+        public TextBox GetPictureCountTextBox()
+        {
+            return textBoxPictureCount;
+        }
+
+        public string GetPictureCountByIndex(int i_Index)
+        {
+            return r_Albums.GetPictureCount(i_Index);
         }
     }
-}
+} 
