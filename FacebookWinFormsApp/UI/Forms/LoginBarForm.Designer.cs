@@ -36,30 +36,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserProfile)).BeginInit();
             this.SuspendLayout();
             // 
-            // ButtonLogout
+            // buttonLogout
             // 
-            this.ButtonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ButtonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonLogout.ForeColor = System.Drawing.Color.White;
-            this.ButtonLogout.Location = new System.Drawing.Point(2, 542);
-            this.ButtonLogout.Name = "ButtonLogout";
-            this.ButtonLogout.Size = new System.Drawing.Size(170, 40);
-            this.ButtonLogout.TabIndex = 7;
-            this.ButtonLogout.Text = "Logout";
-            this.ButtonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogout.ForeColor = System.Drawing.Color.White;
+            this.buttonLogout.Location = new System.Drawing.Point(2, 542);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(170, 40);
+            this.buttonLogout.TabIndex = 7;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // ButtonLogin
+            // buttonLogin
             // 
-            this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ButtonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonLogin.ForeColor = System.Drawing.Color.White;
-            this.ButtonLogin.Location = new System.Drawing.Point(2, 183);
-            this.ButtonLogin.Name = "ButtonLogin";
-            this.ButtonLogin.Size = new System.Drawing.Size(170, 40);
-            this.ButtonLogin.TabIndex = 6;
-            this.ButtonLogin.Text = "Login";
-            this.ButtonLogin.UseVisualStyleBackColor = true;
-            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(2, 183);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(170, 40);
+            this.buttonLogin.TabIndex = 6;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // pictureBoxUserProfile
             // 
@@ -100,8 +101,8 @@
             this.ClientSize = new System.Drawing.Size(175, 594);
             this.Controls.Add(this.labelAppID);
             this.Controls.Add(this.textBoxAppID);
-            this.Controls.Add(this.ButtonLogout);
-            this.Controls.Add(this.ButtonLogin);
+            this.Controls.Add(this.buttonLogout);
+            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.pictureBoxUserProfile);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

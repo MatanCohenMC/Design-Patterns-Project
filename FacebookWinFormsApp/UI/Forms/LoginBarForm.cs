@@ -17,63 +17,24 @@ namespace FacebookApp.UI.Forms
     {
         private readonly Login r_Login = new Login();
         private User m_LoggedInUser = null;
-        private FacebookWrapper.LoginResult m_LoginResult;
+        public FacebookWrapper.LoginResult LoginResult { get; set; }
         public Action m_LoginButtonPressed;
+        public Action m_LogoutButtonPressed;
 
         public LoginBarForm()
         {
             InitializeComponent();
         }
 
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             m_LoginButtonPressed?.Invoke();
         }
 
-        public void Login()
+        private void buttonLogout_Click(object sender, EventArgs e)
         {
-            if (m_LoginResult == null)
-            {
-                r_Login.LoginToApp(textBoxAppID.Text);
-                /*m_LoginResult = FacebookService.Login(textBoxAppID.Text,
-                    "email", "public_profile", "user_age_range", "user_birthday",
-                    "user_events", "user_friends", "user_gender", "user_hometown", "user_likes",
-                    "user_link", "user_location", "user_photos", "user_posts", "user_videos");*/
-                //m_LoginResult = r_Login.m_LoginResult;
-                //if (string.IsNullOrEmpty(m_LoginResult.ErrorMessage))
-                //{
-                //    ButtonLogin.Text = "Logged in";
-                //    // $"Logged in as {m_LoginResult.LoggedInUser.Name}";
-                //    ButtonLogin.BackColor = Color.LightGreen;
-                //    pictureBoxUserProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-                //    ButtonLogin.Enabled = false;
-                //    ButtonLogout.Enabled = true;
-                //}
-
-                /*if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
-                {
-                    m_LoggedInUser = m_LoginResult.LoggedInUser;
-                }*/
-                //else
-                //{
-                //    MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");
-                //}
-            }
+            m_LogoutButtonPressed?.Invoke();
         }
-
-
-        /*public User Login()
-        {
-            *//*m_LoggedInUser = r_Login.LoginToApp();
-            pictureBoxUserProfile.ImageLocation = m_LoggedInUser.PictureNormalURL;
-            ButtonLogin.Enabled = false;
-            ButtonLogin.Text = $"Logged in as {m_LoggedInUser.Name}";
-
-            return m_LoggedInUser;*//*
-
-            m_LoggedInUser = r_Login.LoginToApp();
-            return m_LoggedInUser;
-        }*/
 
         private void pictureBoxUserProfile_Click(object sender, EventArgs e)
         {
@@ -111,8 +72,5 @@ namespace FacebookApp.UI.Forms
                 return pictureBoxUserProfile;
             }
         }
-
-
-
     }
 }

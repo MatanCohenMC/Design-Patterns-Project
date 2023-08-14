@@ -12,6 +12,7 @@ namespace FacebookApp.Models
     public class Events
     {
         private readonly Login r_Login = Login.Instance;
+        public List<Dictionary<string, string>> m_DataList { get; private set; }
 
         public List<Dictionary<string, string>> FetchUserEvents()
         {
@@ -27,6 +28,8 @@ namespace FacebookApp.Models
                     postDictionary["Location"] = fbEvent.Location;
                     postDictionary["Description"] = fbEvent.Description;
                     postDictionary["Date"] = fbEvent.StartTime.ToString();
+                    postDictionary["Picture"] = fbEvent.PictureNormalURL;
+
                 }
 
                 dataList.Add(postDictionary);
@@ -39,7 +42,26 @@ namespace FacebookApp.Models
                 dataList.Add(noEventsDictionary);
             }
 
+            m_DataList = dataList;
             return dataList;
         }
+
+        public string GetLocation(int i_SelectedIndex)
+        {
+            return m_DataList[i_SelectedIndex]["Location"];
+        }
+        public string GetDescription(int i_SelectedIndex)
+        {
+            return m_DataList[i_SelectedIndex]["Description"];
+        }
+        public string GetDate(int i_SelectedIndex)
+        {
+            return m_DataList[i_SelectedIndex]["Date"];
+        }
+        public string GetPictureUrl(int i_SelectedIndex)
+        {
+            return m_DataList[i_SelectedIndex]["Picture"];
+        }
+
     }
 }
