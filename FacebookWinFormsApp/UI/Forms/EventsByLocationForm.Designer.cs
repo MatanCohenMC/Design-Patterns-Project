@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelEnterLocation = new System.Windows.Forms.Label();
             this.listBoxEventsByLocation = new System.Windows.Forms.ListBox();
             this.labelEvents = new System.Windows.Forms.Label();
@@ -38,28 +37,22 @@
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.descriptionLable = new System.Windows.Forms.Label();
+            this.textBoxLocation = new System.Windows.Forms.TextBox();
+            this.buttonFetchEventByLocation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(171, 66);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 84);
-            this.textBox1.TabIndex = 0;
             // 
             // labelEnterLocation
             // 
             this.labelEnterLocation.AutoSize = true;
             this.labelEnterLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnterLocation.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelEnterLocation.Location = new System.Drawing.Point(29, 66);
+            this.labelEnterLocation.Location = new System.Drawing.Point(29, 127);
             this.labelEnterLocation.Name = "labelEnterLocation";
             this.labelEnterLocation.Size = new System.Drawing.Size(136, 25);
             this.labelEnterLocation.TabIndex = 1;
             this.labelEnterLocation.Text = "Enter location:";
+            this.labelEnterLocation.Click += new System.EventHandler(this.labelEnterLocation_Click);
             // 
             // listBoxEventsByLocation
             // 
@@ -144,12 +137,38 @@
             this.descriptionLable.TabIndex = 28;
             this.descriptionLable.Text = "Description:";
             // 
+            // textBoxLocation
+            // 
+            this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLocation.Location = new System.Drawing.Point(171, 124);
+            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxLocation.Multiline = true;
+            this.textBoxLocation.Name = "textBoxLocation";
+            this.textBoxLocation.Size = new System.Drawing.Size(162, 38);
+            this.textBoxLocation.TabIndex = 30;
+            // 
+            // buttonFetchEventByLocation
+            // 
+            this.buttonFetchEventByLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFetchEventByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchEventByLocation.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonFetchEventByLocation.Location = new System.Drawing.Point(198, 53);
+            this.buttonFetchEventByLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonFetchEventByLocation.Name = "buttonFetchEventByLocation";
+            this.buttonFetchEventByLocation.Size = new System.Drawing.Size(135, 40);
+            this.buttonFetchEventByLocation.TabIndex = 31;
+            this.buttonFetchEventByLocation.Text = "Fetch Events";
+            this.buttonFetchEventByLocation.UseVisualStyleBackColor = true;
+            this.buttonFetchEventByLocation.Click += new System.EventHandler(this.buttonFetchEvents_Click);
+            // 
             // EventsByLocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.buttonFetchEventByLocation);
+            this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.descriptionLable);
             this.Controls.Add(this.Pagelabel);
@@ -159,7 +178,6 @@
             this.Controls.Add(this.labelEvents);
             this.Controls.Add(this.listBoxEventsByLocation);
             this.Controls.Add(this.labelEnterLocation);
-            this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EventsByLocationForm";
             this.Text = "EventByLocationForm";
@@ -170,8 +188,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelEnterLocation;
         private System.Windows.Forms.ListBox listBoxEventsByLocation;
         private System.Windows.Forms.Label labelEvents;
@@ -181,5 +197,7 @@
         private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label descriptionLable;
+        private System.Windows.Forms.TextBox textBoxLocation;
+        private System.Windows.Forms.Button buttonFetchEventByLocation;
     }
 }

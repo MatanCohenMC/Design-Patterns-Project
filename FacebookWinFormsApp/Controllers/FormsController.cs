@@ -99,6 +99,13 @@ namespace FacebookApp.Controllers
             Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
             AddForm(formNameAppMainForm, appMainForm);
 
+            string formNameEventsByLocation = "EventsByLocationForm";
+            EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
+            eventsByLocationForm.m_FetchButtonPressed += fetchUserFormData;
+            eventsForm.m_SelectedIndexChanged += setDescription;
+            eventsForm.m_SelectedIndexChanged += setDate;
+            eventsForm.m_SelectedIndexChanged += setPicture;
+            AddForm(formNameEventsByLocation, eventsByLocationForm);
         }
 
         private void loginToApp()
