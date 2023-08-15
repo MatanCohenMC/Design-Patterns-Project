@@ -14,6 +14,7 @@ using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using CefSharp.DevTools.Debugger;
 
 
 namespace FacebookApp.Controllers
@@ -24,7 +25,6 @@ namespace FacebookApp.Controllers
         private static FormsController s_Instance = null;
         private Form m_CurrentForm;
         private readonly Login r_Login;
-        private Albums m_albums;
 
         private FormsController()
         {
@@ -38,7 +38,6 @@ namespace FacebookApp.Controllers
             m_FormsDictionary = new Dictionary<string, Form>();
 
             string formNameAlbums = "AlbumsForm";
-            m_albums = new Albums();
             AlbumsForm albumsForm = new AlbumsForm();
             albumsForm.m_FetchButtonPressed += fetchUserFormData;
             albumsForm.m_SelectedIndexChanged += setPicture;
@@ -59,16 +58,25 @@ namespace FacebookApp.Controllers
             string formNameGroups = "GroupsForm";
             GroupsForm groupsForm = new GroupsForm();
             groupsForm.m_FetchButtonPressed += fetchUserFormData;
+            groupsForm.m_SelectedIndexChanged += setPicture;
+            groupsForm.m_SelectedIndexChanged += setDescription;
             AddForm(formNameGroups, groupsForm);
 
-            string formNamePages = "PagesForm";
-            FormPages pagesForm = new FormPages();
-            pagesForm.m_FetchButtonPressed += fetchUserFormData;
-            AddForm(formNamePages, pagesForm);
+            string formNamePages = "LikedPagesForm";
+            LikedPagesForm likedPagesForm = new LikedPagesForm();
+            likedPagesForm.m_FetchButtonPressed += fetchUserFormData;
+            likedPagesForm.m_SelectedIndexChanged += setPicture;
+            likedPagesForm.m_SelectedIndexChanged += setDescription;
+            AddForm(formNamePages, likedPagesForm);
 
             string formNamePosts = "PostsForm";
             PostsForm postsForm = new PostsForm();
             postsForm.m_FetchButtonPressed += fetchUserFormData;
+            postsForm.m_SelectedIndexChanged += setPicture;
+            postsForm.m_SelectedIndexChanged += setComments;
+            postsForm.m_SelectedIndexChanged += setDate;
+            postsForm.m_SelectedIndexChanged += setLocation;
+            postsForm.m_SelectedIndexChanged += setCaption;
             AddForm(formNamePosts, postsForm);
 
             string formNameUserProfile = "UserProfileForm";
@@ -277,10 +285,11 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             ILocationHandler locationHandler = m_FormsDictionary[i_FormName] as ILocationHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox textBox = locationHandler.GetLocationTextBox();
+            TextBox locationTextBox = locationHandler.GetLocationTextBox();
             string location = locationHandler.GetLocationByIndex(listBox.SelectedIndex);
 
-            textBox.Text = location ?? "No location mentioned.";
+            locationTextBox.Text = location ?? "No location mentioned.";
+            listBox.Enabled = location != null;
         }
 
         private void setUpdatedTime(string i_FormName)
@@ -288,10 +297,11 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IUpdatedTimeHandler updatedTimeHandler = m_FormsDictionary[i_FormName] as IUpdatedTimeHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox textBox = updatedTimeHandler.GetUpdatedTimeTextBox();
+            TextBox updatedTimeTextBox = updatedTimeHandler.GetUpdatedTimeTextBox();
             string updatedTime = updatedTimeHandler.GetUpdatedTimeByIndex(listBox.SelectedIndex);
 
-            textBox.Text = updatedTime ?? "No updated time mentioned.";
+            updatedTimeTextBox.Text = updatedTime ?? "No updated time mentioned.";
+            listBox.Enabled = updatedTime != null;
         }
 
         private void setPictureCount(string i_FormName)
@@ -299,18 +309,20 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IPictureCountHandler pictureCountHandler = m_FormsDictionary[i_FormName] as IPictureCountHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox textBox = pictureCountHandler.GetPictureCountTextBox();
+            TextBox pictureCountTextBox = pictureCountHandler.GetPictureCountTextBox();
             string pictureCount = pictureCountHandler.GetPictureCountByIndex(listBox.SelectedIndex);
-            textBox.Text = pictureCount ?? "No picture amount mentioned.";
 
-           /* if (albumPictureCount != null && albumPictureCount != String.Empty)
-            {
-                textBoxPictureAmount.Text = albumPictureCount;
-            }
-            else
-            {
-                textBoxPictureAmount.Text = "0";
-            }*/
+            pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
+            listBox.Enabled = pictureCount != null;
+
+            /* if (albumPictureCount != null && albumPictureCount != String.Empty)
+             {
+                 textBoxPictureAmount.Text = albumPictureCount;
+             }
+             else
+             {
+                 textBoxPictureAmount.Text = "0";
+             }*/
         }
 
         private void setDate(string i_FormName)
@@ -318,10 +330,11 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IDateHandler dateHandler = m_FormsDictionary[i_FormName] as IDateHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox textBox = dateHandler.GetDateTextBox();
+            TextBox dateTextBox = dateHandler.GetDateTextBox();
             string date = dateHandler.GetDateByIndex(listBox.SelectedIndex);
 
-            textBox.Text = date ?? "No date mentioned.";
+            dateTextBox.Text = date ?? "No date mentioned.";
+            listBox.Enabled = date != null;
         }
 
         private void setDescription(string i_FormName)
@@ -329,15 +342,56 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
             IDescriptionHandler descriptionHandler = m_FormsDictionary[i_FormName] as IDescriptionHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox textBox = descriptionHandler.GetDescriptionTextBox();
+            TextBox descriptionTextBox = descriptionHandler.GetDescriptionTextBox();
             string description = descriptionHandler.GetDescriptionByIndex(listBox.SelectedIndex);
 
-            textBox.Text = description ?? "No description mentioned.";
+            descriptionTextBox.Text = description ?? "No description mentioned.";
+            listBox.Enabled = description != null;
         }
-        
-        
+
+        private void setComments(string i_FormName)
+        {
+            IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
+            ICommentsHandler commentsHandler = m_FormsDictionary[i_FormName] as ICommentsHandler;
+            ListBox listBox = componentHandler.GetListBox();
+            ListBox commentsListBox = commentsHandler.GetCommentsListBox();
+            ICollection<Comment> comments = commentsHandler.GetCommentsByIndex(listBox.SelectedIndex);
+
+            commentsListBox.Items.Clear();
+
+            if (comments == null)
+            {
+                commentsListBox.Items.Add("Unknown.");
+                listBox.Enabled = false;
+            }
+            else if (comments.Count == 0)
+            {
+                commentsListBox.Items.Add("No comments.");
+                listBox.Enabled = false;
+            }
+            else
+            {
+                listBox.Enabled = true;
+                foreach (Comment comment in comments)
+                {
+                    commentsListBox.Items.Add(comment.ToString());
+                }
+            }
 
 
+        }
+
+        private void setCaption(string i_FormName)
+        {
+            IComponentHandler componentHandler = m_FormsDictionary[i_FormName] as IComponentHandler;
+            ICaptionHandler descriptionHandler = m_FormsDictionary[i_FormName] as ICaptionHandler;
+            ListBox listBox = componentHandler.GetListBox();
+            TextBox captionTextBox = descriptionHandler.GetCaptionTextBox();
+            string description = descriptionHandler.GetCaptionByIndex(listBox.SelectedIndex);
+
+            captionTextBox.Text = description ?? "No caption mentioned.";
+            listBox.Enabled = description != null;
+        }
 
     }
 }

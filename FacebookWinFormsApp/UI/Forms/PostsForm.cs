@@ -14,10 +14,12 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsForm : Form, IComponentHandler, IDataHandler, IListBoxHandler
+    public partial class PostsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler
     {
         private readonly Posts r_Posts = new Posts();
+        private readonly string r_FormName = "PostsForm";
         public Action<string> m_FetchButtonPressed;
+        public Action<string> m_SelectedIndexChanged;
 
         public PostsForm()
         {
@@ -26,7 +28,7 @@ namespace FacebookApp.UI.Forms
 
         private void fetch_posts_button_Click(object i_Sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke("PostsForm");
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
@@ -41,79 +43,58 @@ namespace FacebookApp.UI.Forms
 
         private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs e)
         {
-            setComments();
-            setCreatedDate();
-            SetPostPicture();
-            setTotalLikes();
-            setCaption();
-            setPostLocation();
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
 
-        private void setCaption()
-        {
-            string postCaption;
 
-            textBoxPostsCaption.Text = string.Empty;
-            r_Posts.GetCaption(out postCaption, listBoxPosts.SelectedIndex);
-            if (postCaption != null)
-            {
-                textBoxPostsCaption.Text = postCaption;
-            }
-            else
-            {
-                textBoxPostsCaption.Text = "No caption";
-            }
+        public PictureBox GetPictureBox()
+        {
+            return pictureBoxPosts;
         }
 
-        private void setTotalLikes()
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            string postTotalLikes;
-
-            textBoxLikes.Text = string.Empty;
-            r_Posts.GetTotalLikes(out postTotalLikes, listBoxPosts.SelectedIndex);
-            textBoxLikes.Text = postTotalLikes;
+            return r_Posts.GetPictureUrl(i_Index);
         }
 
-        private void SetPostPicture()
+        public TextBox GetLocationTextBox()
         {
-            FormUtility.SetPicture(listBoxPosts, pictureBoxPosts, index => r_Posts.GetPictureURL(index));
+            return textBoxLocation;
         }
 
-        private void setCreatedDate()
+        public string GetLocationByIndex(int i_Index)
         {
-            string postCreatedDate;
-
-            textBoxCreatedDate.Text = String.Empty;
-            r_Posts.GetCreatedDate(out postCreatedDate, listBoxPosts.SelectedIndex);
-            textBoxCreatedDate.Text = postCreatedDate;
+            return r_Posts.GetLocation(i_Index);
+        }
+        
+        public TextBox GetCaptionTextBox()
+        {
+            return textBoxCaption;
         }
 
-        private void setComments()
+        public string GetCaptionByIndex(int i_Index)
         {
-            ICollection<Comment> postComments;
-
-            r_Posts.GetComments(out postComments, listBoxPosts.SelectedIndex);
-            listBoxComments.Items.Clear();
-            if(postComments == null)
-            {
-                listBoxComments.Items.Add("Unknown");
-            }
-            else if (postComments.Count == 0)
-            {
-                listBoxComments.Items.Add("No comments");
-            }
-            else
-            {
-                foreach (Comment comment in postComments)
-                {
-                    listBoxComments.Items.Add(comment.ToString());
-                }
-            }
+            return r_Posts.GetCaption(i_Index);
         }
 
-        private void setPostLocation()
+        public TextBox GetDateTextBox()
         {
-            FormUtility.SetLocation(listBoxPosts, textBoxLocation, index => r_Posts.GetLocation(index));
+            return textBoxDate;
+        }
+
+        public string GetDateByIndex(int i_Index)
+        {
+            return r_Posts.GetDate(i_Index);
+        }
+
+        public ListBox GetCommentsListBox()
+        {
+            return listBoxComments;
+        }
+
+        public ICollection<Comment> GetCommentsByIndex(int i_Index)
+        {
+            return r_Posts.GetComments(i_Index);
         }
     }
 }

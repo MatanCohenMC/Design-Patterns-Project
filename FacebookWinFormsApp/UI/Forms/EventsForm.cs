@@ -14,7 +14,7 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsForm : Form, IComponentHandler, IDataHandler
+    public partial class EventsForm : Form, IComponentHandler, IDataHandler, ILocationHandler, IDescriptionHandler, IDateHandler, IPictureHandler
     {
         private readonly Events r_Events = new Events();
         private readonly string r_FormName = "EventsForm";
@@ -50,6 +50,7 @@ namespace FacebookApp.UI.Forms
         {
             return textBoxDescription;
         }
+
         public string GetDescriptionByIndex(int i_Index)
         {
             return r_Events.GetDescription(i_Index);
@@ -59,6 +60,7 @@ namespace FacebookApp.UI.Forms
         {
             return textBoxLocation;
         }
+
         public string GetLocationByIndex(int i_Index)
         {
             return r_Events.GetLocation(i_Index);
@@ -68,6 +70,7 @@ namespace FacebookApp.UI.Forms
         {
             return textBoxDate;
         }
+
         public string GetDateByIndex(int i_Index)
         {
             return r_Events.GetDate(i_Index);
@@ -83,3 +86,4 @@ namespace FacebookApp.UI.Forms
             return r_Events.GetPictureUrl(i_Index);
         }
     }
+}
