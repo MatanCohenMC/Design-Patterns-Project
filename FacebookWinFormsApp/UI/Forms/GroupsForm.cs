@@ -13,9 +13,9 @@ using FacebookApp.Dtos;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class GroupsForm : Form, IComponentHandler, IDataHandler
+    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler
     {
-        private Groups m_Groups = new Groups();
+        private Groups r_Groups = new Groups();
         private readonly string r_FormName = "GroupsForm";
         public Action<string> m_FetchButtonPressed;
         public Action<string> m_SelectedIndexChanged;
@@ -36,12 +36,32 @@ namespace FacebookApp.UI.Forms
 
         public ListBox GetListBox()
         {
-            return listBoxGroup;
+            return listBoxGroups;
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
-            DataList = new List<Dictionary<string, string>>();
+            DataList = r_Groups.FetchUserEvents();
+        }
+
+        public PictureBox GetPictureBox()
+        {
+            return pictureBoxGroup;
+        }
+
+        public string GetPictureUrlByIndex(int i_Index)
+        {
+            return r_Groups.GetPictureUrl(i_Index);
+        }
+
+        public TextBox GetDescriptionTextBox()
+        {
+            return textBoxDescription;
+        }
+
+        public string GetDescriptionByIndex(int i_Index)
+        {
+            return r_Groups.GetDescription(i_Index);
         }
     }
 }

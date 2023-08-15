@@ -20,25 +20,25 @@ namespace FacebookApp.Models
 
             foreach (Event fbEvent in r_Login.LoggedInUser.Events)
             {
-                Dictionary<string, string> postDictionary = new Dictionary<string, string>();
+                Dictionary<string, string> eventDictionary = new Dictionary<string, string>();
 
                 if (fbEvent.Name != null)
                 {
-                    postDictionary["ListBoxText"] = fbEvent.Name;
-                    postDictionary["Location"] = fbEvent.Location;
-                    postDictionary["Description"] = fbEvent.Description;
-                    postDictionary["Date"] = fbEvent.StartTime.ToString();
-                    postDictionary["Picture"] = fbEvent.PictureNormalURL;
+                    eventDictionary["ListBoxText"] = fbEvent.Name;
+                    eventDictionary["Location"] = fbEvent.Location;
+                    eventDictionary["Description"] = fbEvent.Description;
+                    eventDictionary["Date"] = fbEvent.StartTime.ToString();
+                    eventDictionary["Picture"] = fbEvent.PictureNormalURL;
 
                 }
 
-                dataList.Add(postDictionary);
+                dataList.Add(eventDictionary);
             }
 
             if (dataList.Count == 0)
             {
                 Dictionary<string, string> noEventsDictionary = new Dictionary<string, string>();
-                noEventsDictionary["ListBoxText"] = "No Events to retrieve.";
+                noEventsDictionary["ListBoxText"] = "No events to retrieve.";
                 dataList.Add(noEventsDictionary);
             }
 

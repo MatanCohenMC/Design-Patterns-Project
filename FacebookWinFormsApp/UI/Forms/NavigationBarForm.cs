@@ -56,7 +56,7 @@ namespace FacebookApp.UI.Forms
 
         private void ButtonLikedPages_Click(object i_Sender, EventArgs i_E)
         {
-            m_OnSubFormButtonPressed?.Invoke("PagesForm");
+            m_OnSubFormButtonPressed?.Invoke("LikedPagesForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("PagesForm"));
         }
     }

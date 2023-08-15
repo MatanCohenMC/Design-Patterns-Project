@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp.UI.Forms
 {
-    partial class FormPages
+    partial class LikedPagesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,10 @@
             this.buttonFetchPages = new System.Windows.Forms.Button();
             this.Pagelabel = new System.Windows.Forms.Label();
             this.listBoxLikedPages = new System.Windows.Forms.ListBox();
-            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
-            this.textBoxEventDescription = new System.Windows.Forms.TextBox();
+            this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.descriptionLable = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchPages
@@ -73,28 +73,28 @@
             this.listBoxLikedPages.Name = "listBoxLikedPages";
             this.listBoxLikedPages.Size = new System.Drawing.Size(318, 329);
             this.listBoxLikedPages.TabIndex = 4;
-            this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.ListBoxLikedPages_SelectedIndexChanged);
+            this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.listBoxLikedPages_SelectedIndexChanged);
             // 
-            // pictureBoxPage
+            // pictureBoxLikedPage
             // 
-            this.pictureBoxPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPage.Location = new System.Drawing.Point(765, 111);
-            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxPage.Name = "pictureBoxPage";
-            this.pictureBoxPage.Size = new System.Drawing.Size(220, 210);
-            this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxPage.TabIndex = 5;
-            this.pictureBoxPage.TabStop = false;
+            this.pictureBoxLikedPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxLikedPage.Location = new System.Drawing.Point(765, 111);
+            this.pictureBoxLikedPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
+            this.pictureBoxLikedPage.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLikedPage.TabIndex = 5;
+            this.pictureBoxLikedPage.TabStop = false;
             // 
-            // textBoxEventDescription
+            // textBoxDescription
             // 
-            this.textBoxEventDescription.Location = new System.Drawing.Point(473, 78);
-            this.textBoxEventDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxEventDescription.Multiline = true;
-            this.textBoxEventDescription.Name = "textBoxEventDescription";
-            this.textBoxEventDescription.Size = new System.Drawing.Size(230, 123);
-            this.textBoxEventDescription.TabIndex = 21;
+            this.textBoxDescription.Location = new System.Drawing.Point(473, 78);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(230, 123);
+            this.textBoxDescription.TabIndex = 21;
             // 
             // descriptionLable
             // 
@@ -107,23 +107,23 @@
             this.descriptionLable.TabIndex = 20;
             this.descriptionLable.Text = "Description:";
             // 
-            // FormPages
+            // LikedPagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
-            this.Controls.Add(this.textBoxEventDescription);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.descriptionLable);
             this.Controls.Add(this.buttonFetchPages);
             this.Controls.Add(this.Pagelabel);
-            this.Controls.Add(this.pictureBoxPage);
+            this.Controls.Add(this.pictureBoxLikedPage);
             this.Controls.Add(this.listBoxLikedPages);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormPages";
+            this.Name = "LikedPagesForm";
             this.Text = "FormPages";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,9 +133,9 @@
 
         private System.Windows.Forms.Button buttonFetchPages;
         private System.Windows.Forms.Label Pagelabel;
-        private System.Windows.Forms.PictureBox pictureBoxPage;
+        private System.Windows.Forms.PictureBox pictureBoxLikedPage;
         private System.Windows.Forms.ListBox listBoxLikedPages;
-        private System.Windows.Forms.TextBox textBoxEventDescription;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label descriptionLable;
     }
 }

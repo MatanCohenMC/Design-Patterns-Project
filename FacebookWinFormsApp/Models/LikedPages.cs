@@ -39,7 +39,7 @@ namespace FacebookApp.Models
             if (dataList.Count == 0)
             {
                 Dictionary<string, string> noLikedPagesDictionary = new Dictionary<string, string>();
-                noLikedPagesDictionary["ListBoxText"] = "No iked pages to retrieve.";
+                noLikedPagesDictionary["ListBoxText"] = "No liked pages to retrieve.";
                 dataList.Add(noLikedPagesDictionary);
             }
 
@@ -47,10 +47,14 @@ namespace FacebookApp.Models
             return dataList;
         }
 
-        public void GetPictureAlbumURL(out string pictureAlbumURL, int selectedIndex)
+        public string GetPictureUrl(int i_SelectedIndex)
         {
-            Dictionary<string, string> albumData = m_DataList[selectedIndex];
-            pictureAlbumURL = albumData["Picture"];
+            return m_DataList[i_SelectedIndex]["Picture"];
+        }
+
+        public string GetDescription(int i_SelectedIndex)
+        {
+            return m_DataList[i_SelectedIndex]["Description"];
         }
     }
 }

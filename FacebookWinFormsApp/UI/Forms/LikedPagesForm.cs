@@ -14,52 +14,56 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class FormPages : Form, IComponentHandler, IDataHandler, IListBoxHandler
+    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler
     {
         private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<string> m_FetchButtonPressed;
-        private Login m_Login = Login.Instance;
+        public Action<string> m_SelectedIndexChanged;
+        private readonly string r_FormName = "LikedPagesForm";
 
-        public FormPages()
+        public LikedPagesForm()
         {
             InitializeComponent();
         }
 
         private void buttonFetchPages_Click(object sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke("PagesForm");
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
 
-        public ListBox GetListBox()
+        private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            return this.listBoxLikedPages;
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
         {
             DataList = r_LikedPages.FetchUserLikedPages();
-
         }
-
-
-        private void ListBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
+        public ListBox GetListBox()
         {
-            setPicture();
+            return this.listBoxLikedPages;
         }
 
-        private void setPicture()
+        public PictureBox GetPictureBox()
         {
-            string PictureAlbumURL;
-            r_LikedPages.GetPictureAlbumURL(out PictureAlbumURL, listBoxLikedPages.SelectedIndex);
-
-            if (PictureAlbumURL != null)
-            {
-                pictureBoxPage.LoadAsync(PictureAlbumURL);
-            }
-            else
-            {
-                pictureBoxPage.Image = pictureBoxPage.ErrorImage;
-            }
+            return pictureBoxLikedPage;
         }
+
+        public string GetPictureUrlByIndex(int i_Index)
+        {
+            return r_LikedPages.GetPictureUrl(i_Index);
+        }
+
+        public TextBox GetDescriptionTextBox()
+        {
+            return textBoxDescription;
+        }
+
+        public string GetDescriptionByIndex(int i_Index)
+        {
+            return r_LikedPages.GetDescription(i_Index);
+        }
+
     }
 }
