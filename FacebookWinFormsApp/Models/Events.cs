@@ -29,7 +29,7 @@ namespace FacebookApp.Models
                     eventDictionary["Description"] = fbEvent.Description;
                     eventDictionary["Date"] = fbEvent.StartTime.ToString();
                     eventDictionary["Picture"] = fbEvent.PictureNormalURL;
-
+                    
                 }
 
                 dataList.Add(eventDictionary);
@@ -48,7 +48,17 @@ namespace FacebookApp.Models
 
         public string GetLocation(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Location"];
+            string location = null;
+            try
+            {
+                location = m_DataList[i_SelectedIndex]["Location"];
+            }
+            catch(Exception e)
+            {
+
+            }
+
+            return location;
         }
         public string GetDescription(int i_SelectedIndex)
         {

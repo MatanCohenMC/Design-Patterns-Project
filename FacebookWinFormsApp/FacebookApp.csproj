@@ -136,6 +136,12 @@
     <Compile Include="UI\Forms\AppMainForm.Designer.cs">
       <DependentUpon>AppMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\EventsByLocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\EventsByLocationForm.Designer.cs">
+      <DependentUpon>EventsByLocationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\EventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Forms\AlbumsForm.resx">
       <DependentUpon>AlbumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\EventsByLocationForm.resx">
+      <DependentUpon>EventsByLocationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\EventsForm.resx">
       <DependentUpon>EventsForm.cs</DependentUpon>

@@ -14,6 +14,7 @@ using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using CefSharp.DevTools.Debugger;
 
 
 namespace FacebookApp.Controllers
@@ -288,6 +289,7 @@ namespace FacebookApp.Controllers
             string location = locationHandler.GetLocationByIndex(listBox.SelectedIndex);
 
             locationTextBox.Text = location ?? "No location mentioned.";
+            listBox.Enabled = location != null;
         }
 
         private void setUpdatedTime(string i_FormName)
@@ -299,6 +301,7 @@ namespace FacebookApp.Controllers
             string updatedTime = updatedTimeHandler.GetUpdatedTimeByIndex(listBox.SelectedIndex);
 
             updatedTimeTextBox.Text = updatedTime ?? "No updated time mentioned.";
+            listBox.Enabled = updatedTime != null;
         }
 
         private void setPictureCount(string i_FormName)
@@ -308,16 +311,18 @@ namespace FacebookApp.Controllers
             ListBox listBox = componentHandler.GetListBox();
             TextBox pictureCountTextBox = pictureCountHandler.GetPictureCountTextBox();
             string pictureCount = pictureCountHandler.GetPictureCountByIndex(listBox.SelectedIndex);
-            pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
 
-           /* if (albumPictureCount != null && albumPictureCount != String.Empty)
-            {
-                textBoxPictureAmount.Text = albumPictureCount;
-            }
-            else
-            {
-                textBoxPictureAmount.Text = "0";
-            }*/
+            pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
+            listBox.Enabled = pictureCount != null;
+
+            /* if (albumPictureCount != null && albumPictureCount != String.Empty)
+             {
+                 textBoxPictureAmount.Text = albumPictureCount;
+             }
+             else
+             {
+                 textBoxPictureAmount.Text = "0";
+             }*/
         }
 
         private void setDate(string i_FormName)
@@ -329,6 +334,7 @@ namespace FacebookApp.Controllers
             string date = dateHandler.GetDateByIndex(listBox.SelectedIndex);
 
             dateTextBox.Text = date ?? "No date mentioned.";
+            listBox.Enabled = date != null;
         }
 
         private void setDescription(string i_FormName)
@@ -340,6 +346,7 @@ namespace FacebookApp.Controllers
             string description = descriptionHandler.GetDescriptionByIndex(listBox.SelectedIndex);
 
             descriptionTextBox.Text = description ?? "No description mentioned.";
+            listBox.Enabled = description != null;
         }
 
         private void setComments(string i_FormName)
@@ -354,19 +361,24 @@ namespace FacebookApp.Controllers
 
             if (comments == null)
             {
-                commentsListBox.Items.Add("Unknown");
+                commentsListBox.Items.Add("Unknown.");
+                listBox.Enabled = false;
             }
             else if (comments.Count == 0)
             {
-                commentsListBox.Items.Add("No comments");
+                commentsListBox.Items.Add("No comments.");
+                listBox.Enabled = false;
             }
             else
             {
+                listBox.Enabled = true;
                 foreach (Comment comment in comments)
                 {
                     commentsListBox.Items.Add(comment.ToString());
                 }
             }
+
+
         }
 
         private void setCaption(string i_FormName)
@@ -378,6 +390,7 @@ namespace FacebookApp.Controllers
             string description = descriptionHandler.GetCaptionByIndex(listBox.SelectedIndex);
 
             captionTextBox.Text = description ?? "No caption mentioned.";
+            listBox.Enabled = description != null;
         }
 
     }
