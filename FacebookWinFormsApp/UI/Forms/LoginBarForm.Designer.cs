@@ -33,6 +33,7 @@
             this.pictureBoxUserProfile = new System.Windows.Forms.PictureBox();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
             this.labelAppID = new System.Windows.Forms.Label();
+            this.buttonMyProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,12 +94,26 @@
             this.labelAppID.TabIndex = 56;
             this.labelAppID.Text = "App ID:";
             // 
+            // buttonMyProfile
+            // 
+            this.buttonMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonMyProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMyProfile.ForeColor = System.Drawing.Color.White;
+            this.buttonMyProfile.Location = new System.Drawing.Point(3, 282);
+            this.buttonMyProfile.Name = "buttonMyProfile";
+            this.buttonMyProfile.Size = new System.Drawing.Size(170, 40);
+            this.buttonMyProfile.TabIndex = 57;
+            this.buttonMyProfile.Text = "My Profile";
+            this.buttonMyProfile.UseVisualStyleBackColor = true;
+            this.buttonMyProfile.Click += new System.EventHandler(this.buttonMyProfile_Click);
+            // 
             // LoginBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(175, 594);
+            this.Controls.Add(this.buttonMyProfile);
             this.Controls.Add(this.labelAppID);
             this.Controls.Add(this.textBoxAppID);
             this.Controls.Add(this.buttonLogout);
@@ -121,5 +136,6 @@
         private System.Windows.Forms.PictureBox pictureBoxUserProfile;
         private System.Windows.Forms.TextBox textBoxAppID;
         private System.Windows.Forms.Label labelAppID;
+        private System.Windows.Forms.Button buttonMyProfile;
     }
 }

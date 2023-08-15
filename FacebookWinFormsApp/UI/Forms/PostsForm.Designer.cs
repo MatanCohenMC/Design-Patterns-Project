@@ -39,6 +39,7 @@
             this.textBoxLocation = new System.Windows.Forms.TextBox();
             this.textBoxCaption = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,12 +165,24 @@
             this.label3.TabIndex = 65;
             this.label3.Text = "Caption:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(845, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "Post picture";
+            // 
             // PostsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCaption);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxLocation);
@@ -204,5 +217,6 @@
         private System.Windows.Forms.TextBox textBoxLocation;
         private System.Windows.Forms.TextBox textBoxCaption;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
