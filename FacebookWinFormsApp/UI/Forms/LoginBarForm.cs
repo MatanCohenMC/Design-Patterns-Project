@@ -72,5 +72,10 @@ namespace FacebookApp.UI.Forms
                 return pictureBoxUserProfile;
             }
         }
+
+        private void buttonMyProfile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

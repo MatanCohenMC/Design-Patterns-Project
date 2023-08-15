@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutNavBar = new System.Windows.Forms.TableLayoutPanel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.buttonEventByLocation = new System.Windows.Forms.Button();
+            this.buttonPostsByDateRange = new System.Windows.Forms.Button();
             this.ButtonAlbums = new System.Windows.Forms.Button();
             this.ButtonEvents = new System.Windows.Forms.Button();
             this.ButtonGroups = new System.Windows.Forms.Button();
@@ -51,8 +51,8 @@
             this.tableLayoutNavBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutNavBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutNavBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutNavBar.Controls.Add(this.button9, 0, 0);
-            this.tableLayoutNavBar.Controls.Add(this.button8, 0, 0);
+            this.tableLayoutNavBar.Controls.Add(this.buttonEventByLocation, 0, 0);
+            this.tableLayoutNavBar.Controls.Add(this.buttonPostsByDateRange, 0, 0);
             this.tableLayoutNavBar.Controls.Add(this.ButtonAlbums, 0, 0);
             this.tableLayoutNavBar.Controls.Add(this.ButtonEvents, 0, 0);
             this.tableLayoutNavBar.Controls.Add(this.ButtonGroups, 0, 0);
@@ -67,37 +67,37 @@
             this.tableLayoutNavBar.Size = new System.Drawing.Size(1043, 77);
             this.tableLayoutNavBar.TabIndex = 5;
             // 
-            // button9
+            // buttonEventByLocation
             // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.Control;
-            this.button9.Location = new System.Drawing.Point(595, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(149, 77);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonEventByLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEventByLocation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEventByLocation.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonEventByLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEventByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEventByLocation.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonEventByLocation.Location = new System.Drawing.Point(595, 0);
+            this.buttonEventByLocation.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonEventByLocation.Name = "buttonEventByLocation";
+            this.buttonEventByLocation.Size = new System.Drawing.Size(149, 77);
+            this.buttonEventByLocation.TabIndex = 11;
+            this.buttonEventByLocation.Text = "Events By Location";
+            this.buttonEventByLocation.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // buttonPostsByDateRange
             // 
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Location = new System.Drawing.Point(744, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(149, 77);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonPostsByDateRange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPostsByDateRange.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPostsByDateRange.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonPostsByDateRange.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonPostsByDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPostsByDateRange.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonPostsByDateRange.Location = new System.Drawing.Point(744, 0);
+            this.buttonPostsByDateRange.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPostsByDateRange.Name = "buttonPostsByDateRange";
+            this.buttonPostsByDateRange.Size = new System.Drawing.Size(149, 77);
+            this.buttonPostsByDateRange.TabIndex = 10;
+            this.buttonPostsByDateRange.Text = "Posts By Date Range";
+            this.buttonPostsByDateRange.UseVisualStyleBackColor = true;
             // 
             // ButtonAlbums
             // 
@@ -215,8 +215,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutNavBar;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button buttonEventByLocation;
+        private System.Windows.Forms.Button buttonPostsByDateRange;
         private System.Windows.Forms.Button ButtonAlbums;
         private System.Windows.Forms.Button ButtonEvents;
         private System.Windows.Forms.Button ButtonGroups;
