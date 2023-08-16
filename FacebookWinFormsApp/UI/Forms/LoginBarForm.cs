@@ -25,6 +25,7 @@ namespace FacebookApp.UI.Forms
         public LoginBarForm()
         {
             InitializeComponent();
+            buttonLogout.Enabled = false;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
