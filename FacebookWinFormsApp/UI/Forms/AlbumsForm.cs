@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.Dtos;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
 using FacebookWrapper.ObjectModel;

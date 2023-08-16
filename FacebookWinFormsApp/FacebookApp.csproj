@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FormsController.cs" />
-    <Compile Include="Dtos\DataDto.cs" />
     <Compile Include="Interfaces\ICaptionHandler.cs" />
     <Compile Include="Interfaces\ICommentsHandler.cs" />
     <Compile Include="Interfaces\IDateHandler.cs" />
