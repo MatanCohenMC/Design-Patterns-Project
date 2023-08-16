@@ -38,25 +38,9 @@ namespace FacebookApp.Models
         }
 
 
-
         public LoginResult LoginResult { get; private set; }
 
         public User LoggedInUser { get; private set; }
-
-        //private FacebookWrapper.LoginResult m_LoginResult;
-
-        //public static Login Instance
-        //{
-        //    get
-        //    {
-        //        if (s_Instance == null)
-        //        {
-        //            s_Instance = new Login();
-        //        }
-
-        //        return s_Instance;
-        //    }
-        //}
 
         public void LoginToApp(string i_AppID)
         {
@@ -75,6 +59,11 @@ namespace FacebookApp.Models
         {
             bool isLoggedIn = string.IsNullOrEmpty(LoginResult.ErrorMessage);
             return isLoggedIn;
+        }
+
+        public void LogOut()
+        {
+
         }
     }
 }

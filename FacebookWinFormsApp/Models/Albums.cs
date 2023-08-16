@@ -1,5 +1,4 @@
-﻿using FacebookApp.Dtos;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;

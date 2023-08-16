@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Models;
 using FacebookApp.Interfaces;
-using FacebookApp.Dtos;
 
 namespace FacebookApp.UI.Forms
 {

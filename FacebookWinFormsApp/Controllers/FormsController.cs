@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.Dtos;
 using FacebookApp.UI.Forms;
 using FacebookApp.UI;
 using FacebookApp.Interfaces;
@@ -237,8 +236,6 @@ namespace FacebookApp.Controllers
             fetchDataToListBox(componentHandler, dataHandler);
         }
 
-
-
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
             ListBox listBox = i_ComponentHandler.GetListBox();
@@ -290,10 +287,8 @@ namespace FacebookApp.Controllers
 
         }
 
-
         private void setPicture(eFormName i_EnumFormName)
         {
-            //hello!! delete this comment
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
             ListBox listBox = componentHandler.GetListBox();
@@ -306,7 +301,7 @@ namespace FacebookApp.Controllers
             }
             else
             {
-                pictureBox.Image = pictureBox.ErrorImage;
+                pictureBox.Image = null;
             }
         }
 
