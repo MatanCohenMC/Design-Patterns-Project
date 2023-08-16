@@ -31,7 +31,6 @@ namespace FacebookApp.Controllers
             r_Login = Login.Instance;
             initializeForms();
         }
-        // //
 
         private void initializeForms()
         {
@@ -258,9 +257,32 @@ namespace FacebookApp.Controllers
 
         private void fetchUserProfileData()
         {
-            UserProfileForm userProfile = GetForm("UserProfileForm") as UserProfileForm;
-            Dictionary<string,string> userDictionary = userProfile?.GetUserProfileData();
+            UserProfileForm userProfileForm = GetForm("UserProfileForm") as UserProfileForm;
+            Dictionary<string,string> userDataDictionary = userProfileForm?.GetUserProfileData();
 
+            TextBox fullNameTextBox = userProfileForm.GetFullNameTextBox();
+            fullNameTextBox.Text = userDataDictionary["FullName"];
+
+            TextBox emailTextBox = userProfileForm.GetEmailTextBox();
+            fullNameTextBox.Text = userDataDictionary["Email"];
+
+            TextBox genderTextBox = userProfileForm.GetGenderTextBox();
+            genderTextBox.Text = userDataDictionary["Gender"];
+
+            TextBox birthdayTextBox = userProfileForm.GetBirthdayTextBox();
+            birthdayTextBox.Text = userDataDictionary["Birthday"];
+
+            TextBox hometownTextBox = userProfileForm.GetHometownTextBox();
+            hometownTextBox.Text = userDataDictionary["Hometown"];
+
+            TextBox educationTextBox = userProfileForm.GetEducationTextBox();
+            educationTextBox.Text = userDataDictionary["Education"];
+
+            TextBox workTextBox = userProfileForm.GetWorkTextBox();
+            workTextBox.Text = userDataDictionary["Work"];
+
+            PictureBox profilePictureBox = userProfileForm.GetProfilePictureBox();
+            profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
         }
 
 
