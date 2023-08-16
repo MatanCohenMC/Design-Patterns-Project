@@ -81,7 +81,8 @@ namespace FacebookApp.Controllers
 
             string formNameUserProfile = "UserProfileForm";
             UserProfileForm userProfileForm = new UserProfileForm();
-            //postsForm.m_FetchButtonPressed += fetchUserFormData;
+            //userProfileForm.m_FetchButtonPressed += fetchUserFormData;
+            userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
             AddForm(formNameUserProfile, userProfileForm);
 
             string formNameNavigationBarForm = "NavigationBarForm";
@@ -93,6 +94,7 @@ namespace FacebookApp.Controllers
             LoginBarForm loginBarForm = new LoginBarForm();
             loginBarForm.m_LoginButtonPressed += loginToApp;
             loginBarForm.m_LogoutButtonPressed += logoutOfApp;
+            loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
 
             AddForm(formNameLoginBarForm, loginBarForm);
             string formNameAppMainForm = "AppMainForm";
@@ -266,6 +268,13 @@ namespace FacebookApp.Controllers
                     }
                 }
             }
+        }
+
+        private void fetchUserProfileData()
+        {
+            UserProfileForm userProfile = GetForm("UserProfileForm") as UserProfileForm;
+            Dictionary<string,string> userDictionary = userProfile?.GetUserProfileData();
+
         }
 
 
