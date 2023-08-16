@@ -15,25 +15,49 @@ namespace FacebookApp.Models
 {
     public class Login
     {
+
+        Login() { }
+        private static readonly object lock = new object ();
         private static Login s_Instance = null;
+        public static Login s_Instance
+        {
+            get
+            {
+                if (s_Instance == null)
+                {
+                    lock (lock)
+                    {
+                        if (s_Instance == null)
+                        {
+                            s_Instance = new Login();
+                        }
+                    }
+                }
+                return s_Instance;
+            }
+        }
+
+
+
+        //private static Login s_Instance = null;
         public LoginResult LoginResult { get; private set; }
 
         public User LoggedInUser { get; private set; }
 
         //private FacebookWrapper.LoginResult m_LoginResult;
 
-        public static Login Instance
-        {
-            get
-            {
-                if (s_Instance == null)
-                {
-                    s_Instance = new Login();
-                }
+        //public static Login Instance
+        //{
+        //    get
+        //    {
+        //        if (s_Instance == null)
+        //        {
+        //            s_Instance = new Login();
+        //        }
 
-                return s_Instance;
-            }
-        }
+        //        return s_Instance;
+        //    }
+        //}
 
         public void LoginToApp(string i_AppID)
         {
