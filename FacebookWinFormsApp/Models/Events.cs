@@ -49,32 +49,14 @@ namespace FacebookApp.Models
 
         public List<Dictionary<string, string>> FetchUserEventsByLocation(string i_Location)
         {
-            List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
-
-            foreach (Event fbEvent in r_Login.LoggedInUser.Events)
+            List<Dictionary<string, string>> dataList = FetchUserEvents();
+            foreach(Dictionary<string, string> eventDictionary in dataList)
             {
-                Dictionary<string, string> eventDictionary = new Dictionary<string, string>();
-
-                if (fbEvent.Name != null && fbEvent.Location == i_Location)
+                if(eventDictionary["Location"] != i_Location)
                 {
-                    eventDictionary["ListBoxText"] = fbEvent.Name;
-                    eventDictionary["Description"] = fbEvent.Description;
-                    eventDictionary["Date"] = fbEvent.StartTime.ToString();
-                    eventDictionary["Picture"] = fbEvent.PictureNormalURL;
-
+                    dataList.Remove(eventDictionary);
                 }
-
-                dataList.Add(eventDictionary);
             }
-
-            if (dataList.Count == 0)
-            {
-                Dictionary<string, string> noEventsDictionary = new Dictionary<string, string>();
-                noEventsDictionary["ListBoxText"] = "No events to retrieve.";
-                dataList.Add(noEventsDictionary);
-            }
-
-            m_DataList = dataList;
             return dataList;
         }
 

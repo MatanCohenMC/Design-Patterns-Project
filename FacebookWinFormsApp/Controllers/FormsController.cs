@@ -84,6 +84,25 @@ namespace FacebookApp.Controllers
             //postsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(formNameUserProfile, userProfileForm);
 
+            string formNamePostsByDateRange = "PostsByDateRangeForm";
+            PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
+            postsByDateRangeForm.m_FetchButtonPressed += fetchUserFormData;
+            postsByDateRangeForm.m_SelectedIndexChanged += setPicture;
+            postsByDateRangeForm.m_SelectedIndexChanged += setComments;
+            postsByDateRangeForm.m_SelectedIndexChanged += setDate;
+            postsByDateRangeForm.m_SelectedIndexChanged += setLocation;
+            postsByDateRangeForm.m_SelectedIndexChanged += setCaption;
+            AddForm(formNamePostsByDateRange, postsByDateRangeForm);
+
+            string formNameEventsByLocation = "EventsByLocationForm";
+            EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
+            eventsByLocationForm.m_FetchButtonPressed += fetchUserFormData;
+            eventsByLocationForm.m_SelectedIndexChanged += setDescription;
+            eventsByLocationForm.m_SelectedIndexChanged += setDate;
+            eventsByLocationForm.m_SelectedIndexChanged += setPicture;
+            AddForm(formNameEventsByLocation, eventsByLocationForm);
+
+
             string formNameNavigationBarForm = "NavigationBarForm";
             NavigationBarForm navigationBarForm = new NavigationBarForm();
             navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
@@ -99,13 +118,7 @@ namespace FacebookApp.Controllers
             Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
             AddForm(formNameAppMainForm, appMainForm);
 
-            string formNameEventsByLocation = "EventsByLocationForm";
-            EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-            eventsByLocationForm.m_FetchButtonPressed += fetchUserFormData;
-            eventsForm.m_SelectedIndexChanged += setDescription;
-            eventsForm.m_SelectedIndexChanged += setDate;
-            eventsForm.m_SelectedIndexChanged += setPicture;
-            AddForm(formNameEventsByLocation, eventsByLocationForm);
+
         }
 
         private void loginToApp()
@@ -219,34 +232,7 @@ namespace FacebookApp.Controllers
             fetchDataToListBox(componentHandler, dataHandler);
         }
 
-        /*private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
-        {
-            Type componentType = i_ComponentHandler.GetType();
 
-            if (typeof(IListBoxHandler).IsAssignableFrom(componentType))
-            {
-                MethodInfo listBoxMethod = componentType.GetMethod("GetListBox");
-                if (listBoxMethod != null)
-                {
-                    ListBox listBox = (ListBox)listBoxMethod.Invoke(i_ComponentHandler, null);
-                    listBox?.Items.Clear();
-                    List<Dictionary<string, string>> dataList;
-
-                    if (i_DataHandler != null)
-                    {
-                        i_DataHandler.FetchListBoxData(out dataList);
-
-                        foreach (Dictionary<string, string> data in dataList)
-                        {
-                            if (data.ContainsKey("ListBoxText"))
-                            {
-                                listBox.Items.Add(data["ListBoxText"]);
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
 
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
@@ -399,6 +385,8 @@ namespace FacebookApp.Controllers
             captionTextBox.Text = description ?? "No caption mentioned.";
             listBox.Enabled = description != null;
         }
+
+
 
     }
 }

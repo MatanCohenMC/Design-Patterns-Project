@@ -82,6 +82,7 @@
             this.buttonEventByLocation.TabIndex = 11;
             this.buttonEventByLocation.Text = "Events By Location";
             this.buttonEventByLocation.UseVisualStyleBackColor = true;
+            this.buttonEventByLocation.Click += new System.EventHandler(this.buttonEventByLocation_Click);
             // 
             // buttonPostsByDateRange
             // 
@@ -98,6 +99,7 @@
             this.buttonPostsByDateRange.TabIndex = 10;
             this.buttonPostsByDateRange.Text = "Posts By Date Range";
             this.buttonPostsByDateRange.UseVisualStyleBackColor = true;
+            this.buttonPostsByDateRange.Click += new System.EventHandler(this.buttonPostsByDateRange_Click);
             // 
             // ButtonAlbums
             // 

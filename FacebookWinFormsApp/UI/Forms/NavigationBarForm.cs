@@ -59,5 +59,16 @@ namespace FacebookApp.UI.Forms
             m_OnSubFormButtonPressed?.Invoke("LikedPagesForm");
             //displayFormEventHandler.Invoke(m_FormsController.GetForm("PagesForm"));
         }
+
+
+        private void buttonEventByLocation_Click(object i_Sender, EventArgs i_E)
+        {
+            m_OnSubFormButtonPressed?.Invoke("EventsByLocationForm");
+        }
+
+        private void buttonPostsByDateRange_Click(object i_Sender, EventArgs i_E)
+        {
+            m_OnSubFormButtonPressed?.Invoke("PostsByDateRangeForm");
+        }
     }
 }

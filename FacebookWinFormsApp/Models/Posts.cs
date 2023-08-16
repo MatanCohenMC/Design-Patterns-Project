@@ -24,17 +24,19 @@ namespace FacebookApp.Models
             {
                 Dictionary<string, string> postDictionary = new Dictionary<string, string>();
 
+
+                postDictionary["Date"] = post.CreatedTime.ToString();
                 if (post.Message != null)
                 {
                     postDictionary["ListBoxText"] = post.Message;
                     postDictionary["Caption"] = post.Caption;
-                    postDictionary["Date"] = post.CreatedTime.ToString();
                     postDictionary["Picture"] = post.PictureURL;
-                    postDictionary["Location"] = post.Place.Name;
+                    postDictionary["Location"] = post.Place?.Name;
                 }
                 else
                 {
                     postDictionary["Type"] = string.Format("[{0}]", post.Type);
+                    
                 }
 
                 dataList.Add(postDictionary);
@@ -74,6 +76,22 @@ namespace FacebookApp.Models
         public ICollection<Comment> GetComments(int i_SelectedIndex)
         {
             return r_Login.LoggedInUser.Posts[i_SelectedIndex].Comments;
+        }
+
+        public List<Dictionary<string, string>> FetchUserPostsByDateRange(DateTime i_DateTimeFrom, DateTime i_DateTimeTo)
+        {
+            List<Dictionary<string, string>> dataList = FetchUserPosts();
+            List<Dictionary<string, string>> returnedDataList = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> postDictionary in dataList.ToList())
+            {
+                DateTime postDateTime = DateTime.Parse(postDictionary["Date"]);
+                if(postDateTime >= i_DateTimeFrom || postDateTime <= i_DateTimeTo)
+                {
+                    returnedDataList.Add(postDictionary);
+                }
+            }
+            return returnedDataList;
         }
     }
 }

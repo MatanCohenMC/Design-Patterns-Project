@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp.UI.Forms
 {
-    partial class PostsByDateRange
+    partial class PostsByDateRangeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.labelEnterMonths = new System.Windows.Forms.Label();
-            this.textBoxFromMonth = new System.Windows.Forms.TextBox();
-            this.textBoxToMonth = new System.Windows.Forms.TextBox();
             this.labelFrom = new System.Windows.Forms.Label();
             this.labelTo = new System.Windows.Forms.Label();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
@@ -44,6 +42,9 @@
             this.commentsLable = new System.Windows.Forms.Label();
             this.listBoxComments = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonFetchPostsByDate = new System.Windows.Forms.Button();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,22 +58,6 @@
             this.labelEnterMonths.Size = new System.Drawing.Size(133, 25);
             this.labelEnterMonths.TabIndex = 0;
             this.labelEnterMonths.Text = "Enter months:";
-            // 
-            // textBoxFromMonth
-            // 
-            this.textBoxFromMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFromMonth.Location = new System.Drawing.Point(230, 23);
-            this.textBoxFromMonth.Name = "textBoxFromMonth";
-            this.textBoxFromMonth.Size = new System.Drawing.Size(138, 30);
-            this.textBoxFromMonth.TabIndex = 1;
-            // 
-            // textBoxToMonth
-            // 
-            this.textBoxToMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxToMonth.Location = new System.Drawing.Point(417, 23);
-            this.textBoxToMonth.Name = "textBoxToMonth";
-            this.textBoxToMonth.Size = new System.Drawing.Size(138, 30);
-            this.textBoxToMonth.TabIndex = 2;
             // 
             // labelFrom
             // 
@@ -90,7 +75,7 @@
             this.labelTo.AutoSize = true;
             this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTo.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTo.Location = new System.Drawing.Point(375, 26);
+            this.labelTo.Location = new System.Drawing.Point(447, 28);
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(36, 25);
             this.labelTo.TabIndex = 4;
@@ -106,6 +91,7 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(335, 304);
             this.listBoxPosts.TabIndex = 5;
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // textBoxCaption
             // 
@@ -213,12 +199,43 @@
             this.label1.TabIndex = 76;
             this.label1.Text = "Post picture";
             // 
-            // PostsByDateRange
+            // buttonFetchPostsByDate
+            // 
+            this.buttonFetchPostsByDate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFetchPostsByDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchPostsByDate.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonFetchPostsByDate.Location = new System.Drawing.Point(695, 18);
+            this.buttonFetchPostsByDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonFetchPostsByDate.Name = "buttonFetchPostsByDate";
+            this.buttonFetchPostsByDate.Size = new System.Drawing.Size(135, 40);
+            this.buttonFetchPostsByDate.TabIndex = 77;
+            this.buttonFetchPostsByDate.Text = "Fetch Posts";
+            this.buttonFetchPostsByDate.UseVisualStyleBackColor = true;
+            this.buttonFetchPostsByDate.Click += new System.EventHandler(this.buttonFetchPostsByDate_Click);
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(230, 28);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerFrom.TabIndex = 78;
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Location = new System.Drawing.Point(489, 29);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerTo.TabIndex = 79;
+            // 
+            // PostsByDateRangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.dateTimePickerTo);
+            this.Controls.Add(this.dateTimePickerFrom);
+            this.Controls.Add(this.buttonFetchPostsByDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCaption);
             this.Controls.Add(this.label3);
@@ -232,11 +249,9 @@
             this.Controls.Add(this.listBoxPosts);
             this.Controls.Add(this.labelTo);
             this.Controls.Add(this.labelFrom);
-            this.Controls.Add(this.textBoxToMonth);
-            this.Controls.Add(this.textBoxFromMonth);
             this.Controls.Add(this.labelEnterMonths);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PostsByDateRange";
+            this.Name = "PostsByDateRangeForm";
             this.Text = "PicturesByDateRange";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).EndInit();
             this.ResumeLayout(false);
@@ -247,8 +262,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelEnterMonths;
-        private System.Windows.Forms.TextBox textBoxFromMonth;
-        private System.Windows.Forms.TextBox textBoxToMonth;
         private System.Windows.Forms.Label labelFrom;
         private System.Windows.Forms.Label labelTo;
         private System.Windows.Forms.ListBox listBoxPosts;
@@ -262,5 +275,8 @@
         private System.Windows.Forms.Label commentsLable;
         private System.Windows.Forms.ListBox listBoxComments;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonFetchPostsByDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
     }
 }
