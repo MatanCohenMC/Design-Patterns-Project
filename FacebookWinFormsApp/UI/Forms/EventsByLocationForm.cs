@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler
+    public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler,ISetFetchAction,ISetSelectedIndexAction
     {
         private readonly Events r_Events = new Events();
         //private readonly string r_FormName = "EventsForm";
@@ -81,6 +81,16 @@ namespace FacebookApp.UI.Forms
         public string GetDateByIndex(int i_Index)
         {
             return r_Events.GetDate(i_Index);
+        }
+
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed += action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged += action;
         }
     }
 }

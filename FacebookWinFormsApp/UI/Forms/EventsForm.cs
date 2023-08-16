@@ -14,7 +14,7 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsForm : Form, IComponentHandler, IDataHandler, ILocationHandler, IDescriptionHandler, IDateHandler, IPictureHandler
+    public partial class EventsForm : Form, IComponentHandler, IDataHandler, ILocationHandler, IDescriptionHandler, IDateHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private readonly Events r_Events = new Events();
         //private readonly string r_FormName = "EventsForm";
@@ -85,6 +85,16 @@ namespace FacebookApp.UI.Forms
         public string GetPictureUrlByIndex(int i_Index)
         {
             return r_Events.GetPictureUrl(i_Index);
+        }
+
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed += action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged += action;
         }
     }
 }

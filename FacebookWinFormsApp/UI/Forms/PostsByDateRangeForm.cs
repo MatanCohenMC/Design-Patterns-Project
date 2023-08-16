@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler
+    public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private readonly Posts r_Posts = new Posts();
         //private readonly string r_FormName = "PostsByDateRangeForm";
@@ -99,5 +99,14 @@ namespace FacebookApp.UI.Forms
         }
 
 
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed += action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged += action;
+        }
     }
 }

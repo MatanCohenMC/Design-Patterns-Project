@@ -47,6 +47,7 @@
             this.listBoxGroups.Name = "listBoxGroups";
             this.listBoxGroups.Size = new System.Drawing.Size(318, 329);
             this.listBoxGroups.TabIndex = 0;
+            this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // Photolabel
             // 

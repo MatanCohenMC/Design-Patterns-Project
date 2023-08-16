@@ -41,70 +41,83 @@ namespace FacebookApp.Controllers
 
             eFormName AlbumsEnum = eFormName.AlbumForm;
             AlbumsForm albumsForm = new AlbumsForm();
-            albumsForm.m_FetchButtonPressed += fetchUserFormData;
-            albumsForm.m_SelectedIndexChanged += setLocation;
-            albumsForm.m_SelectedIndexChanged +=  setPicture;
-            albumsForm.m_SelectedIndexChanged += setUpdatedTime;
-            albumsForm.m_SelectedIndexChanged += setPictureCount;
             AddForm(AlbumsEnum, albumsForm);
+
+            //albumsForm.m_FetchButtonPressed += fetchUserFormData;
+            //albumsForm.m_SelectedIndexChanged += setLocation;
+            //albumsForm.m_SelectedIndexChanged +=  setPicture;
+            //albumsForm.m_SelectedIndexChanged += setUpdatedTime;
+            //albumsForm.m_SelectedIndexChanged += setPictureCount;
+            setFetchActionFunctions(AlbumsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(AlbumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
 
             eFormName EventsEnum = eFormName.EventsForm;
             EventsForm eventsForm = new EventsForm();
-            eventsForm.m_FetchButtonPressed += fetchUserFormData;
-            eventsForm.m_SelectedIndexChanged += setLocation;
-            eventsForm.m_SelectedIndexChanged += setDescription;
-            eventsForm.m_SelectedIndexChanged += setDate;
-            eventsForm.m_SelectedIndexChanged += setPicture;
             AddForm(EventsEnum, eventsForm);
+            setFetchActionFunctions(EventsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(EventsEnum, setLocation, setDescription, setDate, setPicture);
+            //eventsForm.m_FetchButtonPressed += fetchUserFormData;
+            //eventsForm.m_SelectedIndexChanged += setLocation;
+            //eventsForm.m_SelectedIndexChanged += setDescription;
+            //eventsForm.m_SelectedIndexChanged += setDate;
+            //eventsForm.m_SelectedIndexChanged += setPicture;
 
-            eFormName GroupsEnum = eFormName.GroupsForm;
+            eFormName groupsEnum = eFormName.GroupsForm;
             GroupsForm groupsForm = new GroupsForm();
-            groupsForm.m_FetchButtonPressed += fetchUserFormData;
-            groupsForm.m_SelectedIndexChanged += setPicture;
-            groupsForm.m_SelectedIndexChanged += setDescription;
-            AddForm(GroupsEnum, groupsForm);
+            AddForm(groupsEnum, groupsForm);
+            setFetchActionFunctions(groupsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(groupsEnum, setPicture, setDescription);
+            //groupsForm.m_FetchButtonPressed += fetchUserFormData;
+            //groupsForm.m_SelectedIndexChanged += setPicture;
+            //groupsForm.m_SelectedIndexChanged += setDescription;
 
             eFormName LikedPagesEnum = eFormName.LikedPagesForm;
             LikedPagesForm likedPagesForm = new LikedPagesForm();
-            likedPagesForm.m_FetchButtonPressed += fetchUserFormData;
-            likedPagesForm.m_SelectedIndexChanged += setPicture;
-            likedPagesForm.m_SelectedIndexChanged += setDescription;
             AddForm(LikedPagesEnum, likedPagesForm);
+            setFetchActionFunctions(LikedPagesEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(LikedPagesEnum, setPicture, setDescription);
+            //likedPagesForm.m_FetchButtonPressed += fetchUserFormData;
+            //likedPagesForm.m_SelectedIndexChanged += setPicture;
+            //likedPagesForm.m_SelectedIndexChanged += setDescription;
 
             eFormName PostsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
-            postsForm.m_FetchButtonPressed += fetchUserFormData;
-            postsForm.m_SelectedIndexChanged += setPicture;
-            postsForm.m_SelectedIndexChanged += setComments;
-            postsForm.m_SelectedIndexChanged += setDate;
-            postsForm.m_SelectedIndexChanged += setLocation;
-            postsForm.m_SelectedIndexChanged += setCaption;
             AddForm(PostsEnum, postsForm);
+            setFetchActionFunctions(PostsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(PostsEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            //postsForm.m_FetchButtonPressed += fetchUserFormData;
+            //postsForm.m_SelectedIndexChanged += setPicture;
+            //postsForm.m_SelectedIndexChanged += setComments;
+            //postsForm.m_SelectedIndexChanged += setDate;
+            //postsForm.m_SelectedIndexChanged += setLocation;
+            //postsForm.m_SelectedIndexChanged += setCaption;
 
             eFormName UserProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
-            //userProfileForm.m_FetchButtonPressed += fetchUserFormData;
-            userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
-            //postsForm.m_FetchButtonPressed += fetchUserFormData;
             AddForm(UserProfileEnum, userProfileForm);
+            userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
 
             eFormName PostsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
-            postsByDateRangeForm.m_FetchButtonPressed += fetchUserFormData;
-            postsByDateRangeForm.m_SelectedIndexChanged += setPicture;
-            postsByDateRangeForm.m_SelectedIndexChanged += setComments;
-            postsByDateRangeForm.m_SelectedIndexChanged += setDate;
-            postsByDateRangeForm.m_SelectedIndexChanged += setLocation;
-            postsByDateRangeForm.m_SelectedIndexChanged += setCaption;
             AddForm(PostsByDateRangeEnum, postsByDateRangeForm);
+            setFetchActionFunctions(PostsByDateRangeEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(PostsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            //postsByDateRangeForm.m_FetchButtonPressed += fetchUserFormData;
+            //postsByDateRangeForm.m_SelectedIndexChanged += setPicture;
+            //postsByDateRangeForm.m_SelectedIndexChanged += setComments;
+            //postsByDateRangeForm.m_SelectedIndexChanged += setDate;
+            //postsByDateRangeForm.m_SelectedIndexChanged += setLocation;
+            //postsByDateRangeForm.m_SelectedIndexChanged += setCaption;
 
             eFormName EventsByLocationEnum = eFormName.EventsByLocationForm;
             EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-            eventsByLocationForm.m_FetchButtonPressed += fetchUserFormData;
-            eventsByLocationForm.m_SelectedIndexChanged += setDescription;
-            eventsByLocationForm.m_SelectedIndexChanged += setDate;
-            eventsByLocationForm.m_SelectedIndexChanged += setPicture;
             AddForm(EventsByLocationEnum, eventsByLocationForm);
+            setFetchActionFunctions(EventsByLocationEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(EventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
+            //eventsByLocationForm.m_FetchButtonPressed += fetchUserFormData;
+            //eventsByLocationForm.m_SelectedIndexChanged += setDescription;
+            //eventsByLocationForm.m_SelectedIndexChanged += setDate;
+            //eventsByLocationForm.m_SelectedIndexChanged += setPicture;
 
 
             eFormName NavigationBarEnum = eFormName.NavigationBarForm;
@@ -124,6 +137,22 @@ namespace FacebookApp.Controllers
             AddForm(AppMainFormEnum, appMainForm);
 
 
+        }
+
+
+        private void setFetchActionFunctions(eFormName i_EnumFormName, Action<eFormName> i_Action)
+        {
+            ISetFetchAction fetchActionInterface = GetForm(i_EnumFormName) as ISetFetchAction;
+            fetchActionInterface.SetFetchAction(i_Action);
+        }
+
+        private void setSelectedIndexActionFunctions(eFormName i_EnumFormName, params Action<eFormName>[] i_Actions)
+        {
+            ISetSelectedIndexAction selectedIndexActionInterface = GetForm(i_EnumFormName) as ISetSelectedIndexAction;
+            foreach(Action<eFormName> action in i_Actions)
+            {
+                selectedIndexActionInterface.SetSelectedIndexAction(action);
+            }
         }
 
         private void loginToApp()

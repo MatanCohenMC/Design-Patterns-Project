@@ -14,7 +14,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler
+    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<eFormName> m_FetchButtonPressed;
@@ -66,5 +66,14 @@ namespace FacebookApp.UI.Forms
             return r_LikedPages.GetDescription(i_Index);
         }
 
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed += action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged += action;
+        }
     }
 }

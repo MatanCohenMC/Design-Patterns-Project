@@ -17,7 +17,7 @@ using CefSharp.ModelBinding;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler
+    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private readonly Albums r_Albums = new Albums();
         //private readonly string r_FormName = "AlbumsForm";
@@ -88,6 +88,16 @@ namespace FacebookApp.UI.Forms
         public string GetPictureCountByIndex(int i_Index)
         {
             return r_Albums.GetPictureCount(i_Index);
+        }
+
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed += action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged += action;
         }
     }
 } 

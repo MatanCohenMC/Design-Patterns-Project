@@ -114,9 +114,11 @@
     <Compile Include="Interfaces\ICommentsHandler.cs" />
     <Compile Include="Interfaces\IDateHandler.cs" />
     <Compile Include="Interfaces\IDescriptionHandler.cs" />
+    <Compile Include="Interfaces\ISetFetchAction.cs" />
     <Compile Include="Interfaces\ILocationHandler.cs" />
     <Compile Include="Interfaces\IPictureCountHandler.cs" />
     <Compile Include="Interfaces\IPictureHandler.cs" />
+    <Compile Include="Interfaces\ISetSelectedIndexAction.cs" />
     <Compile Include="Interfaces\IUpdatedTimeHandler.cs" />
     <Compile Include="Models\Albums.cs" />
     <Compile Include="Models\eFormName.cs" />

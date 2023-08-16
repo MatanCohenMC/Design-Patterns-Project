@@ -13,7 +13,7 @@ using FacebookApp.Dtos;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler
+    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private Groups r_Groups = new Groups();
         //private readonly string r_FormName = "GroupsForm";
@@ -63,6 +63,16 @@ namespace FacebookApp.UI.Forms
         public string GetDescriptionByIndex(int i_Index)
         {
             return r_Groups.GetDescription(i_Index);
+        }
+
+        public void SetFetchAction(Action<eFormName> action)
+        {
+            m_FetchButtonPressed+= action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> action)
+        {
+            m_SelectedIndexChanged+= action;
         }
     }
 }
