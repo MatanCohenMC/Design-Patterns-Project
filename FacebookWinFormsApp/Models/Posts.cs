@@ -86,12 +86,12 @@ namespace FacebookApp.Models
             foreach (Dictionary<string, string> postDictionary in dataList.ToList())
             {
                 DateTime postDateTime = DateTime.Parse(postDictionary["Date"]);
-                if(postDateTime >= i_DateTimeFrom || postDateTime <= i_DateTimeTo)
+                if(postDateTime < i_DateTimeFrom || postDateTime > i_DateTimeTo)
                 {
-                    returnedDataList.Add(postDictionary);
+                    dataList.Remove(postDictionary);
                 }
             }
-            return returnedDataList;
+            return dataList;
         }
     }
 }
