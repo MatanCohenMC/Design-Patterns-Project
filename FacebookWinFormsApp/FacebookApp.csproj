@@ -125,6 +125,7 @@
     <Compile Include="Models\LikedPages.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Posts.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="UI\Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
     </Compile>

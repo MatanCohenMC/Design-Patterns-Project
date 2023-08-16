@@ -20,6 +20,8 @@ namespace FacebookApp.UI.Forms
         public FacebookWrapper.LoginResult LoginResult { get; set; }
         public Action m_LoginButtonPressed;
         public Action m_LogoutButtonPressed;
+        public Action<string> m_OnSubFormButtonPressed;
+
 
         public LoginBarForm()
         {
@@ -36,9 +38,9 @@ namespace FacebookApp.UI.Forms
             m_LogoutButtonPressed?.Invoke();
         }
 
-        private void pictureBoxUserProfile_Click(object sender, EventArgs e)
+        private void buttonMyProfile_Click(object sender, EventArgs e)
         {
-
+            m_OnSubFormButtonPressed?.Invoke("UserProfileForm");
         }
 
         public string TextBoxAppIdString
@@ -73,9 +75,5 @@ namespace FacebookApp.UI.Forms
             }
         }
 
-        private void buttonMyProfile_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
