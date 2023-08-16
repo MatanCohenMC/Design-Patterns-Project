@@ -19,7 +19,7 @@ namespace FacebookApp.UI.Forms
         public FacebookWrapper.LoginResult LoginResult { get; set; }
         public Action m_LoginButtonPressed;
         public Action m_LogoutButtonPressed;
-        public Action<string> m_OnSubFormButtonPressed;
+        public Action<eFormName> m_OnSubFormButtonPressed;
 
 
         public LoginBarForm()
@@ -39,7 +39,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonMyProfile_Click(object sender, EventArgs e)
         {
-            m_OnSubFormButtonPressed?.Invoke("UserProfileForm");
+            m_OnSubFormButtonPressed?.Invoke(eFormName.UserProfileForm);
         }
 
         public string TextBoxAppIdString

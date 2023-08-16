@@ -42,10 +42,10 @@ namespace FacebookApp.Controllers
             eFormName AlbumsEnum = eFormName.AlbumForm;
             AlbumsForm albumsForm = new AlbumsForm();
             albumsForm.m_FetchButtonPressed += fetchUserFormData;
-            albumsForm.m_SelectedIndexChanged += fetchUserFormData;
-            albumsForm.m_SelectedIndexChanged +=  fetchUserFormData;
-            albumsForm.m_SelectedIndexChanged += fetchUserFormData;
-            albumsForm.m_SelectedIndexChanged += fetchUserFormData;
+            albumsForm.m_SelectedIndexChanged += setLocation;
+            albumsForm.m_SelectedIndexChanged +=  setPicture;
+            albumsForm.m_SelectedIndexChanged += setUpdatedTime;
+            albumsForm.m_SelectedIndexChanged += setPictureCount;
             AddForm(AlbumsEnum, albumsForm);
 
             eFormName EventsEnum = eFormName.EventsForm;
@@ -264,7 +264,31 @@ namespace FacebookApp.Controllers
         private void fetchUserProfileData()
         {
             UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
-            Dictionary<string,string> userDictionary = userProfile?.GetUserProfileData();
+            Dictionary<string,string> userDataDictionary = userProfile?.GetUserProfileData();
+
+            TextBox fullNameTextBox = userProfile.GetFullNameTextBox();
+            fullNameTextBox.Text = userDataDictionary["FullName"];
+
+            TextBox emailTextBox = userProfile.GetEmailTextBox();
+            fullNameTextBox.Text = userDataDictionary["Email"];
+
+            TextBox genderTextBox = userProfile.GetGenderTextBox();
+            genderTextBox.Text = userDataDictionary["Gender"];
+
+            TextBox birthdayTextBox = userProfile.GetBirthdayTextBox();
+            birthdayTextBox.Text = userDataDictionary["Birthday"];
+
+            TextBox hometownTextBox = userProfile.GetHometownTextBox();
+            hometownTextBox.Text = userDataDictionary["Hometown"];
+
+            TextBox educationTextBox = userProfile.GetEducationTextBox();
+            educationTextBox.Text = userDataDictionary["Education"];
+
+            TextBox workTextBox = userProfile.GetWorkTextBox();
+            workTextBox.Text = userDataDictionary["Work"];
+
+            PictureBox profilePictureBox = userProfile.GetProfilePictureBox();
+            profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
 
         }
 

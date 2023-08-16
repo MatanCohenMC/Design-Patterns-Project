@@ -69,7 +69,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonPostsByDateRange_Click(object i_Sender, EventArgs i_E)
         {
-            m_OnSubFormButtonPressed?.Invoke(eFormName.LoginBarForm);
+            m_OnSubFormButtonPressed?.Invoke(eFormName.PostsByDateRangeForm);
         }
     }
 }

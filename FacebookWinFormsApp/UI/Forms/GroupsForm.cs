@@ -28,7 +28,7 @@ namespace FacebookApp.UI.Forms
 
         private void fetch_groups_button_Click(object sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke(eFormName.LoginBarForm);
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
