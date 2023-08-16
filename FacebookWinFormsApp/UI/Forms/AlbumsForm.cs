@@ -20,9 +20,10 @@ namespace FacebookApp.UI.Forms
     public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler
     {
         private readonly Albums r_Albums = new Albums();
-        private readonly string r_FormName = "AlbumsForm";
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "AlbumsForm";
+        private readonly eFormName r_FormName = eFormName.AlbumForm;
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
 
         public AlbumsForm()
         {

@@ -16,9 +16,10 @@ namespace FacebookApp.UI.Forms
     public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler
     {
         private Groups r_Groups = new Groups();
-        private readonly string r_FormName = "GroupsForm";
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "GroupsForm";
+        private readonly eFormName r_FormName = eFormName.GroupsForm;
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
 
         public GroupsForm()
         {
@@ -27,7 +28,7 @@ namespace FacebookApp.UI.Forms
 
         private void fetch_groups_button_Click(object sender, EventArgs e)
         {
-            m_FetchButtonPressed?.Invoke("GroupsForm");
+            m_FetchButtonPressed?.Invoke(eFormName.LoginBarForm);
         }
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {

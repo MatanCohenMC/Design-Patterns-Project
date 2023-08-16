@@ -15,9 +15,10 @@ namespace FacebookApp.UI.Forms
     public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler
     {
         private readonly Events r_Events = new Events();
-        private readonly string r_FormName = "EventsForm";
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "EventsForm";
+        private readonly eFormName r_FormName = eFormName.EventsByLocationForm;
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
 
 
         public EventsByLocationForm()

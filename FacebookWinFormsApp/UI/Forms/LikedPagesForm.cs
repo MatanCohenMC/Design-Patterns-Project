@@ -17,9 +17,10 @@ namespace FacebookApp.UI.Forms
     public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler
     {
         private readonly LikedPages r_LikedPages = new LikedPages();
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
-        private readonly string r_FormName = "LikedPagesForm";
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "LikedPagesForm";
+        private readonly eFormName r_FormName = eFormName.LikedPagesForm;
 
         public LikedPagesForm()
         {

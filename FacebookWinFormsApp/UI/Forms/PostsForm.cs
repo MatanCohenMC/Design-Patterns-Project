@@ -17,9 +17,10 @@ namespace FacebookApp.UI.Forms
     public partial class PostsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler
     {
         private readonly Posts r_Posts = new Posts();
-        private readonly string r_FormName = "PostsForm";
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "PostsForm";
+        private readonly eFormName r_FormName = eFormName.PostsForm;
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
 
         public PostsForm()
         {
