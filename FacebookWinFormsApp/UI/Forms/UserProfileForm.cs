@@ -33,5 +33,38 @@ namespace FacebookApp.UI.Forms
         {
             return r_UserProfile.FetchUserProfileData();
         }
+
+        public TextBox GetFullNameTextBox()
+        {
+            return textBoxFullName;
+        }
+        public TextBox GetEmailTextBox()
+        {
+            return textBoxEmail;
+        }
+        public TextBox GetGenderTextBox()
+        {
+            return textBoxGender;
+        }
+        public TextBox GetBirthdayTextBox()
+        {
+            return textBoxBirthday;
+        }
+        public TextBox GetHometownTextBox()
+        {
+            return textBoxHometown;
+        }
+        public TextBox GetEducationTextBox()
+        {
+            return textBoxEducation;
+        }
+        public TextBox GetWorkTextBox()
+        {
+            return textBoxWork;
+        }
+        public PictureBox GetProfilePictureBox()
+        {
+            return pictureBoxProfile;
+        }
     }
 }

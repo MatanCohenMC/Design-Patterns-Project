@@ -45,6 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,8 @@
             // 
             this.pictureBoxProfile.Location = new System.Drawing.Point(608, 73);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(281, 306);
+            this.pictureBoxProfile.Size = new System.Drawing.Size(319, 306);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 0;
             this.pictureBoxProfile.TabStop = false;
             // 
@@ -62,7 +64,7 @@
             this.labelProfilePicture.AutoSize = true;
             this.labelProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProfilePicture.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelProfilePicture.Location = new System.Drawing.Point(682, 36);
+            this.labelProfilePicture.Location = new System.Drawing.Point(708, 36);
             this.labelProfilePicture.Name = "labelProfilePicture";
             this.labelProfilePicture.Size = new System.Drawing.Size(129, 25);
             this.labelProfilePicture.TabIndex = 1;
@@ -254,12 +256,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Full name";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(205, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(167, 25);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Profile Information";
+            // 
             // UserProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.labelProfilePicture);
             this.Controls.Add(this.pictureBoxProfile);
@@ -294,5 +308,6 @@
         private System.Windows.Forms.TextBox textBoxGender;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxFullName;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -9,14 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookApp.Models;
+using FacebookWrapper.UI;
 
 
 namespace FacebookApp.UI.Forms
 {
     public partial class LoginBarForm : Form
     {
-        private readonly Login r_Login = new Login();
-        private User m_LoggedInUser = null;
         public FacebookWrapper.LoginResult LoginResult { get; set; }
         public Action m_LoginButtonPressed;
         public Action m_LogoutButtonPressed;
