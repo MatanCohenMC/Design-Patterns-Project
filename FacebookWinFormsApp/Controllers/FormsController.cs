@@ -263,7 +263,7 @@ namespace FacebookApp.Controllers
 
         private void fetchUserProfileData()
         {
-            UserProfileForm userProfile = GetForm("UserProfileForm") as UserProfileForm;
+            UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
             Dictionary<string,string> userDictionary = userProfile?.GetUserProfileData();
 
         }
@@ -271,6 +271,7 @@ namespace FacebookApp.Controllers
 
         private void setPicture(eFormName i_EnumFormName)
         {
+            //hello!! delete this comment
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
             ListBox listBox = componentHandler.GetListBox();
