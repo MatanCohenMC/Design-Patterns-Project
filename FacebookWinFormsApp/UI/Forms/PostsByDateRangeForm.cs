@@ -16,9 +16,10 @@ namespace FacebookApp.UI.Forms
     public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler
     {
         private readonly Posts r_Posts = new Posts();
-        private readonly string r_FormName = "PostsByDateRangeForm";
-        public Action<string> m_FetchButtonPressed;
-        public Action<string> m_SelectedIndexChanged;
+        //private readonly string r_FormName = "PostsByDateRangeForm";
+        private readonly eFormName r_FormName = eFormName.PostsByDateRangeForm;
+        public Action<eFormName> m_FetchButtonPressed;
+        public Action<eFormName> m_SelectedIndexChanged;
 
         public PostsByDateRangeForm()
         {
