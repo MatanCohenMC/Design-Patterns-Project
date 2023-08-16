@@ -81,7 +81,6 @@ namespace FacebookApp.Models
         public List<Dictionary<string, string>> FetchUserPostsByDateRange(DateTime i_DateTimeFrom, DateTime i_DateTimeTo)
         {
             List<Dictionary<string, string>> dataList = FetchUserPosts();
-            List<Dictionary<string, string>> returnedDataList = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> postDictionary in dataList.ToList())
             {
