@@ -73,7 +73,6 @@
             this.pictureBoxUserProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxUserProfile.TabIndex = 5;
             this.pictureBoxUserProfile.TabStop = false;
-            this.pictureBoxUserProfile.Click += new System.EventHandler(this.pictureBoxUserProfile_Click);
             // 
             // textBoxAppID
             // 

@@ -31,20 +31,20 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.labelProfilePicture = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxWork = new System.Windows.Forms.TextBox();
+            this.textBoxEducation = new System.Windows.Forms.TextBox();
+            this.textBoxHometown = new System.Windows.Forms.TextBox();
+            this.textBoxBirthday = new System.Windows.Forms.TextBox();
+            this.textBoxGender = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxGender = new System.Windows.Forms.TextBox();
-            this.textBoxBirthday = new System.Windows.Forms.TextBox();
-            this.textBoxHometown = new System.Windows.Forms.TextBox();
-            this.textBoxEducation = new System.Windows.Forms.TextBox();
-            this.textBoxWork = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -100,17 +100,65 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(415, 312);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // label1
+            // textBoxWork
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Full name";
+            this.textBoxWork.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxWork.Location = new System.Drawing.Point(119, 267);
+            this.textBoxWork.Multiline = true;
+            this.textBoxWork.Name = "textBoxWork";
+            this.textBoxWork.Size = new System.Drawing.Size(293, 42);
+            this.textBoxWork.TabIndex = 13;
+            // 
+            // textBoxEducation
+            // 
+            this.textBoxEducation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEducation.Location = new System.Drawing.Point(119, 223);
+            this.textBoxEducation.Multiline = true;
+            this.textBoxEducation.Name = "textBoxEducation";
+            this.textBoxEducation.Size = new System.Drawing.Size(293, 38);
+            this.textBoxEducation.TabIndex = 12;
+            // 
+            // textBoxHometown
+            // 
+            this.textBoxHometown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxHometown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHometown.Location = new System.Drawing.Point(119, 179);
+            this.textBoxHometown.Multiline = true;
+            this.textBoxHometown.Name = "textBoxHometown";
+            this.textBoxHometown.Size = new System.Drawing.Size(293, 38);
+            this.textBoxHometown.TabIndex = 11;
+            // 
+            // textBoxBirthday
+            // 
+            this.textBoxBirthday.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBirthday.Location = new System.Drawing.Point(119, 135);
+            this.textBoxBirthday.Multiline = true;
+            this.textBoxBirthday.Name = "textBoxBirthday";
+            this.textBoxBirthday.Size = new System.Drawing.Size(293, 38);
+            this.textBoxBirthday.TabIndex = 10;
+            // 
+            // textBoxGender
+            // 
+            this.textBoxGender.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGender.Location = new System.Drawing.Point(119, 91);
+            this.textBoxGender.Multiline = true;
+            this.textBoxGender.Name = "textBoxGender";
+            this.textBoxGender.Size = new System.Drawing.Size(293, 38);
+            this.textBoxGender.TabIndex = 9;
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Location = new System.Drawing.Point(119, 47);
+            this.textBoxEmail.Multiline = true;
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(293, 38);
+            this.textBoxEmail.TabIndex = 8;
             // 
             // label2
             // 
@@ -136,17 +184,17 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Gender";
             // 
-            // label4
+            // label6
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(3, 229);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Education";
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(3, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Birthday";
             // 
             // label5
             // 
@@ -160,17 +208,17 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Hometown";
             // 
-            // label6
+            // label4
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(3, 141);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Birthday";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(3, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 25);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Education";
             // 
             // label7
             // 
@@ -194,65 +242,17 @@
             this.textBoxFullName.Size = new System.Drawing.Size(293, 38);
             this.textBoxFullName.TabIndex = 7;
             // 
-            // textBoxEmail
+            // label1
             // 
-            this.textBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(119, 47);
-            this.textBoxEmail.Multiline = true;
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(293, 38);
-            this.textBoxEmail.TabIndex = 8;
-            // 
-            // textBoxGender
-            // 
-            this.textBoxGender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGender.Location = new System.Drawing.Point(119, 91);
-            this.textBoxGender.Multiline = true;
-            this.textBoxGender.Name = "textBoxGender";
-            this.textBoxGender.Size = new System.Drawing.Size(293, 38);
-            this.textBoxGender.TabIndex = 9;
-            // 
-            // textBoxBirthday
-            // 
-            this.textBoxBirthday.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBirthday.Location = new System.Drawing.Point(119, 135);
-            this.textBoxBirthday.Multiline = true;
-            this.textBoxBirthday.Name = "textBoxBirthday";
-            this.textBoxBirthday.Size = new System.Drawing.Size(293, 38);
-            this.textBoxBirthday.TabIndex = 10;
-            // 
-            // textBoxHometown
-            // 
-            this.textBoxHometown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxHometown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHometown.Location = new System.Drawing.Point(119, 179);
-            this.textBoxHometown.Multiline = true;
-            this.textBoxHometown.Name = "textBoxHometown";
-            this.textBoxHometown.Size = new System.Drawing.Size(293, 38);
-            this.textBoxHometown.TabIndex = 11;
-            // 
-            // textBoxEducation
-            // 
-            this.textBoxEducation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEducation.Location = new System.Drawing.Point(119, 223);
-            this.textBoxEducation.Multiline = true;
-            this.textBoxEducation.Name = "textBoxEducation";
-            this.textBoxEducation.Size = new System.Drawing.Size(293, 38);
-            this.textBoxEducation.TabIndex = 12;
-            // 
-            // textBoxWork
-            // 
-            this.textBoxWork.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWork.Location = new System.Drawing.Point(119, 267);
-            this.textBoxWork.Multiline = true;
-            this.textBoxWork.Name = "textBoxWork";
-            this.textBoxWork.Size = new System.Drawing.Size(293, 42);
-            this.textBoxWork.TabIndex = 13;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Full name";
             // 
             // UserProfileForm
             // 
@@ -266,6 +266,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserProfileForm";
             this.Text = "UserProfileForm";
+            this.Load += new System.EventHandler(this.UserProfileForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
