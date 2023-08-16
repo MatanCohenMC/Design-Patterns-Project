@@ -80,7 +80,6 @@ namespace FacebookApp.Controllers
 
             string formNameUserProfile = "UserProfileForm";
             UserProfileForm userProfileForm = new UserProfileForm();
-            //userProfileForm.m_FetchButtonPressed += fetchUserFormData;
             userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
             AddForm(formNameUserProfile, userProfileForm);
 
@@ -102,7 +101,6 @@ namespace FacebookApp.Controllers
             eventsByLocationForm.m_SelectedIndexChanged += setPicture;
             AddForm(formNameEventsByLocation, eventsByLocationForm);
 
-
             string formNameNavigationBarForm = "NavigationBarForm";
             NavigationBarForm navigationBarForm = new NavigationBarForm();
             navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
@@ -110,6 +108,7 @@ namespace FacebookApp.Controllers
 
             string formNameLoginBarForm = "LoginBarForm";
             LoginBarForm loginBarForm = new LoginBarForm();
+            loginBarForm.ButtonLogout.Enabled = false;
             loginBarForm.m_LoginButtonPressed += loginToApp;
             loginBarForm.m_LogoutButtonPressed += logoutOfApp;
             loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
@@ -164,15 +163,18 @@ namespace FacebookApp.Controllers
 
         private void logoutOfApp()
         {
-            LoginBarForm loginForm = GetForm("LoginBarForm") as LoginBarForm;
-            string appId = loginForm.TextBoxAppIdString;
-            r_Login.LoginToApp(appId);
-            FacebookService.LogoutWithUI();
-            loginForm.ButtonLogin.Text = "Login";
-            loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
-            loginForm.LoginResult = null;
-            loginForm.ButtonLogin.Enabled = true;
-            loginForm.ButtonLogout.Enabled = false;
+            if(r_Login.IsLoggedIn())
+            {
+                LoginBarForm loginForm = GetForm("LoginBarForm") as LoginBarForm;
+                string appId = loginForm.TextBoxAppIdString;
+                r_Login.LoginToApp(appId);
+                FacebookService.LogoutWithUI();
+                loginForm.ButtonLogin.Text = "Login";
+                loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
+                loginForm.LoginResult = null;
+                loginForm.ButtonLogin.Enabled = true;
+                loginForm.ButtonLogout.Enabled = false;
+            }
         }
 
         public static FormsController Instance
@@ -233,8 +235,6 @@ namespace FacebookApp.Controllers
             fetchDataToListBox(componentHandler, dataHandler);
         }
 
-
-
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
             ListBox listBox = i_ComponentHandler.GetListBox();
@@ -284,7 +284,6 @@ namespace FacebookApp.Controllers
             PictureBox profilePictureBox = userProfileForm.GetProfilePictureBox();
             profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
         }
-
 
         private void setPicture(string i_FormName)
         {
