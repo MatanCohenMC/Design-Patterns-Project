@@ -17,15 +17,15 @@ namespace FacebookApp.Models
     {
 
         Login() { }
-        private static readonly object lock = new object ();
+        private static readonly object sr_MyLock = new object ();
         private static Login s_Instance = null;
-        public static Login s_Instance
+        public static Login Instance
         {
             get
             {
                 if (s_Instance == null)
                 {
-                    lock (lock)
+                    lock (sr_MyLock)
                     {
                         if (s_Instance == null)
                         {
@@ -39,7 +39,6 @@ namespace FacebookApp.Models
 
 
 
-        //private static Login s_Instance = null;
         public LoginResult LoginResult { get; private set; }
 
         public User LoggedInUser { get; private set; }
