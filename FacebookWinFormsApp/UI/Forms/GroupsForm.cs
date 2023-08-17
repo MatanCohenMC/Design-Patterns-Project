@@ -1,37 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.Models;
 using FacebookApp.Interfaces;
+using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class GroupsForm : Form,
+                                      IComponentHandler,
+                                      IDataHandler,
+                                      IDescriptionHandler,
+                                      IPictureHandler,
+                                      ISetFetchAction,
+                                      ISetSelectedIndexAction,
+                                      IPictureByIndexHandler
     {
-        private Groups r_Groups = new Groups();
-        //private readonly string r_FormName = "GroupsForm";
         private readonly eFormName r_FormName = eFormName.GroupsForm;
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
+        private readonly Groups r_Groups = new Groups();
 
         public GroupsForm()
         {
             InitializeComponent();
-        }
-
-        private void fetch_groups_button_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-        private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
 
         public ListBox GetListBox()
@@ -39,19 +30,9 @@ namespace FacebookApp.UI.Forms
             return listBoxGroups;
         }
 
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
+        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
         {
-            DataList = r_Groups.FetchUserEvents();
-        }
-
-        public PictureBox GetPictureBox()
-        {
-            return pictureBoxGroup;
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_Groups.GetPictureUrl(i_Index);
+            i_DataList = r_Groups.FetchUserEvents();
         }
 
         public TextBox GetDescriptionTextBox()
@@ -64,14 +45,34 @@ namespace FacebookApp.UI.Forms
             return r_Groups.GetDescription(i_Index);
         }
 
-        public void SetFetchAction(Action<eFormName> action)
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            m_FetchButtonPressed+= action;
+            return r_Groups.GetPictureUrl(i_Index);
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        public PictureBox GetPictureBox()
         {
-            m_SelectedIndexChanged+= action;
+            return pictureBoxGroup;
+        }
+
+        public void SetFetchAction(Action<eFormName> i_Action)
+        {
+            m_FetchButtonPressed += i_Action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
+        {
+            m_SelectedIndexChanged += i_Action;
+        }
+
+        private void fetch_groups_button_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
+        }
+
+        private void listBoxGroups_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
     }
 }

@@ -1,69 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.UI.Forms;
-using FacebookApp.UI;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
+using FacebookApp.UI.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using CefSharp.DevTools.Debugger;
-
 
 namespace FacebookApp.Controllers
 {
     public class FormsController
     {
-        //private Dictionary<string, Form> m_FormsDictionary;
-        private Dictionary<eFormName, Form> m_eNumFormsDictionary;
-        private Form m_CurrentForm;
-        private readonly Login r_Login;
-
         private static FormsController s_Instance = null;
         private static readonly object sr_MyLock = new object();
+        private readonly Login r_Login;
+        private Form m_CurrentForm;
+        private Dictionary<eFormName, Form> m_ENumFormsDictionary;
 
         private FormsController()
         {
             r_Login = Login.Instance;
             initializeForms();
         }
+
         public static FormsController Instance
         {
             get
             {
-                if (s_Instance == null)
+                if(s_Instance == null)
                 {
-                    lock (sr_MyLock)
+                    lock(sr_MyLock)
                     {
-                        if (s_Instance == null)
+                        if(s_Instance == null)
                         {
                             s_Instance = new FormsController();
                         }
                     }
                 }
+
                 return s_Instance;
             }
         }
 
-
-        // //
-
         private void initializeForms()
         {
-            m_eNumFormsDictionary = new Dictionary<eFormName, Form>();
+            m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
 
-            eFormName AlbumsEnum = eFormName.AlbumForm;
+            eFormName albumsEnum = eFormName.AlbumForm;
             AlbumsForm albumsForm = new AlbumsForm();
-            AddForm(AlbumsEnum, albumsForm);
+            AddForm(albumsEnum, albumsForm);
 
-            setFetchActionFunctions(AlbumsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(AlbumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
+            setFetchActionFunctions(albumsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(albumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
 
             eFormName eventsEnum = eFormName.EventsForm;
             EventsForm eventsForm = new EventsForm();
@@ -87,62 +76,68 @@ namespace FacebookApp.Controllers
             FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
             AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
             setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
+            setSelectedIndexActionFunctions(
+                friendsInUsersAgeRangeEnum,
+                setPicture,
+                setFullName,
+                setBirthday,
+                setLocation);
 
-            eFormName PostsEnum = eFormName.PostsForm;
+            eFormName postsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
-            AddForm(PostsEnum, postsForm);
-            setFetchActionFunctions(PostsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(PostsEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            AddForm(postsEnum, postsForm);
+            setFetchActionFunctions(postsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(postsEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
-
-            eFormName UserProfileEnum = eFormName.UserProfileForm;
+            eFormName userProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
-            AddForm(UserProfileEnum, userProfileForm);
+            AddForm(userProfileEnum, userProfileForm);
             userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
 
-            eFormName PostsByDateRangeEnum = eFormName.PostsByDateRangeForm;
+            eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
-            AddForm(PostsByDateRangeEnum, postsByDateRangeForm);
-            setFetchActionFunctions(PostsByDateRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(PostsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            AddForm(postsByDateRangeEnum, postsByDateRangeForm);
+            setFetchActionFunctions(postsByDateRangeEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(
+                postsByDateRangeEnum,
+                setPicture,
+                setComments,
+                setDate,
+                setLocation,
+                setCaption);
 
-            eFormName EventsByLocationEnum = eFormName.EventsByLocationForm;
+            eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
             EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-            AddForm(EventsByLocationEnum, eventsByLocationForm);
-            setFetchActionFunctions(EventsByLocationEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(EventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
+            AddForm(eventsByLocationEnum, eventsByLocationForm);
+            setFetchActionFunctions(eventsByLocationEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(eventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
 
-            eFormName RandomMemoryEnum = eFormName.RandomMemoryForm;
+            eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
             RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
-            AddForm(RandomMemoryEnum, randomMemoryForm);
-            setFetchActionFunctions(RandomMemoryEnum, fetchRandomMemory);
+            AddForm(randomMemoryEnum, randomMemoryForm);
+            setFetchActionFunctions(randomMemoryEnum, fetchRandomMemory);
 
-
-            eFormName NavigationBarEnum = eFormName.NavigationBarForm;
+            eFormName navigationBarEnum = eFormName.NavigationBarForm;
             NavigationBarForm navigationBarForm = new NavigationBarForm();
             navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-            AddForm(NavigationBarEnum, navigationBarForm);
+            AddForm(navigationBarEnum, navigationBarForm);
 
-            eFormName LoginBarEnum = eFormName.LoginBarForm;
+            eFormName loginBarEnum = eFormName.LoginBarForm;
             LoginBarForm loginBarForm = new LoginBarForm();
             loginBarForm.m_LoginButtonPressed += loginToApp;
             loginBarForm.m_LogoutButtonPressed += logoutOfApp;
             loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+            AddForm(loginBarEnum, loginBarForm);
 
-            AddForm(LoginBarEnum, loginBarForm);
-            eFormName AppMainFormEnum = eFormName.AppMainForm;
+            eFormName appMainFormEnum = eFormName.AppMainForm;
             Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
-            AddForm(AppMainFormEnum, appMainForm);
-
-
+            AddForm(appMainFormEnum, appMainForm);
         }
-
 
         private void setFetchActionFunctions(eFormName i_EnumFormName, Action<eFormName> i_Action)
         {
             ISetFetchAction fetchActionInterface = GetForm(i_EnumFormName) as ISetFetchAction;
-            fetchActionInterface.SetFetchAction(i_Action);
+            fetchActionInterface?.SetFetchAction(i_Action);
         }
 
         private void setSelectedIndexActionFunctions(eFormName i_EnumFormName, params Action<eFormName>[] i_Actions)
@@ -150,21 +145,20 @@ namespace FacebookApp.Controllers
             ISetSelectedIndexAction selectedIndexActionInterface = GetForm(i_EnumFormName) as ISetSelectedIndexAction;
             foreach(Action<eFormName> action in i_Actions)
             {
-                selectedIndexActionInterface.SetSelectedIndexAction(action);
+                selectedIndexActionInterface?.SetSelectedIndexAction(action);
             }
         }
 
         private void loginToApp()
         {
-            LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-            if(loginForm != null)
+            if(GetForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
                 string appId = loginForm.TextBoxAppIdString;
                 r_Login.LoginToApp(appId);
 
                 try
                 {
-                    if (r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
+                    if(r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
                     {
                         loginForm.ButtonLogin.Text = "Logged in";
                         loginForm.ButtonLogin.BackColor = Color.LightGreen;
@@ -178,7 +172,7 @@ namespace FacebookApp.Controllers
                     }
                     else
                     {
-                        if(String.IsNullOrEmpty(r_Login.LoginResult.ErrorMessage))
+                        if(String.IsNullOrEmpty(r_Login?.LoginResult?.ErrorMessage))
                         {
                             MessageBox.Show("Login Failed, try again");
                         }
@@ -190,12 +184,11 @@ namespace FacebookApp.Controllers
                         loginForm.PictureBoxUserProfile.ImageLocation = null;
                     }
                 }
-                catch (NullReferenceException)
+                catch(NullReferenceException)
                 {
                     loginForm.PictureBoxUserProfile.ImageLocation = null;
                 }
             }
-
         }
 
         private void logoutOfApp()
@@ -203,24 +196,26 @@ namespace FacebookApp.Controllers
             if(r_Login.IsLoggedIn())
             {
                 LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-                string appId = loginForm.TextBoxAppIdString;
-                r_Login.LoginToApp(appId);
+                string appId = loginForm?.TextBoxAppIdString;
+
+                r_Login?.LoginToApp(appId);
                 FacebookService.LogoutWithUI();
                 loginForm.ButtonLogin.Text = "Login";
                 loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
                 loginForm.LoginResult = null;
                 loginForm.ButtonLogin.Enabled = true;
                 loginForm.ButtonLogout.Enabled = false;
-                r_Login.LogOut();
+
                 NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                navigationBarForm?.DisableNavigationBar();
                 LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                Form appMainForm = GetForm(eFormName.AppMainForm);
+
+                navigationBarForm?.DisableNavigationBar();
                 loginBarForm?.DisableMyProfileButton();
                 loginForm.PictureBoxUserProfile.Image = null;
-                Form appMainForm = GetForm(eFormName.AppMainForm);
-                if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+                if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
                 {
-                    if (m_CurrentForm != null)
+                    if(m_CurrentForm != null)
                     {
                         panelDisplay.Controls.Remove(m_CurrentForm);
                     }
@@ -230,12 +225,12 @@ namespace FacebookApp.Controllers
 
         public void AddForm(eFormName i_EnumFormName, Form i_Form)
         {
-            m_eNumFormsDictionary.Add(i_EnumFormName, i_Form);
+            m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
         }
 
         public Form GetForm(eFormName i_EnumFormName)
         {
-            return m_eNumFormsDictionary[i_EnumFormName];
+            return m_ENumFormsDictionary[i_EnumFormName];
         }
 
         private void setDisplayPanel(eFormName i_EnumFormName)
@@ -243,12 +238,13 @@ namespace FacebookApp.Controllers
             Form formToSet = GetForm(i_EnumFormName);
             Form appMainForm = GetForm(eFormName.AppMainForm);
 
-            if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+            if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
             {
-                if (m_CurrentForm != null)
+                if(m_CurrentForm != null)
                 {
                     panelDisplay.Controls.Remove(m_CurrentForm);
                 }
+
                 m_CurrentForm = formToSet;
                 m_CurrentForm.Dock = DockStyle.Fill;
                 m_CurrentForm.TopLevel = false;
@@ -262,7 +258,6 @@ namespace FacebookApp.Controllers
             Clipboard.SetText("design.patterns20cc");
             FacebookService.s_UseForamttedToStrings = true;
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(GetForm(eFormName.AppMainForm));
         }
 
@@ -276,19 +271,19 @@ namespace FacebookApp.Controllers
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
             ListBox listBox = i_ComponentHandler.GetListBox();
-            listBox?.Items.Clear();
             List<Dictionary<string, string>> dataList;
 
-            if (i_DataHandler != null)
+            listBox?.Items.Clear();
+            if(i_DataHandler != null)
             {
                 i_DataHandler.FetchListBoxData(out dataList);
 
-                if(dataList.Count > 0 && dataList!=null)
+                if(dataList.Count > 0 && dataList != null)
                 {
                     listBox.Enabled = true;
-                    foreach (Dictionary<string, string> data in dataList)
+                    foreach(Dictionary<string, string> data in dataList)
                     {
-                        if (data.ContainsKey("ListBoxText") && data["ListBoxText"] != null)
+                        if(data.ContainsKey("ListBoxText") && data["ListBoxText"] != null)
                         {
                             listBox.Items.Add(data["ListBoxText"]);
                         }
@@ -296,7 +291,7 @@ namespace FacebookApp.Controllers
                 }
                 else
                 {
-                    listBox.Items.Add("No data to retrieve.");
+                    listBox?.Items.Add("No data to retrieve.");
                     listBox.Enabled = false;
                 }
             }
@@ -304,53 +299,51 @@ namespace FacebookApp.Controllers
 
         private void fetchRandomMemory(eFormName i_EnumFormName)
         {
-            //IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
             RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
 
-            string o_PostsPictureUrl = "";
-            string o_PostsDate = "";
-            string o_PostsText = "";
-            string o_PostsLocation = "";
-
-            randomMemoryForm?.GetRandomPost(out o_PostsPictureUrl, out o_PostsDate, out o_PostsLocation, out o_PostsText);
-            
-            /*PictureBox pictureBox = pictureHandler?.GetPictureBox();
-            pictureBox?.Load(o_PostsPicture);*/
-            randomMemoryForm.SetPictureBox(o_PostsPictureUrl);
-            randomMemoryForm.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
-            randomMemoryForm.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
-            randomMemoryForm.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
+            string o_PostsPictureUrl = String.Empty;
+            string o_PostsDate = String.Empty;
+            string o_PostsText = String.Empty;
+            string o_PostsLocation = String.Empty;
+            randomMemoryForm?.GetRandomPost(
+                out o_PostsPictureUrl,
+                out o_PostsDate,
+                out o_PostsLocation,
+                out o_PostsText);
+            randomMemoryForm?.SetPictureBox(o_PostsPictureUrl);
+            randomMemoryForm?.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
+            randomMemoryForm?.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
+            randomMemoryForm?.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
         }
 
         private void fetchUserProfileData()
         {
             UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
-            Dictionary<string,string> userDataDictionary = userProfile?.GetUserProfileData();
+            Dictionary<string, string> userDataDictionary = userProfile?.GetUserProfileData();
 
-            TextBox fullNameTextBox = userProfile.GetFullNameTextBox();
+            TextBox fullNameTextBox = userProfile?.GetFullNameTextBox();
             fullNameTextBox.Text = userDataDictionary["FullName"];
 
-            TextBox emailTextBox = userProfile.GetEmailTextBox();
+            TextBox emailTextBox = userProfile?.GetEmailTextBox();
             fullNameTextBox.Text = userDataDictionary["Email"];
 
-            TextBox genderTextBox = userProfile.GetGenderTextBox();
+            TextBox genderTextBox = userProfile?.GetGenderTextBox();
             genderTextBox.Text = userDataDictionary["Gender"];
 
-            TextBox birthdayTextBox = userProfile.GetBirthdayTextBox();
+            TextBox birthdayTextBox = userProfile?.GetBirthdayTextBox();
             birthdayTextBox.Text = userDataDictionary["Birthday"];
 
-            TextBox hometownTextBox = userProfile.GetHometownTextBox();
+            TextBox hometownTextBox = userProfile?.GetHometownTextBox();
             hometownTextBox.Text = userDataDictionary["Hometown"];
 
-            TextBox educationTextBox = userProfile.GetEducationTextBox();
+            TextBox educationTextBox = userProfile?.GetEducationTextBox();
             educationTextBox.Text = userDataDictionary["Education"];
 
-            TextBox workTextBox = userProfile.GetWorkTextBox();
+            TextBox workTextBox = userProfile?.GetWorkTextBox();
             workTextBox.Text = userDataDictionary["Work"];
 
-            PictureBox profilePictureBox = userProfile.GetProfilePictureBox();
+            PictureBox profilePictureBox = userProfile?.GetProfilePictureBox();
             profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
-
         }
 
         private void setPicture(eFormName i_EnumFormName)
@@ -358,12 +351,13 @@ namespace FacebookApp.Controllers
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
             IPictureByIndexHandler pictureByIndexHandler = GetForm(i_EnumFormName) as IPictureByIndexHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            PictureBox pictureBox = pictureHandler.GetPictureBox();
-            string pictureUrl = pictureByIndexHandler.GetPictureUrlByIndex(listBox.SelectedIndex);
-            if (pictureUrl != null)
+            ListBox listBox = componentHandler?.GetListBox();
+            PictureBox pictureBox = pictureHandler?.GetPictureBox();
+            string pictureUrl = pictureByIndexHandler?.GetPictureUrlByIndex(listBox.SelectedIndex);
+
+            if(pictureUrl != null)
             {
-                pictureBox.LoadAsync(pictureUrl);
+                pictureBox?.LoadAsync(pictureUrl);
             }
             else
             {
@@ -375,9 +369,9 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             ILocationHandler locationHandler = GetForm(i_EnumFormName) as ILocationHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox locationTextBox = locationHandler.GetLocationTextBox();
-            string location = locationHandler.GetLocationByIndex(listBox.SelectedIndex);
+            ListBox listBox = componentHandler?.GetListBox();
+            TextBox locationTextBox = locationHandler?.GetLocationTextBox();
+            string location = locationHandler?.GetLocationByIndex(listBox.SelectedIndex);
 
             locationTextBox.Text = location ?? "No location mentioned.";
         }
@@ -386,8 +380,8 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IFullNameHandler fullNameHandler = GetForm(i_EnumFormName) as IFullNameHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox fullNameTextBox = fullNameHandler.GetFullNameTextBox();
+            ListBox listBox = componentHandler?.GetListBox();
+            TextBox fullNameTextBox = fullNameHandler?.GetFullNameTextBox();
             string fullName = fullNameHandler.GetFullNameByIndex(listBox.SelectedIndex);
 
             fullNameTextBox.Text = fullName ?? "No fullname mentioned.";
@@ -397,8 +391,8 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IBirthdayHandler fullNameHandler = GetForm(i_EnumFormName) as IBirthdayHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox birthdayTextBox = fullNameHandler.GetBirthdayTextBox();
+            ListBox listBox = componentHandler?.GetListBox();
+            TextBox birthdayTextBox = fullNameHandler?.GetBirthdayTextBox();
             string birthday = fullNameHandler.GetBirthdayByIndex(listBox.SelectedIndex);
 
             birthdayTextBox.Text = birthday ?? "No birthday mentioned.";
@@ -424,15 +418,6 @@ namespace FacebookApp.Controllers
             string pictureCount = pictureCountHandler.GetPictureCountByIndex(listBox.SelectedIndex);
 
             pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
-
-            /* if (albumPictureCount != null && albumPictureCount != String.Empty)
-             {
-                 textBoxPictureAmount.Text = albumPictureCount;
-             }
-             else
-             {
-                 textBoxPictureAmount.Text = "0";
-             }*/
         }
 
         private void setDate(eFormName i_EnumFormName)
@@ -466,25 +451,22 @@ namespace FacebookApp.Controllers
             ICollection<Comment> comments = commentsHandler.GetCommentsByIndex(listBox.SelectedIndex);
 
             commentsListBox.Items.Clear();
-
-            if (comments == null)
+            if(comments == null)
             {
                 commentsListBox.Items.Add("Unknown.");
             }
-            else if (comments.Count == 0)
+            else if(comments.Count == 0)
             {
                 commentsListBox.Items.Add("No comments.");
             }
             else
             {
                 listBox.Enabled = true;
-                foreach (Comment comment in comments)
+                foreach(Comment comment in comments)
                 {
                     commentsListBox.Items.Add(comment.ToString());
                 }
             }
-
-
         }
 
         private void setCaption(eFormName i_EnumFormName)
@@ -497,8 +479,5 @@ namespace FacebookApp.Controllers
 
             captionTextBox.Text = description ?? "No caption mentioned.";
         }
-
-
-
     }
 }

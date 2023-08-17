@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.Models;
 using FacebookApp.Interfaces;
-using FacebookWrapper.ObjectModel;
-using CefSharp.ModelBinding;
-
+using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class AlbumsForm : Form,
+                                      IComponentHandler,
+                                      IDataHandler,
+                                      IPictureHandler,
+                                      ILocationHandler,
+                                      IPictureCountHandler,
+                                      IUpdatedTimeHandler,
+                                      ISetFetchAction,
+                                      ISetSelectedIndexAction,
+                                      IPictureByIndexHandler
     {
         private readonly Albums r_Albums = new Albums();
         //private readonly string r_FormName = "AlbumsForm";
@@ -29,34 +28,14 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void fetch_albums_button_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
-        {
-            DataList = r_Albums.FetchUserAlbums();
-        }
-
-        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
-        }
-
         public ListBox GetListBox()
         {
             return listBoxAlbums;
         }
 
-        public PictureBox GetPictureBox()
+        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
         {
-            return pictureBoxAlbum; 
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_Albums.GetPictureUrl(i_Index);
+            i_DataList = r_Albums.FetchUserAlbums();
         }
 
         public TextBox GetLocationTextBox()
@@ -69,14 +48,9 @@ namespace FacebookApp.UI.Forms
             return r_Albums.GetLocation(i_Index);
         }
 
-        public TextBox GetUpdatedTimeTextBox()
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            return textBoxUpdatedTime;
-        }
-
-        public string GetUpdatedTimeByIndex(int i_Index)
-        {
-            return r_Albums.GetUpdatedTime(i_Index);
+            return r_Albums.GetPictureUrl(i_Index);
         }
 
         public TextBox GetPictureCountTextBox()
@@ -89,14 +63,39 @@ namespace FacebookApp.UI.Forms
             return r_Albums.GetPictureCount(i_Index);
         }
 
-        public void SetFetchAction(Action<eFormName> action)
+        public PictureBox GetPictureBox()
         {
-            m_FetchButtonPressed += action;
+            return pictureBoxAlbum;
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        public void SetFetchAction(Action<eFormName> i_Action)
         {
-            m_SelectedIndexChanged += action;
+            m_FetchButtonPressed += i_Action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
+        {
+            m_SelectedIndexChanged += i_Action;
+        }
+
+        public TextBox GetUpdatedTimeTextBox()
+        {
+            return textBoxUpdatedTime;
+        }
+
+        public string GetUpdatedTimeByIndex(int i_Index)
+        {
+            return r_Albums.GetUpdatedTime(i_Index);
+        }
+
+        private void fetch_albums_button_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
+        }
+
+        private void listBoxAlbums_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
     }
-} 
+}

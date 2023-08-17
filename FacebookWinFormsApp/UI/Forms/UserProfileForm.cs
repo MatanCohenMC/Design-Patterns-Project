@@ -1,30 +1,21 @@
-﻿using FacebookApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class UserProfileForm : Form
     {
         private readonly UserProfile r_UserProfile = new UserProfile();
-        private readonly string r_FormName = "UserProfileForm";
-        public Action m_LoadButtonPressed;
         public Action m_FetchUserProfileData;
 
-        //hello delete this comment
         public UserProfileForm()
         {
             InitializeComponent();
         }
 
-        private void UserProfileForm_Load(object sender, EventArgs e)
+        private void UserProfileForm_Load(object i_Sender, EventArgs i_EventArgs)
         {
             m_FetchUserProfileData?.Invoke();
         }
@@ -38,30 +29,37 @@ namespace FacebookApp.UI.Forms
         {
             return textBoxFullName;
         }
+
         public TextBox GetEmailTextBox()
         {
             return textBoxEmail;
         }
+
         public TextBox GetGenderTextBox()
         {
             return textBoxGender;
         }
+
         public TextBox GetBirthdayTextBox()
         {
             return textBoxBirthday;
         }
+
         public TextBox GetHometownTextBox()
         {
             return textBoxHometown;
         }
+
         public TextBox GetEducationTextBox()
         {
             return textBoxEducation;
         }
+
         public TextBox GetWorkTextBox()
         {
             return textBoxWork;
         }
+
         public PictureBox GetProfilePictureBox()
         {
             return pictureBoxProfile;
