@@ -11,33 +11,33 @@ namespace FacebookApp.Models
     public class Posts
     {
         private readonly Login r_Login = Login.Instance;
+        bool m_IsDataFetched = false;
+
         public List<Dictionary<string, string>> m_DataList { get; private set; }
 
+        public Posts()
+        {
+            m_DataList = new List<Dictionary<string, string>>();
+        }
 
         public List<Dictionary<string, string>> FetchUserPosts()
         {
+            m_IsDataFetched = false;
+            m_DataList?.Clear();
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
             foreach (Post post in r_Login.LoggedInUser.Posts)
             {
-                Dictionary<string, string> postDictionary = new Dictionary<string, string>();
-
-
-                postDictionary["Date"] = post.CreatedTime.ToString();
-                if (post.Message != null)
+                if (post != null)
                 {
+                    Dictionary<string, string> postDictionary = new Dictionary<string, string>();
+                    postDictionary["Date"] = post.CreatedTime.ToString();
                     postDictionary["ListBoxText"] = post.Message;
                     postDictionary["Caption"] = post.Caption;
                     postDictionary["Picture"] = post.PictureURL;
                     postDictionary["Location"] = post.Place?.Name;
+                    dataList.Add(postDictionary);
                 }
-                else
-                {
-                    postDictionary["Type"] = string.Format("[{0}]", post.Type);
-                    
-                }
-
-                dataList.Add(postDictionary);
             }
 
             if (dataList.Count == 0)
@@ -48,6 +48,7 @@ namespace FacebookApp.Models
             }
 
             m_DataList = dataList;
+            m_IsDataFetched = true;
             return dataList;
         }
 
@@ -90,5 +91,31 @@ namespace FacebookApp.Models
             }
             return dataList;
         }
+
+        public void GetRandomPost(out string o_PictureUrl, out string o_Date, out string o_Location, out string o_Text)
+        {
+            if (m_DataList.Count == 0)
+            {
+                m_DataList = FetchUserPosts();
+            }
+
+            if (m_DataList.Count == 0)
+            {
+                o_PictureUrl = "";
+                o_Date = "";
+                o_Location = "";
+                o_Text = "";
+                return;
+            }
+
+            Random random = new Random();
+            int randomIndex = random.Next(0, m_DataList.Count);
+
+            o_PictureUrl = m_DataList[randomIndex].TryGetValue("Picture", out var pictureUrl) ? pictureUrl : "";
+            o_Date = m_DataList[randomIndex].TryGetValue("Date", out var date) ? date : "";
+            o_Location = m_DataList[randomIndex].TryGetValue("Location", out var location) ? location : "";
+            o_Text = m_DataList[randomIndex].TryGetValue("ListBoxText", out var text) ? text : "";
+        }
+
     }
 }
