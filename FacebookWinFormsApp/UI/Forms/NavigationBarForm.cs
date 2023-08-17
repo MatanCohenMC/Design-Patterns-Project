@@ -84,7 +84,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFriendsInMyAgeRange_Click(object sender, EventArgs e)
         {
-
+            m_OnSubFormButtonPressed?.Invoke(eFormName.FriendsInUsersAgeRangeForm);
         }
 
         private void buttonRandomMemory_Click(object sender, EventArgs e)

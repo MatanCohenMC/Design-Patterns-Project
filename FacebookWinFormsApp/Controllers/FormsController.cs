@@ -65,11 +65,11 @@ namespace FacebookApp.Controllers
             setFetchActionFunctions(AlbumsEnum, fetchUserFormData);
             setSelectedIndexActionFunctions(AlbumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
 
-            eFormName EventsEnum = eFormName.EventsForm;
+            eFormName eventsEnum = eFormName.EventsForm;
             EventsForm eventsForm = new EventsForm();
-            AddForm(EventsEnum, eventsForm);
-            setFetchActionFunctions(EventsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(EventsEnum, setLocation, setDescription, setDate, setPicture);
+            AddForm(eventsEnum, eventsForm);
+            setFetchActionFunctions(eventsEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(eventsEnum, setLocation, setDescription, setDate, setPicture);
 
             eFormName groupsEnum = eFormName.GroupsForm;
             GroupsForm groupsForm = new GroupsForm();
@@ -77,11 +77,17 @@ namespace FacebookApp.Controllers
             setFetchActionFunctions(groupsEnum, fetchUserFormData);
             setSelectedIndexActionFunctions(groupsEnum, setPicture, setDescription);
 
-            eFormName LikedPagesEnum = eFormName.LikedPagesForm;
+            eFormName likedPagesEnum = eFormName.LikedPagesForm;
             LikedPagesForm likedPagesForm = new LikedPagesForm();
-            AddForm(LikedPagesEnum, likedPagesForm);
-            setFetchActionFunctions(LikedPagesEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(LikedPagesEnum, setPicture, setDescription);
+            AddForm(likedPagesEnum, likedPagesForm);
+            setFetchActionFunctions(likedPagesEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(likedPagesEnum, setPicture, setDescription);
+
+            eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
+            FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
+            AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
+            setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
+            setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
 
             eFormName PostsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
@@ -365,6 +371,28 @@ namespace FacebookApp.Controllers
             string location = locationHandler.GetLocationByIndex(listBox.SelectedIndex);
 
             locationTextBox.Text = location ?? "No location mentioned.";
+        }
+
+        private void setFullName(eFormName i_EnumFormName)
+        {
+            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
+            IFullNameHandler fullNameHandler = GetForm(i_EnumFormName) as IFullNameHandler;
+            ListBox listBox = componentHandler.GetListBox();
+            TextBox fullNameTextBox = fullNameHandler.GetFullNameTextBox();
+            string fullName = fullNameHandler.GetFullNameByIndex(listBox.SelectedIndex);
+
+            fullNameTextBox.Text = fullName ?? "No fullname mentioned.";
+        }
+
+        private void setBirthday(eFormName i_EnumFormName)
+        {
+            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
+            IBirthdayHandler fullNameHandler = GetForm(i_EnumFormName) as IBirthdayHandler;
+            ListBox listBox = componentHandler.GetListBox();
+            TextBox birthdayTextBox = fullNameHandler.GetBirthdayTextBox();
+            string birthday = fullNameHandler.GetBirthdayByIndex(listBox.SelectedIndex);
+
+            birthdayTextBox.Text = birthday ?? "No birthday mentioned.";
         }
 
         private void setUpdatedTime(eFormName i_EnumFormName)

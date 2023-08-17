@@ -14,6 +14,6 @@
         LoginBarForm,
         AppMainForm,
         RandomMemoryForm,
-
+        FriendsInUsersAgeRangeForm,
     }
 }
