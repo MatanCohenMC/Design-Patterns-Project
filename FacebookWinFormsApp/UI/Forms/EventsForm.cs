@@ -16,7 +16,6 @@ namespace FacebookApp.UI.Forms
     public partial class EventsForm : Form, IComponentHandler, IDataHandler, ILocationHandler, IDescriptionHandler, IDateHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Events r_Events = new Events();
-        //private readonly string r_FormName = "EventsForm";
         private readonly eFormName r_FormName = eFormName.EventsForm;
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;

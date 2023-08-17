@@ -17,27 +17,22 @@ namespace FacebookApp.Models
         {
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
-            foreach (Event fbEvent in r_Login.LoggedInUser.Events)
+            if(r_Login.LoggedInUser.Events.Count > 0)
             {
-                Dictionary<string, string> eventDictionary = new Dictionary<string, string>();
-
-                if (fbEvent.Name != null)
+                foreach (Event fbEvent in r_Login.LoggedInUser.Events)
                 {
-                    eventDictionary["ListBoxText"] = fbEvent.Name;
-                    eventDictionary["Location"] = fbEvent.Location;
-                    eventDictionary["Description"] = fbEvent.Description;
-                    eventDictionary["Date"] = fbEvent.StartTime.ToString();
-                    eventDictionary["Picture"] = fbEvent.PictureNormalURL;
+                    if (fbEvent.Name != null)
+                    {
+                        Dictionary<string, string> eventDictionary = new Dictionary<string, string>();
+
+                        eventDictionary["ListBoxText"] = fbEvent.Name;
+                        eventDictionary["Location"] = fbEvent.Location;
+                        eventDictionary["Description"] = fbEvent.Description;
+                        eventDictionary["Date"] = fbEvent.StartTime.ToString();
+                        eventDictionary["Picture"] = fbEvent.PictureNormalURL;
+                        dataList.Add(eventDictionary);
+                    }
                 }
-
-                dataList.Add(eventDictionary);
-            }
-
-            if (dataList.Count == 0)
-            {
-                Dictionary<string, string> noEventsDictionary = new Dictionary<string, string>();
-                noEventsDictionary["ListBoxText"] = "No events to retrieve.";
-                dataList.Add(noEventsDictionary);
             }
 
             m_DataList = dataList;
@@ -62,28 +57,42 @@ namespace FacebookApp.Models
         public string GetLocation(int i_SelectedIndex)
         {
             string location = null;
-            try
+            if (m_DataList.Count > 0)
             {
                 location = m_DataList[i_SelectedIndex]["Location"];
-            }
-            catch(Exception e)
-            {
-                
             }
 
             return location;
         }
         public string GetDescription(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Description"];
+            string description = null;
+            if(m_DataList.Count > 0)
+            {
+                description = m_DataList[i_SelectedIndex]["Description"];
+            }
+
+            return description;
         }
         public string GetDate(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Date"];
+            string date = null;
+            if (m_DataList.Count > 0)
+            {
+                date = m_DataList[i_SelectedIndex]["Date"];
+            }
+
+            return date;
         }
         public string GetPictureUrl(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Picture"];
+            string pictureUrl = null;
+            if (m_DataList.Count > 0)
+            {
+                pictureUrl = m_DataList[i_SelectedIndex]["Picture"];
+            }
+
+            return pictureUrl;
         }
 
     }

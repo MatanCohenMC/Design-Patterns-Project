@@ -11,7 +11,6 @@ namespace FacebookApp.Models
     public class Posts
     {
         private readonly Login r_Login = Login.Instance;
-        bool m_IsDataFetched = false;
 
         public List<Dictionary<string, string>> m_DataList { get; private set; }
 
@@ -22,7 +21,6 @@ namespace FacebookApp.Models
 
         public List<Dictionary<string, string>> FetchUserPosts()
         {
-            m_IsDataFetched = false;
             m_DataList?.Clear();
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
@@ -31,6 +29,7 @@ namespace FacebookApp.Models
                 if (post != null)
                 {
                     Dictionary<string, string> postDictionary = new Dictionary<string, string>();
+
                     postDictionary["Date"] = post.CreatedTime.ToString();
                     postDictionary["ListBoxText"] = post.Message;
                     postDictionary["Caption"] = post.Caption;
@@ -40,15 +39,7 @@ namespace FacebookApp.Models
                 }
             }
 
-            if (dataList.Count == 0)
-            {
-                Dictionary<string, string> noPostsDictionary = new Dictionary<string, string>();
-                noPostsDictionary["ListBoxText"] = "No posts to retrieve.";
-                dataList.Add(noPostsDictionary);
-            }
-
             m_DataList = dataList;
-            m_IsDataFetched = true;
             return dataList;
         }
 
@@ -94,6 +85,9 @@ namespace FacebookApp.Models
 
         public void GetRandomPost(out string o_PictureUrl, out string o_Date, out string o_Location, out string o_Text)
         {
+            Random random = new Random();
+            int randomIndex = random.Next(0, m_DataList.Count);
+
             if (m_DataList.Count == 0)
             {
                 m_DataList = FetchUserPosts();
@@ -107,9 +101,6 @@ namespace FacebookApp.Models
                 o_Text = "";
                 return;
             }
-
-            Random random = new Random();
-            int randomIndex = random.Next(0, m_DataList.Count);
 
             o_PictureUrl = m_DataList[randomIndex].TryGetValue("Picture", out var pictureUrl) ? pictureUrl : "";
             o_Date = m_DataList[randomIndex].TryGetValue("Date", out var date) ? date : "";
