@@ -186,7 +186,6 @@ namespace FacebookApp.Controllers
                 LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
                 loginBarForm?.DisableMyProfileButton();
                 loginForm.PictureBoxUserProfile.Image = null;
-                // Clear the presented form
                 Form appMainForm = GetForm(eFormName.AppMainForm);
                 if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
                 {

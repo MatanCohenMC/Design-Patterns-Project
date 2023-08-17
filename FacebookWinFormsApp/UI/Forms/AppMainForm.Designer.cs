@@ -35,10 +35,13 @@
             // 
             // NavBarPanel
             // 
+            this.NavBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NavBarPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NavBarPanel.BackColor = System.Drawing.SystemColors.HotTrack;
             this.NavBarPanel.Location = new System.Drawing.Point(193, 21);
             this.NavBarPanel.Name = "NavBarPanel";
-            this.NavBarPanel.Size = new System.Drawing.Size(1045, 174);
+            this.NavBarPanel.Size = new System.Drawing.Size(1345, 174);
             this.NavBarPanel.TabIndex = 3;
             // 
             // LoginPanel
@@ -51,17 +54,20 @@
             // 
             // panelDisplay
             // 
+            this.panelDisplay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.panelDisplay.Location = new System.Drawing.Point(193, 201);
             this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(1045, 414);
+            this.panelDisplay.Size = new System.Drawing.Size(1345, 414);
             this.panelDisplay.TabIndex = 5;
             // 
             // AppMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 627);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1550, 627);
             this.Controls.Add(this.panelDisplay);
             this.Controls.Add(this.LoginPanel);
             this.Controls.Add(this.NavBarPanel);
