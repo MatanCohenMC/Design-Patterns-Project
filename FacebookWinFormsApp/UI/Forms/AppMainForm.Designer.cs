@@ -73,7 +73,6 @@
             this.Controls.Add(this.NavBarPanel);
             this.Name = "AppMainForm";
             this.Text = "AppMainForm";
-            this.Load += new System.EventHandler(this.AppMainForm_Load);
             this.ResumeLayout(false);
 
         }

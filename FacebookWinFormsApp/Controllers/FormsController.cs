@@ -20,11 +20,9 @@ namespace FacebookApp.Controllers
 {
     public class FormsController
     {
-        //private Dictionary<string, Form> m_FormsDictionary;
         private Dictionary<eFormName, Form> m_eNumFormsDictionary;
         private Form m_CurrentForm;
         private readonly Login r_Login;
-
         private static FormsController s_Instance = null;
         private static readonly object sr_MyLock = new object();
 
@@ -50,9 +48,6 @@ namespace FacebookApp.Controllers
                 return s_Instance;
             }
         }
-
-
-        // //
 
         private void initializeForms()
         {
@@ -95,7 +90,6 @@ namespace FacebookApp.Controllers
             setFetchActionFunctions(PostsEnum, fetchUserFormData);
             setSelectedIndexActionFunctions(PostsEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
-
             eFormName UserProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
             AddForm(UserProfileEnum, userProfileForm);
@@ -118,7 +112,6 @@ namespace FacebookApp.Controllers
             AddForm(RandomMemoryEnum, randomMemoryForm);
             setFetchActionFunctions(RandomMemoryEnum, fetchRandomMemory);
 
-
             eFormName NavigationBarEnum = eFormName.NavigationBarForm;
             NavigationBarForm navigationBarForm = new NavigationBarForm();
             navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
@@ -134,10 +127,7 @@ namespace FacebookApp.Controllers
             eFormName AppMainFormEnum = eFormName.AppMainForm;
             Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
             AddForm(AppMainFormEnum, appMainForm);
-
-
         }
-
 
         private void setFetchActionFunctions(eFormName i_EnumFormName, Action<eFormName> i_Action)
         {
@@ -304,18 +294,13 @@ namespace FacebookApp.Controllers
 
         private void fetchRandomMemory(eFormName i_EnumFormName)
         {
-            //IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
             RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
-
             string o_PostsPictureUrl = "";
             string o_PostsDate = "";
             string o_PostsText = "";
             string o_PostsLocation = "";
 
             randomMemoryForm?.GetRandomPost(out o_PostsPictureUrl, out o_PostsDate, out o_PostsLocation, out o_PostsText);
-            
-            /*PictureBox pictureBox = pictureHandler?.GetPictureBox();
-            pictureBox?.Load(o_PostsPicture);*/
             randomMemoryForm.SetPictureBox(o_PostsPictureUrl);
             randomMemoryForm.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
             randomMemoryForm.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
@@ -497,8 +482,5 @@ namespace FacebookApp.Controllers
 
             captionTextBox.Text = description ?? "No caption mentioned.";
         }
-
-
-
     }
 }

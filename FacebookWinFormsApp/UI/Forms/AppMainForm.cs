@@ -10,13 +10,11 @@ namespace FacebookApp.UI.Forms
     {
         private readonly NavigationBarForm r_NavigationBarForm;
         private readonly LoginBarForm r_LoginBar;
-        private User m_LoggedInUser;
 
         public AppMainForm(NavigationBarForm i_NavigationBarForm, LoginBarForm i_LoginBarForm)
         {
-            this.r_NavigationBarForm = i_NavigationBarForm;
-            this.r_LoginBar = i_LoginBarForm;
-
+            r_NavigationBarForm = i_NavigationBarForm;
+            r_LoginBar = i_LoginBarForm;
 
             InitializeComponent();
             setNavigationBar();
@@ -26,36 +24,18 @@ namespace FacebookApp.UI.Forms
 
         private void setNavigationBar()
         {
-            this.r_NavigationBarForm.Dock = DockStyle.Fill;
-            this.r_NavigationBarForm.TopLevel = false;
-            this.NavBarPanel.Controls.Add(this.r_NavigationBarForm);
-            this.r_NavigationBarForm.Show();
+            r_NavigationBarForm.Dock = DockStyle.Fill;
+            r_NavigationBarForm.TopLevel = false;
+            NavBarPanel.Controls.Add(r_NavigationBarForm);
+            r_NavigationBarForm.Show();
         }
 
         private void setLoginBar()
         {
-            this.r_LoginBar.Dock = DockStyle.Fill;
-            this.r_LoginBar.TopLevel = false;
-            this.LoginPanel.Controls.Add(this.r_LoginBar);
-            this.r_LoginBar.Show();
+            r_LoginBar.Dock = DockStyle.Fill;
+            r_LoginBar.TopLevel = false;
+            LoginPanel.Controls.Add(r_LoginBar);
+            r_LoginBar.Show();
         }
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AppMainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

@@ -115,9 +115,7 @@
     <Compile Include="Interfaces\IDateHandler.cs" />
     <Compile Include="Interfaces\IDescriptionHandler.cs" />
     <Compile Include="Interfaces\IFullNameHandler.cs" />
-    <Compile Include="Interfaces\ISetTextBoxHandler.cs" />
     <Compile Include="Interfaces\IPictureByIndexHandler.cs" />
-    <Compile Include="Interfaces\IRandomPictureHandler.cs" />
     <Compile Include="Interfaces\ISetFetchAction.cs" />
     <Compile Include="Interfaces\ILocationHandler.cs" />
     <Compile Include="Interfaces\IPictureCountHandler.cs" />
@@ -156,12 +154,6 @@
     </Compile>
     <Compile Include="UI\Forms\EventsForm.Designer.cs">
       <DependentUpon>EventsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\FriendsInUsersAgeRangeForm.cs">
       <SubType>Form</SubType>
@@ -232,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\EventsForm.resx">
       <DependentUpon>EventsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\FriendsInUsersAgeRangeForm.resx">
       <DependentUpon>FriendsInUsersAgeRangeForm.cs</DependentUpon>

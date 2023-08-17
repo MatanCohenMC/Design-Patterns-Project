@@ -107,6 +107,5 @@ namespace FacebookApp.Models
             o_Location = m_DataList[randomIndex].TryGetValue("Location", out var location) ? location : "";
             o_Text = m_DataList[randomIndex].TryGetValue("ListBoxText", out var text) ? text : "";
         }
-
     }
 }
