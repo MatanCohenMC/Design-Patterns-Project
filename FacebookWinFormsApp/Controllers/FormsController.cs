@@ -140,6 +140,10 @@ namespace FacebookApp.Controllers
                         loginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
                         loginForm.ButtonLogin.Enabled = false;
                         loginForm.ButtonLogout.Enabled = true;
+                        NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                        navigationBarForm?.EnableNavigationBar();
+                        LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                        loginBarForm?.EnableMyProfileButton();
                     }
                     else
                     {
@@ -165,15 +169,33 @@ namespace FacebookApp.Controllers
 
         private void logoutOfApp()
         {
-            LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-            string appId = loginForm.TextBoxAppIdString;
-            r_Login.LoginToApp(appId);
-            FacebookService.LogoutWithUI();
-            loginForm.ButtonLogin.Text = "Login";
-            loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
-            loginForm.LoginResult = null;
-            loginForm.ButtonLogin.Enabled = true;
-            loginForm.ButtonLogout.Enabled = false;
+            if(r_Login.IsLoggedIn())
+            {
+                LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                string appId = loginForm.TextBoxAppIdString;
+                r_Login.LoginToApp(appId);
+                FacebookService.LogoutWithUI();
+                loginForm.ButtonLogin.Text = "Login";
+                loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
+                loginForm.LoginResult = null;
+                loginForm.ButtonLogin.Enabled = true;
+                loginForm.ButtonLogout.Enabled = false;
+                r_Login.LogOut();
+                NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                navigationBarForm?.DisableNavigationBar();
+                LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                loginBarForm?.DisableMyProfileButton();
+                loginForm.PictureBoxUserProfile.Image = null;
+                // Clear the presented form
+                Form appMainForm = GetForm(eFormName.AppMainForm);
+                if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+                {
+                    if (m_CurrentForm != null)
+                    {
+                        panelDisplay.Controls.Remove(m_CurrentForm);
+                    }
+                }
+            }
         }
 
         public static FormsController Instance
@@ -314,7 +336,6 @@ namespace FacebookApp.Controllers
             string location = locationHandler.GetLocationByIndex(listBox.SelectedIndex);
 
             locationTextBox.Text = location ?? "No location mentioned.";
-            listBox.Enabled = location != null;
         }
 
         private void setUpdatedTime(eFormName i_EnumFormName)
@@ -326,7 +347,6 @@ namespace FacebookApp.Controllers
             string updatedTime = updatedTimeHandler.GetUpdatedTimeByIndex(listBox.SelectedIndex);
 
             updatedTimeTextBox.Text = updatedTime ?? "No updated time mentioned.";
-            listBox.Enabled = updatedTime != null;
         }
 
         private void setPictureCount(eFormName i_EnumFormName)
@@ -338,7 +358,6 @@ namespace FacebookApp.Controllers
             string pictureCount = pictureCountHandler.GetPictureCountByIndex(listBox.SelectedIndex);
 
             pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
-            listBox.Enabled = pictureCount != null;
 
             /* if (albumPictureCount != null && albumPictureCount != String.Empty)
              {
@@ -359,7 +378,6 @@ namespace FacebookApp.Controllers
             string date = dateHandler.GetDateByIndex(listBox.SelectedIndex);
 
             dateTextBox.Text = date ?? "No date mentioned.";
-            listBox.Enabled = date != null;
         }
 
         private void setDescription(eFormName i_EnumFormName)
@@ -371,7 +389,6 @@ namespace FacebookApp.Controllers
             string description = descriptionHandler.GetDescriptionByIndex(listBox.SelectedIndex);
 
             descriptionTextBox.Text = description ?? "No description mentioned.";
-            listBox.Enabled = description != null;
         }
 
         private void setComments(eFormName i_EnumFormName)
@@ -387,12 +404,10 @@ namespace FacebookApp.Controllers
             if (comments == null)
             {
                 commentsListBox.Items.Add("Unknown.");
-                listBox.Enabled = false;
             }
             else if (comments.Count == 0)
             {
                 commentsListBox.Items.Add("No comments.");
-                listBox.Enabled = false;
             }
             else
             {
@@ -415,7 +430,6 @@ namespace FacebookApp.Controllers
             string description = descriptionHandler.GetCaptionByIndex(listBox.SelectedIndex);
 
             captionTextBox.Text = description ?? "No caption mentioned.";
-            listBox.Enabled = description != null;
         }
 
 

@@ -23,11 +23,16 @@ namespace FacebookApp.UI.Forms
         public NavigationBarForm()
         {
             InitializeComponent();
+            DisableNavigationBar();
         }
 
-        private void NavigationBarForm_Load(object sender, EventArgs e)
+        public void EnableNavigationBar()
         {
-
+            tableLayoutNavBar.Enabled = true;
+        }
+        public void DisableNavigationBar()
+        {
+            tableLayoutNavBar.Enabled = false;
         }
 
         private void ButtonPosts_Click(object sender, EventArgs e)
