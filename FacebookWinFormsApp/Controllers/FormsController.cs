@@ -22,15 +22,36 @@ namespace FacebookApp.Controllers
     {
         //private Dictionary<string, Form> m_FormsDictionary;
         private Dictionary<eFormName, Form> m_eNumFormsDictionary;
-        private static FormsController s_Instance = null;
         private Form m_CurrentForm;
         private readonly Login r_Login;
+
+        private static FormsController s_Instance = null;
+        private static readonly object sr_MyLock = new object();
 
         private FormsController()
         {
             r_Login = Login.Instance;
             initializeForms();
         }
+        public static FormsController Instance
+        {
+            get
+            {
+                if (s_Instance == null)
+                {
+                    lock (sr_MyLock)
+                    {
+                        if (s_Instance == null)
+                        {
+                            s_Instance = new FormsController();
+                        }
+                    }
+                }
+                return s_Instance;
+            }
+        }
+
+
         // //
 
         private void initializeForms()
@@ -198,18 +219,7 @@ namespace FacebookApp.Controllers
             }
         }
 
-        public static FormsController Instance
-        {
-            get
-            {
-                if (s_Instance == null)
-                {
-                    s_Instance = new FormsController();
-                }
 
-                return s_Instance;
-            }
-        }
 
         public void AddForm(eFormName i_EnumFormName, Form i_Form)
         {

@@ -12,7 +12,8 @@
         PostsByDateRangeForm,
         NavigationBarForm,
         LoginBarForm,
-        AppMainForm
+        AppMainForm,
+        RandomMemoryForm,
 
     }
 }
