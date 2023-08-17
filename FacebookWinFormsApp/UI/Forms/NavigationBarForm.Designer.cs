@@ -207,7 +207,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NavigationBarForm";
             this.Text = "NavigationBarForm";
-            this.Load += new System.EventHandler(this.NavigationBarForm_Load);
             this.tableLayoutNavBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);

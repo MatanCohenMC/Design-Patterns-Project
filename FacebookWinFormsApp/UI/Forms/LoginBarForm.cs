@@ -26,6 +26,7 @@ namespace FacebookApp.UI.Forms
         {
             InitializeComponent();
             buttonLogout.Enabled = false;
+            DisableMyProfileButton();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -41,6 +42,15 @@ namespace FacebookApp.UI.Forms
         private void buttonMyProfile_Click(object sender, EventArgs e)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.UserProfileForm);
+        }
+
+        public void EnableMyProfileButton()
+        {
+            buttonMyProfile.Enabled = true;
+        }
+        public void DisableMyProfileButton()
+        {
+            buttonMyProfile.Enabled = false;
         }
 
         public string TextBoxAppIdString
