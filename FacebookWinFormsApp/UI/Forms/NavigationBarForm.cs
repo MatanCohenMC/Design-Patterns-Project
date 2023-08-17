@@ -76,5 +76,20 @@ namespace FacebookApp.UI.Forms
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.PostsByDateRangeForm);
         }
+
+        private void NavigationBarForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonFriendsInMyAgeRange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRandomMemory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
