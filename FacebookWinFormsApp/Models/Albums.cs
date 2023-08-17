@@ -35,7 +35,7 @@ namespace FacebookApp.Models
                     albumDictionary["Picture"] = album.PictureAlbumURL;
                     albumDictionary["Location"] = album.Location;
                     albumDictionary["PictureCount"] = album.Count.ToString();
-                    albumDictionary["UpdatedTime"] = album.CreatedTime.ToString();
+                    albumDictionary["UpdatedTime"] = album.UpdateTime.ToString();
                 }
 
                 dataList.Add(albumDictionary);
