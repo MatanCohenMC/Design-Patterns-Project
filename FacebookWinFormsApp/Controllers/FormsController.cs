@@ -107,6 +107,10 @@ namespace FacebookApp.Controllers
             setFetchActionFunctions(EventsByLocationEnum, fetchUserFormData);
             setSelectedIndexActionFunctions(EventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
 
+            eFormName RandomMemoryEnum = eFormName.RandomMemoryForm;
+            RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
+            AddForm(RandomMemoryEnum, randomMemoryForm);
+            setFetchActionFunctions(RandomMemoryEnum, fetchRandomMemory);
 
 
             eFormName NavigationBarEnum = eFormName.NavigationBarForm;
@@ -267,6 +271,8 @@ namespace FacebookApp.Controllers
             fetchDataToListBox(componentHandler, dataHandler);
         }
 
+        
+
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
             ListBox listBox = i_ComponentHandler.GetListBox();
@@ -285,6 +291,19 @@ namespace FacebookApp.Controllers
                     }
                 }
             }
+        }
+
+        private void fetchRandomMemory(eFormName i_EnumFormName)
+        {
+            IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
+            IRandomPictureHandler randomPictureHandler = GetForm(i_EnumFormName) as IRandomPictureHandler;
+            ISetTextBoxHandler setTextBoxHandler = GetForm(i_EnumFormName) as ISetTextBoxHandler;
+            string o_randomPictureUrl = "";
+            string o_pictureUpdatedTime = "";
+            randomPictureHandler?.GetRandomPictureUrl(out o_randomPictureUrl, out o_pictureUpdatedTime);
+            PictureBox pictureBox = pictureHandler?.GetPictureBox();
+            setTextBoxHandler?.SetTextBox(o_pictureUpdatedTime);
+            pictureBox?.Load(o_randomPictureUrl);
         }
 
         private void fetchUserProfileData()
@@ -322,10 +341,11 @@ namespace FacebookApp.Controllers
         {
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
             IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
+            IPictureByIndexHandler pictureByIndexHandler = GetForm(i_EnumFormName) as IPictureByIndexHandler;
             ListBox listBox = componentHandler.GetListBox();
             PictureBox pictureBox = pictureHandler.GetPictureBox();
 
-            string pictureUrl = pictureHandler.GetPictureUrlByIndex(listBox.SelectedIndex);
+            string pictureUrl = pictureByIndexHandler.GetPictureUrlByIndex(listBox.SelectedIndex);
             if (pictureUrl != null)
             {
                 pictureBox.LoadAsync(pictureUrl);

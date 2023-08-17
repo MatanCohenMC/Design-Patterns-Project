@@ -47,9 +47,10 @@
             // 
             // pictureBoxMemory
             // 
-            this.pictureBoxMemory.Location = new System.Drawing.Point(385, 73);
+            this.pictureBoxMemory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxMemory.Location = new System.Drawing.Point(385, 40);
             this.pictureBoxMemory.Name = "pictureBoxMemory";
-            this.pictureBoxMemory.Size = new System.Drawing.Size(242, 133);
+            this.pictureBoxMemory.Size = new System.Drawing.Size(242, 183);
             this.pictureBoxMemory.TabIndex = 1;
             this.pictureBoxMemory.TabStop = false;
             // 
@@ -58,9 +59,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(281, 245);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.Size = new System.Drawing.Size(90, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "date created:";
+            this.label1.Text = "date updated:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxDateCreated

@@ -13,7 +13,7 @@ namespace FacebookApp.Models
         private readonly Login r_Login = Login.Instance;
 
         public List<Dictionary<string, string>> m_DataList { get; private set; }
-
+        bool m_IsDataFetched = false;
         public Albums()
         {
             m_DataList = new List<Dictionary<string, string>>();
@@ -21,6 +21,8 @@ namespace FacebookApp.Models
 
         public List<Dictionary<string, string>> FetchUserAlbums()
         {
+            m_IsDataFetched = false;
+            m_DataList.Clear();
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
             foreach(Album album in r_Login.LoggedInUser.Albums)
@@ -33,7 +35,7 @@ namespace FacebookApp.Models
                     albumDictionary["Picture"] = album.PictureAlbumURL;
                     albumDictionary["Location"] = album.Location;
                     albumDictionary["PictureCount"] = album.Count.ToString();
-                    albumDictionary["UpdatedTime"] = album.UpdateTime.ToString();
+                    albumDictionary["UpdatedTime"] = album.CreatedTime.ToString();
                 }
 
                 dataList.Add(albumDictionary);
@@ -47,6 +49,7 @@ namespace FacebookApp.Models
             }
 
             m_DataList = dataList;
+            m_IsDataFetched = true;
             return dataList;
         }
 
@@ -68,6 +71,17 @@ namespace FacebookApp.Models
         public string GetPictureCount(int i_SelectedIndex)
         {
             return m_DataList[i_SelectedIndex]["PictureCount"];
+        }
+
+        public void GetRandomPictureUrl(out string o_pictureUrl, out string o_date)
+        {
+            if(!m_IsDataFetched)
+                m_DataList = FetchUserAlbums();
+
+            Random random = new Random();
+            int randomIndex = random.Next(0, m_DataList.Count);
+            o_pictureUrl = m_DataList[randomIndex]["Picture"];
+            o_date = m_DataList[randomIndex]["UpdatedTime"];
         }
     }
 }

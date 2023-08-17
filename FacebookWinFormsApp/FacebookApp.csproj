@@ -113,6 +113,9 @@
     <Compile Include="Interfaces\ICommentsHandler.cs" />
     <Compile Include="Interfaces\IDateHandler.cs" />
     <Compile Include="Interfaces\IDescriptionHandler.cs" />
+    <Compile Include="Interfaces\ISetTextBoxHandler.cs" />
+    <Compile Include="Interfaces\IPictureByIndexHandler.cs" />
+    <Compile Include="Interfaces\IRandomPictureHandler.cs" />
     <Compile Include="Interfaces\ISetFetchAction.cs" />
     <Compile Include="Interfaces\ILocationHandler.cs" />
     <Compile Include="Interfaces\IPictureCountHandler.cs" />

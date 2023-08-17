@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Posts r_Posts = new Posts();
         //private readonly string r_FormName = "PostsByDateRangeForm";

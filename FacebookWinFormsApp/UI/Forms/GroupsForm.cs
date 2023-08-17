@@ -12,7 +12,7 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class GroupsForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private Groups r_Groups = new Groups();
         //private readonly string r_FormName = "GroupsForm";

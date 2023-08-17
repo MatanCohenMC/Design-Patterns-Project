@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler,ISetFetchAction,ISetSelectedIndexAction
+    public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler,ISetFetchAction,ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Events r_Events = new Events();
         //private readonly string r_FormName = "EventsForm";
