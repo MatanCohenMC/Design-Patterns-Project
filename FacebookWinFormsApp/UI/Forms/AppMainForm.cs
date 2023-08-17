@@ -1,15 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
-using FacebookApp.Controllers;
-using FacebookWrapper.ObjectModel;
+﻿using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-
     public partial class AppMainForm : Form
     {
-        private readonly NavigationBarForm r_NavigationBarForm;
         private readonly LoginBarForm r_LoginBar;
+        private readonly NavigationBarForm r_NavigationBarForm;
 
         public AppMainForm(NavigationBarForm i_NavigationBarForm, LoginBarForm i_LoginBarForm)
         {

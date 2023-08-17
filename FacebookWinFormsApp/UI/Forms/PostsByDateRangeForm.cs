@@ -1,59 +1,33 @@
-﻿using FacebookApp.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsByDateRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class PostsByDateRangeForm : Form,
+                                                IComponentHandler,
+                                                IDataHandler,
+                                                IPictureHandler,
+                                                IDateHandler,
+                                                ILocationHandler,
+                                                ICaptionHandler,
+                                                ICommentsHandler,
+                                                ISetFetchAction,
+                                                ISetSelectedIndexAction,
+                                                IPictureByIndexHandler
     {
-        private readonly Posts r_Posts = new Posts();
         //private readonly string r_FormName = "PostsByDateRangeForm";
         private readonly eFormName r_FormName = eFormName.PostsByDateRangeForm;
+        private readonly Posts r_Posts = new Posts();
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
 
         public PostsByDateRangeForm()
         {
             InitializeComponent();
-        }
-
-        private void buttonFetchPostsByDate_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
-        private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_E)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
-        }
-
-        public PictureBox GetPictureBox()
-        {
-            return pictureBoxPosts;
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_Posts.GetPictureUrl(i_Index);
-        }
-
-        public TextBox GetLocationTextBox()
-        {
-            return textBoxLocation;
-        }
-
-        public string GetLocationByIndex(int i_Index)
-        {
-            return r_Posts.GetLocation(i_Index);
         }
 
         public TextBox GetCaptionTextBox()
@@ -64,16 +38,6 @@ namespace FacebookApp.UI.Forms
         public string GetCaptionByIndex(int i_Index)
         {
             return r_Posts.GetCaption(i_Index);
-        }
-
-        public TextBox GetDateTextBox()
-        {
-            return textBoxDate;
-        }
-
-        public string GetDateByIndex(int i_Index)
-        {
-            return r_Posts.GetDate(i_Index);
         }
 
         public ListBox GetCommentsListBox()
@@ -98,15 +62,55 @@ namespace FacebookApp.UI.Forms
             DataList = r_Posts.FetchUserPostsByDateRange(dateTimeFrom, dateTimeTo);
         }
 
-
-        public void SetFetchAction(Action<eFormName> action)
+        public TextBox GetDateTextBox()
         {
-            m_FetchButtonPressed += action;
+            return textBoxDate;
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        public string GetDateByIndex(int i_Index)
         {
-            m_SelectedIndexChanged += action;
+            return r_Posts.GetDate(i_Index);
+        }
+
+        public TextBox GetLocationTextBox()
+        {
+            return textBoxLocation;
+        }
+
+        public string GetLocationByIndex(int i_Index)
+        {
+            return r_Posts.GetLocation(i_Index);
+        }
+
+        public string GetPictureUrlByIndex(int i_Index)
+        {
+            return r_Posts.GetPictureUrl(i_Index);
+        }
+
+        public PictureBox GetPictureBox()
+        {
+            return pictureBoxPosts;
+        }
+
+
+        public void SetFetchAction(Action<eFormName> i_Action)
+        {
+            m_FetchButtonPressed += i_Action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
+        {
+            m_SelectedIndexChanged += i_Action;
+        }
+
+        private void buttonFetchPostsByDate_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
+        }
+
+        private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
     }
 }

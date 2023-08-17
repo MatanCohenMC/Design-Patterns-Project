@@ -1,21 +1,16 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FacebookApp.Models
 {
     public class UserProfile
     {
         private readonly Login r_Login = Login.Instance;
-        public Dictionary<string, string> m_DataList { get; private set; }
 
+        public Dictionary<string, string> DataList { get; private set; }
 
         public Dictionary<string, string> FetchUserProfileData()
         {
-            Dictionary<string, string> dataDictionary= new Dictionary<string, string>();
+            Dictionary<string, string> dataDictionary = new Dictionary<string, string>();
 
             dataDictionary["FullName"] = r_Login.LoggedInUser.Name;
             dataDictionary["Email"] = r_Login.LoggedInUser.Email;
@@ -26,9 +21,8 @@ namespace FacebookApp.Models
             dataDictionary["Work"] = r_Login.LoggedInUser.WorkExperiences?.ToString();
             dataDictionary["Picture"] = r_Login.LoggedInUser.PictureLargeURL;
 
-            m_DataList = dataDictionary;
+            DataList = dataDictionary;
             return dataDictionary;
         }
-        
     }
 }

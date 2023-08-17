@@ -1,18 +1,20 @@
-﻿using FacebookApp.Interfaces;
-using FacebookApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Interfaces;
+using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsByLocationForm : Form, IComponentHandler, IDataHandler, IDescriptionHandler, IPictureHandler, IDateHandler,ISetFetchAction,ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class EventsByLocationForm : Form,
+                                                IComponentHandler,
+                                                IDataHandler,
+                                                IDescriptionHandler,
+                                                IPictureHandler,
+                                                IDateHandler,
+                                                ISetFetchAction,
+                                                ISetSelectedIndexAction,
+                                                IPictureByIndexHandler
     {
         private readonly Events r_Events = new Events();
         //private readonly string r_FormName = "EventsForm";
@@ -26,51 +28,15 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void labelEnterLocation_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonFetchEvents_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
         public ListBox GetListBox()
         {
             return listBoxEventsByLocation;
         }
 
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
+        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
         {
             string location = getEventLocation();
-            DataList = r_Events.FetchUserEventsByLocation(location);
-        }
-
-        private string getEventLocation()
-        {
-            string location = textBoxLocation.Text;
-            return location;
-        }
-
-        public TextBox GetDescriptionTextBox()
-        {
-            return textBoxDescription;
-        }
-
-        public string GetDescriptionByIndex(int i_Index)
-        {
-            return r_Events.GetDescription(i_Index);
-        }
-
-        public PictureBox GetPictureBox()
-        {
-            return pictureBoxEvent;
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_Events.GetPictureUrl(i_Index);
+            i_DataList = r_Events.FetchUserEventsByLocation(location);
         }
 
         public TextBox GetDateTextBox()
@@ -83,14 +49,48 @@ namespace FacebookApp.UI.Forms
             return r_Events.GetDate(i_Index);
         }
 
-        public void SetFetchAction(Action<eFormName> action)
+        public TextBox GetDescriptionTextBox()
         {
-            m_FetchButtonPressed += action;
+            return textBoxDescription;
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        public string GetDescriptionByIndex(int i_Index)
         {
-            m_SelectedIndexChanged += action;
+            return r_Events.GetDescription(i_Index);
+        }
+
+        public string GetPictureUrlByIndex(int i_Index)
+        {
+            return r_Events.GetPictureUrl(i_Index);
+        }
+
+        public PictureBox GetPictureBox()
+        {
+            return pictureBoxEvent;
+        }
+
+        public void SetFetchAction(Action<eFormName> i_Action)
+        {
+            m_FetchButtonPressed += i_Action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
+        {
+            m_SelectedIndexChanged += i_Action;
+        }
+
+        private void labelEnterLocation_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+        }
+
+        private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
+        }
+
+        private string getEventLocation()
+        {
+            return textBoxLocation?.Text;
         }
     }
 }

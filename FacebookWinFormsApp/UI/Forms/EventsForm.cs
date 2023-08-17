@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookApp.Models;
 using FacebookApp.Interfaces;
-
+using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class EventsForm : Form, IComponentHandler, IDataHandler, ILocationHandler, IDescriptionHandler, IDateHandler, IPictureHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class EventsForm : Form,
+                                      IComponentHandler,
+                                      IDataHandler,
+                                      ILocationHandler,
+                                      IDescriptionHandler,
+                                      IDateHandler,
+                                      IPictureHandler,
+                                      ISetFetchAction,
+                                      ISetSelectedIndexAction,
+                                      IPictureByIndexHandler
     {
         private readonly Events r_Events = new Events();
         private readonly eFormName r_FormName = eFormName.EventsForm;
@@ -25,24 +27,24 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
-        }
-
-        private void buttonFetchEvents_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
-        {
-            DataList = r_Events.FetchUserEvents();
-        }
-
         public ListBox GetListBox()
         {
             return listBoxEvents;
+        }
+
+        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
+        {
+            i_DataList = r_Events.FetchUserEvents();
+        }
+
+        public TextBox GetDateTextBox()
+        {
+            return textBoxDate;
+        }
+
+        public string GetDateByIndex(int i_Index)
+        {
+            return r_Events.GetDate(i_Index);
         }
 
         public TextBox GetDescriptionTextBox()
@@ -65,14 +67,9 @@ namespace FacebookApp.UI.Forms
             return r_Events.GetLocation(i_Index);
         }
 
-        public TextBox GetDateTextBox()
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            return textBoxDate;
-        }
-
-        public string GetDateByIndex(int i_Index)
-        {
-            return r_Events.GetDate(i_Index);
+            return r_Events.GetPictureUrl(i_Index);
         }
 
         public PictureBox GetPictureBox()
@@ -80,19 +77,24 @@ namespace FacebookApp.UI.Forms
             return pictureBoxEvent;
         }
 
-        public string GetPictureUrlByIndex(int i_Index)
+        public void SetFetchAction(Action<eFormName> i_Action)
         {
-            return r_Events.GetPictureUrl(i_Index);
+            m_FetchButtonPressed += i_Action;
         }
 
-        public void SetFetchAction(Action<eFormName> action)
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
         {
-            m_FetchButtonPressed += action;
+            m_SelectedIndexChanged += i_Action;
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        private void listBoxPages_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
         {
-            m_SelectedIndexChanged += action;
+            m_SelectedIndexChanged?.Invoke(r_FormName);
+        }
+
+        private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
         }
     }
 }

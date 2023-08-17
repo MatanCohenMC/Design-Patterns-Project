@@ -1,58 +1,39 @@
-﻿using FacebookApp.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookApp.Interfaces;
 using FacebookApp.Models;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
+    public partial class LikedPagesForm : Form,
+                                          IComponentHandler,
+                                          IDataHandler,
+                                          IPictureHandler,
+                                          IDescriptionHandler,
+                                          ISetFetchAction,
+                                          ISetSelectedIndexAction,
+                                          IPictureByIndexHandler
     {
+        //private readonly string r_FormName = "LikedPagesForm";
+        private readonly eFormName r_FormName = eFormName.LikedPagesForm;
         private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
-        //private readonly string r_FormName = "LikedPagesForm";
-        private readonly eFormName r_FormName = eFormName.LikedPagesForm;
 
         public LikedPagesForm()
         {
             InitializeComponent();
         }
 
-        private void buttonFetchPages_Click(object sender, EventArgs e)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
-        private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
-        }
-
-        public void FetchListBoxData(out List<Dictionary<string, string>> DataList)
-        {
-            DataList = r_LikedPages.FetchUserLikedPages();
-        }
         public ListBox GetListBox()
         {
             return this.listBoxLikedPages;
         }
 
-        public PictureBox GetPictureBox()
+        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
         {
-            return pictureBoxLikedPage;
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_LikedPages.GetPictureUrl(i_Index);
+            i_DataList = r_LikedPages.FetchUserLikedPages();
         }
 
         public TextBox GetDescriptionTextBox()
@@ -65,14 +46,34 @@ namespace FacebookApp.UI.Forms
             return r_LikedPages.GetDescription(i_Index);
         }
 
-        public void SetFetchAction(Action<eFormName> action)
+        public string GetPictureUrlByIndex(int i_Index)
         {
-            m_FetchButtonPressed += action;
+            return r_LikedPages.GetPictureUrl(i_Index);
         }
 
-        public void SetSelectedIndexAction(Action<eFormName> action)
+        public PictureBox GetPictureBox()
         {
-            m_SelectedIndexChanged += action;
+            return pictureBoxLikedPage;
+        }
+
+        public void SetFetchAction(Action<eFormName> i_Action)
+        {
+            m_FetchButtonPressed += i_Action;
+        }
+
+        public void SetSelectedIndexAction(Action<eFormName> i_Action)
+        {
+            m_SelectedIndexChanged += i_Action;
+        }
+
+        private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_FetchButtonPressed?.Invoke(r_FormName);
+        }
+
+        private void listBoxLikedPages_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
+        {
+            m_SelectedIndexChanged?.Invoke(r_FormName);
         }
     }
 }

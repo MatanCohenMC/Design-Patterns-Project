@@ -1,10 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.Models
 {
@@ -12,15 +7,16 @@ namespace FacebookApp.Models
     {
         private readonly Login r_Login = Login.Instance;
 
-        public List<Dictionary<string, string>> m_DataList { get; private set; }
         public Albums()
         {
-            m_DataList = new List<Dictionary<string, string>>();
+            DataList = new List<Dictionary<string, string>>();
         }
+
+        public List<Dictionary<string, string>> DataList { get; private set; }
 
         public List<Dictionary<string, string>> FetchUserAlbums()
         {
-            m_DataList.Clear();
+            DataList.Clear();
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
 
             foreach(Album album in r_Login.LoggedInUser.Albums)
@@ -46,28 +42,28 @@ namespace FacebookApp.Models
                 dataList.Add(noAlbumDictionary);
             }
 
-            m_DataList = dataList;
+            DataList = dataList;
             return dataList;
         }
 
         public string GetPictureUrl(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Picture"];
+            return DataList[i_SelectedIndex]["Picture"];
         }
 
         public string GetLocation(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["Location"];
+            return DataList[i_SelectedIndex]["Location"];
         }
 
         public string GetUpdatedTime(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["UpdatedTime"];
+            return DataList[i_SelectedIndex]["UpdatedTime"];
         }
 
         public string GetPictureCount(int i_SelectedIndex)
         {
-            return m_DataList[i_SelectedIndex]["PictureCount"];
+            return DataList[i_SelectedIndex]["PictureCount"];
         }
     }
 }
