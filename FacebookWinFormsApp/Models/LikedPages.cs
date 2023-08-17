@@ -23,23 +23,15 @@ namespace FacebookApp.Models
 
             foreach (Page page in r_Login.LoggedInUser.LikedPages)
             {
-                Dictionary<string, string> postDictionary = new Dictionary<string, string>();
-
                 if (page.Name != null)
                 {
+                    Dictionary<string, string> postDictionary = new Dictionary<string, string>();
+
                     postDictionary["ListBoxText"] = page.Name;
                     postDictionary["Description"] = page.Description;
                     postDictionary["Picture"] = page.PictureURL;
+                    dataList.Add(postDictionary);
                 }
-
-                dataList.Add(postDictionary);
-            }
-
-            if (dataList.Count == 0)
-            {
-                Dictionary<string, string> noLikedPagesDictionary = new Dictionary<string, string>();
-                noLikedPagesDictionary["ListBoxText"] = "No liked pages to retrieve.";
-                dataList.Add(noLikedPagesDictionary);
             }
 
             m_DataList = dataList;

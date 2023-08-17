@@ -15,7 +15,6 @@ namespace FacebookApp.UI.Forms
     public partial class RandomMemoryForm : Form, IPictureHandler, ISetFetchAction
     {
         private readonly Posts r_Posts = new Posts();
-        //private readonly string r_FormName = "PostsByDateRangeForm";
         private readonly eFormName r_FormName = eFormName.RandomMemoryForm;
         public Action<eFormName> m_FetchButtonPressed;
 
@@ -55,6 +54,18 @@ namespace FacebookApp.UI.Forms
         public void SetPostsTextTextBox(string i_PostsText)
         {
             textBoxPostsText.Text = i_PostsText;
+        }
+
+        public void SetPictureBox(string i_PostPictureUrl)
+        {
+            if (i_PostPictureUrl != null)
+            {
+                pictureBoxMemory.LoadAsync(i_PostPictureUrl);
+            }
+            else
+            {
+                pictureBoxMemory.Image = null;
+            }
         }
     }
 }

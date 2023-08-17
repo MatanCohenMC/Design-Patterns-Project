@@ -18,23 +18,15 @@ namespace FacebookApp.Models
 
             foreach (Group group in r_Login.LoggedInUser.Groups)
             {
-                Dictionary<string, string> groupDictionary = new Dictionary<string, string>();
-
                 if (group.Name != null)
                 {
+                    Dictionary<string, string> groupDictionary = new Dictionary<string, string>();
+
                     groupDictionary["ListBoxText"] = group.Name;
                     groupDictionary["Description"] = group.Description;
                     groupDictionary["Picture"] = group.PictureNormalURL;
+                    dataList.Add(groupDictionary);
                 }
-
-                dataList.Add(groupDictionary);
-            }
-
-            if (dataList.Count == 0)
-            {
-                Dictionary<string, string> noGroupsDictionary = new Dictionary<string, string>();
-                noGroupsDictionary["ListBoxText"] = "No groups to retrieve.";
-                dataList.Add(noGroupsDictionary);
             }
 
             m_DataList = dataList;

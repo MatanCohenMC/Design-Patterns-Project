@@ -16,7 +16,6 @@ namespace FacebookApp.UI.Forms
     public partial class PostsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Posts r_Posts = new Posts();
-        //private readonly string r_FormName = "PostsForm";
         private readonly eFormName r_FormName = eFormName.PostsForm;
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
@@ -45,7 +44,6 @@ namespace FacebookApp.UI.Forms
         {
             m_SelectedIndexChanged?.Invoke(r_FormName);
         }
-
 
         public PictureBox GetPictureBox()
         {
