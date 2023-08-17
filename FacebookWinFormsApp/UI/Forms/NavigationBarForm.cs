@@ -89,7 +89,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonRandomMemory_Click(object sender, EventArgs e)
         {
-
+            m_OnSubFormButtonPressed?.Invoke(eFormName.RandomMemoryForm);
         }
     }
 }

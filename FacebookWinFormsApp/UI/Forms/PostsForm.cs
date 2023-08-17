@@ -13,7 +13,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class PostsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDateHandler, ILocationHandler, ICaptionHandler, ICommentsHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Posts r_Posts = new Posts();
         //private readonly string r_FormName = "PostsForm";

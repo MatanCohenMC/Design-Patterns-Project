@@ -7,9 +7,8 @@ using System.Windows.Forms;
 
 namespace FacebookApp.Interfaces
 {
-    public interface IPictureHandler
+    public interface ISetTextBoxHandler
     {
-        PictureBox GetPictureBox();
-
+        void SetTextBox(string i_StringToSet);
     }
 }

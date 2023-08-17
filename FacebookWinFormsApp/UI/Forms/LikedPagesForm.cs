@@ -13,7 +13,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class LikedPagesForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IDescriptionHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<eFormName> m_FetchButtonPressed;

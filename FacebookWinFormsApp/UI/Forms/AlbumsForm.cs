@@ -16,7 +16,7 @@ using CefSharp.ModelBinding;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class AlbumsForm : Form, IComponentHandler, IDataHandler, IPictureHandler, ILocationHandler, IPictureCountHandler, IUpdatedTimeHandler, ISetFetchAction, ISetSelectedIndexAction, IPictureByIndexHandler
     {
         private readonly Albums r_Albums = new Albums();
         //private readonly string r_FormName = "AlbumsForm";
