@@ -350,7 +350,6 @@ namespace FacebookApp.Controllers
             IPictureByIndexHandler pictureByIndexHandler = GetForm(i_EnumFormName) as IPictureByIndexHandler;
             ListBox listBox = componentHandler.GetListBox();
             PictureBox pictureBox = pictureHandler.GetPictureBox();
-
             string pictureUrl = pictureByIndexHandler.GetPictureUrlByIndex(listBox.SelectedIndex);
             if (pictureUrl != null)
             {

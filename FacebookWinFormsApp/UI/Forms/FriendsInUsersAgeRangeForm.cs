@@ -13,7 +13,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class FriendsInUsersAgeRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler,ILocationHandler,IBirthdayHandler, IFullNameHandler, ISetFetchAction, ISetSelectedIndexAction
+    public partial class FriendsInUsersAgeRangeForm : Form, IComponentHandler, IDataHandler, IPictureHandler, IPictureByIndexHandler,ILocationHandler,IBirthdayHandler, IFullNameHandler, ISetFetchAction, ISetSelectedIndexAction
     {
         private readonly FriendsInUsersAgeRange r_FriendsInUsersAgeRange = new FriendsInUsersAgeRange();
         public Action<eFormName> m_FetchButtonPressed;
