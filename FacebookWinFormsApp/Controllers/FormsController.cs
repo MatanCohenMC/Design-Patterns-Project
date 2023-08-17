@@ -185,6 +185,8 @@ namespace FacebookApp.Controllers
                 navigationBarForm?.DisableNavigationBar();
                 LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
                 loginBarForm?.DisableMyProfileButton();
+                loginForm.PictureBoxUserProfile.Image = null;
+                // Clear the presented form
             }
         }
 
