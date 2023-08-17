@@ -12,9 +12,9 @@ using FacebookApp.Interfaces;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class RandomMemoryForm : Form, IPictureHandler, IRandomPictureHandler, ISetFetchAction, ISetTextBoxHandler
+    public partial class RandomMemoryForm : Form, IPictureHandler, ISetFetchAction
     {
-        private readonly Albums r_Albums = new Albums();
+        private readonly Posts r_Posts = new Posts();
         //private readonly string r_FormName = "PostsByDateRangeForm";
         private readonly eFormName r_FormName = eFormName.RandomMemoryForm;
         public Action<eFormName> m_FetchButtonPressed;
@@ -29,23 +29,14 @@ namespace FacebookApp.UI.Forms
             m_FetchButtonPressed?.Invoke(r_FormName);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public PictureBox GetPictureBox()
         {
             return pictureBoxMemory;
         }
 
-        public void GetRandomPictureUrl(out string o_pictureUrl, out string o_pictureUpdatedTime)
+        public void GetRandomPost(out string o_pictureUrl, out string o_Date, out string o_Location, out string o_Text)
         {
-            r_Albums.GetRandomPictureUrl(out o_pictureUrl,out  o_pictureUpdatedTime);
+            r_Posts.GetRandomPost(out o_pictureUrl, out o_Date, out o_Location, out o_Text);
         }
 
         public void SetFetchAction(Action<eFormName> action)
@@ -53,9 +44,17 @@ namespace FacebookApp.UI.Forms
             m_FetchButtonPressed += action;
         }
 
-        public void SetTextBox(string i_StringToSet)
+        public void SetLocationTextBox(string i_Location)
         {
-            this.textBoxDateCreated.Text = i_StringToSet;
+            textBoxLocation.Text = i_Location;
+        }
+        public void SetDateTextBox(string i_Date)
+        {
+            textBoxDate.Text = i_Date;
+        }
+        public void SetPostsTextTextBox(string i_PostsText)
+        {
+            textBoxPostsText.Text = i_PostsText;
         }
     }
 }

@@ -228,8 +228,6 @@ namespace FacebookApp.Controllers
             }
         }
 
-
-
         public void AddForm(eFormName i_EnumFormName, Form i_Form)
         {
             m_eNumFormsDictionary.Add(i_EnumFormName, i_Form);
@@ -243,7 +241,6 @@ namespace FacebookApp.Controllers
         private void setDisplayPanel(eFormName i_EnumFormName)
         {
             Form formToSet = GetForm(i_EnumFormName);
-            //Form appMainForm = GetForm("AppMainForm");
             Form appMainForm = GetForm(eFormName.AppMainForm);
 
             if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
@@ -266,7 +263,6 @@ namespace FacebookApp.Controllers
             FacebookService.s_UseForamttedToStrings = true;
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-
             Application.Run(GetForm(eFormName.AppMainForm));
         }
 
@@ -276,8 +272,6 @@ namespace FacebookApp.Controllers
             IDataHandler dataHandler = GetForm(i_EnumFormName) as IDataHandler;
             fetchDataToListBox(componentHandler, dataHandler);
         }
-
-        
 
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
@@ -302,14 +296,20 @@ namespace FacebookApp.Controllers
         private void fetchRandomMemory(eFormName i_EnumFormName)
         {
             IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
-            IRandomPictureHandler randomPictureHandler = GetForm(i_EnumFormName) as IRandomPictureHandler;
-            ISetTextBoxHandler setTextBoxHandler = GetForm(i_EnumFormName) as ISetTextBoxHandler;
-            string o_randomPictureUrl = "";
-            string o_pictureUpdatedTime = "";
-            randomPictureHandler?.GetRandomPictureUrl(out o_randomPictureUrl, out o_pictureUpdatedTime);
+            RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
+
+            string o_PostsPicture = "";
+            string o_PostsDate = "";
+            string o_PostsText = "";
+            string o_PostsLocation = "";
+
+            randomMemoryForm?.GetRandomPost(out o_PostsPicture, out o_PostsDate, out o_PostsLocation, out o_PostsText);
+            
             PictureBox pictureBox = pictureHandler?.GetPictureBox();
-            setTextBoxHandler?.SetTextBox(o_pictureUpdatedTime);
-            pictureBox?.Load(o_randomPictureUrl);
+            pictureBox?.Load(o_PostsPicture);
+            randomMemoryForm.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
+            randomMemoryForm.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
+            randomMemoryForm.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
         }
 
         private void fetchUserProfileData()
