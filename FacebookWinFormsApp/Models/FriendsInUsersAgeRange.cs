@@ -15,7 +15,7 @@ namespace FacebookApp.Models
 
         public List<Dictionary<string, string>> DataList { get; private set; }
 
-        public List<Dictionary<string, string>> FetchUserLikedPages()
+        public List<Dictionary<string, string>> FetchUserFriendData()
         {
             List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
             string myBirthdayStr = r_Login.LoggedInUser.Birthday;

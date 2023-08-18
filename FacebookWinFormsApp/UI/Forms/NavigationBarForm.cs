@@ -4,8 +4,6 @@ using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
-    public delegate void DisplayFormEventHandler(Form i_FormToDisplay);
-
     public partial class NavigationBarForm : Form
     {
         public Action<eFormName> m_OnSubFormButtonPressed;

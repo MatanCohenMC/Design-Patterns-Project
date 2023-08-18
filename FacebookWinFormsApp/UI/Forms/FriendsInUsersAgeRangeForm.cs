@@ -39,12 +39,12 @@ namespace FacebookApp.UI.Forms
 
         public ListBox GetListBox()
         {
-            return this.listBoxFriends;
+            return listBoxFriends;
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
         {
-            i_DataList = r_FriendsInUsersAgeRange.FetchUserLikedPages();
+            i_DataList = r_FriendsInUsersAgeRange.FetchUserFriendData();
         }
 
         public TextBox GetFullNameTextBox()

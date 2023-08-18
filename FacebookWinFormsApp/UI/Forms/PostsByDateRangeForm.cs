@@ -19,7 +19,6 @@ namespace FacebookApp.UI.Forms
                                                 ISetSelectedIndexAction,
                                                 IPictureByIndexHandler
     {
-        //private readonly string r_FormName = "PostsByDateRangeForm";
         private readonly eFormName r_FormName = eFormName.PostsByDateRangeForm;
         private readonly Posts r_Posts = new Posts();
         public Action<eFormName> m_FetchButtonPressed;

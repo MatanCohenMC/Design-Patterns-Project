@@ -35,13 +35,6 @@ namespace FacebookApp.Models
                 dataList.Add(albumDictionary);
             }
 
-            if(dataList.Count == 0)
-            {
-                Dictionary<string, string> noAlbumDictionary = new Dictionary<string, string>();
-                noAlbumDictionary["ListBoxText"] = "No albums to retrieve.";
-                dataList.Add(noAlbumDictionary);
-            }
-
             DataList = dataList;
             return dataList;
         }
