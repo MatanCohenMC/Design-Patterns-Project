@@ -12,7 +12,7 @@ namespace FacebookApp.UI.Forms
                                       IPictureHandler,
                                       ILocationHandler,
                                       IPictureCountHandler,
-                                      IUpdatedTimeHandler,
+                                      ICreatedTimeHandler,
                                       ISetFetchAction,
                                       ISetSelectedIndexAction,
                                       IPictureByIndexHandler
@@ -78,14 +78,14 @@ namespace FacebookApp.UI.Forms
             m_SelectedIndexChanged += i_Action;
         }
 
-        public TextBox GetUpdatedTimeTextBox()
+        public TextBox GetCreatedTimeTextBox()
         {
             return textBoxUpdatedTime;
         }
 
-        public string GetUpdatedTimeByIndex(int i_Index)
+        public string GetCreatedTimeByIndex(int i_Index)
         {
-            return r_Albums.GetUpdatedTime(i_Index);
+            return r_Albums.GetCreatedTime(i_Index);
         }
 
         private void fetch_albums_button_Click(object i_Sender, EventArgs i_EventArgs)

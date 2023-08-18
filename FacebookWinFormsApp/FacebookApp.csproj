@@ -122,7 +122,7 @@
     <Compile Include="Interfaces\IPictureCountHandler.cs" />
     <Compile Include="Interfaces\IPictureHandler.cs" />
     <Compile Include="Interfaces\ISetSelectedIndexAction.cs" />
-    <Compile Include="Interfaces\IUpdatedTimeHandler.cs" />
+    <Compile Include="Interfaces\ICreatedTimeHandler.cs" />
     <Compile Include="Models\Albums.cs" />
     <Compile Include="Models\eFormName.cs" />
     <Compile Include="Models\Events.cs" />
