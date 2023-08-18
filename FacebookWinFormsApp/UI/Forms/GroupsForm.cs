@@ -16,9 +16,9 @@ namespace FacebookApp.UI.Forms
                                       IPictureByIndexHandler
     {
         private readonly eFormName r_FormName = eFormName.GroupsForm;
+        private readonly Groups r_Groups = new Groups();
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
-        private readonly Groups r_Groups = new Groups();
 
         public GroupsForm()
         {

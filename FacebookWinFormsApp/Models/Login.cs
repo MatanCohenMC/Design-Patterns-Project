@@ -62,8 +62,7 @@ namespace FacebookApp.Models
 
         public bool IsLoggedIn()
         {
-            bool isLoggedIn = string.IsNullOrEmpty(LoginResult.ErrorMessage);
-            return isLoggedIn;
+            return string.IsNullOrEmpty(LoginResult.ErrorMessage);
         }
     }
 }

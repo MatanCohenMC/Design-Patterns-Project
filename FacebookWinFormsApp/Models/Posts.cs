@@ -65,13 +65,16 @@ namespace FacebookApp.Models
             return r_Login.LoggedInUser.Posts[i_SelectedIndex].Comments;
         }
 
-        public List<Dictionary<string, string>> FetchUserPostsByDateRange(DateTime i_DateTimeFrom, DateTime i_DateTimeTo)
+        public List<Dictionary<string, string>> FetchUserPostsByDateRange(
+            DateTime i_DateTimeFrom,
+            DateTime i_DateTimeTo)
         {
             List<Dictionary<string, string>> dataList = FetchUserPosts();
 
             foreach(Dictionary<string, string> postDictionary in dataList.ToList())
             {
                 DateTime postDateTime = DateTime.Parse(postDictionary["Date"]);
+
                 if(postDateTime < i_DateTimeFrom || postDateTime > i_DateTimeTo)
                 {
                     dataList.Remove(postDictionary);
@@ -85,25 +88,25 @@ namespace FacebookApp.Models
         {
             Random random = new Random();
             int randomIndex = random.Next(0, DataList.Count);
+            o_PictureUrl = string.Empty;
+            o_Date = string.Empty;
+            o_Location = string.Empty;
+            o_Text = string.Empty;
 
             if(DataList.Count == 0)
             {
                 DataList = FetchUserPosts();
             }
 
-            if(DataList.Count == 0)
+            if(DataList.Count > 0)
             {
-                o_PictureUrl = string.Empty;
-                o_Date = string.Empty;
-                o_Location = string.Empty;
-                o_Text = string.Empty;
-                return;
+                o_PictureUrl = DataList[randomIndex].TryGetValue("Picture", out var pictureUrl)
+                                   ? pictureUrl
+                                   : string.Empty;
+                o_Date = DataList[randomIndex].TryGetValue("Date", out var date) ? date : string.Empty;
+                o_Location = DataList[randomIndex].TryGetValue("Location", out var location) ? location : string.Empty;
+                o_Text = DataList[randomIndex].TryGetValue("ListBoxText", out var text) ? text : string.Empty;
             }
-
-            o_PictureUrl = DataList[randomIndex].TryGetValue("Picture", out var pictureUrl) ? pictureUrl : string.Empty;
-            o_Date = DataList[randomIndex].TryGetValue("Date", out var date) ? date : string.Empty;
-            o_Location = DataList[randomIndex].TryGetValue("Location", out var location) ? location : string.Empty;
-            o_Text = DataList[randomIndex].TryGetValue("ListBoxText", out var text) ? text : string.Empty;
         }
     }
 }

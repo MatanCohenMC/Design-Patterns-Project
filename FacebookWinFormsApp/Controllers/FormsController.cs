@@ -12,8 +12,8 @@ namespace FacebookApp.Controllers
 {
     public class FormsController
     {
-        private static FormsController s_Instance = null;
         private static readonly object sr_MyLock = new object();
+        private static FormsController s_Instance = null;
         private readonly Login r_Login;
         private Form m_CurrentForm;
         private Dictionary<eFormName, Form> m_ENumFormsDictionary;
@@ -154,15 +154,16 @@ namespace FacebookApp.Controllers
             if(GetForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
                 string appId = loginForm.TextBoxAppIdString;
-                r_Login.LoginToApp(appId);
 
+                r_Login.LoginToApp(appId);
                 try
                 {
                     if(r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
                     {
                         loginForm.ButtonLogin.Text = "Logged in";
                         loginForm.ButtonLogin.BackColor = Color.LightGreen;
-                        loginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
+                        loginForm.PictureBoxUserProfile.ImageLocation =
+                            r_Login.LoginResult.LoggedInUser.PictureNormalURL;
                         loginForm.ButtonLogin.Enabled = false;
                         loginForm.ButtonLogout.Enabled = true;
                         NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
@@ -196,28 +197,31 @@ namespace FacebookApp.Controllers
             if(r_Login.IsLoggedIn())
             {
                 LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-                string appId = loginForm?.TextBoxAppIdString;
 
-                r_Login?.LoginToApp(appId);
-                FacebookService.LogoutWithUI();
-                loginForm.ButtonLogin.Text = "Login";
-                loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
-                loginForm.LoginResult = null;
-                loginForm.ButtonLogin.Enabled = true;
-                loginForm.ButtonLogout.Enabled = false;
-
-                NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-                Form appMainForm = GetForm(eFormName.AppMainForm);
-
-                navigationBarForm?.DisableNavigationBar();
-                loginBarForm?.DisableMyProfileButton();
-                loginForm.PictureBoxUserProfile.Image = null;
-                if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+                if(loginForm != null)
                 {
-                    if(m_CurrentForm != null)
+                    string appId = loginForm.TextBoxAppIdString;
+                    r_Login?.LoginToApp(appId);
+                    FacebookService.LogoutWithUI();
+                    loginForm.ButtonLogin.Text = "Login";
+                    loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
+                    loginForm.LoginResult = null;
+                    loginForm.ButtonLogin.Enabled = true;
+                    loginForm.ButtonLogout.Enabled = false;
+
+                    NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                    LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                    Form appMainForm = GetForm(eFormName.AppMainForm);
+
+                    navigationBarForm?.DisableNavigationBar();
+                    loginBarForm?.DisableMyProfileButton();
+                    loginForm.PictureBoxUserProfile.Image = null;
+                    if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
                     {
-                        panelDisplay.Controls.Remove(m_CurrentForm);
+                        if(m_CurrentForm != null)
+                        {
+                            panelDisplay.Controls.Remove(m_CurrentForm);
+                        }
                     }
                 }
             }
@@ -278,7 +282,7 @@ namespace FacebookApp.Controllers
             {
                 i_DataHandler.FetchListBoxData(out dataList);
 
-                if(dataList.Count > 0 && dataList != null)
+                if(dataList.Count > 0)
                 {
                     listBox.Enabled = true;
                     foreach(Dictionary<string, string> data in dataList)
@@ -300,11 +304,11 @@ namespace FacebookApp.Controllers
         private void fetchRandomMemory(eFormName i_EnumFormName)
         {
             RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
-
             string o_PostsPictureUrl = String.Empty;
             string o_PostsDate = String.Empty;
             string o_PostsText = String.Empty;
             string o_PostsLocation = String.Empty;
+
             randomMemoryForm?.GetRandomPost(
                 out o_PostsPictureUrl,
                 out o_PostsDate,
