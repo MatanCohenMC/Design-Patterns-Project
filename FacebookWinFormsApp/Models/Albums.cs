@@ -29,7 +29,7 @@ namespace FacebookApp.Models
                     albumDictionary["Picture"] = album.PictureAlbumURL;
                     albumDictionary["Location"] = album.Location;
                     albumDictionary["PictureCount"] = album.Count.ToString();
-                    albumDictionary["UpdatedTime"] = album.UpdateTime.ToString();
+                    albumDictionary["CreatedTime"] = album.CreatedTime.ToString();
                 }
 
                 dataList.Add(albumDictionary);
@@ -49,9 +49,9 @@ namespace FacebookApp.Models
             return DataList[i_SelectedIndex]["Location"];
         }
 
-        public string GetUpdatedTime(int i_SelectedIndex)
+        public string GetCreatedTime(int i_SelectedIndex)
         {
-            return DataList[i_SelectedIndex]["UpdatedTime"];
+            return DataList[i_SelectedIndex]["CreatedTime"];
         }
 
         public string GetPictureCount(int i_SelectedIndex)

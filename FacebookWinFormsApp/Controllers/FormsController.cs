@@ -405,10 +405,10 @@ namespace FacebookApp.Controllers
         private void setUpdatedTime(eFormName i_EnumFormName)
         {
             IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IUpdatedTimeHandler updatedTimeHandler = GetForm(i_EnumFormName) as IUpdatedTimeHandler;
+            ICreatedTimeHandler createdTimeHandler = GetForm(i_EnumFormName) as ICreatedTimeHandler;
             ListBox listBox = componentHandler.GetListBox();
-            TextBox updatedTimeTextBox = updatedTimeHandler.GetUpdatedTimeTextBox();
-            string updatedTime = updatedTimeHandler.GetUpdatedTimeByIndex(listBox.SelectedIndex);
+            TextBox updatedTimeTextBox = createdTimeHandler.GetCreatedTimeTextBox();
+            string updatedTime = createdTimeHandler.GetCreatedTimeByIndex(listBox.SelectedIndex);
 
             updatedTimeTextBox.Text = updatedTime ?? "No updated time mentioned.";
         }
