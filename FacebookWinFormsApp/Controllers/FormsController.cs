@@ -76,12 +76,7 @@ namespace FacebookApp.Controllers
             FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
             AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
             setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(
-                friendsInUsersAgeRangeEnum,
-                setPicture,
-                setFullName,
-                setBirthday,
-                setLocation);
+            setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
 
             eFormName postsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
@@ -98,13 +93,7 @@ namespace FacebookApp.Controllers
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
             AddForm(postsByDateRangeEnum, postsByDateRangeForm);
             setFetchActionFunctions(postsByDateRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(
-                postsByDateRangeEnum,
-                setPicture,
-                setComments,
-                setDate,
-                setLocation,
-                setCaption);
+            setSelectedIndexActionFunctions(postsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
             eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
             EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
@@ -162,8 +151,7 @@ namespace FacebookApp.Controllers
                     {
                         loginForm.ButtonLogin.Text = "Logged in";
                         loginForm.ButtonLogin.BackColor = Color.LightGreen;
-                        loginForm.PictureBoxUserProfile.ImageLocation =
-                            r_Login.LoginResult.LoggedInUser.PictureNormalURL;
+                        loginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
                         loginForm.ButtonLogin.Enabled = false;
                         loginForm.ButtonLogout.Enabled = true;
                         NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;

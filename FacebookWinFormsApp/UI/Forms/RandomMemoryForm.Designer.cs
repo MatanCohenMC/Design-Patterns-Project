@@ -56,11 +56,11 @@
             // textBoxLocation
             // 
             this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLocation.Location = new System.Drawing.Point(287, 197);
+            this.textBoxLocation.Location = new System.Drawing.Point(409, 248);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(306, 53);
+            this.textBoxLocation.Size = new System.Drawing.Size(384, 53);
             this.textBoxLocation.TabIndex = 68;
             // 
             // label2
@@ -68,7 +68,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(189, 197);
+            this.label2.Location = new System.Drawing.Point(311, 248);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 67;
@@ -77,11 +77,11 @@
             // textBoxDate
             // 
             this.textBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(287, 272);
+            this.textBoxDate.Location = new System.Drawing.Point(409, 323);
             this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDate.Multiline = true;
             this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(306, 28);
+            this.textBoxDate.Size = new System.Drawing.Size(339, 28);
             this.textBoxDate.TabIndex = 66;
             // 
             // labelDate
@@ -89,7 +89,7 @@
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDate.Location = new System.Drawing.Point(222, 272);
+            this.labelDate.Location = new System.Drawing.Point(344, 323);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 65;
@@ -98,11 +98,11 @@
             // textBoxPostsText
             // 
             this.textBoxPostsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostsText.Location = new System.Drawing.Point(287, 119);
+            this.textBoxPostsText.Location = new System.Drawing.Point(409, 108);
             this.textBoxPostsText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPostsText.Multiline = true;
             this.textBoxPostsText.Name = "textBoxPostsText";
-            this.textBoxPostsText.Size = new System.Drawing.Size(306, 59);
+            this.textBoxPostsText.Size = new System.Drawing.Size(384, 119);
             this.textBoxPostsText.TabIndex = 70;
             // 
             // label3
@@ -110,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(195, 119);
+            this.label3.Location = new System.Drawing.Point(317, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 69;
@@ -121,7 +121,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(700, 52);
+            this.label4.Location = new System.Drawing.Point(1034, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 25);
             this.label4.TabIndex = 79;
@@ -130,9 +130,9 @@
             // pictureBoxMemory
             // 
             this.pictureBoxMemory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxMemory.Location = new System.Drawing.Point(638, 90);
+            this.pictureBoxMemory.Location = new System.Drawing.Point(969, 108);
             this.pictureBoxMemory.Name = "pictureBoxMemory";
-            this.pictureBoxMemory.Size = new System.Drawing.Size(241, 224);
+            this.pictureBoxMemory.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxMemory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMemory.TabIndex = 78;
             this.pictureBoxMemory.TabStop = false;
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBoxMemory);
             this.Controls.Add(this.textBoxPostsText);

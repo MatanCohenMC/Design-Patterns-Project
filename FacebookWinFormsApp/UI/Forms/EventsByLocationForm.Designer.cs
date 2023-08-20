@@ -47,21 +47,20 @@
             this.labelEnterLocation.AutoSize = true;
             this.labelEnterLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnterLocation.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelEnterLocation.Location = new System.Drawing.Point(29, 127);
+            this.labelEnterLocation.Location = new System.Drawing.Point(17, 19);
             this.labelEnterLocation.Name = "labelEnterLocation";
             this.labelEnterLocation.Size = new System.Drawing.Size(136, 25);
             this.labelEnterLocation.TabIndex = 1;
             this.labelEnterLocation.Text = "Enter location:";
-            this.labelEnterLocation.Click += new System.EventHandler(this.labelEnterLocation_Click);
             // 
             // listBoxEventsByLocation
             // 
             this.listBoxEventsByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxEventsByLocation.FormattingEnabled = true;
             this.listBoxEventsByLocation.ItemHeight = 25;
-            this.listBoxEventsByLocation.Location = new System.Drawing.Point(468, 58);
+            this.listBoxEventsByLocation.Location = new System.Drawing.Point(564, 73);
             this.listBoxEventsByLocation.Name = "listBoxEventsByLocation";
-            this.listBoxEventsByLocation.Size = new System.Drawing.Size(259, 179);
+            this.listBoxEventsByLocation.Size = new System.Drawing.Size(379, 179);
             this.listBoxEventsByLocation.TabIndex = 2;
             // 
             // labelEvents
@@ -69,7 +68,7 @@
             this.labelEvents.AutoSize = true;
             this.labelEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEvents.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelEvents.Location = new System.Drawing.Point(384, 61);
+            this.labelEvents.Location = new System.Drawing.Point(480, 76);
             this.labelEvents.Name = "labelEvents";
             this.labelEvents.Size = new System.Drawing.Size(78, 25);
             this.labelEvents.TabIndex = 3;
@@ -78,7 +77,7 @@
             // textBoxDate
             // 
             this.textBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(468, 260);
+            this.textBoxDate.Location = new System.Drawing.Point(564, 351);
             this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDate.Multiline = true;
             this.textBoxDate.Name = "textBoxDate";
@@ -90,7 +89,7 @@
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDate.Location = new System.Drawing.Point(403, 260);
+            this.labelDate.Location = new System.Drawing.Point(499, 351);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 24;
@@ -101,7 +100,7 @@
             this.Pagelabel.AutoSize = true;
             this.Pagelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pagelabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.Pagelabel.Location = new System.Drawing.Point(824, 61);
+            this.Pagelabel.Location = new System.Drawing.Point(1088, 88);
             this.Pagelabel.Name = "Pagelabel";
             this.Pagelabel.Size = new System.Drawing.Size(118, 25);
             this.Pagelabel.TabIndex = 27;
@@ -110,20 +109,20 @@
             // pictureBoxEvent
             // 
             this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxEvent.Location = new System.Drawing.Point(777, 97);
+            this.pictureBoxEvent.Location = new System.Drawing.Point(1023, 124);
             this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
-            this.pictureBoxEvent.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxEvent.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxEvent.TabIndex = 26;
             this.pictureBoxEvent.TabStop = false;
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(468, 326);
+            this.textBoxDescription.Location = new System.Drawing.Point(564, 271);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(259, 57);
+            this.textBoxDescription.Size = new System.Drawing.Size(379, 57);
             this.textBoxDescription.TabIndex = 29;
             // 
             // descriptionLable
@@ -131,7 +130,7 @@
             this.descriptionLable.AutoSize = true;
             this.descriptionLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.descriptionLable.Location = new System.Drawing.Point(347, 328);
+            this.descriptionLable.Location = new System.Drawing.Point(443, 273);
             this.descriptionLable.Name = "descriptionLable";
             this.descriptionLable.Size = new System.Drawing.Size(115, 25);
             this.descriptionLable.TabIndex = 28;
@@ -140,7 +139,7 @@
             // textBoxLocation
             // 
             this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLocation.Location = new System.Drawing.Point(171, 124);
+            this.textBoxLocation.Location = new System.Drawing.Point(159, 16);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
@@ -152,7 +151,7 @@
             this.buttonFetchEventByLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonFetchEventByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchEventByLocation.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonFetchEventByLocation.Location = new System.Drawing.Point(198, 53);
+            this.buttonFetchEventByLocation.Location = new System.Drawing.Point(337, 16);
             this.buttonFetchEventByLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFetchEventByLocation.Name = "buttonFetchEventByLocation";
             this.buttonFetchEventByLocation.Size = new System.Drawing.Size(135, 40);
@@ -166,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.buttonFetchEventByLocation);
             this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.textBoxDescription);

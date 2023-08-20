@@ -122,7 +122,7 @@
             this.ButtonAlbums.TabIndex = 5;
             this.ButtonAlbums.Text = "Albums";
             this.ButtonAlbums.UseVisualStyleBackColor = true;
-            this.ButtonAlbums.Click += new System.EventHandler(this.ButtonAlbums_Click);
+            this.ButtonAlbums.Click += new System.EventHandler(this.buttonAlbums_Click);
             // 
             // ButtonEvents
             // 
@@ -139,7 +139,7 @@
             this.ButtonEvents.TabIndex = 2;
             this.ButtonEvents.Text = "Events";
             this.ButtonEvents.UseVisualStyleBackColor = true;
-            this.ButtonEvents.Click += new System.EventHandler(this.ButtonEvents_Click);
+            this.ButtonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
             // ButtonGroups
             // 
@@ -156,7 +156,7 @@
             this.ButtonGroups.TabIndex = 1;
             this.ButtonGroups.Text = "Groups";
             this.ButtonGroups.UseVisualStyleBackColor = true;
-            this.ButtonGroups.Click += new System.EventHandler(this.ButtonGroups_Click);
+            this.ButtonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
             // 
             // ButtonLikedPages
             // 
@@ -173,7 +173,7 @@
             this.ButtonLikedPages.TabIndex = 4;
             this.ButtonLikedPages.Text = "Liked Pages";
             this.ButtonLikedPages.UseVisualStyleBackColor = true;
-            this.ButtonLikedPages.Click += new System.EventHandler(this.ButtonLikedPages_Click);
+            this.ButtonLikedPages.Click += new System.EventHandler(this.buttonLikedPages_Click);
             // 
             // ButtonPosts
             // 
@@ -190,7 +190,7 @@
             this.ButtonPosts.TabIndex = 3;
             this.ButtonPosts.Text = "Posts";
             this.ButtonPosts.UseVisualStyleBackColor = true;
-            this.ButtonPosts.Click += new System.EventHandler(this.ButtonPosts_Click);
+            this.ButtonPosts.Click += new System.EventHandler(this.buttonPosts_Click);
             // 
             // pictureBoxLogo
             // 

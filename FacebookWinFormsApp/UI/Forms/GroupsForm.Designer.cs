@@ -54,7 +54,7 @@
             this.Photolabel.AutoSize = true;
             this.Photolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Photolabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.Photolabel.Location = new System.Drawing.Point(821, 70);
+            this.Photolabel.Location = new System.Drawing.Point(1058, 75);
             this.Photolabel.Name = "Photolabel";
             this.Photolabel.Size = new System.Drawing.Size(122, 25);
             this.Photolabel.TabIndex = 2;
@@ -77,10 +77,10 @@
             // pictureBoxGroup
             // 
             this.pictureBoxGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxGroup.Location = new System.Drawing.Point(773, 109);
+            this.pictureBoxGroup.Location = new System.Drawing.Point(1000, 108);
             this.pictureBoxGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxGroup.Name = "pictureBoxGroup";
-            this.pictureBoxGroup.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxGroup.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxGroup.TabIndex = 1;
             this.pictureBoxGroup.TabStop = false;
             // 
@@ -90,7 +90,7 @@
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(230, 123);
+            this.textBoxDescription.Size = new System.Drawing.Size(373, 123);
             this.textBoxDescription.TabIndex = 19;
             // 
             // descriptionLable
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.descriptionLable);
             this.Controls.Add(this.buttonFetchGroups);

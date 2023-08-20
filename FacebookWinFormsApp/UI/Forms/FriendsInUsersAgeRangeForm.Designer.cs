@@ -37,9 +37,9 @@
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxHometown = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPicture)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.buttonFetchFriends.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonFetchFriends.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchFriends.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonFetchFriends.Location = new System.Drawing.Point(12, 23);
+            this.buttonFetchFriends.Location = new System.Drawing.Point(12, 11);
             this.buttonFetchFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFetchFriends.Name = "buttonFetchFriends";
             this.buttonFetchFriends.Size = new System.Drawing.Size(318, 40);
@@ -76,7 +76,7 @@
             this.labelFriendPicture.AutoSize = true;
             this.labelFriendPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFriendPicture.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelFriendPicture.Location = new System.Drawing.Point(845, 84);
+            this.labelFriendPicture.Location = new System.Drawing.Point(1079, 87);
             this.labelFriendPicture.Name = "labelFriendPicture";
             this.labelFriendPicture.Size = new System.Drawing.Size(123, 25);
             this.labelFriendPicture.TabIndex = 11;
@@ -86,10 +86,10 @@
             // 
             this.pictureBoxFriendPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxFriendPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFriendPicture.Location = new System.Drawing.Point(794, 121);
+            this.pictureBoxFriendPicture.Location = new System.Drawing.Point(1019, 124);
             this.pictureBoxFriendPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxFriendPicture.Name = "pictureBoxFriendPicture";
-            this.pictureBoxFriendPicture.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxFriendPicture.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxFriendPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFriendPicture.TabIndex = 10;
             this.pictureBoxFriendPicture.TabStop = false;
@@ -99,7 +99,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(471, 84);
+            this.label8.Location = new System.Drawing.Point(618, 119);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(182, 25);
             this.label8.TabIndex = 13;
@@ -109,30 +109,30 @@
             // 
             this.textBoxBirthday.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBirthday.Location = new System.Drawing.Point(137, 57);
+            this.textBoxBirthday.Location = new System.Drawing.Point(136, 57);
             this.textBoxBirthday.Multiline = true;
             this.textBoxBirthday.Name = "textBoxBirthday";
-            this.textBoxBirthday.Size = new System.Drawing.Size(242, 48);
+            this.textBoxBirthday.Size = new System.Drawing.Size(243, 48);
             this.textBoxBirthday.TabIndex = 8;
             // 
             // textBoxFullName
             // 
             this.textBoxFullName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFullName.Location = new System.Drawing.Point(137, 3);
+            this.textBoxFullName.Location = new System.Drawing.Point(136, 3);
             this.textBoxFullName.Multiline = true;
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(242, 48);
+            this.textBoxFullName.Size = new System.Drawing.Size(243, 48);
             this.textBoxFullName.TabIndex = 7;
             // 
             // textBoxHometown
             // 
             this.textBoxHometown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxHometown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHometown.Location = new System.Drawing.Point(137, 111);
+            this.textBoxHometown.Location = new System.Drawing.Point(136, 111);
             this.textBoxHometown.Multiline = true;
             this.textBoxHometown.Name = "textBoxHometown";
-            this.textBoxHometown.Size = new System.Drawing.Size(242, 49);
+            this.textBoxHometown.Size = new System.Drawing.Size(243, 49);
             this.textBoxHometown.TabIndex = 10;
             // 
             // tableLayoutPanel2
@@ -146,7 +146,7 @@
             this.tableLayoutPanel2.Controls.Add(this.textBoxFullName, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxBirthday, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxHometown, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 121);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(526, 156);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -154,30 +154,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(382, 163);
             this.tableLayoutPanel2.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 25);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Full name";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(3, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Birthday";
             // 
             // label5
             // 
@@ -191,12 +167,36 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Hometown";
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(3, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Birthday";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 25);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Full name";
+            // 
             // FriendsInUsersAgeRangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.labelFriendPicture);

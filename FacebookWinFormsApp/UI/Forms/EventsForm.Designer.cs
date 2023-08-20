@@ -60,7 +60,7 @@
             this.Pagelabel.AutoSize = true;
             this.Pagelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pagelabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.Pagelabel.Location = new System.Drawing.Point(835, 67);
+            this.Pagelabel.Location = new System.Drawing.Point(1081, 79);
             this.Pagelabel.Name = "Pagelabel";
             this.Pagelabel.Size = new System.Drawing.Size(118, 25);
             this.Pagelabel.TabIndex = 10;
@@ -74,7 +74,7 @@
             this.listBoxEvents.Location = new System.Drawing.Point(12, 74);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(318, 329);
+            this.listBoxEvents.Size = new System.Drawing.Size(436, 329);
             this.listBoxEvents.TabIndex = 8;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
@@ -83,7 +83,7 @@
             this.descriptionLable.AutoSize = true;
             this.descriptionLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.descriptionLable.Location = new System.Drawing.Point(366, 73);
+            this.descriptionLable.Location = new System.Drawing.Point(493, 99);
             this.descriptionLable.Name = "descriptionLable";
             this.descriptionLable.Size = new System.Drawing.Size(115, 25);
             this.descriptionLable.TabIndex = 12;
@@ -91,11 +91,11 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(487, 71);
+            this.textBoxDescription.Location = new System.Drawing.Point(614, 97);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(230, 123);
+            this.textBoxDescription.Size = new System.Drawing.Size(305, 123);
             this.textBoxDescription.TabIndex = 17;
             // 
             // labelDate
@@ -103,7 +103,7 @@
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDate.Location = new System.Drawing.Point(422, 314);
+            this.labelDate.Location = new System.Drawing.Point(549, 340);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 18;
@@ -114,7 +114,7 @@
             this.labelLocation.AutoSize = true;
             this.labelLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLocation.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLocation.Location = new System.Drawing.Point(389, 220);
+            this.labelLocation.Location = new System.Drawing.Point(516, 246);
             this.labelLocation.Name = "labelLocation";
             this.labelLocation.Size = new System.Drawing.Size(92, 25);
             this.labelLocation.TabIndex = 20;
@@ -122,30 +122,30 @@
             // 
             // textBoxLocation
             // 
-            this.textBoxLocation.Location = new System.Drawing.Point(487, 220);
+            this.textBoxLocation.Location = new System.Drawing.Point(614, 246);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(230, 65);
+            this.textBoxLocation.Size = new System.Drawing.Size(305, 65);
             this.textBoxLocation.TabIndex = 22;
             // 
             // pictureBoxEvent
             // 
             this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxEvent.Location = new System.Drawing.Point(788, 103);
+            this.pictureBoxEvent.Location = new System.Drawing.Point(1019, 115);
             this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
-            this.pictureBoxEvent.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxEvent.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxEvent.TabIndex = 9;
             this.pictureBoxEvent.TabStop = false;
             // 
             // textBoxDate
             // 
-            this.textBoxDate.Location = new System.Drawing.Point(487, 314);
+            this.textBoxDate.Location = new System.Drawing.Point(614, 340);
             this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDate.Multiline = true;
             this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(230, 65);
+            this.textBoxDate.Size = new System.Drawing.Size(230, 41);
             this.textBoxDate.TabIndex = 23;
             // 
             // EventsForm
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.labelLocation);

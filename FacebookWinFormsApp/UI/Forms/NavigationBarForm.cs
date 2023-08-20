@@ -24,27 +24,27 @@ namespace FacebookApp.UI.Forms
             tableLayoutNavBar.Enabled = false;
         }
 
-        private void ButtonPosts_Click(object i_Sender, EventArgs i_EventArgs)
+        private void buttonPosts_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.PostsForm);
         }
 
-        private void ButtonAlbums_Click(object i_Sender, EventArgs i_EventArgs)
+        private void buttonAlbums_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.AlbumForm);
         }
 
-        private void ButtonEvents_Click(object i_Sender, EventArgs i_EventArgs)
+        private void buttonEvents_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.EventsForm);
         }
 
-        private void ButtonGroups_Click(object i_Sender, EventArgs i_EventArgs)
+        private void buttonGroups_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.GroupsForm);
         }
 
-        private void ButtonLikedPages_Click(object i_Sender, EventArgs i_EventArgs)
+        private void buttonLikedPages_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_OnSubFormButtonPressed?.Invoke(eFormName.LikedPagesForm);
         }

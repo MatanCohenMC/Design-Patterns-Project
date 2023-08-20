@@ -56,7 +56,7 @@
             this.Pagelabel.AutoSize = true;
             this.Pagelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pagelabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.Pagelabel.Location = new System.Drawing.Point(816, 74);
+            this.Pagelabel.Location = new System.Drawing.Point(1009, 75);
             this.Pagelabel.Name = "Pagelabel";
             this.Pagelabel.Size = new System.Drawing.Size(114, 25);
             this.Pagelabel.TabIndex = 6;
@@ -79,21 +79,22 @@
             // 
             this.pictureBoxLikedPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLikedPage.Location = new System.Drawing.Point(765, 111);
+            this.pictureBoxLikedPage.Location = new System.Drawing.Point(945, 112);
             this.pictureBoxLikedPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
-            this.pictureBoxLikedPage.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxLikedPage.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLikedPage.TabIndex = 5;
             this.pictureBoxLikedPage.TabStop = false;
             // 
             // textBoxDescription
             // 
+            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDescription.Location = new System.Drawing.Point(473, 78);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(230, 123);
+            this.textBoxDescription.Size = new System.Drawing.Size(369, 325);
             this.textBoxDescription.TabIndex = 21;
             // 
             // descriptionLable
@@ -112,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.descriptionLable);
             this.Controls.Add(this.buttonFetchPages);

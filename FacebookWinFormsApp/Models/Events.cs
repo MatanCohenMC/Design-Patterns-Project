@@ -35,10 +35,10 @@ namespace FacebookApp.Models
             return dataList;
         }
 
-
         public List<Dictionary<string, string>> FetchUserEventsByLocation(string i_Location)
         {
             List<Dictionary<string, string>> dataList = FetchUserEvents();
+
             foreach(Dictionary<string, string> eventDictionary in dataList)
             {
                 if(eventDictionary["Location"] != i_Location)
@@ -53,6 +53,7 @@ namespace FacebookApp.Models
         public string GetLocation(int i_SelectedIndex)
         {
             string location = null;
+
             if(DataList.Count > 0)
             {
                 location = DataList[i_SelectedIndex]["Location"];
@@ -64,6 +65,7 @@ namespace FacebookApp.Models
         public string GetDescription(int i_SelectedIndex)
         {
             string description = null;
+
             if(DataList.Count > 0)
             {
                 description = DataList[i_SelectedIndex]["Description"];
@@ -75,6 +77,7 @@ namespace FacebookApp.Models
         public string GetDate(int i_SelectedIndex)
         {
             string date = null;
+
             if(DataList.Count > 0)
             {
                 date = DataList[i_SelectedIndex]["Date"];
@@ -86,6 +89,7 @@ namespace FacebookApp.Models
         public string GetPictureUrl(int i_SelectedIndex)
         {
             string pictureUrl = null;
+
             if(DataList.Count > 0)
             {
                 pictureUrl = DataList[i_SelectedIndex]["Picture"];

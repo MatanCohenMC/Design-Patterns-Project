@@ -18,7 +18,6 @@ namespace FacebookApp.UI.Forms
                                       IPictureByIndexHandler
     {
         private readonly Albums r_Albums = new Albums();
-        //private readonly string r_FormName = "AlbumsForm";
         private readonly eFormName r_FormName = eFormName.AlbumForm;
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;

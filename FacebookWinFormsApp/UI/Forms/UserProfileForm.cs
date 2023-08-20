@@ -15,7 +15,7 @@ namespace FacebookApp.UI.Forms
             InitializeComponent();
         }
 
-        private void UserProfileForm_Load(object i_Sender, EventArgs i_EventArgs)
+        private void userProfileForm_Load(object i_Sender, EventArgs i_EventArgs)
         {
             m_FetchUserProfileData?.Invoke();
         }

@@ -51,7 +51,7 @@
             this.listBoxPosts.Location = new System.Drawing.Point(12, 74);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(582, 329);
+            this.listBoxPosts.Size = new System.Drawing.Size(520, 329);
             this.listBoxPosts.TabIndex = 0;
             this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
@@ -75,10 +75,10 @@
             this.listBoxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxComments.FormattingEnabled = true;
             this.listBoxComments.ItemHeight = 25;
-            this.listBoxComments.Location = new System.Drawing.Point(713, 155);
+            this.listBoxComments.Location = new System.Drawing.Point(665, 144);
             this.listBoxComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxComments.Name = "listBoxComments";
-            this.listBoxComments.Size = new System.Drawing.Size(306, 129);
+            this.listBoxComments.Size = new System.Drawing.Size(359, 129);
             this.listBoxComments.TabIndex = 4;
             // 
             // commentsLable
@@ -86,7 +86,7 @@
             this.commentsLable.AutoSize = true;
             this.commentsLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commentsLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.commentsLable.Location = new System.Drawing.Point(600, 155);
+            this.commentsLable.Location = new System.Drawing.Point(552, 144);
             this.commentsLable.Name = "commentsLable";
             this.commentsLable.Size = new System.Drawing.Size(113, 25);
             this.commentsLable.TabIndex = 5;
@@ -97,7 +97,7 @@
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDate.Location = new System.Drawing.Point(648, 362);
+            this.labelDate.Location = new System.Drawing.Point(600, 366);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(59, 25);
             this.labelDate.TabIndex = 6;
@@ -106,7 +106,7 @@
             // textBoxDate
             // 
             this.textBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(713, 362);
+            this.textBoxDate.Location = new System.Drawing.Point(665, 366);
             this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDate.Multiline = true;
             this.textBoxDate.Name = "textBoxDate";
@@ -118,7 +118,7 @@
             this.pictureBoxPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxPosts.Location = new System.Drawing.Point(1065, 115);
             this.pictureBoxPosts.Name = "pictureBoxPosts";
-            this.pictureBoxPosts.Size = new System.Drawing.Size(241, 224);
+            this.pictureBoxPosts.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxPosts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPosts.TabIndex = 62;
             this.pictureBoxPosts.TabStop = false;
@@ -128,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(615, 306);
+            this.label2.Location = new System.Drawing.Point(567, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 63;
@@ -137,21 +137,21 @@
             // textBoxLocation
             // 
             this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLocation.Location = new System.Drawing.Point(713, 308);
+            this.textBoxLocation.Location = new System.Drawing.Point(665, 292);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(306, 31);
+            this.textBoxLocation.Size = new System.Drawing.Size(359, 51);
             this.textBoxLocation.TabIndex = 64;
             // 
             // textBoxCaption
             // 
             this.textBoxCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCaption.Location = new System.Drawing.Point(713, 74);
+            this.textBoxCaption.Location = new System.Drawing.Point(665, 78);
             this.textBoxCaption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCaption.Multiline = true;
             this.textBoxCaption.Name = "textBoxCaption";
-            this.textBoxCaption.Size = new System.Drawing.Size(306, 59);
+            this.textBoxCaption.Size = new System.Drawing.Size(359, 50);
             this.textBoxCaption.TabIndex = 66;
             // 
             // label3
@@ -159,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(621, 74);
+            this.label3.Location = new System.Drawing.Point(573, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 65;
@@ -170,7 +170,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1127, 77);
+            this.label1.Location = new System.Drawing.Point(1133, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 25);
             this.label1.TabIndex = 77;

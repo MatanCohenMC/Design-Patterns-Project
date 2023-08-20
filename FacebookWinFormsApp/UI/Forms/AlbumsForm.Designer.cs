@@ -50,7 +50,7 @@ namespace FacebookApp.UI.Forms
             this.listBoxAlbums.ItemHeight = 25;
             this.listBoxAlbums.Location = new System.Drawing.Point(12, 74);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(318, 329);
+            this.listBoxAlbums.Size = new System.Drawing.Size(452, 329);
             this.listBoxAlbums.TabIndex = 60;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -72,7 +72,7 @@ namespace FacebookApp.UI.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(846, 74);
+            this.label1.Location = new System.Drawing.Point(1094, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 62;
@@ -81,9 +81,9 @@ namespace FacebookApp.UI.Forms
             // pictureBoxAlbum
             // 
             this.pictureBoxAlbum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxAlbum.Location = new System.Drawing.Point(804, 112);
+            this.pictureBoxAlbum.Location = new System.Drawing.Point(1040, 126);
             this.pictureBoxAlbum.Name = "pictureBoxAlbum";
-            this.pictureBoxAlbum.Size = new System.Drawing.Size(220, 210);
+            this.pictureBoxAlbum.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbum.TabIndex = 61;
             this.pictureBoxAlbum.TabStop = false;
@@ -91,7 +91,7 @@ namespace FacebookApp.UI.Forms
             // textBoxUpdatedTime
             // 
             this.textBoxUpdatedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUpdatedTime.Location = new System.Drawing.Point(542, 228);
+            this.textBoxUpdatedTime.Location = new System.Drawing.Point(681, 242);
             this.textBoxUpdatedTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUpdatedTime.Multiline = true;
             this.textBoxUpdatedTime.Name = "textBoxUpdatedTime";
@@ -101,11 +101,11 @@ namespace FacebookApp.UI.Forms
             // textBoxLocation
             // 
             this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLocation.Location = new System.Drawing.Point(542, 112);
+            this.textBoxLocation.Location = new System.Drawing.Point(681, 126);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocation.Multiline = true;
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(230, 90);
+            this.textBoxLocation.Size = new System.Drawing.Size(305, 90);
             this.textBoxLocation.TabIndex = 67;
             // 
             // labelLocation
@@ -113,7 +113,7 @@ namespace FacebookApp.UI.Forms
             this.labelLocation.AutoSize = true;
             this.labelLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLocation.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLocation.Location = new System.Drawing.Point(444, 112);
+            this.labelLocation.Location = new System.Drawing.Point(583, 126);
             this.labelLocation.Name = "labelLocation";
             this.labelLocation.Size = new System.Drawing.Size(92, 25);
             this.labelLocation.TabIndex = 66;
@@ -124,7 +124,7 @@ namespace FacebookApp.UI.Forms
             this.labelUpdatedTime.AutoSize = true;
             this.labelUpdatedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUpdatedTime.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelUpdatedTime.Location = new System.Drawing.Point(403, 228);
+            this.labelUpdatedTime.Location = new System.Drawing.Point(542, 242);
             this.labelUpdatedTime.Name = "labelUpdatedTime";
             this.labelUpdatedTime.Size = new System.Drawing.Size(129, 25);
             this.labelUpdatedTime.TabIndex = 65;
@@ -133,7 +133,7 @@ namespace FacebookApp.UI.Forms
             // textBoxPictureCount
             // 
             this.textBoxPictureCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPictureCount.Location = new System.Drawing.Point(542, 290);
+            this.textBoxPictureCount.Location = new System.Drawing.Point(681, 304);
             this.textBoxPictureCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPictureCount.Multiline = true;
             this.textBoxPictureCount.Name = "textBoxPictureCount";
@@ -145,7 +145,7 @@ namespace FacebookApp.UI.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(356, 290);
+            this.label2.Location = new System.Drawing.Point(495, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 25);
             this.label2.TabIndex = 69;
@@ -156,7 +156,7 @@ namespace FacebookApp.UI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1345, 414);
             this.Controls.Add(this.textBoxPictureCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxUpdatedTime);

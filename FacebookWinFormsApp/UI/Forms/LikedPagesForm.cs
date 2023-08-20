@@ -15,7 +15,6 @@ namespace FacebookApp.UI.Forms
                                           ISetSelectedIndexAction,
                                           IPictureByIndexHandler
     {
-        //private readonly string r_FormName = "LikedPagesForm";
         private readonly eFormName r_FormName = eFormName.LikedPagesForm;
         private readonly LikedPages r_LikedPages = new LikedPages();
         public Action<eFormName> m_FetchButtonPressed;
@@ -28,7 +27,7 @@ namespace FacebookApp.UI.Forms
 
         public ListBox GetListBox()
         {
-            return this.listBoxLikedPages;
+            return listBoxLikedPages;
         }
 
         public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)

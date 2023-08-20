@@ -280,7 +280,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserProfileForm";
             this.Text = "UserProfileForm";
-            this.Load += new System.EventHandler(this.UserProfileForm_Load);
+            this.Load += new System.EventHandler(this.userProfileForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

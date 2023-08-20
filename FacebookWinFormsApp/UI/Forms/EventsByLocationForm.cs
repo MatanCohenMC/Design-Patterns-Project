@@ -17,11 +17,9 @@ namespace FacebookApp.UI.Forms
                                                 IPictureByIndexHandler
     {
         private readonly Events r_Events = new Events();
-        //private readonly string r_FormName = "EventsForm";
         private readonly eFormName r_FormName = eFormName.EventsByLocationForm;
         public Action<eFormName> m_FetchButtonPressed;
         public Action<eFormName> m_SelectedIndexChanged;
-
 
         public EventsByLocationForm()
         {
@@ -77,10 +75,6 @@ namespace FacebookApp.UI.Forms
         public void SetSelectedIndexAction(Action<eFormName> i_Action)
         {
             m_SelectedIndexChanged += i_Action;
-        }
-
-        private void labelEnterLocation_Click(object i_Sender, EventArgs i_EventArgs)
-        {
         }
 
         private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
