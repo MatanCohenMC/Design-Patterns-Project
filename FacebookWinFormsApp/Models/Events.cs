@@ -35,6 +35,11 @@ namespace FacebookApp.Models
             return dataList;
         }
 
+        public FacebookObjectCollection<Event> GetEvents()
+        {
+            return r_Login.LoggedInUser.Events;
+        }
+
         public List<Dictionary<string, string>> FetchUserEventsByLocation(string i_Location)
         {
             List<Dictionary<string, string>> dataList = FetchUserEvents();
@@ -48,18 +53,6 @@ namespace FacebookApp.Models
             }
 
             return dataList;
-        }
-
-        public string GetLocation(int i_SelectedIndex)
-        {
-            string location = null;
-
-            if(DataList.Count > 0)
-            {
-                location = DataList[i_SelectedIndex]["Location"];
-            }
-
-            return location;
         }
 
         public string GetDescription(int i_SelectedIndex)

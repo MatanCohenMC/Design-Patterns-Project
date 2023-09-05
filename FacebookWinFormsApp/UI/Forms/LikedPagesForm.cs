@@ -65,14 +65,29 @@ namespace FacebookApp.UI.Forms
             m_SelectedIndexChanged += i_Action;
         }
 
-        private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
+        /*private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
         {
             m_FetchButtonPressed?.Invoke(r_FormName);
+        }*/
+
+        private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
+        {
+            fetchLikedPages();
         }
 
-        private void listBoxLikedPages_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
+        private void fetchLikedPages()
+        {
+            pageBindingSource.DataSource = r_LikedPages.GetLikedPages();
+        }
+
+        private void pageBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /*private void listBoxLikedPages_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
         {
             m_SelectedIndexChanged?.Invoke(r_FormName);
-        }
+        }*/
     }
 }

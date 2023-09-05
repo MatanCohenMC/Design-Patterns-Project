@@ -35,6 +35,11 @@ namespace FacebookApp.Models
             return dataList;
         }
 
+        public FacebookObjectCollection<Page> GetLikedPages()
+        {
+            return r_Login.LoggedInUser.LikedPages;
+        }
+
         public string GetPictureUrl(int i_SelectedIndex)
         {
             return DataList[i_SelectedIndex]["Picture"];
