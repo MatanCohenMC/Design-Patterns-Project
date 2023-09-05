@@ -28,17 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label descriptionLabel;
+            System.Windows.Forms.Label imageLargeLabel;
+            System.Windows.Forms.Label nameLabel1;
+            System.Windows.Forms.Label emailLabel;
             this.listBoxGroups = new System.Windows.Forms.ListBox();
-            this.Photolabel = new System.Windows.Forms.Label();
             this.buttonFetchGroups = new System.Windows.Forms.Button();
-            this.pictureBoxGroup = new System.Windows.Forms.PictureBox();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.descriptionLable = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroup)).BeginInit();
+            this.panelGroupDetails = new System.Windows.Forms.Panel();
+            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
+            this.nameLabel2 = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            descriptionLabel = new System.Windows.Forms.Label();
+            imageLargeLabel = new System.Windows.Forms.Label();
+            nameLabel1 = new System.Windows.Forms.Label();
+            emailLabel = new System.Windows.Forms.Label();
+            this.panelGroupDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxGroups
             // 
+            this.listBoxGroups.DataSource = this.groupBindingSource;
             this.listBoxGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 25;
@@ -47,18 +61,6 @@
             this.listBoxGroups.Name = "listBoxGroups";
             this.listBoxGroups.Size = new System.Drawing.Size(318, 329);
             this.listBoxGroups.TabIndex = 0;
-            this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
-            // 
-            // Photolabel
-            // 
-            this.Photolabel.AutoSize = true;
-            this.Photolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Photolabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.Photolabel.Location = new System.Drawing.Point(1058, 75);
-            this.Photolabel.Name = "Photolabel";
-            this.Photolabel.Size = new System.Drawing.Size(122, 25);
-            this.Photolabel.TabIndex = 2;
-            this.Photolabel.Text = "Group Photo";
             // 
             // buttonFetchGroups
             // 
@@ -72,37 +74,97 @@
             this.buttonFetchGroups.TabIndex = 3;
             this.buttonFetchGroups.Text = "Fetch Groups";
             this.buttonFetchGroups.UseVisualStyleBackColor = true;
-            this.buttonFetchGroups.Click += new System.EventHandler(this.fetch_groups_button_Click);
+            this.buttonFetchGroups.Click += new System.EventHandler(this.buttonFetchGroups_Click);
             // 
-            // pictureBoxGroup
+            // panelGroupDetails
             // 
-            this.pictureBoxGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxGroup.Location = new System.Drawing.Point(1000, 108);
-            this.pictureBoxGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxGroup.Name = "pictureBoxGroup";
-            this.pictureBoxGroup.Size = new System.Drawing.Size(250, 250);
-            this.pictureBoxGroup.TabIndex = 1;
-            this.pictureBoxGroup.TabStop = false;
+            this.panelGroupDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelGroupDetails.Controls.Add(emailLabel);
+            this.panelGroupDetails.Controls.Add(this.emailTextBox);
+            this.panelGroupDetails.Controls.Add(nameLabel1);
+            this.panelGroupDetails.Controls.Add(this.nameLabel2);
+            this.panelGroupDetails.Controls.Add(descriptionLabel);
+            this.panelGroupDetails.Controls.Add(this.descriptionTextBox);
+            this.panelGroupDetails.Controls.Add(imageLargeLabel);
+            this.panelGroupDetails.Controls.Add(this.imageLargePictureBox);
+            this.panelGroupDetails.Location = new System.Drawing.Point(364, 74);
+            this.panelGroupDetails.Name = "panelGroupDetails";
+            this.panelGroupDetails.Size = new System.Drawing.Size(969, 328);
+            this.panelGroupDetails.TabIndex = 4;
             // 
-            // textBoxDescription
+            // groupBindingSource
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(486, 74);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDescription.Multiline = true;
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(373, 123);
-            this.textBoxDescription.TabIndex = 19;
+            this.groupBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Group);
             // 
-            // descriptionLable
+            // descriptionLabel
             // 
-            this.descriptionLable.AutoSize = true;
-            this.descriptionLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLable.ForeColor = System.Drawing.SystemColors.Control;
-            this.descriptionLable.Location = new System.Drawing.Point(365, 76);
-            this.descriptionLable.Name = "descriptionLable";
-            this.descriptionLable.Size = new System.Drawing.Size(115, 25);
-            this.descriptionLable.TabIndex = 18;
-            this.descriptionLable.Text = "Description:";
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(212, 121);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(78, 16);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true));
+            this.descriptionTextBox.Location = new System.Drawing.Point(304, 118);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(100, 22);
+            this.descriptionTextBox.TabIndex = 1;
+            // 
+            // imageLargeLabel
+            // 
+            imageLargeLabel.AutoSize = true;
+            imageLargeLabel.Location = new System.Drawing.Point(212, 146);
+            imageLargeLabel.Name = "imageLargeLabel";
+            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
+            imageLargeLabel.TabIndex = 2;
+            imageLargeLabel.Text = "Image Large:";
+            // 
+            // imageLargePictureBox
+            // 
+            this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.groupBindingSource, "ImageLarge", true));
+            this.imageLargePictureBox.Location = new System.Drawing.Point(304, 146);
+            this.imageLargePictureBox.Name = "imageLargePictureBox";
+            this.imageLargePictureBox.Size = new System.Drawing.Size(100, 50);
+            this.imageLargePictureBox.TabIndex = 3;
+            this.imageLargePictureBox.TabStop = false;
+            // 
+            // nameLabel1
+            // 
+            nameLabel1.AutoSize = true;
+            nameLabel1.Location = new System.Drawing.Point(242, 59);
+            nameLabel1.Name = "nameLabel1";
+            nameLabel1.Size = new System.Drawing.Size(48, 16);
+            nameLabel1.TabIndex = 6;
+            nameLabel1.Text = "Owner:";
+            // 
+            // nameLabel2
+            // 
+            this.nameLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Name", true));
+            this.nameLabel2.Location = new System.Drawing.Point(304, 59);
+            this.nameLabel2.Name = "nameLabel2";
+            this.nameLabel2.Size = new System.Drawing.Size(100, 23);
+            this.nameLabel2.TabIndex = 7;
+            this.nameLabel2.Text = "labelOwnerName";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(254, 93);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(44, 16);
+            emailLabel.TabIndex = 7;
+            emailLabel.Text = "Email:";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(304, 90);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
+            this.emailTextBox.TabIndex = 8;
             // 
             // GroupsForm
             // 
@@ -110,29 +172,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1345, 414);
-            this.Controls.Add(this.textBoxDescription);
-            this.Controls.Add(this.descriptionLable);
+            this.Controls.Add(this.panelGroupDetails);
             this.Controls.Add(this.buttonFetchGroups);
-            this.Controls.Add(this.Photolabel);
-            this.Controls.Add(this.pictureBoxGroup);
             this.Controls.Add(this.listBoxGroups);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GroupsForm";
             this.Text = "GroupsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroup)).EndInit();
+            this.panelGroupDetails.ResumeLayout(false);
+            this.panelGroupDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox listBoxGroups;
-        private System.Windows.Forms.PictureBox pictureBoxGroup;
-        private System.Windows.Forms.Label Photolabel;
         private System.Windows.Forms.Button buttonFetchGroups;
-        private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.Label descriptionLable;
+        private System.Windows.Forms.Panel panelGroupDetails;
+        private System.Windows.Forms.Label nameLabel2;
+        private System.Windows.Forms.BindingSource groupBindingSource;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.PictureBox imageLargePictureBox;
+        private System.Windows.Forms.TextBox emailTextBox;
     }
 }
