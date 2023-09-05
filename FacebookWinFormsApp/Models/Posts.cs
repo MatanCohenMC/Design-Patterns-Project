@@ -104,5 +104,10 @@ namespace FacebookApp.Models
                 o_Text = DataList[randomIndex].TryGetValue("ListBoxText", out var text) ? text : string.Empty;
             }
         }
+
+        public FacebookObjectCollection<Post> GetPosts()
+        {
+            return r_Login.LoggedInUser.Posts;
+        }
     }
 }

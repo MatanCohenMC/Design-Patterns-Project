@@ -7,106 +7,23 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
-    public partial class PostsForm : Form,
-                                     IComponentHandler,
-                                     IDataHandler,
-                                     IPictureHandler,
-                                     IDateHandler,
-                                     ILocationHandler,
-                                     ICaptionHandler,
-                                     ICommentsHandler,
-                                     ISetFetchAction,
-                                     ISetSelectedIndexAction,
-                                     IPictureByIndexHandler
+    public partial class PostsForm : Form
     {
-        private readonly eFormName r_FormName = eFormName.PostsForm;
         private readonly Posts r_Posts = new Posts();
-        public Action<eFormName> m_FetchButtonPressed;
-        public Action<eFormName> m_SelectedIndexChanged;
 
         public PostsForm()
         {
             InitializeComponent();
         }
 
-        public TextBox GetCaptionTextBox()
+        private void buttonFetchPosts_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            return textBoxCaption;
+            fetchPosts();
         }
 
-        public string GetCaptionByIndex(int i_Index)
+        private void fetchPosts()
         {
-            return r_Posts.GetCaption(i_Index);
-        }
-
-        public ListBox GetCommentsListBox()
-        {
-            return listBoxComments;
-        }
-
-        public ICollection<Comment> GetCommentsByIndex(int i_Index)
-        {
-            return r_Posts.GetComments(i_Index);
-        }
-
-        public ListBox GetListBox()
-        {
-            return listBoxPosts;
-        }
-
-        public void FetchListBoxData(out List<Dictionary<string, string>> i_DataList)
-        {
-            i_DataList = r_Posts.FetchUserPosts();
-        }
-
-        public TextBox GetDateTextBox()
-        {
-            return textBoxDate;
-        }
-
-        public string GetDateByIndex(int i_Index)
-        {
-            return r_Posts.GetDate(i_Index);
-        }
-
-        public TextBox GetLocationTextBox()
-        {
-            return textBoxLocation;
-        }
-
-        public string GetLocationByIndex(int i_Index)
-        {
-            return r_Posts.GetLocation(i_Index);
-        }
-
-        public string GetPictureUrlByIndex(int i_Index)
-        {
-            return r_Posts.GetPictureUrl(i_Index);
-        }
-
-        public PictureBox GetPictureBox()
-        {
-            return pictureBoxPosts;
-        }
-
-        public void SetFetchAction(Action<eFormName> i_Action)
-        {
-            m_FetchButtonPressed += i_Action;
-        }
-
-        public void SetSelectedIndexAction(Action<eFormName> i_Action)
-        {
-            m_SelectedIndexChanged += i_Action;
-        }
-
-        private void fetch_posts_button_Click(object i_Sender, EventArgs i_EventArgs)
-        {
-            m_FetchButtonPressed?.Invoke(r_FormName);
-        }
-
-        private void listBoxPosts_SelectedIndexChanged(object i_Sender, EventArgs i_EventArgs)
-        {
-            m_SelectedIndexChanged?.Invoke(r_FormName);
+            postBindingSource.DataSource = r_Posts.GetPosts();
         }
     }
 }

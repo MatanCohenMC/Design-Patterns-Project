@@ -28,11 +28,11 @@ namespace FacebookApp.Controllers
         {
             get
             {
-                if(s_Instance == null)
+                if (s_Instance == null)
                 {
-                    lock(sr_MyLock)
+                    lock (sr_MyLock)
                     {
-                        if(s_Instance == null)
+                        if (s_Instance == null)
                         {
                             s_Instance = new FormsController();
                         }
@@ -132,7 +132,7 @@ namespace FacebookApp.Controllers
         private void setSelectedIndexActionFunctions(eFormName i_EnumFormName, params Action<eFormName>[] i_Actions)
         {
             ISetSelectedIndexAction selectedIndexActionInterface = GetForm(i_EnumFormName) as ISetSelectedIndexAction;
-            foreach(Action<eFormName> action in i_Actions)
+            foreach (Action<eFormName> action in i_Actions)
             {
                 selectedIndexActionInterface?.SetSelectedIndexAction(action);
             }
@@ -140,14 +140,14 @@ namespace FacebookApp.Controllers
 
         private void loginToApp()
         {
-            if(GetForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
+            if (GetForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
                 string appId = loginForm.TextBoxAppIdString;
 
                 r_Login.LoginToApp(appId);
                 try
                 {
-                    if(r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
+                    if (r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
                     {
                         loginForm.ButtonLogin.Text = "Logged in";
                         loginForm.ButtonLogin.BackColor = Color.LightGreen;
@@ -161,7 +161,7 @@ namespace FacebookApp.Controllers
                     }
                     else
                     {
-                        if(String.IsNullOrEmpty(r_Login?.LoginResult?.ErrorMessage))
+                        if (String.IsNullOrEmpty(r_Login?.LoginResult?.ErrorMessage))
                         {
                             MessageBox.Show("Login Failed, try again");
                         }
@@ -173,7 +173,7 @@ namespace FacebookApp.Controllers
                         loginForm.PictureBoxUserProfile.ImageLocation = null;
                     }
                 }
-                catch(NullReferenceException)
+                catch (NullReferenceException)
                 {
                     loginForm.PictureBoxUserProfile.ImageLocation = null;
                 }
@@ -182,11 +182,11 @@ namespace FacebookApp.Controllers
 
         private void logoutOfApp()
         {
-            if(r_Login.IsLoggedIn())
+            if (r_Login.IsLoggedIn())
             {
                 LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
 
-                if(loginForm != null)
+                if (loginForm != null)
                 {
                     string appId = loginForm.TextBoxAppIdString;
                     r_Login?.LoginToApp(appId);
@@ -204,9 +204,9 @@ namespace FacebookApp.Controllers
                     navigationBarForm?.DisableNavigationBar();
                     loginBarForm?.DisableMyProfileButton();
                     loginForm.PictureBoxUserProfile.Image = null;
-                    if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+                    if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
                     {
-                        if(m_CurrentForm != null)
+                        if (m_CurrentForm != null)
                         {
                             panelDisplay.Controls.Remove(m_CurrentForm);
                         }
@@ -230,9 +230,9 @@ namespace FacebookApp.Controllers
             Form formToSet = GetForm(i_EnumFormName);
             Form appMainForm = GetForm(eFormName.AppMainForm);
 
-            if(appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+            if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
             {
-                if(m_CurrentForm != null)
+                if (m_CurrentForm != null)
                 {
                     panelDisplay.Controls.Remove(m_CurrentForm);
                 }
@@ -266,16 +266,16 @@ namespace FacebookApp.Controllers
             List<Dictionary<string, string>> dataList;
 
             listBox?.Items.Clear();
-            if(i_DataHandler != null)
+            if (i_DataHandler != null)
             {
                 i_DataHandler.FetchListBoxData(out dataList);
 
-                if(dataList.Count > 0)
+                if (dataList.Count > 0)
                 {
                     listBox.Enabled = true;
-                    foreach(Dictionary<string, string> data in dataList)
+                    foreach (Dictionary<string, string> data in dataList)
                     {
-                        if(data.ContainsKey("ListBoxText") && data["ListBoxText"] != null)
+                        if (data.ContainsKey("ListBoxText") && data["ListBoxText"] != null)
                         {
                             listBox.Items.Add(data["ListBoxText"]);
                         }
@@ -347,7 +347,7 @@ namespace FacebookApp.Controllers
             PictureBox pictureBox = pictureHandler?.GetPictureBox();
             string pictureUrl = pictureByIndexHandler?.GetPictureUrlByIndex(listBox.SelectedIndex);
 
-            if(pictureUrl != null)
+            if (pictureUrl != null)
             {
                 pictureBox?.LoadAsync(pictureUrl);
             }
@@ -443,18 +443,18 @@ namespace FacebookApp.Controllers
             ICollection<Comment> comments = commentsHandler.GetCommentsByIndex(listBox.SelectedIndex);
 
             commentsListBox.Items.Clear();
-            if(comments == null)
+            if (comments == null)
             {
                 commentsListBox.Items.Add("Unknown.");
             }
-            else if(comments.Count == 0)
+            else if (comments.Count == 0)
             {
                 commentsListBox.Items.Add("No comments.");
             }
             else
             {
                 listBox.Enabled = true;
-                foreach(Comment comment in comments)
+                foreach (Comment comment in comments)
                 {
                     commentsListBox.Items.Add(comment.ToString());
                 }
