@@ -37,7 +37,7 @@ namespace FacebookApp.Models
 
             foreach (Post post in postsList)
             {
-                if (post.CreatedTime != null && ((DateTime)post.CreatedTime >= i_DateTimeFrom || post.CreatedTime <= i_DateTimeTo))
+                if (post.CreatedTime != null && ((DateTime)post.CreatedTime >= i_DateTimeFrom && (DateTime)post.CreatedTime <= i_DateTimeTo))
                 {
                     posts.Add(post);
                 }
