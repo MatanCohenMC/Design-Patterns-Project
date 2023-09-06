@@ -115,6 +115,9 @@
     <Compile Include="Facades\EventsFacade.cs" />
     <Compile Include="Facades\FriendsInUsersAgeRangeFacade.cs" />
     <Compile Include="Facades\GroupsFacade.cs" />
+    <Compile Include="Facades\LikedPagesFacade.cs" />
+    <Compile Include="Facades\PostsFacade.cs" />
+    <Compile Include="Facades\UserProfileFacade.cs" />
     <Compile Include="Interfaces\IBirthdayHandler.cs" />
     <Compile Include="Interfaces\ICaptionHandler.cs" />
     <Compile Include="Interfaces\ICommentsHandler.cs" />

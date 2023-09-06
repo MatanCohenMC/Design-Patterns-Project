@@ -21,7 +21,7 @@ namespace FacebookApp.Facades
             }
         }
 
-        private UpdateEventsByLocation(string i_Location)
+        public void UpdateEventsByLocation(string i_Location)
         {
             new Thread(() => m_Events = r_Events.GetEventsByLocation(i_Location)).Start();
         }
