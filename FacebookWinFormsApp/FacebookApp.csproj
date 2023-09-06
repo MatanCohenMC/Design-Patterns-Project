@@ -110,6 +110,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Facades\AlbumsFacade.cs" />
+    <Compile Include="Facades\EventsByLocationFacade.cs" />
+    <Compile Include="Facades\EventsFacade.cs" />
+    <Compile Include="Facades\FriendsInUsersAgeRangeFacade.cs" />
+    <Compile Include="Facades\GroupsFacade.cs" />
     <Compile Include="Interfaces\IBirthdayHandler.cs" />
     <Compile Include="Interfaces\ICaptionHandler.cs" />
     <Compile Include="Interfaces\ICommentsHandler.cs" />
@@ -301,6 +306,7 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.Unstable.1.2.0.507\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.Unstable.1.2.0.507\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
