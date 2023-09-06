@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.Models
@@ -40,53 +39,11 @@ namespace FacebookApp.Models
             return dataList;
         }
 
-        public string GetPictureUrl(int i_SelectedIndex)
-        {
-            return DataList[i_SelectedIndex]["Picture"];
-        }
-
-        public string GetLocation(int i_SelectedIndex)
-        {
-            return DataList[i_SelectedIndex]["Location"];
-        }
-
-        public string GetDate(int i_SelectedIndex)
-        {
-            return DataList[i_SelectedIndex]["Date"];
-        }
-
-        public string GetCaption(int i_SelectedIndex)
-        {
-            return DataList[i_SelectedIndex]["Caption"];
-        }
-
-        public ICollection<Comment> GetComments(int i_SelectedIndex)
-        {
-            return r_Login.LoggedInUser.Posts[i_SelectedIndex].Comments;
-        }
-
-        public List<Dictionary<string, string>> FetchUserPostsByDateRange(DateTime i_DateTimeFrom, DateTime i_DateTimeTo)
-        {
-            List<Dictionary<string, string>> dataList = FetchUserPosts();
-
-            foreach(Dictionary<string, string> postDictionary in dataList.ToList())
-            {
-                DateTime postDateTime = DateTime.Parse(postDictionary["Date"]);
-
-                if(postDateTime < i_DateTimeFrom || postDateTime > i_DateTimeTo)
-                {
-                    dataList.Remove(postDictionary);
-                }
-            }
-
-            return dataList;
-        }
-
         public void GetRandomPost(out string o_PictureUrl, out string o_Date, out string o_Location, out string o_Text)
         {
             Random random = new Random();
             int randomIndex = random.Next(0, DataList.Count);
-            
+
             o_PictureUrl = string.Empty;
             o_Date = string.Empty;
             o_Location = string.Empty;
