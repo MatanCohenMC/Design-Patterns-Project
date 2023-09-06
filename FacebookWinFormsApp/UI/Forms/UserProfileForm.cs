@@ -8,7 +8,6 @@ namespace FacebookApp.UI.Forms
     public partial class UserProfileForm : Form
     {
         private readonly UserProfile r_UserProfile = new UserProfile();
-        public Action m_FetchUserProfileData;
 
         public UserProfileForm()
         {
@@ -17,52 +16,7 @@ namespace FacebookApp.UI.Forms
 
         private void userProfileForm_Load(object i_Sender, EventArgs i_EventArgs)
         {
-            m_FetchUserProfileData?.Invoke();
-        }
-
-        public Dictionary<string, string> GetUserProfileData()
-        {
-            return r_UserProfile.FetchUserProfileData();
-        }
-
-        public TextBox GetFullNameTextBox()
-        {
-            return textBoxFullName;
-        }
-
-        public TextBox GetEmailTextBox()
-        {
-            return textBoxEmail;
-        }
-
-        public TextBox GetGenderTextBox()
-        {
-            return textBoxGender;
-        }
-
-        public TextBox GetBirthdayTextBox()
-        {
-            return textBoxBirthday;
-        }
-
-        public TextBox GetHometownTextBox()
-        {
-            return textBoxHometown;
-        }
-
-        public TextBox GetEducationTextBox()
-        {
-            return textBoxEducation;
-        }
-
-        public TextBox GetWorkTextBox()
-        {
-            return textBoxWork;
-        }
-
-        public PictureBox GetProfilePictureBox()
-        {
-            return pictureBoxProfile;
+            loginResultBindingSource.DataSource = r_UserProfile.GetUserProfile().LoggedInUser;
         }
     }
 }

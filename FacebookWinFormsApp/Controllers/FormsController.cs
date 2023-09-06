@@ -87,7 +87,7 @@ namespace FacebookApp.Controllers
             eFormName userProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
             AddForm(userProfileEnum, userProfileForm);
-            userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
+            //userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
 
             eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
@@ -104,7 +104,7 @@ namespace FacebookApp.Controllers
             eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
             RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
             AddForm(randomMemoryEnum, randomMemoryForm);
-            setFetchActionFunctions(randomMemoryEnum, fetchRandomMemory);
+            //setFetchActionFunctions(randomMemoryEnum, fetchRandomMemory);
 
             eFormName navigationBarEnum = eFormName.NavigationBarForm;
             NavigationBarForm navigationBarForm = new NavigationBarForm();
@@ -289,7 +289,7 @@ namespace FacebookApp.Controllers
             }
         }
 
-        private void fetchRandomMemory(eFormName i_EnumFormName)
+        /*private void fetchRandomMemory(eFormName i_EnumFormName)
         {
             RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
             string o_PostsPictureUrl = String.Empty;
@@ -306,9 +306,9 @@ namespace FacebookApp.Controllers
             randomMemoryForm?.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
             randomMemoryForm?.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
             randomMemoryForm?.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
-        }
+        }*/
 
-        private void fetchUserProfileData()
+        /*private void fetchUserProfileData()
         {
             UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
             Dictionary<string, string> userDataDictionary = userProfile?.GetUserProfileData();
@@ -336,7 +336,7 @@ namespace FacebookApp.Controllers
 
             PictureBox profilePictureBox = userProfile?.GetProfilePictureBox();
             profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
-        }
+        }*/
 
         private void setPicture(eFormName i_EnumFormName)
         {
