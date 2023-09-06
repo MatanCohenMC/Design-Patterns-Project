@@ -28,21 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label birthdayLabel;
+            System.Windows.Forms.Label imageLargeLabel;
+            System.Windows.Forms.Label localeLabel;
+            System.Windows.Forms.Label nameLabel;
             this.buttonFetchFriends = new System.Windows.Forms.Button();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
-            this.labelFriendPicture = new System.Windows.Forms.Label();
-            this.pictureBoxFriendPicture = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxBirthday = new System.Windows.Forms.TextBox();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.textBoxHometown = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPicture)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.loginResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelFriendDetails = new System.Windows.Forms.Panel();
+            this.birthdayTextBox = new System.Windows.Forms.TextBox();
+            this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
+            this.localeTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            birthdayLabel = new System.Windows.Forms.Label();
+            imageLargeLabel = new System.Windows.Forms.Label();
+            localeLabel = new System.Windows.Forms.Label();
+            nameLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.loginResultBindingSource)).BeginInit();
+            this.panelFriendDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // birthdayLabel
+            // 
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.Location = new System.Drawing.Point(44, 98);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new System.Drawing.Size(59, 16);
+            birthdayLabel.TabIndex = 0;
+            birthdayLabel.Text = "Birthday:";
+            // 
+            // imageLargeLabel
+            // 
+            imageLargeLabel.AutoSize = true;
+            imageLargeLabel.Location = new System.Drawing.Point(44, 151);
+            imageLargeLabel.Name = "imageLargeLabel";
+            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
+            imageLargeLabel.TabIndex = 4;
+            imageLargeLabel.Text = "Image Large:";
+            // 
+            // localeLabel
+            // 
+            localeLabel.AutoSize = true;
+            localeLabel.Location = new System.Drawing.Point(44, 210);
+            localeLabel.Name = "localeLabel";
+            localeLabel.Size = new System.Drawing.Size(51, 16);
+            localeLabel.TabIndex = 6;
+            localeLabel.Text = "Locale:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(44, 70);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(47, 16);
+            nameLabel.TabIndex = 8;
+            nameLabel.Text = "Name:";
             // 
             // buttonFetchFriends
             // 
@@ -61,6 +103,7 @@
             // listBoxFriends
             // 
             this.listBoxFriends.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxFriends.DataSource = this.loginResultBindingSource;
             this.listBoxFriends.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 25;
@@ -69,127 +112,59 @@
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(318, 329);
             this.listBoxFriends.TabIndex = 8;
-            this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
-            // labelFriendPicture
+            // loginResultBindingSource
             // 
-            this.labelFriendPicture.AutoSize = true;
-            this.labelFriendPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFriendPicture.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelFriendPicture.Location = new System.Drawing.Point(1079, 87);
-            this.labelFriendPicture.Name = "labelFriendPicture";
-            this.labelFriendPicture.Size = new System.Drawing.Size(123, 25);
-            this.labelFriendPicture.TabIndex = 11;
-            this.labelFriendPicture.Text = "Friend Photo";
+            this.loginResultBindingSource.DataSource = typeof(FacebookWrapper.LoginResult);
             // 
-            // pictureBoxFriendPicture
+            // panelFriendDetails
             // 
-            this.pictureBoxFriendPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxFriendPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFriendPicture.Location = new System.Drawing.Point(1019, 124);
-            this.pictureBoxFriendPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxFriendPicture.Name = "pictureBoxFriendPicture";
-            this.pictureBoxFriendPicture.Size = new System.Drawing.Size(250, 250);
-            this.pictureBoxFriendPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFriendPicture.TabIndex = 10;
-            this.pictureBoxFriendPicture.TabStop = false;
+            this.panelFriendDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelFriendDetails.Controls.Add(birthdayLabel);
+            this.panelFriendDetails.Controls.Add(this.birthdayTextBox);
+            this.panelFriendDetails.Controls.Add(imageLargeLabel);
+            this.panelFriendDetails.Controls.Add(this.imageLargePictureBox);
+            this.panelFriendDetails.Controls.Add(localeLabel);
+            this.panelFriendDetails.Controls.Add(this.localeTextBox);
+            this.panelFriendDetails.Controls.Add(nameLabel);
+            this.panelFriendDetails.Controls.Add(this.nameTextBox);
+            this.panelFriendDetails.Location = new System.Drawing.Point(380, 74);
+            this.panelFriendDetails.Name = "panelFriendDetails";
+            this.panelFriendDetails.Size = new System.Drawing.Size(460, 328);
+            this.panelFriendDetails.TabIndex = 15;
             // 
-            // label8
+            // birthdayTextBox
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(618, 119);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 25);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Friend\'s Information";
+            this.birthdayTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Birthday", true));
+            this.birthdayTextBox.Location = new System.Drawing.Point(136, 95);
+            this.birthdayTextBox.Name = "birthdayTextBox";
+            this.birthdayTextBox.Size = new System.Drawing.Size(100, 22);
+            this.birthdayTextBox.TabIndex = 1;
             // 
-            // textBoxBirthday
+            // imageLargePictureBox
             // 
-            this.textBoxBirthday.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBirthday.Location = new System.Drawing.Point(136, 57);
-            this.textBoxBirthday.Multiline = true;
-            this.textBoxBirthday.Name = "textBoxBirthday";
-            this.textBoxBirthday.Size = new System.Drawing.Size(243, 48);
-            this.textBoxBirthday.TabIndex = 8;
+            this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.loginResultBindingSource, "LoggedInUser.ImageLarge", true));
+            this.imageLargePictureBox.Location = new System.Drawing.Point(136, 151);
+            this.imageLargePictureBox.Name = "imageLargePictureBox";
+            this.imageLargePictureBox.Size = new System.Drawing.Size(100, 50);
+            this.imageLargePictureBox.TabIndex = 5;
+            this.imageLargePictureBox.TabStop = false;
             // 
-            // textBoxFullName
+            // localeTextBox
             // 
-            this.textBoxFullName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFullName.Location = new System.Drawing.Point(136, 3);
-            this.textBoxFullName.Multiline = true;
-            this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(243, 48);
-            this.textBoxFullName.TabIndex = 7;
+            this.localeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Locale", true));
+            this.localeTextBox.Location = new System.Drawing.Point(136, 207);
+            this.localeTextBox.Name = "localeTextBox";
+            this.localeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.localeTextBox.TabIndex = 7;
             // 
-            // textBoxHometown
+            // nameTextBox
             // 
-            this.textBoxHometown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxHometown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHometown.Location = new System.Drawing.Point(136, 111);
-            this.textBoxHometown.Multiline = true;
-            this.textBoxHometown.Name = "textBoxHometown";
-            this.textBoxHometown.Size = new System.Drawing.Size(243, 49);
-            this.textBoxHometown.TabIndex = 10;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.07853F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.92146F));
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxFullName, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxBirthday, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxHometown, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(526, 156);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(382, 163);
-            this.tableLayoutPanel2.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(3, 123);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Hometown";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(3, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Birthday";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 25);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Full name";
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(136, 67);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.nameTextBox.TabIndex = 9;
             // 
             // FriendsInUsersAgeRangeForm
             // 
@@ -197,20 +172,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1345, 414);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.labelFriendPicture);
-            this.Controls.Add(this.pictureBoxFriendPicture);
+            this.Controls.Add(this.panelFriendDetails);
             this.Controls.Add(this.buttonFetchFriends);
             this.Controls.Add(this.listBoxFriends);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FriendsInUsersAgeRangeForm";
             this.Text = "FriendsInUsersAgeRange";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPicture)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginResultBindingSource)).EndInit();
+            this.panelFriendDetails.ResumeLayout(false);
+            this.panelFriendDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -218,15 +190,11 @@
 
         private System.Windows.Forms.Button buttonFetchFriends;
         private System.Windows.Forms.ListBox listBoxFriends;
-        private System.Windows.Forms.Label labelFriendPicture;
-        private System.Windows.Forms.PictureBox pictureBoxFriendPicture;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxBirthday;
-        private System.Windows.Forms.TextBox textBoxFullName;
-        private System.Windows.Forms.TextBox textBoxHometown;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource loginResultBindingSource;
+        private System.Windows.Forms.Panel panelFriendDetails;
+        private System.Windows.Forms.TextBox birthdayTextBox;
+        private System.Windows.Forms.PictureBox imageLargePictureBox;
+        private System.Windows.Forms.TextBox localeTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }

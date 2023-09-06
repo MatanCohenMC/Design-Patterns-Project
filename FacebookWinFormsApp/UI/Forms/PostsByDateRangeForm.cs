@@ -21,10 +21,11 @@ namespace FacebookApp.UI.Forms
             fetchPostsByDate();
         }
 
-        private void fetchPostsByDate()
+        private void fetchPostsByDate() // does work
         {
             DateTime dateTimeFrom = dateTimePickerFrom.Value;
             DateTime dateTimeTo = dateTimePickerTo.Value;
+            postBindingSource.DataSource = new List<Post>(); // Empty list
             postBindingSource.DataSource = r_Posts.GetPostsByDateRange(dateTimeFrom, dateTimeTo);
         }
     }
