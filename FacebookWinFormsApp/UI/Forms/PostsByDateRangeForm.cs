@@ -18,12 +18,14 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchPostsByDate_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            fetchPosts();
+            fetchPostsByDate();
         }
 
-        private void fetchPosts()
+        private void fetchPostsByDate()
         {
-            postBindingSource.DataSource = r_Posts.GetPosts();
+            DateTime dateTimeFrom = dateTimePickerFrom.Value;
+            DateTime dateTimeTo = dateTimePickerTo.Value;
+            postBindingSource.DataSource = r_Posts.GetPostsByDateRange(dateTimeFrom, dateTimeTo);
         }
     }
 }

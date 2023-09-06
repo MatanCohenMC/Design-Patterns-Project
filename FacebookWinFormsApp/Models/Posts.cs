@@ -29,5 +29,21 @@ namespace FacebookApp.Models
 
             return randomPost;
         }
+
+        public FacebookObjectCollection<Post> GetPostsByDateRange(DateTime i_DateTimeFrom, DateTime i_DateTimeTo)
+        {
+            List<Post> postsList = r_Login.LoggedInUser.Posts.ToList();
+            FacebookObjectCollection<Post> posts = new FacebookObjectCollection<Post>();
+
+            foreach (Post post in postsList)
+            {
+                if (post.CreatedTime >= i_DateTimeFrom || post.CreatedTime <= i_DateTimeTo)
+                {
+                    posts.Add(post);
+                }
+            }
+
+            return posts;
+        }
     }
 }
