@@ -36,7 +36,6 @@ namespace FacebookApp.UI.Forms
             System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label imageAlbumLabel;
             System.Windows.Forms.Label locationLabel;
-            this.listBoxAlbums = new System.Windows.Forms.ListBox();
             this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonFetchAlbum = new System.Windows.Forms.Button();
             this.panelAlbumDetails = new System.Windows.Forms.Panel();
@@ -45,6 +44,7 @@ namespace FacebookApp.UI.Forms
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.imageAlbumPictureBox = new System.Windows.Forms.PictureBox();
             this.locationTextBox = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             countLabel = new System.Windows.Forms.Label();
             createdTimeLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
@@ -100,17 +100,6 @@ namespace FacebookApp.UI.Forms
             locationLabel.TabIndex = 8;
             locationLabel.Text = "Location:";
             // 
-            // listBoxAlbums
-            // 
-            this.listBoxAlbums.DataSource = this.albumBindingSource;
-            this.listBoxAlbums.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.ItemHeight = 25;
-            this.listBoxAlbums.Location = new System.Drawing.Point(12, 74);
-            this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(452, 329);
-            this.listBoxAlbums.TabIndex = 60;
-            // 
             // albumBindingSource
             // 
             this.albumBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Album);
@@ -143,7 +132,7 @@ namespace FacebookApp.UI.Forms
             this.panelAlbumDetails.Controls.Add(this.locationTextBox);
             this.panelAlbumDetails.Location = new System.Drawing.Point(501, 74);
             this.panelAlbumDetails.Name = "panelAlbumDetails";
-            this.panelAlbumDetails.Size = new System.Drawing.Size(832, 328);
+            this.panelAlbumDetails.Size = new System.Drawing.Size(952, 331);
             this.panelAlbumDetails.TabIndex = 61;
             // 
             // countTextBox
@@ -187,14 +176,25 @@ namespace FacebookApp.UI.Forms
             this.locationTextBox.Size = new System.Drawing.Size(200, 22);
             this.locationTextBox.TabIndex = 9;
             // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.albumBindingSource;
+            this.listBox1.DisplayMember = "Name";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(22, 76);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(424, 292);
+            this.listBox1.TabIndex = 62;
+            // 
             // AlbumsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panelAlbumDetails);
-            this.Controls.Add(this.listBoxAlbums);
             this.Controls.Add(this.buttonFetchAlbum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AlbumsForm";
@@ -208,7 +208,6 @@ namespace FacebookApp.UI.Forms
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBoxAlbums;
         private System.Windows.Forms.Button buttonFetchAlbum;
         private System.Windows.Forms.Panel panelAlbumDetails;
         private System.Windows.Forms.TextBox countTextBox;
@@ -217,5 +216,6 @@ namespace FacebookApp.UI.Forms
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox imageAlbumPictureBox;
         private System.Windows.Forms.TextBox locationTextBox;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
