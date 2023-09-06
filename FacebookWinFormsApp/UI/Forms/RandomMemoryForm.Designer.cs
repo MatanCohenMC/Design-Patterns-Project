@@ -28,16 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label createdTimeLabel;
+            System.Windows.Forms.Label messageLabel;
+            System.Windows.Forms.Label pictureURLLabel;
+            System.Windows.Forms.Label labelLocation;
             this.buttonFetchMemory = new System.Windows.Forms.Button();
-            this.textBoxLocation = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.textBoxPostsText = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxMemory = new System.Windows.Forms.PictureBox();
+            this.panelMemoryDetails = new System.Windows.Forms.Panel();
+            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.pictureURLTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            createdTimeLabel = new System.Windows.Forms.Label();
+            messageLabel = new System.Windows.Forms.Label();
+            pictureURLLabel = new System.Windows.Forms.Label();
+            labelLocation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMemory)).BeginInit();
+            this.panelMemoryDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchMemory
@@ -52,69 +63,6 @@
             this.buttonFetchMemory.Text = "Fetch Random Memory";
             this.buttonFetchMemory.UseVisualStyleBackColor = true;
             this.buttonFetchMemory.Click += new System.EventHandler(this.buttonFetchMemory_Click);
-            // 
-            // textBoxLocation
-            // 
-            this.textBoxLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLocation.Location = new System.Drawing.Point(409, 248);
-            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxLocation.Multiline = true;
-            this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(384, 53);
-            this.textBoxLocation.TabIndex = 68;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(311, 248);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 25);
-            this.label2.TabIndex = 67;
-            this.label2.Text = "Location:";
-            // 
-            // textBoxDate
-            // 
-            this.textBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(409, 323);
-            this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDate.Multiline = true;
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(339, 28);
-            this.textBoxDate.TabIndex = 66;
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDate.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDate.Location = new System.Drawing.Point(344, 323);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(59, 25);
-            this.labelDate.TabIndex = 65;
-            this.labelDate.Text = "Date:";
-            // 
-            // textBoxPostsText
-            // 
-            this.textBoxPostsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostsText.Location = new System.Drawing.Point(409, 108);
-            this.textBoxPostsText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxPostsText.Multiline = true;
-            this.textBoxPostsText.Name = "textBoxPostsText";
-            this.textBoxPostsText.Size = new System.Drawing.Size(384, 119);
-            this.textBoxPostsText.TabIndex = 70;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(317, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Caption:";
             // 
             // label4
             // 
@@ -137,25 +85,111 @@
             this.pictureBoxMemory.TabIndex = 78;
             this.pictureBoxMemory.TabStop = false;
             // 
+            // panelMemoryDetails
+            // 
+            this.panelMemoryDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelMemoryDetails.Controls.Add(labelLocation);
+            this.panelMemoryDetails.Controls.Add(this.nameTextBox);
+            this.panelMemoryDetails.Controls.Add(createdTimeLabel);
+            this.panelMemoryDetails.Controls.Add(this.createdTimeDateTimePicker);
+            this.panelMemoryDetails.Controls.Add(messageLabel);
+            this.panelMemoryDetails.Controls.Add(this.messageTextBox);
+            this.panelMemoryDetails.Controls.Add(pictureURLLabel);
+            this.panelMemoryDetails.Controls.Add(this.pictureURLTextBox);
+            this.panelMemoryDetails.Location = new System.Drawing.Point(12, 98);
+            this.panelMemoryDetails.Name = "panelMemoryDetails";
+            this.panelMemoryDetails.Size = new System.Drawing.Size(660, 304);
+            this.panelMemoryDetails.TabIndex = 80;
+            // 
+            // postBindingSource
+            // 
+            this.postBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Post);
+            // 
+            // createdTimeLabel
+            // 
+            createdTimeLabel.AutoSize = true;
+            createdTimeLabel.Location = new System.Drawing.Point(9, 60);
+            createdTimeLabel.Name = "createdTimeLabel";
+            createdTimeLabel.Size = new System.Drawing.Size(92, 16);
+            createdTimeLabel.TabIndex = 0;
+            createdTimeLabel.Text = "Created Time:";
+            // 
+            // createdTimeDateTimePicker
+            // 
+            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.postBindingSource, "CreatedTime", true));
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(107, 56);
+            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
+            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.createdTimeDateTimePicker.TabIndex = 1;
+            // 
+            // messageLabel
+            // 
+            messageLabel.AutoSize = true;
+            messageLabel.Location = new System.Drawing.Point(9, 87);
+            messageLabel.Name = "messageLabel";
+            messageLabel.Size = new System.Drawing.Size(67, 16);
+            messageLabel.TabIndex = 2;
+            messageLabel.Text = "Message:";
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true));
+            this.messageTextBox.Location = new System.Drawing.Point(107, 84);
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(200, 22);
+            this.messageTextBox.TabIndex = 3;
+            // 
+            // pictureURLLabel
+            // 
+            pictureURLLabel.AutoSize = true;
+            pictureURLLabel.Location = new System.Drawing.Point(9, 115);
+            pictureURLLabel.Name = "pictureURLLabel";
+            pictureURLLabel.Size = new System.Drawing.Size(81, 16);
+            pictureURLLabel.TabIndex = 4;
+            pictureURLLabel.Text = "Picture URL:";
+            // 
+            // pictureURLTextBox
+            // 
+            this.pictureURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "PictureURL", true));
+            this.pictureURLTextBox.Location = new System.Drawing.Point(107, 112);
+            this.pictureURLTextBox.Name = "pictureURLTextBox";
+            this.pictureURLTextBox.Size = new System.Drawing.Size(200, 22);
+            this.pictureURLTextBox.TabIndex = 5;
+            // 
+            // labelLocation
+            // 
+            labelLocation.AutoSize = true;
+            labelLocation.Location = new System.Drawing.Point(29, 156);
+            labelLocation.Name = "labelLocation";
+            labelLocation.Size = new System.Drawing.Size(61, 16);
+            labelLocation.TabIndex = 6;
+            labelLocation.Text = "Location:";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Place.Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(107, 150);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.nameTextBox.TabIndex = 7;
+            // 
             // RandomMemoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.Controls.Add(this.panelMemoryDetails);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBoxMemory);
-            this.Controls.Add(this.textBoxPostsText);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxLocation);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxDate);
-            this.Controls.Add(this.labelDate);
             this.Controls.Add(this.buttonFetchMemory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RandomMemoryForm";
             this.Text = "RandomMemoryForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMemory)).EndInit();
+            this.panelMemoryDetails.ResumeLayout(false);
+            this.panelMemoryDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,13 +198,13 @@
         #endregion
 
         private System.Windows.Forms.Button buttonFetchMemory;
-        private System.Windows.Forms.TextBox textBoxLocation;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxDate;
-        private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.TextBox textBoxPostsText;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBoxMemory;
+        private System.Windows.Forms.Panel panelMemoryDetails;
+        private System.Windows.Forms.DateTimePicker createdTimeDateTimePicker;
+        private System.Windows.Forms.BindingSource postBindingSource;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox pictureURLTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }

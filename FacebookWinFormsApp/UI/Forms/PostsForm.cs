@@ -25,5 +25,17 @@ namespace FacebookApp.UI.Forms
         {
             postBindingSource.DataSource = r_Posts.GetPosts();
         }
+
+        public void SetPictureBox(string i_PostPictureUrl)
+        {
+            if (i_PostPictureUrl != null)
+            {
+                pictureBoxPosts.LoadAsync(i_PostPictureUrl);
+            }
+            else
+            {
+                pictureBoxPosts.Image = null;
+            }
+        }
     }
 }
