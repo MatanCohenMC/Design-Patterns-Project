@@ -12,5 +12,20 @@ namespace FacebookApp.Models
             return r_Login.LoggedInUser.Events;
         }
 
+        public FacebookObjectCollection<Event> GetEventsByLocation(string i_Location)
+        {
+            FacebookObjectCollection<Event> events = r_Login.LoggedInUser.Events;
+            FacebookObjectCollection<Event> eventsByLocation = new FacebookObjectCollection<Event>();
+
+            foreach (Event fbEvent in events)
+            {
+                if (fbEvent.Name != null && fbEvent.Location == i_Location)
+                {
+                    eventsByLocation.Add(fbEvent);
+                }
+            }
+
+            return eventsByLocation;
+        }
     }
 }
