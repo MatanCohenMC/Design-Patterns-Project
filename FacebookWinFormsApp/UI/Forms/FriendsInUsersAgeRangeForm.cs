@@ -17,6 +17,11 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
+            fetchFriendsInAgeRange();
+        }
+
+        private void fetchFriendsInAgeRange()
+        {
             loginResultBindingSource.DataSource = r_FriendsInUsersAgeRange.GetFriendsInUsersAgeRange();
         }
     }
