@@ -87,7 +87,7 @@ namespace FacebookApp.Controllers
             eFormName userProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
             AddForm(userProfileEnum, userProfileForm);
-            userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
+            //userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
 
             eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
@@ -308,7 +308,7 @@ namespace FacebookApp.Controllers
             randomMemoryForm?.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
         }*/
 
-        private void fetchUserProfileData()
+        /*private void fetchUserProfileData()
         {
             UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
             Dictionary<string, string> userDataDictionary = userProfile?.GetUserProfileData();
@@ -336,7 +336,7 @@ namespace FacebookApp.Controllers
 
             PictureBox profilePictureBox = userProfile?.GetProfilePictureBox();
             profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
-        }
+        }*/
 
         private void setPicture(eFormName i_EnumFormName)
         {
