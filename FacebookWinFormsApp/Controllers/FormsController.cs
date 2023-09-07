@@ -26,7 +26,7 @@ namespace FacebookApp.Controllers
         private void initializeForms()
         {
             m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
-            addAllSubForms();
+            addAllForms();
             setActionFunctions();
         }
 
@@ -141,7 +141,7 @@ namespace FacebookApp.Controllers
             Application.Run(getForm(eFormName.AppMainForm));
         }
 
-        private void addAllSubForms()
+        private void addAllForms()
         {
             ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_ENumFormsDictionary);
             foreach(eFormName formName in Enum.GetValues(typeof(eFormName)))
