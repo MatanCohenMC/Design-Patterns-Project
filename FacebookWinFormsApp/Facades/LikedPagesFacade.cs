@@ -7,19 +7,23 @@ namespace FacebookApp.Facades
     public class LikedPagesFacade
     {
         private readonly LikedPages r_LikedPages;
-        private FacebookObjectCollection<Page> m_LikedPages;
+
+        public event System.Action LikedPagesUpdated;
 
         public LikedPagesFacade(){
             r_LikedPages = new LikedPages();
         }
 
-        public FacebookObjectCollection<Page> LikedPages
+        public FacebookObjectCollection<Page> LikedPages { get; private set; }
+
+        public void UpdateLikedPages()
         {
-            get
-            {
-                new Thread(() => m_LikedPages = r_LikedPages.GetLikedPages()).Start();
-                return m_LikedPages;
-            }
+            new Thread(
+                () =>
+                    {
+                LikedPages = r_LikedPages.GetLikedPages();
+                LikedPagesUpdated?.Invoke();
+            }).Start();
         }
 
     }
