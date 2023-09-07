@@ -45,8 +45,6 @@ namespace FacebookApp.UI.Forms
             }
 
             postBindingSource.DataSource = r_Posts.Posts;
-
-
         }
     }
 }
