@@ -18,29 +18,10 @@ namespace FacebookApp.Controllers
         private Form m_CurrentForm;
         private Dictionary<eFormName, Form> m_ENumFormsDictionary;
 
-        private FormsController()
+        public FormsController()
         {
             r_Login = Login.Instance;
             initializeForms();
-        }
-
-        public static FormsController Instance
-        {
-            get
-            {
-                if (s_Instance == null)
-                {
-                    lock (sr_MyLock)
-                    {
-                        if (s_Instance == null)
-                        {
-                            s_Instance = new FormsController();
-                        }
-                    }
-                }
-
-                return s_Instance;
-            }
         }
 
         private void initializeForms()
