@@ -21,6 +21,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchPosts_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            labelLoading.Visible = true;
             r_Posts.UpdatePosts();
         }
 
@@ -45,6 +46,12 @@ namespace FacebookApp.UI.Forms
             }
 
             postBindingSource.DataSource = r_Posts.Posts;
+            labelLoading.Visible = false;
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

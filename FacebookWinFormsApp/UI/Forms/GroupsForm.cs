@@ -20,6 +20,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchGroups_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            labelLoading.Visible = true;
             r_Groups.updateGroups();
         }
 
@@ -33,6 +34,12 @@ namespace FacebookApp.UI.Forms
             }
 
             groupBindingSource.DataSource = r_Groups.Groups;
+            labelLoading.Visible = false;
+        }
+
+        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

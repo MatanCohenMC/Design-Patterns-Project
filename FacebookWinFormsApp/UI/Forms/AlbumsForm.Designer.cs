@@ -34,7 +34,6 @@ namespace FacebookApp.UI.Forms
             System.Windows.Forms.Label countLabel;
             System.Windows.Forms.Label createdTimeLabel;
             System.Windows.Forms.Label descriptionLabel;
-            System.Windows.Forms.Label imageAlbumLabel;
             System.Windows.Forms.Label locationLabel;
             this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonFetchAlbum = new System.Windows.Forms.Button();
@@ -45,10 +44,10 @@ namespace FacebookApp.UI.Forms
             this.imageAlbumPictureBox = new System.Windows.Forms.PictureBox();
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.labelLoading = new System.Windows.Forms.Label();
             countLabel = new System.Windows.Forms.Label();
             createdTimeLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
-            imageAlbumLabel = new System.Windows.Forms.Label();
             locationLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             this.panelAlbumDetails.SuspendLayout();
@@ -58,47 +57,48 @@ namespace FacebookApp.UI.Forms
             // countLabel
             // 
             countLabel.AutoSize = true;
-            countLabel.Location = new System.Drawing.Point(37, 67);
+            countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            countLabel.ForeColor = System.Drawing.SystemColors.Control;
+            countLabel.Location = new System.Drawing.Point(65, 217);
             countLabel.Name = "countLabel";
-            countLabel.Size = new System.Drawing.Size(44, 16);
+            countLabel.Size = new System.Drawing.Size(86, 25);
             countLabel.TabIndex = 0;
-            countLabel.Text = "Count:";
+            countLabel.Text = "Amount:";
+            countLabel.Click += new System.EventHandler(this.countLabel_Click);
             // 
             // createdTimeLabel
             // 
             createdTimeLabel.AutoSize = true;
-            createdTimeLabel.Location = new System.Drawing.Point(37, 96);
+            createdTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            createdTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            createdTimeLabel.Location = new System.Drawing.Point(14, 177);
             createdTimeLabel.Name = "createdTimeLabel";
-            createdTimeLabel.Size = new System.Drawing.Size(92, 16);
+            createdTimeLabel.Size = new System.Drawing.Size(137, 25);
             createdTimeLabel.TabIndex = 2;
             createdTimeLabel.Text = "Created Time:";
             // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(37, 123);
+            descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
+            descriptionLabel.Location = new System.Drawing.Point(36, 43);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
+            descriptionLabel.Size = new System.Drawing.Size(115, 25);
             descriptionLabel.TabIndex = 4;
             descriptionLabel.Text = "Description:";
-            // 
-            // imageAlbumLabel
-            // 
-            imageAlbumLabel.AutoSize = true;
-            imageAlbumLabel.Location = new System.Drawing.Point(37, 148);
-            imageAlbumLabel.Name = "imageAlbumLabel";
-            imageAlbumLabel.Size = new System.Drawing.Size(89, 16);
-            imageAlbumLabel.TabIndex = 6;
-            imageAlbumLabel.Text = "Image Album:";
             // 
             // locationLabel
             // 
             locationLabel.AutoSize = true;
-            locationLabel.Location = new System.Drawing.Point(37, 207);
+            locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            locationLabel.ForeColor = System.Drawing.SystemColors.Control;
+            locationLabel.Location = new System.Drawing.Point(59, 111);
             locationLabel.Name = "locationLabel";
-            locationLabel.Size = new System.Drawing.Size(61, 16);
+            locationLabel.Size = new System.Drawing.Size(92, 25);
             locationLabel.TabIndex = 8;
             locationLabel.Text = "Location:";
+            locationLabel.Click += new System.EventHandler(this.locationLabel_Click);
             // 
             // albumBindingSource
             // 
@@ -126,54 +126,56 @@ namespace FacebookApp.UI.Forms
             this.panelAlbumDetails.Controls.Add(this.createdTimeDateTimePicker);
             this.panelAlbumDetails.Controls.Add(descriptionLabel);
             this.panelAlbumDetails.Controls.Add(this.descriptionTextBox);
-            this.panelAlbumDetails.Controls.Add(imageAlbumLabel);
             this.panelAlbumDetails.Controls.Add(this.imageAlbumPictureBox);
             this.panelAlbumDetails.Controls.Add(locationLabel);
             this.panelAlbumDetails.Controls.Add(this.locationTextBox);
-            this.panelAlbumDetails.Location = new System.Drawing.Point(501, 74);
+            this.panelAlbumDetails.Location = new System.Drawing.Point(507, 74);
             this.panelAlbumDetails.Name = "panelAlbumDetails";
-            this.panelAlbumDetails.Size = new System.Drawing.Size(952, 331);
+            this.panelAlbumDetails.Size = new System.Drawing.Size(900, 324);
             this.panelAlbumDetails.TabIndex = 61;
             // 
             // countTextBox
             // 
             this.countTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Count", true));
-            this.countTextBox.Location = new System.Drawing.Point(135, 64);
+            this.countTextBox.Location = new System.Drawing.Point(157, 217);
             this.countTextBox.Name = "countTextBox";
-            this.countTextBox.Size = new System.Drawing.Size(200, 22);
+            this.countTextBox.Size = new System.Drawing.Size(120, 22);
             this.countTextBox.TabIndex = 1;
+            this.countTextBox.TextChanged += new System.EventHandler(this.countTextBox_TextChanged);
             // 
             // createdTimeDateTimePicker
             // 
             this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.albumBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(135, 92);
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(157, 177);
             this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
             this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.createdTimeDateTimePicker.TabIndex = 3;
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(135, 120);
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
+            this.descriptionTextBox.Location = new System.Drawing.Point(157, 43);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 5;
             // 
             // imageAlbumPictureBox
             // 
             this.imageAlbumPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.albumBindingSource, "ImageAlbum", true));
-            this.imageAlbumPictureBox.Location = new System.Drawing.Point(135, 148);
+            this.imageAlbumPictureBox.Location = new System.Drawing.Point(624, 33);
             this.imageAlbumPictureBox.Name = "imageAlbumPictureBox";
-            this.imageAlbumPictureBox.Size = new System.Drawing.Size(200, 50);
+            this.imageAlbumPictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageAlbumPictureBox.TabIndex = 7;
             this.imageAlbumPictureBox.TabStop = false;
             // 
             // locationTextBox
             // 
-            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Location", true));
-            this.locationTextBox.Location = new System.Drawing.Point(135, 204);
+            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No location]"));
+            this.locationTextBox.Location = new System.Drawing.Point(157, 111);
+            this.locationTextBox.Multiline = true;
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(200, 22);
+            this.locationTextBox.Size = new System.Drawing.Size(380, 50);
             this.locationTextBox.TabIndex = 9;
             // 
             // listBox1
@@ -182,10 +184,22 @@ namespace FacebookApp.UI.Forms
             this.listBox1.DisplayMember = "Name";
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(22, 76);
+            this.listBox1.Location = new System.Drawing.Point(12, 74);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(424, 292);
+            this.listBox1.Size = new System.Drawing.Size(465, 324);
             this.listBox1.TabIndex = 62;
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.White;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Location = new System.Drawing.Point(20, 80);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(97, 25);
+            this.labelLoading.TabIndex = 63;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.Visible = false;
             // 
             // AlbumsForm
             // 
@@ -193,6 +207,7 @@ namespace FacebookApp.UI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panelAlbumDetails);
             this.Controls.Add(this.buttonFetchAlbum);
@@ -204,6 +219,7 @@ namespace FacebookApp.UI.Forms
             this.panelAlbumDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageAlbumPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -217,5 +233,6 @@ namespace FacebookApp.UI.Forms
         private System.Windows.Forms.PictureBox imageAlbumPictureBox;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label labelLoading;
     }
 }

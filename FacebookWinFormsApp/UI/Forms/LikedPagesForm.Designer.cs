@@ -30,19 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label descriptionLabel;
-            System.Windows.Forms.Label imageLargeLabel;
             System.Windows.Forms.Label cityLabel;
             System.Windows.Forms.Label likesCountLabel;
             this.buttonFetchPages = new System.Windows.Forms.Button();
             this.listBoxLikedPages = new System.Windows.Forms.ListBox();
             this.pageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelLikedPageDetails = new System.Windows.Forms.Panel();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
-            this.cityTextBox = new System.Windows.Forms.TextBox();
             this.likesCountTextBox = new System.Windows.Forms.TextBox();
+            this.labelLoading = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
-            imageLargeLabel = new System.Windows.Forms.Label();
             cityLabel = new System.Windows.Forms.Label();
             likesCountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pageBindingSource)).BeginInit();
@@ -53,20 +52,35 @@
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(67, 104);
+            descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
+            descriptionLabel.Location = new System.Drawing.Point(36, 43);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
+            descriptionLabel.Size = new System.Drawing.Size(115, 25);
             descriptionLabel.TabIndex = 0;
             descriptionLabel.Text = "Description:";
             // 
-            // imageLargeLabel
+            // cityLabel
             // 
-            imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(67, 129);
-            imageLargeLabel.Name = "imageLargeLabel";
-            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
-            imageLargeLabel.TabIndex = 2;
-            imageLargeLabel.Text = "Image Large:";
+            cityLabel.AutoSize = true;
+            cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cityLabel.ForeColor = System.Drawing.SystemColors.Control;
+            cityLabel.Location = new System.Drawing.Point(99, 107);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(52, 25);
+            cityLabel.TabIndex = 6;
+            cityLabel.Text = "City:";
+            // 
+            // likesCountLabel
+            // 
+            likesCountLabel.AutoSize = true;
+            likesCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            likesCountLabel.ForeColor = System.Drawing.SystemColors.Control;
+            likesCountLabel.Location = new System.Drawing.Point(29, 172);
+            likesCountLabel.Name = "likesCountLabel";
+            likesCountLabel.Size = new System.Drawing.Size(122, 25);
+            likesCountLabel.TabIndex = 4;
+            likesCountLabel.Text = "Likes Count:";
             // 
             // buttonFetchPages
             // 
@@ -93,7 +107,7 @@
             this.listBoxLikedPages.Location = new System.Drawing.Point(12, 74);
             this.listBoxLikedPages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxLikedPages.Name = "listBoxLikedPages";
-            this.listBoxLikedPages.Size = new System.Drawing.Size(318, 329);
+            this.listBoxLikedPages.Size = new System.Drawing.Size(465, 329);
             this.listBoxLikedPages.TabIndex = 4;
             // 
             // pageBindingSource
@@ -107,72 +121,69 @@
             this.panelLikedPageDetails.Controls.Add(this.cityTextBox);
             this.panelLikedPageDetails.Controls.Add(descriptionLabel);
             this.panelLikedPageDetails.Controls.Add(this.descriptionTextBox);
-            this.panelLikedPageDetails.Controls.Add(imageLargeLabel);
             this.panelLikedPageDetails.Controls.Add(this.imageLargePictureBox);
             this.panelLikedPageDetails.Controls.Add(likesCountLabel);
             this.panelLikedPageDetails.Controls.Add(this.likesCountTextBox);
-            this.panelLikedPageDetails.Location = new System.Drawing.Point(355, 74);
+            this.panelLikedPageDetails.Location = new System.Drawing.Point(507, 74);
             this.panelLikedPageDetails.Name = "panelLikedPageDetails";
-            this.panelLikedPageDetails.Size = new System.Drawing.Size(450, 328);
+            this.panelLikedPageDetails.Size = new System.Drawing.Size(900, 329);
             this.panelLikedPageDetails.TabIndex = 22;
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Location.City", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No city]"));
+            this.cityTextBox.Location = new System.Drawing.Point(157, 107);
+            this.cityTextBox.Multiline = true;
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(380, 50);
+            this.cityTextBox.TabIndex = 7;
             // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
-            this.descriptionTextBox.Location = new System.Drawing.Point(159, 101);
+            this.descriptionTextBox.Location = new System.Drawing.Point(157, 40);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(157, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 1;
+            this.descriptionTextBox.TextChanged += new System.EventHandler(this.descriptionTextBox_TextChanged);
             // 
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pageBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(159, 129);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(628, 40);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(100, 50);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 3;
             this.imageLargePictureBox.TabStop = false;
-            // 
-            // cityLabel
-            // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(121, 225);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(32, 16);
-            cityLabel.TabIndex = 6;
-            cityLabel.Text = "City:";
-            // 
-            // cityTextBox
-            // 
-            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Location.City", true));
-            this.cityTextBox.Location = new System.Drawing.Point(159, 222);
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(100, 22);
-            this.cityTextBox.TabIndex = 7;
-            // 
-            // likesCountLabel
-            // 
-            likesCountLabel.AutoSize = true;
-            likesCountLabel.Location = new System.Drawing.Point(67, 188);
-            likesCountLabel.Name = "likesCountLabel";
-            likesCountLabel.Size = new System.Drawing.Size(79, 16);
-            likesCountLabel.TabIndex = 4;
-            likesCountLabel.Text = "Likes Count:";
             // 
             // likesCountTextBox
             // 
             this.likesCountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "LikesCount", true));
-            this.likesCountTextBox.Location = new System.Drawing.Point(159, 185);
+            this.likesCountTextBox.Location = new System.Drawing.Point(157, 172);
             this.likesCountTextBox.Name = "likesCountTextBox";
             this.likesCountTextBox.Size = new System.Drawing.Size(100, 22);
             this.likesCountTextBox.TabIndex = 5;
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.White;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Location = new System.Drawing.Point(20, 80);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(97, 25);
+            this.labelLoading.TabIndex = 64;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.Visible = false;
             // 
             // LikedPagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.panelLikedPageDetails);
             this.Controls.Add(this.buttonFetchPages);
             this.Controls.Add(this.listBoxLikedPages);
@@ -185,6 +196,7 @@
             this.panelLikedPageDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -198,5 +210,6 @@
         private System.Windows.Forms.PictureBox imageLargePictureBox;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.TextBox likesCountTextBox;
+        private System.Windows.Forms.Label labelLoading;
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label birthdayLabel;
             System.Windows.Forms.Label emailLabel;
-            System.Windows.Forms.Label imageLargeLabel;
             System.Windows.Forms.Label localeLabel;
             System.Windows.Forms.Label nameLabel;
             this.panelUserDetails = new System.Windows.Forms.Panel();
@@ -43,7 +42,6 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
-            imageLargeLabel = new System.Windows.Forms.Label();
             localeLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             this.panelUserDetails.SuspendLayout();
@@ -54,47 +52,50 @@
             // birthdayLabel
             // 
             birthdayLabel.AutoSize = true;
-            birthdayLabel.Location = new System.Drawing.Point(73, 109);
+            birthdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            birthdayLabel.ForeColor = System.Drawing.SystemColors.Control;
+            birthdayLabel.Location = new System.Drawing.Point(259, 189);
             birthdayLabel.Name = "birthdayLabel";
-            birthdayLabel.Size = new System.Drawing.Size(59, 16);
+            birthdayLabel.Size = new System.Drawing.Size(89, 25);
             birthdayLabel.TabIndex = 0;
             birthdayLabel.Text = "Birthday:";
+            birthdayLabel.Click += new System.EventHandler(this.birthdayLabel_Click);
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(73, 82);
+            emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            emailLabel.ForeColor = System.Drawing.SystemColors.Control;
+            emailLabel.Location = new System.Drawing.Point(282, 140);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(44, 16);
+            emailLabel.Size = new System.Drawing.Size(66, 25);
             emailLabel.TabIndex = 2;
             emailLabel.Text = "Email:";
-            // 
-            // imageLargeLabel
-            // 
-            imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(368, 66);
-            imageLargeLabel.Name = "imageLargeLabel";
-            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
-            imageLargeLabel.TabIndex = 4;
-            imageLargeLabel.Text = "Image Large:";
+            emailLabel.Click += new System.EventHandler(this.emailLabel_Click);
             // 
             // localeLabel
             // 
             localeLabel.AutoSize = true;
-            localeLabel.Location = new System.Drawing.Point(73, 137);
+            localeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            localeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            localeLabel.Location = new System.Drawing.Point(272, 235);
             localeLabel.Name = "localeLabel";
-            localeLabel.Size = new System.Drawing.Size(51, 16);
+            localeLabel.Size = new System.Drawing.Size(76, 25);
             localeLabel.TabIndex = 6;
             localeLabel.Text = "Locale:";
+            localeLabel.Click += new System.EventHandler(this.localeLabel_Click);
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(73, 54);
+            nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            nameLabel.Location = new System.Drawing.Point(278, 91);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(47, 16);
+            nameLabel.Size = new System.Drawing.Size(70, 25);
             nameLabel.TabIndex = 8;
             nameLabel.Text = "Name:";
+            nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
             // 
             // panelUserDetails
             // 
@@ -103,7 +104,6 @@
             this.panelUserDetails.Controls.Add(this.birthdayTextBox);
             this.panelUserDetails.Controls.Add(emailLabel);
             this.panelUserDetails.Controls.Add(this.emailTextBox);
-            this.panelUserDetails.Controls.Add(imageLargeLabel);
             this.panelUserDetails.Controls.Add(this.imageLargePictureBox);
             this.panelUserDetails.Controls.Add(localeLabel);
             this.panelUserDetails.Controls.Add(this.localeTextBox);
@@ -111,16 +111,19 @@
             this.panelUserDetails.Controls.Add(this.nameTextBox);
             this.panelUserDetails.Location = new System.Drawing.Point(12, 22);
             this.panelUserDetails.Name = "panelUserDetails";
-            this.panelUserDetails.Size = new System.Drawing.Size(838, 380);
+            this.panelUserDetails.Size = new System.Drawing.Size(1429, 380);
             this.panelUserDetails.TabIndex = 4;
+            this.panelUserDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserDetails_Paint);
             // 
             // birthdayTextBox
             // 
-            this.birthdayTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Birthday", true));
-            this.birthdayTextBox.Location = new System.Drawing.Point(165, 106);
+            this.birthdayTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Birthday", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No birthday]"));
+            this.birthdayTextBox.Location = new System.Drawing.Point(354, 189);
+            this.birthdayTextBox.Multiline = true;
             this.birthdayTextBox.Name = "birthdayTextBox";
-            this.birthdayTextBox.Size = new System.Drawing.Size(100, 22);
+            this.birthdayTextBox.Size = new System.Drawing.Size(210, 34);
             this.birthdayTextBox.TabIndex = 1;
+            this.birthdayTextBox.TextChanged += new System.EventHandler(this.birthdayTextBox_TextChanged);
             // 
             // loginResultBindingSource
             // 
@@ -128,43 +131,50 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(165, 79);
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Email", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No email]"));
+            this.emailTextBox.Location = new System.Drawing.Point(354, 140);
+            this.emailTextBox.Multiline = true;
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
+            this.emailTextBox.Size = new System.Drawing.Size(352, 34);
             this.emailTextBox.TabIndex = 3;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.loginResultBindingSource, "LoggedInUser.ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(460, 66);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(754, 63);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(269, 264);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
             this.imageLargePictureBox.TabStop = false;
+            this.imageLargePictureBox.Click += new System.EventHandler(this.imageLargePictureBox_Click);
             // 
             // localeTextBox
             // 
-            this.localeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Locale", true));
-            this.localeTextBox.Location = new System.Drawing.Point(165, 134);
+            this.localeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Locale", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No locale]"));
+            this.localeTextBox.Location = new System.Drawing.Point(354, 238);
+            this.localeTextBox.Multiline = true;
             this.localeTextBox.Name = "localeTextBox";
-            this.localeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.localeTextBox.Size = new System.Drawing.Size(210, 32);
             this.localeTextBox.TabIndex = 7;
+            this.localeTextBox.TextChanged += new System.EventHandler(this.localeTextBox_TextChanged);
             // 
             // nameTextBox
             // 
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(165, 51);
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginResultBindingSource, "LoggedInUser.Name", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No name]"));
+            this.nameTextBox.Location = new System.Drawing.Point(354, 91);
+            this.nameTextBox.Multiline = true;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(352, 33);
             this.nameTextBox.TabIndex = 9;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // UserProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1045, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
             this.Controls.Add(this.panelUserDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserProfileForm";

@@ -31,28 +31,71 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label endTimeLabel;
-            System.Windows.Forms.Label linkToFacebookLabel;
             System.Windows.Forms.Label locationLabel;
             System.Windows.Forms.Label startTimeLabel;
             this.buttonFetchEvents = new System.Windows.Forms.Button();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
-            this.panelEventDetails = new System.Windows.Forms.Panel();
             this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelEventDetails = new System.Windows.Forms.Panel();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
-            this.linkToFacebookLinkLabel = new System.Windows.Forms.LinkLabel();
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.labelLoading = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             endTimeLabel = new System.Windows.Forms.Label();
-            linkToFacebookLabel = new System.Windows.Forms.Label();
             locationLabel = new System.Windows.Forms.Label();
             startTimeLabel = new System.Windows.Forms.Label();
-            this.panelEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
+            this.panelEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
+            descriptionLabel.Location = new System.Drawing.Point(36, 43);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(115, 25);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            endTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            endTimeLabel.Location = new System.Drawing.Point(49, 214);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(102, 25);
+            endTimeLabel.TabIndex = 2;
+            endTimeLabel.Text = "End Time:";
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            locationLabel.ForeColor = System.Drawing.SystemColors.Control;
+            locationLabel.Location = new System.Drawing.Point(59, 112);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new System.Drawing.Size(92, 25);
+            locationLabel.TabIndex = 8;
+            locationLabel.Text = "Location:";
+            locationLabel.Click += new System.EventHandler(this.locationLabel_Click);
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            startTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            startTimeLabel.Location = new System.Drawing.Point(43, 177);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(108, 25);
+            startTimeLabel.TabIndex = 10;
+            startTimeLabel.Text = "Start Time:";
             // 
             // buttonFetchEvents
             // 
@@ -78,8 +121,12 @@
             this.listBoxEvents.Location = new System.Drawing.Point(12, 74);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(436, 329);
+            this.listBoxEvents.Size = new System.Drawing.Size(465, 329);
             this.listBoxEvents.TabIndex = 8;
+            // 
+            // eventBindingSource
+            // 
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
             // panelEventDetails
             // 
@@ -89,51 +136,28 @@
             this.panelEventDetails.Controls.Add(endTimeLabel);
             this.panelEventDetails.Controls.Add(this.endTimeDateTimePicker);
             this.panelEventDetails.Controls.Add(this.imageLargePictureBox);
-            this.panelEventDetails.Controls.Add(linkToFacebookLabel);
-            this.panelEventDetails.Controls.Add(this.linkToFacebookLinkLabel);
             this.panelEventDetails.Controls.Add(locationLabel);
             this.panelEventDetails.Controls.Add(this.locationTextBox);
             this.panelEventDetails.Controls.Add(startTimeLabel);
             this.panelEventDetails.Controls.Add(this.startTimeDateTimePicker);
-            this.panelEventDetails.Location = new System.Drawing.Point(468, 74);
+            this.panelEventDetails.Location = new System.Drawing.Point(507, 74);
             this.panelEventDetails.Name = "panelEventDetails";
-            this.panelEventDetails.Size = new System.Drawing.Size(865, 329);
+            this.panelEventDetails.Size = new System.Drawing.Size(900, 324);
             this.panelEventDetails.TabIndex = 24;
-            // 
-            // eventBindingSource
-            // 
-            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(39, 69);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
-            descriptionLabel.TabIndex = 0;
-            descriptionLabel.Text = "Description:";
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(164, 66);
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
+            this.descriptionTextBox.Location = new System.Drawing.Point(157, 43);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 1;
-            // 
-            // endTimeLabel
-            // 
-            endTimeLabel.AutoSize = true;
-            endTimeLabel.Location = new System.Drawing.Point(39, 98);
-            endTimeLabel.Name = "endTimeLabel";
-            endTimeLabel.Size = new System.Drawing.Size(68, 16);
-            endTimeLabel.TabIndex = 2;
-            endTimeLabel.Text = "End Time:";
             // 
             // endTimeDateTimePicker
             // 
             this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true));
-            this.endTimeDateTimePicker.Location = new System.Drawing.Point(164, 94);
+            this.endTimeDateTimePicker.Location = new System.Drawing.Point(157, 217);
             this.endTimeDateTimePicker.Name = "endTimeDateTimePicker";
             this.endTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.endTimeDateTimePicker.TabIndex = 3;
@@ -141,71 +165,48 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(164, 122);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(626, 43);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(200, 50);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
             this.imageLargePictureBox.TabStop = false;
             // 
-            // linkToFacebookLabel
-            // 
-            linkToFacebookLabel.AutoSize = true;
-            linkToFacebookLabel.Location = new System.Drawing.Point(39, 175);
-            linkToFacebookLabel.Name = "linkToFacebookLabel";
-            linkToFacebookLabel.Size = new System.Drawing.Size(119, 16);
-            linkToFacebookLabel.TabIndex = 6;
-            linkToFacebookLabel.Text = "Link To Facebook:";
-            // 
-            // linkToFacebookLinkLabel
-            // 
-            this.linkToFacebookLinkLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "LinkToFacebook", true));
-            this.linkToFacebookLinkLabel.Location = new System.Drawing.Point(164, 175);
-            this.linkToFacebookLinkLabel.Name = "linkToFacebookLinkLabel";
-            this.linkToFacebookLinkLabel.Size = new System.Drawing.Size(200, 23);
-            this.linkToFacebookLinkLabel.TabIndex = 7;
-            this.linkToFacebookLinkLabel.TabStop = true;
-            this.linkToFacebookLinkLabel.Text = "linkLabel1";
-            // 
-            // locationLabel
-            // 
-            locationLabel.AutoSize = true;
-            locationLabel.Location = new System.Drawing.Point(39, 204);
-            locationLabel.Name = "locationLabel";
-            locationLabel.Size = new System.Drawing.Size(61, 16);
-            locationLabel.TabIndex = 8;
-            locationLabel.Text = "Location:";
-            // 
             // locationTextBox
             // 
-            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Location", true));
-            this.locationTextBox.Location = new System.Drawing.Point(164, 201);
+            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No location]"));
+            this.locationTextBox.Location = new System.Drawing.Point(157, 112);
+            this.locationTextBox.Multiline = true;
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(200, 22);
+            this.locationTextBox.Size = new System.Drawing.Size(380, 50);
             this.locationTextBox.TabIndex = 9;
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.Location = new System.Drawing.Point(39, 233);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(71, 16);
-            startTimeLabel.TabIndex = 10;
-            startTimeLabel.Text = "Start Time:";
             // 
             // startTimeDateTimePicker
             // 
             this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
-            this.startTimeDateTimePicker.Location = new System.Drawing.Point(164, 229);
+            this.startTimeDateTimePicker.Location = new System.Drawing.Point(157, 180);
             this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
             this.startTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.startTimeDateTimePicker.TabIndex = 11;
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.White;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Location = new System.Drawing.Point(20, 80);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(97, 25);
+            this.labelLoading.TabIndex = 64;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.Visible = false;
             // 
             // EventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.panelEventDetails);
             this.Controls.Add(this.buttonFetchEvents);
             this.Controls.Add(this.listBoxEvents);
@@ -213,11 +214,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventsForm";
             this.Text = "EventsForm";
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.panelEventDetails.ResumeLayout(false);
             this.panelEventDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,8 +232,8 @@
         private System.Windows.Forms.BindingSource eventBindingSource;
         private System.Windows.Forms.DateTimePicker endTimeDateTimePicker;
         private System.Windows.Forms.PictureBox imageLargePictureBox;
-        private System.Windows.Forms.LinkLabel linkToFacebookLinkLabel;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;
+        private System.Windows.Forms.Label labelLoading;
     }
 }
