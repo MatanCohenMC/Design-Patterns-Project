@@ -32,60 +32,42 @@ namespace FacebookApp.Controllers
             AlbumsForm albumsForm = new AlbumsForm();
             AddForm(albumsEnum, albumsForm);
 
-            //setFetchActionFunctions(albumsEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(albumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
 
             eFormName eventsEnum = eFormName.EventsForm;
             EventsForm eventsForm = new EventsForm();
             AddForm(eventsEnum, eventsForm);
-            //setFetchActionFunctions(eventsEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(eventsEnum, setLocation, setDescription, setDate, setPicture);
 
             eFormName groupsEnum = eFormName.GroupsForm;
             GroupsForm groupsForm = new GroupsForm();
             AddForm(groupsEnum, groupsForm);
-            //setFetchActionFunctions(groupsEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(groupsEnum, setPicture, setDescription);
 
             eFormName likedPagesEnum = eFormName.LikedPagesForm;
             LikedPagesForm likedPagesForm = new LikedPagesForm();
             AddForm(likedPagesEnum, likedPagesForm);
-            //setFetchActionFunctions(likedPagesEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(likedPagesEnum, setPicture, setDescription);
 
             eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
             FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
             AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
-            //setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
 
             eFormName postsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
             AddForm(postsEnum, postsForm);
-            //setFetchActionFunctions(postsEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(postsEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
             eFormName userProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
             AddForm(userProfileEnum, userProfileForm);
-            //userProfileForm.m_FetchUserProfileData += fetchUserProfileData;
 
             eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
             AddForm(postsByDateRangeEnum, postsByDateRangeForm);
-            //setFetchActionFunctions(postsByDateRangeEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(postsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
             eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
             EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
             AddForm(eventsByLocationEnum, eventsByLocationForm);
-            //setFetchActionFunctions(eventsByLocationEnum, fetchUserFormData);
-            //setSelectedIndexActionFunctions(eventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
 
             eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
             RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
             AddForm(randomMemoryEnum, randomMemoryForm);
-            //setFetchActionFunctions(randomMemoryEnum, fetchRandomMemory);
 
             eFormName navigationBarEnum = eFormName.NavigationBarForm;
             NavigationBarForm navigationBarForm = new NavigationBarForm();
@@ -219,12 +201,6 @@ namespace FacebookApp.Controllers
             Application.Run(GetForm(eFormName.AppMainForm));
         }
 
-        private void fetchUserFormData(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IDataHandler dataHandler = GetForm(i_EnumFormName) as IDataHandler;
-            fetchDataToListBox(componentHandler, dataHandler);
-        }
 
         private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
         {
@@ -255,139 +231,5 @@ namespace FacebookApp.Controllers
             }
         }
 
-
-        private void setPicture(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IPictureHandler pictureHandler = GetForm(i_EnumFormName) as IPictureHandler;
-            IPictureByIndexHandler pictureByIndexHandler = GetForm(i_EnumFormName) as IPictureByIndexHandler;
-            ListBox listBox = componentHandler?.GetListBox();
-            PictureBox pictureBox = pictureHandler?.GetPictureBox();
-            string pictureUrl = pictureByIndexHandler?.GetPictureUrlByIndex(listBox.SelectedIndex);
-
-            if (pictureUrl != null)
-            {
-                pictureBox?.LoadAsync(pictureUrl);
-            }
-            else
-            {
-                pictureBox.Image = null;
-            }
-        }
-
-        private void setLocation(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            ILocationHandler locationHandler = GetForm(i_EnumFormName) as ILocationHandler;
-            ListBox listBox = componentHandler?.GetListBox();
-            TextBox locationTextBox = locationHandler?.GetLocationTextBox();
-            string location = locationHandler?.GetLocationByIndex(listBox.SelectedIndex);
-
-            locationTextBox.Text = location ?? "No location mentioned.";
-        }
-
-        private void setFullName(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IFullNameHandler fullNameHandler = GetForm(i_EnumFormName) as IFullNameHandler;
-            ListBox listBox = componentHandler?.GetListBox();
-            TextBox fullNameTextBox = fullNameHandler?.GetFullNameTextBox();
-            string fullName = fullNameHandler.GetFullNameByIndex(listBox.SelectedIndex);
-
-            fullNameTextBox.Text = fullName ?? "No fullname mentioned.";
-        }
-
-        private void setBirthday(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IBirthdayHandler fullNameHandler = GetForm(i_EnumFormName) as IBirthdayHandler;
-            ListBox listBox = componentHandler?.GetListBox();
-            TextBox birthdayTextBox = fullNameHandler?.GetBirthdayTextBox();
-            string birthday = fullNameHandler.GetBirthdayByIndex(listBox.SelectedIndex);
-
-            birthdayTextBox.Text = birthday ?? "No birthday mentioned.";
-        }
-
-        private void setUpdatedTime(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            ICreatedTimeHandler createdTimeHandler = GetForm(i_EnumFormName) as ICreatedTimeHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox updatedTimeTextBox = createdTimeHandler.GetCreatedTimeTextBox();
-            string updatedTime = createdTimeHandler.GetCreatedTimeByIndex(listBox.SelectedIndex);
-
-            updatedTimeTextBox.Text = updatedTime ?? "No updated time mentioned.";
-        }
-
-        private void setPictureCount(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IPictureCountHandler pictureCountHandler = GetForm(i_EnumFormName) as IPictureCountHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox pictureCountTextBox = pictureCountHandler.GetPictureCountTextBox();
-            string pictureCount = pictureCountHandler.GetPictureCountByIndex(listBox.SelectedIndex);
-
-            pictureCountTextBox.Text = pictureCount ?? "No picture amount mentioned.";
-        }
-
-        private void setDate(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IDateHandler dateHandler = GetForm(i_EnumFormName) as IDateHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox dateTextBox = dateHandler.GetDateTextBox();
-            string date = dateHandler.GetDateByIndex(listBox.SelectedIndex);
-
-            dateTextBox.Text = date ?? "No date mentioned.";
-        }
-
-        private void setDescription(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            IDescriptionHandler descriptionHandler = GetForm(i_EnumFormName) as IDescriptionHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox descriptionTextBox = descriptionHandler.GetDescriptionTextBox();
-            string description = descriptionHandler.GetDescriptionByIndex(listBox.SelectedIndex);
-
-            descriptionTextBox.Text = description ?? "No description mentioned.";
-        }
-
-        private void setComments(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            ICommentsHandler commentsHandler = GetForm(i_EnumFormName) as ICommentsHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            ListBox commentsListBox = commentsHandler.GetCommentsListBox();
-            ICollection<Comment> comments = commentsHandler.GetCommentsByIndex(listBox.SelectedIndex);
-
-            commentsListBox.Items.Clear();
-            if (comments == null)
-            {
-                commentsListBox.Items.Add("Unknown.");
-            }
-            else if (comments.Count == 0)
-            {
-                commentsListBox.Items.Add("No comments.");
-            }
-            else
-            {
-                listBox.Enabled = true;
-                foreach (Comment comment in comments)
-                {
-                    commentsListBox.Items.Add(comment.ToString());
-                }
-            }
-        }
-
-        private void setCaption(eFormName i_EnumFormName)
-        {
-            IComponentHandler componentHandler = GetForm(i_EnumFormName) as IComponentHandler;
-            ICaptionHandler descriptionHandler = GetForm(i_EnumFormName) as ICaptionHandler;
-            ListBox listBox = componentHandler.GetListBox();
-            TextBox captionTextBox = descriptionHandler.GetCaptionTextBox();
-            string description = descriptionHandler.GetCaptionByIndex(listBox.SelectedIndex);
-
-            captionTextBox.Text = description ?? "No caption mentioned.";
-        }
     }
 }
