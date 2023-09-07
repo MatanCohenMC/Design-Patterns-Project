@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 
@@ -8,21 +9,31 @@ namespace FacebookApp.UI.Forms
 {
     public partial class LikedPagesForm : Form
     {
-        private readonly LikedPages r_LikedPages = new LikedPages();
+        private readonly LikedPagesFacade r_LikedPages;
+
 
         public LikedPagesForm()
         {
             InitializeComponent();
+            r_LikedPages = new LikedPagesFacade();
+            r_LikedPages.LikedPagesUpdated += setLikedPages;
         }
 
         private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            fetchLikedPages();
+            r_LikedPages.UpdateLikedPages();
         }
 
-        private void fetchLikedPages()
+
+        private void setLikedPages()
         {
-            pageBindingSource.DataSource = r_LikedPages.GetLikedPages();
+            if(InvokeRequired)
+            {
+                Invoke((Action)setLikedPages);
+                return;
+            }
+
+            pageBindingSource.DataSource = r_LikedPages.LikedPages;
         }
     }
 }

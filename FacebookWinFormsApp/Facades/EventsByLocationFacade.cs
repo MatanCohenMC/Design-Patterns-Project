@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
 
@@ -8,7 +9,10 @@ namespace FacebookApp.Facades
     {
         private readonly Events r_Events;
         private FacebookObjectCollection<Event> m_Events;
-        public EventsByLocationFacade(){
+        public event Action EventsByLocationUpdated;
+
+        public EventsByLocationFacade()
+        {
             r_Events = new Events();
         }
 
@@ -23,9 +27,11 @@ namespace FacebookApp.Facades
 
         public void UpdateEventsByLocation(string i_Location)
         {
-            new Thread(() => m_Events = r_Events.GetEventsByLocation(i_Location)).Start();
+            new Thread(() =>
+                {
+                    m_Events = r_Events.GetEventsByLocation(i_Location);
+                    EventsByLocationUpdated?.Invoke();
+                }).Start();
         }
-
-        
     }
 }

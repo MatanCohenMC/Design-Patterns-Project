@@ -7,21 +7,24 @@ namespace FacebookApp.Facades
     public class PostsFacade
     {
         private readonly Posts r_Posts;
-        private FacebookObjectCollection<Post> m_Posts;
+        public FacebookObjectCollection<Post> Posts { get; private set; }
+
+        public event System.Action PostsUpdated;
 
         public PostsFacade()
         {
             r_Posts = new Posts();
         }
 
-        public FacebookObjectCollection<Post> Posts
-        {
-            get
-            {
-                new Thread(() => m_Posts = r_Posts.GetPosts()).Start();
-                return m_Posts;
-            }
-        }
 
+        public void UpdatePosts()
+        {
+            new Thread(
+                () =>
+                    {
+                        Posts = r_Posts.GetPosts();
+                        PostsUpdated?.Invoke();
+                    }).Start();
+        }
     }
 }
