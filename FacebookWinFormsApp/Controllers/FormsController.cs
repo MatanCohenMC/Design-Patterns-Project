@@ -12,8 +12,6 @@ namespace FacebookApp.Controllers
 {
     public class FormsController
     {
-        private static readonly object sr_MyLock = new object();
-        private static FormsController s_Instance = null;
         private readonly Login r_Login;
         private Form m_CurrentForm;
         private Dictionary<eFormName, Form> m_ENumFormsDictionary;
@@ -27,68 +25,7 @@ namespace FacebookApp.Controllers
         private void initializeForms()
         {
             m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
-
             addAllForms();
-
-            //eFormName albumsEnum = eFormName.AlbumForm;
-            //AlbumsForm albumsForm = new AlbumsForm();
-            //addForm(albumsEnum, albumsForm);
-
-
-            //eFormName eventsEnum = eFormName.EventsForm;
-            //EventsForm eventsForm = new EventsForm();
-            //addForm(eventsEnum, eventsForm);
-
-            //eFormName groupsEnum = eFormName.GroupsForm;
-            //GroupsForm groupsForm = new GroupsForm();
-            //addForm(groupsEnum, groupsForm);
-
-            //eFormName likedPagesEnum = eFormName.LikedPagesForm;
-            //LikedPagesForm likedPagesForm = new LikedPagesForm();
-            //addForm(likedPagesEnum, likedPagesForm);
-
-            //eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
-            //FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
-            //addForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
-
-            //eFormName postsEnum = eFormName.PostsForm;
-            //PostsForm postsForm = new PostsForm();
-            //addForm(postsEnum, postsForm);
-
-            //eFormName userProfileEnum = eFormName.UserProfileForm;
-            //UserProfileForm userProfileForm = new UserProfileForm();
-            //addForm(userProfileEnum, userProfileForm);
-
-            //eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
-            //PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
-            //addForm(postsByDateRangeEnum, postsByDateRangeForm);
-
-            //eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
-            //EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-            //addForm(eventsByLocationEnum, eventsByLocationForm);
-
-            //eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
-            //RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
-            //addForm(randomMemoryEnum, randomMemoryForm);
-
-            //eFormName navigationBarEnum = eFormName.NavigationBarForm;
-            //NavigationBarForm navigationBarForm = new NavigationBarForm();
-            //navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-            //addForm(navigationBarEnum, navigationBarForm);
-
-            //eFormName loginBarEnum = eFormName.LoginBarForm;
-            //LoginBarForm loginBarForm = new LoginBarForm();
-            //loginBarForm.m_LoginButtonPressed += loginToApp;
-            //loginBarForm.m_LogoutButtonPressed += logoutOfApp;
-            //loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-            //addForm(loginBarEnum, loginBarForm);
-
-            //eFormName appMainFormEnum = eFormName.AppMainForm;
-            //Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
-            //addForm(appMainFormEnum, appMainForm);
-
-
-
         }
 
         private void loginToApp()
@@ -205,8 +142,6 @@ namespace FacebookApp.Controllers
             Application.EnableVisualStyles();
             Application.Run(getForm(eFormName.AppMainForm));
         }
-
-
 
         private void addNewForm(eFormName formName)
         {
