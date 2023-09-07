@@ -118,6 +118,8 @@
     <Compile Include="Facades\LikedPagesFacade.cs" />
     <Compile Include="Facades\PostsFacade.cs" />
     <Compile Include="Facades\UserProfileFacade.cs" />
+    <Compile Include="Factory\ConcreteFormsFactory.cs" />
+    <Compile Include="Factory\FormsFactory.cs" />
     <Compile Include="Interfaces\IBirthdayHandler.cs" />
     <Compile Include="Interfaces\ICaptionHandler.cs" />
     <Compile Include="Interfaces\ICommentsHandler.cs" />

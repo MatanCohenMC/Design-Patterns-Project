@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using FacebookApp.Factory;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookApp.UI.Forms;
@@ -25,7 +26,8 @@ namespace FacebookApp.Controllers
         private void initializeForms()
         {
             m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
-            addAllForms();
+            addAllSubForms();
+            setActionFunctions();
         }
 
         private void loginToApp()
@@ -105,10 +107,6 @@ namespace FacebookApp.Controllers
             }
         }
 
-        private void addForm(eFormName i_EnumFormName, Form i_Form)
-        {
-            m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
-        }
 
         private Form getForm(eFormName i_EnumFormName)
         {
@@ -143,91 +141,38 @@ namespace FacebookApp.Controllers
             Application.Run(getForm(eFormName.AppMainForm));
         }
 
-        private void addNewForm(eFormName formName)
+        private void addAllSubForms()
         {
-            switch (formName)
+            ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_ENumFormsDictionary);
+            foreach(eFormName formName in Enum.GetValues(typeof(eFormName)))
             {
-                case eFormName.AlbumForm:
-                    AlbumsForm albumsForm = new AlbumsForm();
-                    addForm(formName, albumsForm);
-                    break;
-
-                case eFormName.EventsForm:
-                    EventsForm eventsForm = new EventsForm();
-                    addForm(formName, eventsForm);
-                    break;
-
-                case eFormName.GroupsForm:
-                    GroupsForm groupsForm = new GroupsForm();
-                    addForm(formName, groupsForm);
-                    break;
-
-                case eFormName.LikedPagesForm:
-                    LikedPagesForm likedPagesForm = new LikedPagesForm();
-                    addForm(formName, likedPagesForm);
-                    break;
-
-                case eFormName.FriendsInUsersAgeRangeForm:
-                    FriendsInUsersAgeRangeForm friendsInUsersAgeRangeForm = new FriendsInUsersAgeRangeForm();
-                    addForm(formName, friendsInUsersAgeRangeForm);
-                    break;
-
-                case eFormName.PostsForm:
-                    PostsForm postsForm = new PostsForm();
-                    addForm(formName, postsForm);
-                    break;
-
-                case eFormName.UserProfileForm:
-                    UserProfileForm userProfileForm = new UserProfileForm();
-                    addForm(formName, userProfileForm);
-                    break;
-
-                case eFormName.PostsByDateRangeForm:
-                    PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
-                    addForm(formName, postsByDateRangeForm);
-                    break;
-
-                case eFormName.EventsByLocationForm:
-                    EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-                    addForm(formName, eventsByLocationForm);
-                    break;
-                case eFormName.RandomMemoryForm:
-                    RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
-                    addForm(formName, randomMemoryForm);
-                    break;
-
-                case eFormName.NavigationBarForm:
-                    NavigationBarForm navigationBarForm = new NavigationBarForm();
-                    navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-                    addForm(formName, navigationBarForm);
-                    break;
-
-                case eFormName.LoginBarForm:
-                    LoginBarForm loginBarForm = new LoginBarForm();
-                    loginBarForm.m_LoginButtonPressed += loginToApp;
-                    loginBarForm.m_LogoutButtonPressed += logoutOfApp;
-                    loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-                    addForm(formName, loginBarForm);
-                    break;
-                case eFormName.AppMainForm:
-                    eFormName appMainFormEnum = eFormName.AppMainForm;
-                    NavigationBarForm currentNavigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                    LoginBarForm currentLoginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-                    Form appMainForm = new AppMainForm(currentNavigationBarForm, currentLoginBarForm);
-                    addForm(appMainFormEnum, appMainForm);
-                    break;
-
-                default:
-                    throw new ArgumentException("Invalid form name");
+                Form formToAdd = concreteFormsFactory.FactoryMethod(formName);
+                addForm(formName, formToAdd);
             }
         }
 
 
-        private void addAllForms()
+
+        private void addForm(eFormName i_EnumFormName, Form i_Form)
         {
-            foreach(eFormName formName in Enum.GetValues(typeof(eFormName)))
+            m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
+        }
+
+
+        private void setActionFunctions()
+        {
+            NavigationBarForm curnNavigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+            LoginBarForm curnLoginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+            if (curnNavigationBarForm != null)
             {
-                addNewForm(formName);
+                curnNavigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+            }
+
+            if (curnLoginBarForm != null)
+            {
+                curnLoginBarForm.m_LoginButtonPressed += loginToApp;
+                curnLoginBarForm.m_LogoutButtonPressed += logoutOfApp;
+                curnLoginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
             }
         }
     }
