@@ -32,38 +32,38 @@ namespace FacebookApp.Controllers
             AlbumsForm albumsForm = new AlbumsForm();
             AddForm(albumsEnum, albumsForm);
 
-            setFetchActionFunctions(albumsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(albumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
+            //setFetchActionFunctions(albumsEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(albumsEnum, setLocation, setPicture, setUpdatedTime, setPictureCount);
 
             eFormName eventsEnum = eFormName.EventsForm;
             EventsForm eventsForm = new EventsForm();
             AddForm(eventsEnum, eventsForm);
-            setFetchActionFunctions(eventsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(eventsEnum, setLocation, setDescription, setDate, setPicture);
+            //setFetchActionFunctions(eventsEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(eventsEnum, setLocation, setDescription, setDate, setPicture);
 
             eFormName groupsEnum = eFormName.GroupsForm;
             GroupsForm groupsForm = new GroupsForm();
             AddForm(groupsEnum, groupsForm);
-            setFetchActionFunctions(groupsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(groupsEnum, setPicture, setDescription);
+            //setFetchActionFunctions(groupsEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(groupsEnum, setPicture, setDescription);
 
             eFormName likedPagesEnum = eFormName.LikedPagesForm;
             LikedPagesForm likedPagesForm = new LikedPagesForm();
             AddForm(likedPagesEnum, likedPagesForm);
-            setFetchActionFunctions(likedPagesEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(likedPagesEnum, setPicture, setDescription);
+            //setFetchActionFunctions(likedPagesEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(likedPagesEnum, setPicture, setDescription);
 
             eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
             FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
             AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
-            setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
+            //setFetchActionFunctions(friendsInUsersAgeRangeEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(friendsInUsersAgeRangeEnum, setPicture, setFullName, setBirthday, setLocation);
 
             eFormName postsEnum = eFormName.PostsForm;
             PostsForm postsForm = new PostsForm();
             AddForm(postsEnum, postsForm);
-            setFetchActionFunctions(postsEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(postsEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            //setFetchActionFunctions(postsEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(postsEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
             eFormName userProfileEnum = eFormName.UserProfileForm;
             UserProfileForm userProfileForm = new UserProfileForm();
@@ -73,14 +73,14 @@ namespace FacebookApp.Controllers
             eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
             PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
             AddForm(postsByDateRangeEnum, postsByDateRangeForm);
-            setFetchActionFunctions(postsByDateRangeEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(postsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
+            //setFetchActionFunctions(postsByDateRangeEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(postsByDateRangeEnum, setPicture, setComments, setDate, setLocation, setCaption);
 
             eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
             EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
             AddForm(eventsByLocationEnum, eventsByLocationForm);
-            setFetchActionFunctions(eventsByLocationEnum, fetchUserFormData);
-            setSelectedIndexActionFunctions(eventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
+            //setFetchActionFunctions(eventsByLocationEnum, fetchUserFormData);
+            //setSelectedIndexActionFunctions(eventsByLocationEnum, setLocation, setDescription, setDate, setPicture);
 
             eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
             RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
@@ -102,21 +102,6 @@ namespace FacebookApp.Controllers
             eFormName appMainFormEnum = eFormName.AppMainForm;
             Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
             AddForm(appMainFormEnum, appMainForm);
-        }
-
-        private void setFetchActionFunctions(eFormName i_EnumFormName, Action<eFormName> i_Action)
-        {
-            ISetFetchAction fetchActionInterface = GetForm(i_EnumFormName) as ISetFetchAction;
-            fetchActionInterface?.SetFetchAction(i_Action);
-        }
-
-        private void setSelectedIndexActionFunctions(eFormName i_EnumFormName, params Action<eFormName>[] i_Actions)
-        {
-            ISetSelectedIndexAction selectedIndexActionInterface = GetForm(i_EnumFormName) as ISetSelectedIndexAction;
-            foreach (Action<eFormName> action in i_Actions)
-            {
-                selectedIndexActionInterface?.SetSelectedIndexAction(action);
-            }
         }
 
         private void loginToApp()
@@ -270,54 +255,6 @@ namespace FacebookApp.Controllers
             }
         }
 
-        /*private void fetchRandomMemory(eFormName i_EnumFormName)
-        {
-            RandomMemoryForm randomMemoryForm = GetForm(eFormName.RandomMemoryForm) as RandomMemoryForm;
-            string o_PostsPictureUrl = String.Empty;
-            string o_PostsDate = String.Empty;
-            string o_PostsText = String.Empty;
-            string o_PostsLocation = String.Empty;
-
-            randomMemoryForm?.GetRandomPost(
-                out o_PostsPictureUrl,
-                out o_PostsDate,
-                out o_PostsLocation,
-                out o_PostsText);
-            randomMemoryForm?.SetPictureBox(o_PostsPictureUrl);
-            randomMemoryForm?.SetDateTextBox(o_PostsDate ?? "No Date mentioned.");
-            randomMemoryForm?.SetLocationTextBox(o_PostsLocation ?? "No location mentioned.");
-            randomMemoryForm?.SetPostsTextTextBox(o_PostsText ?? "No post's text mentioned.");
-        }*/
-
-        /*private void fetchUserProfileData()
-        {
-            UserProfileForm userProfile = GetForm(eFormName.UserProfileForm) as UserProfileForm;
-            Dictionary<string, string> userDataDictionary = userProfile?.GetUserProfileData();
-
-            TextBox fullNameTextBox = userProfile?.GetFullNameTextBox();
-            fullNameTextBox.Text = userDataDictionary["FullName"];
-
-            TextBox emailTextBox = userProfile?.GetEmailTextBox();
-            fullNameTextBox.Text = userDataDictionary["Email"];
-
-            TextBox genderTextBox = userProfile?.GetGenderTextBox();
-            genderTextBox.Text = userDataDictionary["Gender"];
-
-            TextBox birthdayTextBox = userProfile?.GetBirthdayTextBox();
-            birthdayTextBox.Text = userDataDictionary["Birthday"];
-
-            TextBox hometownTextBox = userProfile?.GetHometownTextBox();
-            hometownTextBox.Text = userDataDictionary["Hometown"];
-
-            TextBox educationTextBox = userProfile?.GetEducationTextBox();
-            educationTextBox.Text = userDataDictionary["Education"];
-
-            TextBox workTextBox = userProfile?.GetWorkTextBox();
-            workTextBox.Text = userDataDictionary["Work"];
-
-            PictureBox profilePictureBox = userProfile?.GetProfilePictureBox();
-            profilePictureBox.LoadAsync(userDataDictionary["Picture"]);
-        }*/
 
         private void setPicture(eFormName i_EnumFormName)
         {
