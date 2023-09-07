@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 
@@ -8,26 +9,29 @@ namespace FacebookApp.UI.Forms
 {
     public partial class EventsByLocationForm : Form
     {
-        private readonly Events r_Events = new Events();
+        private readonly EventsByLocationFacade r_EventsByLocation;
 
         public EventsByLocationForm()
         {
             InitializeComponent();
+            r_EventsByLocation = new EventsByLocationFacade();
+            r_EventsByLocation.EventsByLocationUpdated += setEventsByLocation;
         }
 
         private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            fetchEventsByLocation();
+            r_EventsByLocation.UpdateEventsByLocation(textBoxLocation.Text);
         }
 
-        private void fetchEventsByLocation()
+        private void setEventsByLocation()
         {
-            string location = textBoxLocation.Text;
-
-            if(location != string.Empty)
+            if (InvokeRequired)
             {
-                eventBindingSource.DataSource = r_Events.GetEventsByLocation(location);
+                Invoke((Action)setEventsByLocation);
+                return;
             }
+
+            eventBindingSource.DataSource = r_EventsByLocation.Events;
         }
     }
 }
