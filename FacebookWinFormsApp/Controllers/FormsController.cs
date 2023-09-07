@@ -28,67 +28,72 @@ namespace FacebookApp.Controllers
         {
             m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
 
-            eFormName albumsEnum = eFormName.AlbumForm;
-            AlbumsForm albumsForm = new AlbumsForm();
-            AddForm(albumsEnum, albumsForm);
+            addAllForms();
+
+            //eFormName albumsEnum = eFormName.AlbumForm;
+            //AlbumsForm albumsForm = new AlbumsForm();
+            //addForm(albumsEnum, albumsForm);
 
 
-            eFormName eventsEnum = eFormName.EventsForm;
-            EventsForm eventsForm = new EventsForm();
-            AddForm(eventsEnum, eventsForm);
+            //eFormName eventsEnum = eFormName.EventsForm;
+            //EventsForm eventsForm = new EventsForm();
+            //addForm(eventsEnum, eventsForm);
 
-            eFormName groupsEnum = eFormName.GroupsForm;
-            GroupsForm groupsForm = new GroupsForm();
-            AddForm(groupsEnum, groupsForm);
+            //eFormName groupsEnum = eFormName.GroupsForm;
+            //GroupsForm groupsForm = new GroupsForm();
+            //addForm(groupsEnum, groupsForm);
 
-            eFormName likedPagesEnum = eFormName.LikedPagesForm;
-            LikedPagesForm likedPagesForm = new LikedPagesForm();
-            AddForm(likedPagesEnum, likedPagesForm);
+            //eFormName likedPagesEnum = eFormName.LikedPagesForm;
+            //LikedPagesForm likedPagesForm = new LikedPagesForm();
+            //addForm(likedPagesEnum, likedPagesForm);
 
-            eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
-            FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
-            AddForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
+            //eFormName friendsInUsersAgeRangeEnum = eFormName.FriendsInUsersAgeRangeForm;
+            //FriendsInUsersAgeRangeForm friendsInUsersAgeRangeFrom = new FriendsInUsersAgeRangeForm();
+            //addForm(friendsInUsersAgeRangeEnum, friendsInUsersAgeRangeFrom);
 
-            eFormName postsEnum = eFormName.PostsForm;
-            PostsForm postsForm = new PostsForm();
-            AddForm(postsEnum, postsForm);
+            //eFormName postsEnum = eFormName.PostsForm;
+            //PostsForm postsForm = new PostsForm();
+            //addForm(postsEnum, postsForm);
 
-            eFormName userProfileEnum = eFormName.UserProfileForm;
-            UserProfileForm userProfileForm = new UserProfileForm();
-            AddForm(userProfileEnum, userProfileForm);
+            //eFormName userProfileEnum = eFormName.UserProfileForm;
+            //UserProfileForm userProfileForm = new UserProfileForm();
+            //addForm(userProfileEnum, userProfileForm);
 
-            eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
-            PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
-            AddForm(postsByDateRangeEnum, postsByDateRangeForm);
+            //eFormName postsByDateRangeEnum = eFormName.PostsByDateRangeForm;
+            //PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
+            //addForm(postsByDateRangeEnum, postsByDateRangeForm);
 
-            eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
-            EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
-            AddForm(eventsByLocationEnum, eventsByLocationForm);
+            //eFormName eventsByLocationEnum = eFormName.EventsByLocationForm;
+            //EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
+            //addForm(eventsByLocationEnum, eventsByLocationForm);
 
-            eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
-            RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
-            AddForm(randomMemoryEnum, randomMemoryForm);
+            //eFormName randomMemoryEnum = eFormName.RandomMemoryForm;
+            //RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
+            //addForm(randomMemoryEnum, randomMemoryForm);
 
-            eFormName navigationBarEnum = eFormName.NavigationBarForm;
-            NavigationBarForm navigationBarForm = new NavigationBarForm();
-            navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-            AddForm(navigationBarEnum, navigationBarForm);
+            //eFormName navigationBarEnum = eFormName.NavigationBarForm;
+            //NavigationBarForm navigationBarForm = new NavigationBarForm();
+            //navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+            //addForm(navigationBarEnum, navigationBarForm);
 
-            eFormName loginBarEnum = eFormName.LoginBarForm;
-            LoginBarForm loginBarForm = new LoginBarForm();
-            loginBarForm.m_LoginButtonPressed += loginToApp;
-            loginBarForm.m_LogoutButtonPressed += logoutOfApp;
-            loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
-            AddForm(loginBarEnum, loginBarForm);
+            //eFormName loginBarEnum = eFormName.LoginBarForm;
+            //LoginBarForm loginBarForm = new LoginBarForm();
+            //loginBarForm.m_LoginButtonPressed += loginToApp;
+            //loginBarForm.m_LogoutButtonPressed += logoutOfApp;
+            //loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+            //addForm(loginBarEnum, loginBarForm);
 
-            eFormName appMainFormEnum = eFormName.AppMainForm;
-            Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
-            AddForm(appMainFormEnum, appMainForm);
+            //eFormName appMainFormEnum = eFormName.AppMainForm;
+            //Form appMainForm = new AppMainForm(navigationBarForm, loginBarForm);
+            //addForm(appMainFormEnum, appMainForm);
+
+
+
         }
 
         private void loginToApp()
         {
-            if (GetForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
+            if (getForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
                 string appId = loginForm.TextBoxAppIdString;
 
@@ -102,9 +107,9 @@ namespace FacebookApp.Controllers
                         loginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
                         loginForm.ButtonLogin.Enabled = false;
                         loginForm.ButtonLogout.Enabled = true;
-                        NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                        NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
                         navigationBarForm?.EnableNavigationBar();
-                        LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                        LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
                         loginBarForm?.EnableMyProfileButton();
                     }
                     else
@@ -132,7 +137,7 @@ namespace FacebookApp.Controllers
         {
             if (r_Login.IsLoggedIn())
             {
-                LoginBarForm loginForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
+                LoginBarForm loginForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
 
                 if (loginForm != null)
                 {
@@ -145,9 +150,9 @@ namespace FacebookApp.Controllers
                     loginForm.ButtonLogin.Enabled = true;
                     loginForm.ButtonLogout.Enabled = false;
 
-                    NavigationBarForm navigationBarForm = GetForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                    LoginBarForm loginBarForm = GetForm(eFormName.LoginBarForm) as LoginBarForm;
-                    Form appMainForm = GetForm(eFormName.AppMainForm);
+                    NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                    LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+                    Form appMainForm = getForm(eFormName.AppMainForm);
 
                     navigationBarForm?.DisableNavigationBar();
                     loginBarForm?.DisableMyProfileButton();
@@ -163,20 +168,20 @@ namespace FacebookApp.Controllers
             }
         }
 
-        public void AddForm(eFormName i_EnumFormName, Form i_Form)
+        private void addForm(eFormName i_EnumFormName, Form i_Form)
         {
             m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
         }
 
-        public Form GetForm(eFormName i_EnumFormName)
+        private Form getForm(eFormName i_EnumFormName)
         {
             return m_ENumFormsDictionary[i_EnumFormName];
         }
 
         private void setDisplayPanel(eFormName i_EnumFormName)
         {
-            Form formToSet = GetForm(i_EnumFormName);
-            Form appMainForm = GetForm(eFormName.AppMainForm);
+            Form formToSet = getForm(i_EnumFormName);
+            Form appMainForm = getForm(eFormName.AppMainForm);
 
             if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
             {
@@ -198,38 +203,97 @@ namespace FacebookApp.Controllers
             Clipboard.SetText("design.patterns20cc");
             FacebookService.s_UseForamttedToStrings = true;
             Application.EnableVisualStyles();
-            Application.Run(GetForm(eFormName.AppMainForm));
+            Application.Run(getForm(eFormName.AppMainForm));
         }
 
 
-        private static void fetchDataToListBox(IComponentHandler i_ComponentHandler, IDataHandler i_DataHandler)
+
+        private void addNewForm(eFormName formName)
         {
-            ListBox listBox = i_ComponentHandler.GetListBox();
-            List<Dictionary<string, string>> dataList;
-
-            listBox?.Items.Clear();
-            if (i_DataHandler != null)
+            switch (formName)
             {
-                i_DataHandler.FetchListBoxData(out dataList);
+                case eFormName.AlbumForm:
+                    AlbumsForm albumsForm = new AlbumsForm();
+                    addForm(formName, albumsForm);
+                    break;
 
-                if (dataList.Count > 0)
-                {
-                    listBox.Enabled = true;
-                    foreach (Dictionary<string, string> data in dataList)
-                    {
-                        if (data.ContainsKey("ListBoxText") && data["ListBoxText"] != null)
-                        {
-                            listBox.Items.Add(data["ListBoxText"]);
-                        }
-                    }
-                }
-                else
-                {
-                    listBox?.Items.Add("No data to retrieve.");
-                    listBox.Enabled = false;
-                }
+                case eFormName.EventsForm:
+                    EventsForm eventsForm = new EventsForm();
+                    addForm(formName, eventsForm);
+                    break;
+
+                case eFormName.GroupsForm:
+                    GroupsForm groupsForm = new GroupsForm();
+                    addForm(formName, groupsForm);
+                    break;
+
+                case eFormName.LikedPagesForm:
+                    LikedPagesForm likedPagesForm = new LikedPagesForm();
+                    addForm(formName, likedPagesForm);
+                    break;
+
+                case eFormName.FriendsInUsersAgeRangeForm:
+                    FriendsInUsersAgeRangeForm friendsInUsersAgeRangeForm = new FriendsInUsersAgeRangeForm();
+                    addForm(formName, friendsInUsersAgeRangeForm);
+                    break;
+
+                case eFormName.PostsForm:
+                    PostsForm postsForm = new PostsForm();
+                    addForm(formName, postsForm);
+                    break;
+
+                case eFormName.UserProfileForm:
+                    UserProfileForm userProfileForm = new UserProfileForm();
+                    addForm(formName, userProfileForm);
+                    break;
+
+                case eFormName.PostsByDateRangeForm:
+                    PostsByDateRangeForm postsByDateRangeForm = new PostsByDateRangeForm();
+                    addForm(formName, postsByDateRangeForm);
+                    break;
+
+                case eFormName.EventsByLocationForm:
+                    EventsByLocationForm eventsByLocationForm = new EventsByLocationForm();
+                    addForm(formName, eventsByLocationForm);
+                    break;
+                case eFormName.RandomMemoryForm:
+                    RandomMemoryForm randomMemoryForm = new RandomMemoryForm();
+                    addForm(formName, randomMemoryForm);
+                    break;
+
+                case eFormName.NavigationBarForm:
+                    NavigationBarForm navigationBarForm = new NavigationBarForm();
+                    navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+                    addForm(formName, navigationBarForm);
+                    break;
+
+                case eFormName.LoginBarForm:
+                    LoginBarForm loginBarForm = new LoginBarForm();
+                    loginBarForm.m_LoginButtonPressed += loginToApp;
+                    loginBarForm.m_LogoutButtonPressed += logoutOfApp;
+                    loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+                    addForm(formName, loginBarForm);
+                    break;
+                case eFormName.AppMainForm:
+                    eFormName appMainFormEnum = eFormName.AppMainForm;
+                    NavigationBarForm currentNavigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+                    LoginBarForm currentLoginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+                    Form appMainForm = new AppMainForm(currentNavigationBarForm, currentLoginBarForm);
+                    addForm(appMainFormEnum, appMainForm);
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid form name");
             }
         }
 
+
+        private void addAllForms()
+        {
+            foreach(eFormName formName in Enum.GetValues(typeof(eFormName)))
+            {
+                addNewForm(formName);
+            }
+        }
     }
 }
