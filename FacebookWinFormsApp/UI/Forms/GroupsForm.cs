@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 using FacebookApp.Interfaces;
 using FacebookApp.Models;
 
@@ -8,21 +9,30 @@ namespace FacebookApp.UI.Forms
 {
     public partial class GroupsForm : Form
     {
-        private readonly Groups r_Groups = new Groups();
+        private readonly GroupsFacade r_Groups;
 
         public GroupsForm()
         {
             InitializeComponent();
+            r_Groups = new GroupsFacade();
+            r_Groups.GroupsUpdated += setGroups;
         }
 
         private void buttonFetchGroups_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            fetchGroups();
+            r_Groups.updateGroups();
         }
 
-        private void fetchGroups()
+
+        private void setGroups()
         {
-            groupBindingSource.DataSource = r_Groups.GetGroups();
+            if(InvokeRequired)
+            {
+                Invoke((Action)setGroups);
+                return;
+            }
+
+            groupBindingSource.DataSource = r_Groups.Groups;
         }
     }
 }

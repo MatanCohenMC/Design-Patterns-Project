@@ -20,11 +20,6 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            fetchEvents();
-        }
-
-        private void fetchEvents()
-        {
             r_Events.UpdateEvents();
         }
 
