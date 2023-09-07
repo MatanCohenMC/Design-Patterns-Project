@@ -23,8 +23,6 @@ namespace FacebookApp.UI.Forms
             r_Albums.UpdateAlbums();
         }
 
-
-
         private void setAlbums()
         {
             if (InvokeRequired)
@@ -35,7 +33,5 @@ namespace FacebookApp.UI.Forms
 
             albumBindingSource.DataSource = r_Albums.Albums;
         }
-
-
     }
 }
