@@ -30,25 +30,43 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label descriptionLabel;
-            System.Windows.Forms.Label imageLargeLabel;
-            System.Windows.Forms.Label nameLabel1;
-            System.Windows.Forms.Label emailLabel;
+            System.Windows.Forms.Label nameLabel;
             this.listBoxGroups = new System.Windows.Forms.ListBox();
+            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonFetchGroups = new System.Windows.Forms.Button();
             this.panelGroupDetails = new System.Windows.Forms.Panel();
-            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
-            this.nameLabel2 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.labelLoading = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
-            imageLargeLabel = new System.Windows.Forms.Label();
-            nameLabel1 = new System.Windows.Forms.Label();
-            emailLabel = new System.Windows.Forms.Label();
-            this.panelGroupDetails.SuspendLayout();
+            nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
+            this.panelGroupDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
+            descriptionLabel.Location = new System.Drawing.Point(36, 103);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(115, 25);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            nameLabel.Location = new System.Drawing.Point(75, 43);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(76, 25);
+            nameLabel.TabIndex = 7;
+            nameLabel.Text = "Owner:";
             // 
             // listBoxGroups
             // 
@@ -59,8 +77,12 @@
             this.listBoxGroups.Location = new System.Drawing.Point(12, 74);
             this.listBoxGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(318, 329);
+            this.listBoxGroups.Size = new System.Drawing.Size(465, 329);
             this.listBoxGroups.TabIndex = 0;
+            // 
+            // groupBindingSource
+            // 
+            this.groupBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Group);
             // 
             // buttonFetchGroups
             // 
@@ -79,99 +101,63 @@
             // panelGroupDetails
             // 
             this.panelGroupDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panelGroupDetails.Controls.Add(emailLabel);
-            this.panelGroupDetails.Controls.Add(this.emailTextBox);
-            this.panelGroupDetails.Controls.Add(nameLabel1);
-            this.panelGroupDetails.Controls.Add(this.nameLabel2);
+            this.panelGroupDetails.Controls.Add(nameLabel);
+            this.panelGroupDetails.Controls.Add(this.nameTextBox);
             this.panelGroupDetails.Controls.Add(descriptionLabel);
             this.panelGroupDetails.Controls.Add(this.descriptionTextBox);
-            this.panelGroupDetails.Controls.Add(imageLargeLabel);
             this.panelGroupDetails.Controls.Add(this.imageLargePictureBox);
-            this.panelGroupDetails.Location = new System.Drawing.Point(364, 74);
+            this.panelGroupDetails.Location = new System.Drawing.Point(507, 74);
             this.panelGroupDetails.Name = "panelGroupDetails";
-            this.panelGroupDetails.Size = new System.Drawing.Size(969, 328);
+            this.panelGroupDetails.Size = new System.Drawing.Size(900, 329);
             this.panelGroupDetails.TabIndex = 4;
             // 
-            // groupBindingSource
+            // nameTextBox
             // 
-            this.groupBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Group);
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(212, 121);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
-            descriptionLabel.TabIndex = 0;
-            descriptionLabel.Text = "Description:";
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Name", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No name]"));
+            this.nameTextBox.Location = new System.Drawing.Point(157, 43);
+            this.nameTextBox.Multiline = true;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(380, 47);
+            this.nameTextBox.TabIndex = 8;
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(304, 118);
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
+            this.descriptionTextBox.Location = new System.Drawing.Point(157, 107);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 1;
-            // 
-            // imageLargeLabel
-            // 
-            imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(212, 146);
-            imageLargeLabel.Name = "imageLargeLabel";
-            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
-            imageLargeLabel.TabIndex = 2;
-            imageLargeLabel.Text = "Image Large:";
+            this.descriptionTextBox.TextChanged += new System.EventHandler(this.descriptionTextBox_TextChanged);
             // 
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.groupBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(304, 146);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(630, 40);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(100, 50);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 3;
             this.imageLargePictureBox.TabStop = false;
             // 
-            // nameLabel1
+            // labelLoading
             // 
-            nameLabel1.AutoSize = true;
-            nameLabel1.Location = new System.Drawing.Point(242, 59);
-            nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(48, 16);
-            nameLabel1.TabIndex = 6;
-            nameLabel1.Text = "Owner:";
-            // 
-            // nameLabel2
-            // 
-            this.nameLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Name", true));
-            this.nameLabel2.Location = new System.Drawing.Point(304, 59);
-            this.nameLabel2.Name = "nameLabel2";
-            this.nameLabel2.Size = new System.Drawing.Size(100, 23);
-            this.nameLabel2.TabIndex = 7;
-            this.nameLabel2.Text = "labelOwnerName";
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(254, 93);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(44, 16);
-            emailLabel.TabIndex = 7;
-            emailLabel.Text = "Email:";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(304, 90);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
-            this.emailTextBox.TabIndex = 8;
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.White;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Location = new System.Drawing.Point(20, 80);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(97, 25);
+            this.labelLoading.TabIndex = 64;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.Visible = false;
             // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.panelGroupDetails);
             this.Controls.Add(this.buttonFetchGroups);
             this.Controls.Add(this.listBoxGroups);
@@ -179,11 +165,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GroupsForm";
             this.Text = "GroupsForm";
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
             this.panelGroupDetails.ResumeLayout(false);
             this.panelGroupDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,10 +179,10 @@
         private System.Windows.Forms.ListBox listBoxGroups;
         private System.Windows.Forms.Button buttonFetchGroups;
         private System.Windows.Forms.Panel panelGroupDetails;
-        private System.Windows.Forms.Label nameLabel2;
         private System.Windows.Forms.BindingSource groupBindingSource;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox imageLargePictureBox;
-        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Label labelLoading;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }

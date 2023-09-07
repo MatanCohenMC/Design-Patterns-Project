@@ -31,30 +31,72 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label endTimeLabel;
-            System.Windows.Forms.Label imageLargeLabel;
             System.Windows.Forms.Label locationLabel;
             System.Windows.Forms.Label startTimeLabel;
             this.labelEnterLocation = new System.Windows.Forms.Label();
             this.listBoxEventsByLocation = new System.Windows.Forms.ListBox();
-            this.labelEvents = new System.Windows.Forms.Label();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxLocation = new System.Windows.Forms.TextBox();
             this.buttonFetchEventByLocation = new System.Windows.Forms.Button();
             this.panelEventDetails = new System.Windows.Forms.Panel();
-            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.labelLoading = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             endTimeLabel = new System.Windows.Forms.Label();
-            imageLargeLabel = new System.Windows.Forms.Label();
             locationLabel = new System.Windows.Forms.Label();
             startTimeLabel = new System.Windows.Forms.Label();
-            this.panelEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
+            this.panelEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
+            descriptionLabel.Location = new System.Drawing.Point(36, 43);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(115, 25);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            endTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            endTimeLabel.Location = new System.Drawing.Point(49, 206);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(102, 25);
+            endTimeLabel.TabIndex = 2;
+            endTimeLabel.Text = "End Time:";
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            locationLabel.ForeColor = System.Drawing.SystemColors.Control;
+            locationLabel.Location = new System.Drawing.Point(59, 109);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new System.Drawing.Size(92, 25);
+            locationLabel.TabIndex = 8;
+            locationLabel.Text = "Location:";
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            startTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            startTimeLabel.Location = new System.Drawing.Point(43, 170);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(108, 25);
+            startTimeLabel.TabIndex = 10;
+            startTimeLabel.Text = "Start Time:";
             // 
             // labelEnterLocation
             // 
@@ -73,21 +115,14 @@
             this.listBoxEventsByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxEventsByLocation.FormattingEnabled = true;
             this.listBoxEventsByLocation.ItemHeight = 25;
-            this.listBoxEventsByLocation.Location = new System.Drawing.Point(93, 81);
+            this.listBoxEventsByLocation.Location = new System.Drawing.Point(12, 73);
             this.listBoxEventsByLocation.Name = "listBoxEventsByLocation";
-            this.listBoxEventsByLocation.Size = new System.Drawing.Size(379, 304);
+            this.listBoxEventsByLocation.Size = new System.Drawing.Size(465, 329);
             this.listBoxEventsByLocation.TabIndex = 2;
             // 
-            // labelEvents
+            // eventBindingSource
             // 
-            this.labelEvents.AutoSize = true;
-            this.labelEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEvents.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelEvents.Location = new System.Drawing.Point(9, 84);
-            this.labelEvents.Name = "labelEvents";
-            this.labelEvents.Size = new System.Drawing.Size(78, 25);
-            this.labelEvents.TabIndex = 3;
-            this.labelEvents.Text = "Events:";
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
             // textBoxLocation
             // 
@@ -120,125 +155,89 @@
             this.panelEventDetails.Controls.Add(this.descriptionTextBox);
             this.panelEventDetails.Controls.Add(endTimeLabel);
             this.panelEventDetails.Controls.Add(this.endTimeDateTimePicker);
-            this.panelEventDetails.Controls.Add(imageLargeLabel);
             this.panelEventDetails.Controls.Add(this.imageLargePictureBox);
             this.panelEventDetails.Controls.Add(locationLabel);
             this.panelEventDetails.Controls.Add(this.locationTextBox);
             this.panelEventDetails.Controls.Add(startTimeLabel);
             this.panelEventDetails.Controls.Add(this.startTimeDateTimePicker);
-            this.panelEventDetails.Location = new System.Drawing.Point(498, 81);
+            this.panelEventDetails.Location = new System.Drawing.Point(507, 74);
             this.panelEventDetails.Name = "panelEventDetails";
-            this.panelEventDetails.Size = new System.Drawing.Size(835, 321);
+            this.panelEventDetails.Size = new System.Drawing.Size(900, 328);
             this.panelEventDetails.TabIndex = 32;
-            // 
-            // eventBindingSource
-            // 
-            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(81, 57);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
-            descriptionLabel.TabIndex = 0;
-            descriptionLabel.Text = "Description:";
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(206, 54);
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
+            this.descriptionTextBox.Location = new System.Drawing.Point(157, 43);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 1;
-            // 
-            // endTimeLabel
-            // 
-            endTimeLabel.AutoSize = true;
-            endTimeLabel.Location = new System.Drawing.Point(81, 183);
-            endTimeLabel.Name = "endTimeLabel";
-            endTimeLabel.Size = new System.Drawing.Size(68, 16);
-            endTimeLabel.TabIndex = 2;
-            endTimeLabel.Text = "End Time:";
             // 
             // endTimeDateTimePicker
             // 
-            this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true));
-            this.endTimeDateTimePicker.Location = new System.Drawing.Point(206, 179);
+            this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No end time]"));
+            this.endTimeDateTimePicker.Location = new System.Drawing.Point(157, 209);
             this.endTimeDateTimePicker.Name = "endTimeDateTimePicker";
             this.endTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.endTimeDateTimePicker.TabIndex = 3;
             // 
-            // imageLargeLabel
-            // 
-            imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(81, 110);
-            imageLargeLabel.Name = "imageLargeLabel";
-            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
-            imageLargeLabel.TabIndex = 4;
-            imageLargeLabel.Text = "Image Large:";
-            // 
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(206, 110);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(624, 43);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(200, 50);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
             this.imageLargePictureBox.TabStop = false;
             // 
-            // locationLabel
-            // 
-            locationLabel.AutoSize = true;
-            locationLabel.Location = new System.Drawing.Point(81, 85);
-            locationLabel.Name = "locationLabel";
-            locationLabel.Size = new System.Drawing.Size(61, 16);
-            locationLabel.TabIndex = 8;
-            locationLabel.Text = "Location:";
-            // 
             // locationTextBox
             // 
-            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Location", true));
-            this.locationTextBox.Location = new System.Drawing.Point(206, 82);
+            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No location]"));
+            this.locationTextBox.Location = new System.Drawing.Point(157, 109);
+            this.locationTextBox.Multiline = true;
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(200, 22);
+            this.locationTextBox.Size = new System.Drawing.Size(380, 50);
             this.locationTextBox.TabIndex = 9;
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.Location = new System.Drawing.Point(81, 221);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(71, 16);
-            startTimeLabel.TabIndex = 10;
-            startTimeLabel.Text = "Start Time:";
             // 
             // startTimeDateTimePicker
             // 
-            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
-            this.startTimeDateTimePicker.Location = new System.Drawing.Point(206, 217);
+            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No start time]"));
+            this.startTimeDateTimePicker.Location = new System.Drawing.Point(157, 172);
             this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
             this.startTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.startTimeDateTimePicker.TabIndex = 11;
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.White;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Location = new System.Drawing.Point(20, 80);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(97, 25);
+            this.labelLoading.TabIndex = 64;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.Visible = false;
             // 
             // EventsByLocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1345, 414);
+            this.ClientSize = new System.Drawing.Size(1453, 414);
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.panelEventDetails);
             this.Controls.Add(this.buttonFetchEventByLocation);
             this.Controls.Add(this.textBoxLocation);
-            this.Controls.Add(this.labelEvents);
             this.Controls.Add(this.listBoxEventsByLocation);
             this.Controls.Add(this.labelEnterLocation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EventsByLocationForm";
             this.Text = "EventByLocationForm";
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.panelEventDetails.ResumeLayout(false);
             this.panelEventDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,7 +247,6 @@
         #endregion
         private System.Windows.Forms.Label labelEnterLocation;
         private System.Windows.Forms.ListBox listBoxEventsByLocation;
-        private System.Windows.Forms.Label labelEvents;
         private System.Windows.Forms.TextBox textBoxLocation;
         private System.Windows.Forms.Button buttonFetchEventByLocation;
         private System.Windows.Forms.BindingSource eventBindingSource;
@@ -258,5 +256,6 @@
         private System.Windows.Forms.PictureBox imageLargePictureBox;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;
+        private System.Windows.Forms.Label labelLoading;
     }
 }

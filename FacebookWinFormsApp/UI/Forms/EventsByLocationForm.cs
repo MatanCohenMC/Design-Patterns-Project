@@ -20,6 +20,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            labelLoading.Visible = true;
             r_EventsByLocation.UpdateEventsByLocation(textBoxLocation.Text);
         }
 
@@ -32,6 +33,7 @@ namespace FacebookApp.UI.Forms
             }
 
             eventBindingSource.DataSource = r_EventsByLocation.Events;
+            labelLoading.Visible = false;
         }
     }
 }

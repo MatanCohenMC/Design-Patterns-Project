@@ -33,5 +33,55 @@ namespace FacebookApp.UI.Forms
 
             loginResultBindingSource.DataSource = r_UserProfile.LoginResult;
         }
+
+        private void imageLargePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void birthdayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void birthdayTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelUserDetails_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void localeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

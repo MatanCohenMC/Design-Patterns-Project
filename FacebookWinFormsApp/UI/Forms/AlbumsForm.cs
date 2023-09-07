@@ -20,6 +20,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchAlbums_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            labelLoading.Visible = true;
             r_Albums.UpdateAlbums();
         }
 
@@ -32,6 +33,22 @@ namespace FacebookApp.UI.Forms
             }
 
             albumBindingSource.DataSource = r_Albums.Albums;
+            labelLoading.Visible = false;
+        }
+
+        private void locationLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

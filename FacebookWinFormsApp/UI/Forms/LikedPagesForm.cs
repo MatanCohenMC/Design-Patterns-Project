@@ -11,7 +11,6 @@ namespace FacebookApp.UI.Forms
     {
         private readonly LikedPagesFacade r_LikedPages;
 
-
         public LikedPagesForm()
         {
             InitializeComponent();
@@ -21,9 +20,9 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            labelLoading.Visible = true;
             r_LikedPages.UpdateLikedPages();
         }
-
 
         private void setLikedPages()
         {
@@ -34,6 +33,12 @@ namespace FacebookApp.UI.Forms
             }
 
             pageBindingSource.DataSource = r_LikedPages.LikedPages;
+            labelLoading.Visible = false;
+        }
+
+        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

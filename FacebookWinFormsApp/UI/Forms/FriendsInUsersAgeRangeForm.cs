@@ -20,6 +20,7 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
+            labelLoading.Visible = true;
             r_FriendsInUsersAgeRange.UpdateFriendsInUsersAgeRange();
         }
 
@@ -32,6 +33,12 @@ namespace FacebookApp.UI.Forms
             }
 
             loginResultBindingSource.DataSource = r_FriendsInUsersAgeRange.FriendsInUserAgeRange;
+            labelLoading.Visible = false;
+        }
+
+        private void imageLargePictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
