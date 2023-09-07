@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
 
@@ -8,6 +9,7 @@ namespace FacebookApp.Facades
     {
         private readonly Events r_Events;
         private FacebookObjectCollection<Event> m_Events;
+        public event Action EventsUpdated;
 
         public EventsFacade()
         {
@@ -18,9 +20,18 @@ namespace FacebookApp.Facades
         {
             get
             {
-                new Thread(() => m_Events = r_Events.GetEvents()).Start();
                 return m_Events;
             }
+        }
+
+        public void UpdateEvents()
+        {
+            new Thread(
+                () =>
+                    {
+                    m_Events = r_Events.GetEvents();
+                    EventsUpdated?.Invoke();
+                }).Start();
         }
     }
 }
