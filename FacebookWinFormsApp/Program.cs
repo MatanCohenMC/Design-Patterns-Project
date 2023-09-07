@@ -10,7 +10,9 @@ namespace FacebookApp
         static void Main()
         {
             Application.SetCompatibleTextRenderingDefault(false);
-            FormsController formsController = FormsController.Instance;
+            //FormsController formsController = FormsController.Instance;
+            FormsController formsController = new FormsController();
+
             formsController.Start();
         }
     }
