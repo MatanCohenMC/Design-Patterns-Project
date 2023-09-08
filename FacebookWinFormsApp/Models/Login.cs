@@ -16,11 +16,11 @@ namespace FacebookApp.Models
         {
             get
             {
-                if(s_Instance == null)
+                if (s_Instance == null)
                 {
-                    lock(sr_MyLock)
+                    lock (sr_MyLock)
                     {
-                        if(s_Instance == null)
+                        if (s_Instance == null)
                         {
                             s_Instance = new Login();
                         }
@@ -54,7 +54,7 @@ namespace FacebookApp.Models
                 "user_posts",
                 "user_videos");
 
-            if(!string.IsNullOrEmpty(LoginResult.AccessToken))
+            if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
                 LoggedInUser = LoginResult.LoggedInUser;
             }

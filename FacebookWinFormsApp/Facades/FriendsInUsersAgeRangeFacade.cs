@@ -8,7 +8,7 @@ namespace FacebookApp.Facades
     public class FriendsInUsersAgeRangeFacade
     {
         private readonly FriendsInUsersAgeRange r_FriendsInUsersAgeRange;
-        private FacebookObjectCollection<User> m_FriendsInUserAgeRange;
+
         public event Action FriendsInUserAgeRangeUpdated;
 
         public FriendsInUsersAgeRangeFacade()
@@ -16,19 +16,13 @@ namespace FacebookApp.Facades
             r_FriendsInUsersAgeRange = new FriendsInUsersAgeRange();
         }
 
-        public FacebookObjectCollection<User> FriendsInUserAgeRange
-        {
-            get
-            {
-                return m_FriendsInUserAgeRange;
-            }
-        }
+        public FacebookObjectCollection<User> FriendsInUserAgeRange { get; private set; }
 
         public void UpdateFriendsInUsersAgeRange()
         {
             new Thread(() =>
                 {
-                    m_FriendsInUserAgeRange = r_FriendsInUsersAgeRange.GetFriendsInUsersAgeRange();
+                    FriendsInUserAgeRange = r_FriendsInUsersAgeRange.GetFriendsInUsersAgeRange();
                     FriendsInUserAgeRangeUpdated?.Invoke();
                 }).Start();
         }

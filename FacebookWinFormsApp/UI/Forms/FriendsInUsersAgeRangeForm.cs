@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FacebookApp.Facades;
+using System;
 using System.Windows.Forms;
-using FacebookApp.Facades;
-using FacebookApp.Interfaces;
-using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {

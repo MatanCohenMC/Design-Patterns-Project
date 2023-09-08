@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using FacebookApp.Factory;
-using FacebookApp.Interfaces;
 using FacebookApp.Models;
 using FacebookApp.UI.Forms;
 using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.Controllers
 {
@@ -107,7 +105,6 @@ namespace FacebookApp.Controllers
             }
         }
 
-
         private Form getForm(eFormName i_EnumFormName)
         {
             return m_ENumFormsDictionary[i_EnumFormName];
@@ -144,20 +141,17 @@ namespace FacebookApp.Controllers
         private void addAllSubForms()
         {
             ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_ENumFormsDictionary);
-            foreach(eFormName formName in Enum.GetValues(typeof(eFormName)))
+            foreach (eFormName formName in Enum.GetValues(typeof(eFormName)))
             {
                 Form formToAdd = concreteFormsFactory.FactoryMethod(formName);
                 addForm(formName, formToAdd);
             }
         }
 
-
-
         private void addForm(eFormName i_EnumFormName, Form i_Form)
         {
             m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
         }
-
 
         private void setActionFunctions()
         {

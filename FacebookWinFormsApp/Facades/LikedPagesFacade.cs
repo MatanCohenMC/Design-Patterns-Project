@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using FacebookApp.Models;
+﻿using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
+using System.Threading;
 
 namespace FacebookApp.Facades
 {
@@ -10,7 +10,8 @@ namespace FacebookApp.Facades
 
         public event System.Action LikedPagesUpdated;
 
-        public LikedPagesFacade(){
+        public LikedPagesFacade()
+        {
             r_LikedPages = new LikedPages();
         }
 
@@ -21,10 +22,9 @@ namespace FacebookApp.Facades
             new Thread(
                 () =>
                     {
-                LikedPages = r_LikedPages.GetLikedPages();
-                LikedPagesUpdated?.Invoke();
-            }).Start();
+                        LikedPages = r_LikedPages.GetLikedPages();
+                        LikedPagesUpdated?.Invoke();
+                    }).Start();
         }
-
     }
 }
