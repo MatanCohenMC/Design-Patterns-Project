@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FacebookApp.Facades;
+using System;
 using System.Windows.Forms;
-using FacebookApp.Facades;
-using FacebookApp.Interfaces;
-using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
@@ -21,13 +18,13 @@ namespace FacebookApp.UI.Forms
         private void buttonFetchGroups_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_Groups.updateGroups();
+            r_Groups.UpdateGroups();
         }
 
 
         private void setGroups()
         {
-            if(InvokeRequired)
+            if (InvokeRequired)
             {
                 Invoke((Action)setGroups);
                 return;

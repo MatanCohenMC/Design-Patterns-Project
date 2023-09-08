@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FacebookWrapper.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.Models
 {
@@ -19,7 +19,7 @@ namespace FacebookApp.Models
             List<Post> posts = r_Login.LoggedInUser.Posts.ToList();
             Post randomPost = null;
 
-            if(posts.Count > 0)
+            if (posts.Count > 0)
             {
                 Random random = new Random();
                 int randomIndex = random.Next(0, posts.Count);

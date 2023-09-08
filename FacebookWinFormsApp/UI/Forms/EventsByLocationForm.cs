@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FacebookApp.Facades;
+using System;
 using System.Windows.Forms;
-using FacebookApp.Facades;
-using FacebookApp.Interfaces;
-using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {
@@ -32,7 +29,7 @@ namespace FacebookApp.UI.Forms
                 return;
             }
 
-            eventBindingSource.DataSource = r_EventsByLocation.Events;
+            eventBindingSource.DataSource = r_EventsByLocation.EventsByLocation;
             labelLoading.Visible = false;
         }
     }

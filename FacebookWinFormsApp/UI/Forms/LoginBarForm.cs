@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FacebookApp.Models;
+using System;
 using System.Windows.Forms;
-using FacebookApp.Models;
 
 namespace FacebookApp.UI.Forms
 {

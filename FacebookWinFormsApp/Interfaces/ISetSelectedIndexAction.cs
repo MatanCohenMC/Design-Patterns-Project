@@ -1,5 +1,5 @@
-﻿using System;
-using FacebookApp.Models;
+﻿using FacebookApp.Models;
+using System;
 
 namespace FacebookApp.Interfaces
 {

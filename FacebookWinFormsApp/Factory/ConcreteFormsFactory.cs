@@ -1,76 +1,75 @@
 ﻿using FacebookApp.Models;
 using FacebookApp.UI.Forms;
-using System.Windows.Forms;
-using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace FacebookApp.Factory
 {
     public class ConcreteFormsFactory : FormsFactory
     {
-        private Dictionary<eFormName, Form> m_ENumFormsDictionary;
+        private readonly Dictionary<eFormName, Form> r_ENumFormsDictionary;
+
         public ConcreteFormsFactory(ref Dictionary<eFormName, Form> i_ENumFormsDictionary)
         {
-            this.m_ENumFormsDictionary = i_ENumFormsDictionary;
+            r_ENumFormsDictionary = i_ENumFormsDictionary;
         }
 
-
-        public override Form FactoryMethod(eFormName formName)
+        public override Form FactoryMethod(eFormName i_FormName)
         {
             Form formToReturn = null;
-            if(formName == eFormName.AlbumForm)
+            if (i_FormName == eFormName.AlbumForm)
             {
                 formToReturn = new AlbumsForm();
             }
-            else if(formName == eFormName.EventsForm)
+            else if (i_FormName == eFormName.EventsForm)
             {
                 formToReturn = new EventsForm();
             }
-            else if(formName == eFormName.GroupsForm)
+            else if (i_FormName == eFormName.GroupsForm)
             {
                 formToReturn = new GroupsForm();
             }
-            else if(formName == eFormName.LikedPagesForm)
+            else if (i_FormName == eFormName.LikedPagesForm)
             {
                 formToReturn = new LikedPagesForm();
             }
-            else if(formName == eFormName.FriendsInUsersAgeRangeForm)
+            else if (i_FormName == eFormName.FriendsInUsersAgeRangeForm)
             {
                 formToReturn = new FriendsInUsersAgeRangeForm();
             }
-            else if(formName == eFormName.PostsForm)
+            else if (i_FormName == eFormName.PostsForm)
             {
                 formToReturn = new PostsForm();
             }
-            else if(formName == eFormName.UserProfileForm)
+            else if (i_FormName == eFormName.UserProfileForm)
             {
                 formToReturn = new UserProfileForm();
             }
-            else if(formName == eFormName.PostsByDateRangeForm)
+            else if (i_FormName == eFormName.PostsByDateRangeForm)
             {
                 formToReturn = new PostsByDateRangeForm();
             }
-            else if(formName == eFormName.EventsByLocationForm)
+            else if (i_FormName == eFormName.EventsByLocationForm)
             {
                 formToReturn = new EventsByLocationForm();
             }
-            else if(formName == eFormName.RandomMemoryForm)
+            else if (i_FormName == eFormName.RandomMemoryForm)
             {
                 formToReturn = new RandomMemoryForm();
             }
-            else if(formName == eFormName.NavigationBarForm)
+            else if (i_FormName == eFormName.NavigationBarForm)
             {
                 formToReturn = new NavigationBarForm();
             }
-            else if(formName == eFormName.LoginBarForm)
+            else if (i_FormName == eFormName.LoginBarForm)
             {
                 formToReturn = new LoginBarForm();
             }
-            else if(formName == eFormName.AppMainForm)
+            else if (i_FormName == eFormName.AppMainForm)
             {
                 LoginBarForm curLoginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
                 NavigationBarForm curNavigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                if(curNavigationBarForm != null && curNavigationBarForm != null)
+                if (curNavigationBarForm != null && curNavigationBarForm != null)
                 {
                     formToReturn = new AppMainForm(curNavigationBarForm, curLoginBarForm);
                 }
@@ -78,10 +77,10 @@ namespace FacebookApp.Factory
 
             return formToReturn;
         }
+
         private Form getForm(eFormName i_EnumFormName)
         {
-            return m_ENumFormsDictionary[i_EnumFormName];
+            return r_ENumFormsDictionary[i_EnumFormName];
         }
-
     }
 }

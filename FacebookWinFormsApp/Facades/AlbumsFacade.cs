@@ -1,7 +1,6 @@
-﻿using System;
-using FacebookApp.Models;
+﻿using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
+using System;
 using System.Threading;
 
 namespace FacebookApp.Facades
@@ -9,7 +8,7 @@ namespace FacebookApp.Facades
     public class AlbumsFacade
     {
         private readonly Albums r_Albums;
-        private FacebookObjectCollection<Album> m_Albums;
+
         public event Action AlbumUpdated;
 
         public AlbumsFacade()
@@ -17,22 +16,15 @@ namespace FacebookApp.Facades
             r_Albums = new Albums();
         }
 
-        public FacebookObjectCollection<Album> Albums
-        {
-            get
-            {
-                return m_Albums;
-            }
-        }
+        public FacebookObjectCollection<Album> Albums { get; private set; }
 
         public void UpdateAlbums()
         {
             new Thread(() =>
                 {
-                    m_Albums = r_Albums.GetAlbums();
+                    Albums = r_Albums.GetAlbums();
                     AlbumUpdated?.Invoke();
                 }).Start();
         }
-
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FacebookApp.Facades;
+using System;
 using System.Windows.Forms;
-using FacebookApp.Facades;
-using FacebookApp.Interfaces;
-using FacebookApp.Models;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
@@ -39,13 +35,13 @@ namespace FacebookApp.UI.Forms
 
         private void setPosts()
         {
-            if(InvokeRequired)
+            if (InvokeRequired)
             {
                 Invoke((Action)setPosts);
                 return;
             }
 
-            postBindingSource.DataSource = r_Posts.Posts;
+            postBindingSource.DataSource = r_Posts.m_PostCollection;
             labelLoading.Visible = false;
         }
 
