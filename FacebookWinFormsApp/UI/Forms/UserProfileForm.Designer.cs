@@ -95,7 +95,7 @@
             // 
             // panelUserDetails
             // 
-            this.panelUserDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelUserDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelUserDetails.Controls.Add(birthdayLabel);
             this.panelUserDetails.Controls.Add(this.birthdayTextBox);
             this.panelUserDetails.Controls.Add(emailLabel);

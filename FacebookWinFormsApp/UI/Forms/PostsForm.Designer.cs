@@ -36,7 +36,6 @@
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fetch_posts_button = new System.Windows.Forms.Button();
             this.panelPostDetails = new System.Windows.Forms.Panel();
-            this.pictureBoxPost = new System.Windows.Forms.PictureBox();
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -47,7 +46,6 @@
             messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.panelPostDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).BeginInit();
             this.SuspendLayout();
             // 
             // createdTimeLabel
@@ -94,7 +92,6 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(465, 329);
             this.listBoxPosts.TabIndex = 0;
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged_1);
             // 
             // postBindingSource
             // 
@@ -118,7 +115,6 @@
             // panelPostDetails
             // 
             this.panelPostDetails.BackColor = System.Drawing.Color.Transparent;
-            this.panelPostDetails.Controls.Add(this.pictureBoxPost);
             this.panelPostDetails.Controls.Add(messageLabel);
             this.panelPostDetails.Controls.Add(this.messageTextBox);
             this.panelPostDetails.Controls.Add(nameLabel);
@@ -129,16 +125,6 @@
             this.panelPostDetails.Name = "panelPostDetails";
             this.panelPostDetails.Size = new System.Drawing.Size(900, 329);
             this.panelPostDetails.TabIndex = 78;
-            // 
-            // pictureBoxPost
-            // 
-            this.pictureBoxPost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPost.Location = new System.Drawing.Point(559, 41);
-            this.pictureBoxPost.Name = "pictureBoxPost";
-            this.pictureBoxPost.Size = new System.Drawing.Size(250, 250);
-            this.pictureBoxPost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxPost.TabIndex = 78;
-            this.pictureBoxPost.TabStop = false;
             // 
             // messageTextBox
             // 
@@ -207,7 +193,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.panelPostDetails.ResumeLayout(false);
             this.panelPostDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +208,6 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox messageTextBox;
         private System.Windows.Forms.Label labelLoading;
-        private System.Windows.Forms.PictureBox pictureBoxPost;
         private System.Windows.Forms.Label label1;
     }
 }
