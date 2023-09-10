@@ -84,7 +84,6 @@
             locationLabel.Size = new System.Drawing.Size(92, 25);
             locationLabel.TabIndex = 8;
             locationLabel.Text = "Location:";
-            locationLabel.Click += new System.EventHandler(this.locationLabel_Click);
             // 
             // startTimeLabel
             // 

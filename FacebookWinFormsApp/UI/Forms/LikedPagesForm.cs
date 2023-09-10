@@ -32,10 +32,5 @@ namespace FacebookApp.UI.Forms
             pageBindingSource.DataSource = r_LikedPagesFacade.LikedPages;
             labelLoading.Visible = false;
         }
-
-        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
