@@ -1,6 +1,6 @@
-﻿using FacebookApp.Models;
+﻿using System.Threading;
+using FacebookApp.Models;
 using FacebookWrapper.ObjectModel;
-using System.Threading;
 
 namespace FacebookApp.Facades
 {

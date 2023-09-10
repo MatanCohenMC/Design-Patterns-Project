@@ -145,7 +145,6 @@
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
             this.imageLargePictureBox.TabStop = false;
-            this.imageLargePictureBox.Click += new System.EventHandler(this.imageLargePictureBox_Click);
             // 
             // localeTextBox
             // 

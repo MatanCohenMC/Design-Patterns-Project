@@ -128,7 +128,6 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
             this.descriptionTextBox.TabIndex = 1;
-            this.descriptionTextBox.TextChanged += new System.EventHandler(this.descriptionTextBox_TextChanged);
             // 
             // imageLargePictureBox
             // 

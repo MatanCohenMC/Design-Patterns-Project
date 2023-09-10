@@ -32,10 +32,5 @@ namespace FacebookApp.UI.Forms
             loginResultBindingSource.DataSource = r_FriendsInUsersAgeRangeFacade.FriendsInUserAgeRange;
             labelLoading.Visible = false;
         }
-
-        private void imageLargePictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

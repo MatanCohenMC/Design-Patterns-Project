@@ -1,7 +1,7 @@
-﻿using FacebookApp.Models;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Threading;
+using FacebookApp.Models;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.Facades
 {

@@ -21,6 +21,14 @@ namespace FacebookApp.Controllers
             initializeForms();
         }
 
+        public void Start()
+        {
+            Clipboard.SetText("design.patterns20cc");
+            FacebookService.s_UseForamttedToStrings = true;
+            Application.EnableVisualStyles();
+            Application.Run(getForm(eFormName.AppMainForm));
+        }
+
         private void initializeForms()
         {
             m_EnumFormsDictionary = new Dictionary<eFormName, Form>();
@@ -128,14 +136,6 @@ namespace FacebookApp.Controllers
                 panelDisplay.Controls.Add(m_CurrentForm);
                 m_CurrentForm.Show();
             }
-        }
-
-        public void Start()
-        {
-            Clipboard.SetText("design.patterns20cc");
-            FacebookService.s_UseForamttedToStrings = true;
-            Application.EnableVisualStyles();
-            Application.Run(getForm(eFormName.AppMainForm));
         }
 
         private void addAllSubForms()

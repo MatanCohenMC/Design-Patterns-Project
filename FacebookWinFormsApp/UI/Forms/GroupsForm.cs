@@ -21,7 +21,6 @@ namespace FacebookApp.UI.Forms
             r_GroupsFacade.UpdateGroups();
         }
 
-
         private void setGroupsFacade()
         {
             if (InvokeRequired)
@@ -32,11 +31,6 @@ namespace FacebookApp.UI.Forms
 
             groupBindingSource.DataSource = r_GroupsFacade.Groups;
             labelLoading.Visible = false;
-        }
-
-        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

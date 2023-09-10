@@ -32,10 +32,5 @@ namespace FacebookApp.UI.Forms
             eventBindingSource.DataSource = r_EventsFacade.Events;
             labelLoading.Visible = false;
         }
-
-        private void locationLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
