@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using FacebookApp.Facades;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
@@ -20,44 +19,6 @@ namespace FacebookApp.UI.Forms
         {
             labelLoading.Visible = true;
             r_PostsFacade.UpdatePosts();
-        }
-
-        private void listBoxPosts_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            setPictureBox();
-        }
-
-        private void setPictureBox()
-        {
-            if (listBoxPosts.SelectedIndex >= 0)
-            {
-                Post selectedPost = listBoxPosts.SelectedItem as Post;
-
-                if (selectedPost != null && !string.IsNullOrEmpty(selectedPost.PictureURL))
-                {
-                    setPictureUrlToPictureBox(selectedPost.PictureURL);
-                }
-                else
-                {
-                    setPictureUrlToPictureBox(null);
-                }
-            }
-            else
-            {
-                setPictureUrlToPictureBox(null);
-            }
-        }
-
-        private void setPictureUrlToPictureBox(string i_PostPictureUrl)
-        {
-            if (i_PostPictureUrl != null)
-            {
-                pictureBoxPost.LoadAsync(i_PostPictureUrl);
-            }
-            else
-            {
-                pictureBoxPost.Image = null;
-            }
         }
 
         private void setPostsFacade()

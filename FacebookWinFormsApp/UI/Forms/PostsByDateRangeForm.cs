@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using FacebookApp.Facades;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
@@ -23,44 +22,6 @@ namespace FacebookApp.UI.Forms
             DateTime dateTimeTo = dateTimePickerTo.Value;
 
             r_PostsFacade.UpdatePostsByDateRange(dateTimeFrom, dateTimeTo);
-        }
-
-        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            setPictureBox();
-        }
-
-        private void setPictureBox()
-        {
-            if (listBoxPosts.SelectedIndex >= 0)
-            {
-                Post selectedPost = listBoxPosts.SelectedItem as Post;
-
-                if (selectedPost != null && !string.IsNullOrEmpty(selectedPost.PictureURL))
-                {
-                    setPictureUrlToPictureBox(selectedPost.PictureURL);
-                }
-                else
-                {
-                    setPictureUrlToPictureBox(null);
-                }
-            }
-            else
-            {
-                setPictureUrlToPictureBox(null);
-            }
-        }
-
-        private void setPictureUrlToPictureBox(string i_PostPictureUrl)
-        {
-            if (i_PostPictureUrl != null)
-            {
-                pictureBoxPost.LoadAsync(i_PostPictureUrl);
-            }
-            else
-            {
-                pictureBoxPost.Image = null;
-            }
         }
 
         private void setPostsFacadeByDate()
