@@ -59,7 +59,6 @@
             birthdayLabel.Size = new System.Drawing.Size(89, 25);
             birthdayLabel.TabIndex = 0;
             birthdayLabel.Text = "Birthday:";
-            birthdayLabel.Click += new System.EventHandler(this.birthdayLabel_Click);
             // 
             // emailLabel
             // 
@@ -71,7 +70,6 @@
             emailLabel.Size = new System.Drawing.Size(66, 25);
             emailLabel.TabIndex = 2;
             emailLabel.Text = "Email:";
-            emailLabel.Click += new System.EventHandler(this.emailLabel_Click);
             // 
             // localeLabel
             // 
@@ -83,7 +81,6 @@
             localeLabel.Size = new System.Drawing.Size(76, 25);
             localeLabel.TabIndex = 6;
             localeLabel.Text = "Locale:";
-            localeLabel.Click += new System.EventHandler(this.localeLabel_Click);
             // 
             // nameLabel
             // 
@@ -95,7 +92,6 @@
             nameLabel.Size = new System.Drawing.Size(70, 25);
             nameLabel.TabIndex = 8;
             nameLabel.Text = "Name:";
-            nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
             // 
             // panelUserDetails
             // 
@@ -113,7 +109,6 @@
             this.panelUserDetails.Name = "panelUserDetails";
             this.panelUserDetails.Size = new System.Drawing.Size(1429, 380);
             this.panelUserDetails.TabIndex = 4;
-            this.panelUserDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserDetails_Paint);
             // 
             // birthdayTextBox
             // 
@@ -123,7 +118,6 @@
             this.birthdayTextBox.Name = "birthdayTextBox";
             this.birthdayTextBox.Size = new System.Drawing.Size(210, 34);
             this.birthdayTextBox.TabIndex = 1;
-            this.birthdayTextBox.TextChanged += new System.EventHandler(this.birthdayTextBox_TextChanged);
             // 
             // loginResultBindingSource
             // 
@@ -137,7 +131,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(352, 34);
             this.emailTextBox.TabIndex = 3;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // imageLargePictureBox
             // 
@@ -147,7 +140,6 @@
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
             this.imageLargePictureBox.TabStop = false;
-            this.imageLargePictureBox.Click += new System.EventHandler(this.imageLargePictureBox_Click);
             // 
             // localeTextBox
             // 
@@ -157,7 +149,6 @@
             this.localeTextBox.Name = "localeTextBox";
             this.localeTextBox.Size = new System.Drawing.Size(210, 32);
             this.localeTextBox.TabIndex = 7;
-            this.localeTextBox.TextChanged += new System.EventHandler(this.localeTextBox_TextChanged);
             // 
             // nameTextBox
             // 
@@ -167,7 +158,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(352, 33);
             this.nameTextBox.TabIndex = 9;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // UserProfileForm
             // 

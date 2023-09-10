@@ -1,36 +1,36 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class GroupsForm : Form
     {
-        private readonly GroupsFacade r_Groups;
+        private readonly GroupsFacade r_GroupsFacade;
 
         public GroupsForm()
         {
             InitializeComponent();
-            r_Groups = new GroupsFacade();
-            r_Groups.GroupsUpdated += setGroups;
+            r_GroupsFacade = new GroupsFacade();
+            r_GroupsFacade.GroupsUpdated += setGroupsFacade;
         }
 
         private void buttonFetchGroups_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_Groups.UpdateGroups();
+            r_GroupsFacade.UpdateGroups();
         }
 
 
-        private void setGroups()
+        private void setGroupsFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setGroups);
+                Invoke((Action)setGroupsFacade);
                 return;
             }
 
-            groupBindingSource.DataSource = r_Groups.Groups;
+            groupBindingSource.DataSource = r_GroupsFacade.Groups;
             labelLoading.Visible = false;
         }
 

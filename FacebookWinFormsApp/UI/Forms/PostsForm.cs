@@ -1,53 +1,75 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class PostsForm : Form
     {
-        private readonly PostsFacade r_Posts;
+        private readonly PostsFacade r_PostsFacade;
 
         public PostsForm()
         {
             InitializeComponent();
-            r_Posts = new PostsFacade();
-            r_Posts.PostsUpdated += setPosts;
+            r_PostsFacade = new PostsFacade();
+            r_PostsFacade.PostsUpdated += setPostsFacade;
         }
 
         private void buttonFetchPosts_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_Posts.UpdatePosts();
+            r_PostsFacade.UpdatePosts();
         }
 
-        public void SetPictureBox(string i_PostPictureUrl)
+        private void listBoxPosts_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (i_PostPictureUrl != null)
+            setPictureBox();
+        }
+
+        private void setPictureBox()
+        {
+            if (listBoxPosts.SelectedIndex >= 0)
             {
-                pictureBoxPosts.LoadAsync(i_PostPictureUrl);
+                Post selectedPost = listBoxPosts.SelectedItem as Post;
+
+                if (selectedPost != null && !string.IsNullOrEmpty(selectedPost.PictureURL))
+                {
+                    setPictureUrlToPictureBox(selectedPost.PictureURL);
+                }
+                else
+                {
+                    setPictureUrlToPictureBox(null);
+                }
             }
             else
             {
-                pictureBoxPosts.Image = null;
+                setPictureUrlToPictureBox(null);
             }
         }
 
-        private void setPosts()
+        private void setPictureUrlToPictureBox(string i_PostPictureUrl)
+        {
+            if (i_PostPictureUrl != null)
+            {
+                pictureBoxPost.LoadAsync(i_PostPictureUrl);
+            }
+            else
+            {
+                pictureBoxPost.Image = null;
+            }
+        }
+
+        private void setPostsFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setPosts);
+                Invoke((Action)setPostsFacade);
                 return;
             }
 
-            postBindingSource.DataSource = r_Posts.m_PostCollection;
+            postBindingSource.DataSource = r_PostsFacade.Posts;
             labelLoading.Visible = false;
-        }
-
-        private void nameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

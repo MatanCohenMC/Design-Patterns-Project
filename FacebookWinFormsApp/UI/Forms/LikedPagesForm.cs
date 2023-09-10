@@ -1,35 +1,35 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class LikedPagesForm : Form
     {
-        private readonly LikedPagesFacade r_LikedPages;
+        private readonly LikedPagesFacade r_LikedPagesFacade;
 
         public LikedPagesForm()
         {
             InitializeComponent();
-            r_LikedPages = new LikedPagesFacade();
-            r_LikedPages.LikedPagesUpdated += setLikedPages;
+            r_LikedPagesFacade = new LikedPagesFacade();
+            r_LikedPagesFacade.LikedPagesUpdated += setLikedPagesFacade;
         }
 
         private void buttonFetchPages_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_LikedPages.UpdateLikedPages();
+            r_LikedPagesFacade.UpdateLikedPages();
         }
 
-        private void setLikedPages()
+        private void setLikedPagesFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setLikedPages);
+                Invoke((Action)setLikedPagesFacade);
                 return;
             }
 
-            pageBindingSource.DataSource = r_LikedPages.LikedPages;
+            pageBindingSource.DataSource = r_LikedPagesFacade.LikedPages;
             labelLoading.Visible = false;
         }
 

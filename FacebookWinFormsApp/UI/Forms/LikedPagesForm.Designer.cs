@@ -116,7 +116,7 @@
             // 
             // panelLikedPageDetails
             // 
-            this.panelLikedPageDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelLikedPageDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelLikedPageDetails.Controls.Add(cityLabel);
             this.panelLikedPageDetails.Controls.Add(this.cityTextBox);
             this.panelLikedPageDetails.Controls.Add(descriptionLabel);
@@ -151,7 +151,7 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pageBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(628, 40);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(559, 40);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 3;

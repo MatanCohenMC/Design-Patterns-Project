@@ -130,7 +130,7 @@
             // 
             // panelEventDetails
             // 
-            this.panelEventDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelEventDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelEventDetails.Controls.Add(descriptionLabel);
             this.panelEventDetails.Controls.Add(this.descriptionTextBox);
             this.panelEventDetails.Controls.Add(endTimeLabel);
@@ -165,7 +165,7 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(626, 43);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(555, 43);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;

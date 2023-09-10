@@ -1,35 +1,35 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class FriendsInUsersAgeRangeForm : Form
     {
-        private readonly FriendsInUsersAgeRangeFacade r_FriendsInUsersAgeRange;
+        private readonly FriendsInUsersAgeRangeFacade r_FriendsInUsersAgeRangeFacade;
 
         public FriendsInUsersAgeRangeForm()
         {
             InitializeComponent();
-            r_FriendsInUsersAgeRange = new FriendsInUsersAgeRangeFacade();
-            r_FriendsInUsersAgeRange.FriendsInUserAgeRangeUpdated += setFriendsInUsersAgeRange;
+            r_FriendsInUsersAgeRangeFacade = new FriendsInUsersAgeRangeFacade();
+            r_FriendsInUsersAgeRangeFacade.FriendsInUserAgeRangeUpdated += setFriendsInUsersAgeRangeFacade;
         }
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
             labelLoading.Visible = true;
-            r_FriendsInUsersAgeRange.UpdateFriendsInUsersAgeRange();
+            r_FriendsInUsersAgeRangeFacade.UpdateFriendsInUsersAgeRange();
         }
 
-        private void setFriendsInUsersAgeRange()
+        private void setFriendsInUsersAgeRangeFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setFriendsInUsersAgeRange);
+                Invoke((Action)setFriendsInUsersAgeRangeFacade);
                 return;
             }
 
-            loginResultBindingSource.DataSource = r_FriendsInUsersAgeRange.FriendsInUserAgeRange;
+            loginResultBindingSource.DataSource = r_FriendsInUsersAgeRangeFacade.FriendsInUserAgeRange;
             labelLoading.Visible = false;
         }
 

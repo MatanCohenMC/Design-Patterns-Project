@@ -1,51 +1,36 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class AlbumsForm : Form
     {
-        private readonly AlbumsFacade r_Albums;
+        private readonly AlbumsFacade r_AlbumsFacade;
 
         public AlbumsForm()
         {
             InitializeComponent();
-            r_Albums = new AlbumsFacade();
-            r_Albums.AlbumUpdated += setAlbums;
+            r_AlbumsFacade = new AlbumsFacade();
+            r_AlbumsFacade.AlbumUpdated += setAlbumsFacade;
         }
 
         private void buttonFetchAlbums_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_Albums.UpdateAlbums();
+            r_AlbumsFacade.UpdateAlbums();
         }
 
-        private void setAlbums()
+        private void setAlbumsFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setAlbums);
+                Invoke((Action)setAlbumsFacade);
                 return;
             }
 
-            albumBindingSource.DataSource = r_Albums.Albums;
+            albumBindingSource.DataSource = r_AlbumsFacade.Albums;
             labelLoading.Visible = false;
-        }
-
-        private void locationLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void countLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void countTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,35 +1,23 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class RandomMemoryForm : Form
     {
-        private readonly PostsFacade r_Posts;
+        private readonly PostsFacade r_PostsFacade;
 
         public RandomMemoryForm()
         {
             InitializeComponent();
-            r_Posts = new PostsFacade();
-            r_Posts.PostsUpdated += setRandomMemory;
+            r_PostsFacade = new PostsFacade();
+            r_PostsFacade.PostsUpdated += setRandomMemory;
         }
 
         private void buttonFetchMemory_Click(object i_Sender, EventArgs i_EventArgs)
         {
-            r_Posts.UpdateRandomPost();
-        }
-
-        public void SetPictureBox(string i_PostPictureUrl)
-        {
-            if (i_PostPictureUrl != null)
-            {
-                pictureBoxMemory.LoadAsync(i_PostPictureUrl);
-            }
-            else
-            {
-                pictureBoxMemory.Image = null;
-            }
+            r_PostsFacade.UpdateRandomPost();
         }
 
         private void setRandomMemory()
@@ -40,7 +28,7 @@ namespace FacebookApp.UI.Forms
                 return;
             }
 
-            postBindingSource.DataSource = r_Posts.RandomPost;
+            postBindingSource.DataSource = r_PostsFacade.RandomPost;
         }
     }
 }

@@ -59,7 +59,7 @@
             descriptionLabel.AutoSize = true;
             descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
-            descriptionLabel.Location = new System.Drawing.Point(36, 43);
+            descriptionLabel.Location = new System.Drawing.Point(25, 43);
             descriptionLabel.Name = "descriptionLabel";
             descriptionLabel.Size = new System.Drawing.Size(115, 25);
             descriptionLabel.TabIndex = 0;
@@ -70,7 +70,7 @@
             endTimeLabel.AutoSize = true;
             endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             endTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
-            endTimeLabel.Location = new System.Drawing.Point(49, 206);
+            endTimeLabel.Location = new System.Drawing.Point(38, 206);
             endTimeLabel.Name = "endTimeLabel";
             endTimeLabel.Size = new System.Drawing.Size(102, 25);
             endTimeLabel.TabIndex = 2;
@@ -81,7 +81,7 @@
             locationLabel.AutoSize = true;
             locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             locationLabel.ForeColor = System.Drawing.SystemColors.Control;
-            locationLabel.Location = new System.Drawing.Point(59, 109);
+            locationLabel.Location = new System.Drawing.Point(48, 109);
             locationLabel.Name = "locationLabel";
             locationLabel.Size = new System.Drawing.Size(92, 25);
             locationLabel.TabIndex = 8;
@@ -92,7 +92,7 @@
             startTimeLabel.AutoSize = true;
             startTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             startTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
-            startTimeLabel.Location = new System.Drawing.Point(43, 170);
+            startTimeLabel.Location = new System.Drawing.Point(32, 170);
             startTimeLabel.Name = "startTimeLabel";
             startTimeLabel.Size = new System.Drawing.Size(108, 25);
             startTimeLabel.TabIndex = 10;
@@ -150,7 +150,7 @@
             // 
             // panelEventDetails
             // 
-            this.panelEventDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelEventDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelEventDetails.Controls.Add(descriptionLabel);
             this.panelEventDetails.Controls.Add(this.descriptionTextBox);
             this.panelEventDetails.Controls.Add(endTimeLabel);
@@ -168,7 +168,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
-            this.descriptionTextBox.Location = new System.Drawing.Point(157, 43);
+            this.descriptionTextBox.Location = new System.Drawing.Point(146, 43);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
@@ -177,7 +177,7 @@
             // endTimeDateTimePicker
             // 
             this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No end time]"));
-            this.endTimeDateTimePicker.Location = new System.Drawing.Point(157, 209);
+            this.endTimeDateTimePicker.Location = new System.Drawing.Point(146, 209);
             this.endTimeDateTimePicker.Name = "endTimeDateTimePicker";
             this.endTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.endTimeDateTimePicker.TabIndex = 3;
@@ -185,7 +185,7 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(624, 43);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(549, 43);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;
@@ -194,7 +194,7 @@
             // locationTextBox
             // 
             this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No location]"));
-            this.locationTextBox.Location = new System.Drawing.Point(157, 109);
+            this.locationTextBox.Location = new System.Drawing.Point(146, 109);
             this.locationTextBox.Multiline = true;
             this.locationTextBox.Name = "locationTextBox";
             this.locationTextBox.Size = new System.Drawing.Size(380, 50);
@@ -203,7 +203,7 @@
             // startTimeDateTimePicker
             // 
             this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No start time]"));
-            this.startTimeDateTimePicker.Location = new System.Drawing.Point(157, 172);
+            this.startTimeDateTimePicker.Location = new System.Drawing.Point(146, 172);
             this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
             this.startTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.startTimeDateTimePicker.TabIndex = 11;

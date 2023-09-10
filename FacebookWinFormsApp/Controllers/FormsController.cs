@@ -13,7 +13,7 @@ namespace FacebookApp.Controllers
     {
         private readonly Login r_Login;
         private Form m_CurrentForm;
-        private Dictionary<eFormName, Form> m_ENumFormsDictionary;
+        private Dictionary<eFormName, Form> m_EnumFormsDictionary;
 
         public FormsController()
         {
@@ -23,7 +23,7 @@ namespace FacebookApp.Controllers
 
         private void initializeForms()
         {
-            m_ENumFormsDictionary = new Dictionary<eFormName, Form>();
+            m_EnumFormsDictionary = new Dictionary<eFormName, Form>();
             addAllSubForms();
             setActionFunctions();
         }
@@ -107,7 +107,7 @@ namespace FacebookApp.Controllers
 
         private Form getForm(eFormName i_EnumFormName)
         {
-            return m_ENumFormsDictionary[i_EnumFormName];
+            return m_EnumFormsDictionary[i_EnumFormName];
         }
 
         private void setDisplayPanel(eFormName i_EnumFormName)
@@ -140,7 +140,7 @@ namespace FacebookApp.Controllers
 
         private void addAllSubForms()
         {
-            ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_ENumFormsDictionary);
+            ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_EnumFormsDictionary);
             foreach (eFormName formName in Enum.GetValues(typeof(eFormName)))
             {
                 Form formToAdd = concreteFormsFactory.FactoryMethod(formName);
@@ -150,7 +150,7 @@ namespace FacebookApp.Controllers
 
         private void addForm(eFormName i_EnumFormName, Form i_Form)
         {
-            m_ENumFormsDictionary.Add(i_EnumFormName, i_Form);
+            m_EnumFormsDictionary.Add(i_EnumFormName, i_Form);
         }
 
         private void setActionFunctions()

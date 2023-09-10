@@ -51,7 +51,7 @@
             descriptionLabel.AutoSize = true;
             descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             descriptionLabel.ForeColor = System.Drawing.SystemColors.Control;
-            descriptionLabel.Location = new System.Drawing.Point(36, 103);
+            descriptionLabel.Location = new System.Drawing.Point(18, 101);
             descriptionLabel.Name = "descriptionLabel";
             descriptionLabel.Size = new System.Drawing.Size(115, 25);
             descriptionLabel.TabIndex = 0;
@@ -62,7 +62,7 @@
             nameLabel.AutoSize = true;
             nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            nameLabel.Location = new System.Drawing.Point(75, 43);
+            nameLabel.Location = new System.Drawing.Point(57, 41);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(76, 25);
             nameLabel.TabIndex = 7;
@@ -100,7 +100,7 @@
             // 
             // panelGroupDetails
             // 
-            this.panelGroupDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelGroupDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelGroupDetails.Controls.Add(nameLabel);
             this.panelGroupDetails.Controls.Add(this.nameTextBox);
             this.panelGroupDetails.Controls.Add(descriptionLabel);
@@ -114,7 +114,7 @@
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Owner.Name", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No name]"));
-            this.nameTextBox.Location = new System.Drawing.Point(157, 43);
+            this.nameTextBox.Location = new System.Drawing.Point(139, 41);
             this.nameTextBox.Multiline = true;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(380, 47);
@@ -123,7 +123,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "[No description]"));
-            this.descriptionTextBox.Location = new System.Drawing.Point(157, 107);
+            this.descriptionTextBox.Location = new System.Drawing.Point(139, 105);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(380, 50);
@@ -133,7 +133,7 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.groupBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(630, 40);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(538, 41);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 3;
