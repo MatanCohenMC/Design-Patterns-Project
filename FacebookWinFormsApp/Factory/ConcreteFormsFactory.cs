@@ -7,11 +7,11 @@ namespace FacebookApp.Factory
 {
     public class ConcreteFormsFactory : FormsFactory
     {
-        private readonly Dictionary<eFormName, Form> r_ENumFormsDictionary;
+        private readonly Dictionary<eFormName, Form> r_EnumFormsDictionary;
 
-        public ConcreteFormsFactory(ref Dictionary<eFormName, Form> i_ENumFormsDictionary)
+        public ConcreteFormsFactory(ref Dictionary<eFormName, Form> i_EnumFormsDictionary)
         {
-            r_ENumFormsDictionary = i_ENumFormsDictionary;
+            r_EnumFormsDictionary = i_EnumFormsDictionary;
         }
 
         public override Form FactoryMethod(eFormName i_FormName)
@@ -80,7 +80,7 @@ namespace FacebookApp.Factory
 
         private Form getForm(eFormName i_EnumFormName)
         {
-            return r_ENumFormsDictionary[i_EnumFormName];
+            return r_EnumFormsDictionary[i_EnumFormName];
         }
     }
 }

@@ -1,35 +1,35 @@
-﻿using FacebookApp.Facades;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookApp.Facades;
 
 namespace FacebookApp.UI.Forms
 {
     public partial class EventsForm : Form
     {
-        private readonly EventsFacade r_Events;
+        private readonly EventsFacade r_EventsFacade;
 
         public EventsForm()
         {
             InitializeComponent();
-            r_Events = new EventsFacade();
-            r_Events.EventsUpdated += setEvents;
+            r_EventsFacade = new EventsFacade();
+            r_EventsFacade.EventsUpdated += setEventsFacade;
         }
 
         private void buttonFetchEvents_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
-            r_Events.UpdateEvents();
+            r_EventsFacade.UpdateEvents();
         }
 
-        private void setEvents()
+        private void setEventsFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setEvents);
+                Invoke((Action)setEventsFacade);
                 return;
             }
 
-            eventBindingSource.DataSource = r_Events.Events;
+            eventBindingSource.DataSource = r_EventsFacade.Events;
             labelLoading.Visible = false;
         }
 

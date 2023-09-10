@@ -115,7 +115,7 @@
             // 
             // panelFriendDetails
             // 
-            this.panelFriendDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelFriendDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelFriendDetails.Controls.Add(birthdayLabel);
             this.panelFriendDetails.Controls.Add(this.birthdayTextBox);
             this.panelFriendDetails.Controls.Add(this.imageLargePictureBox);
@@ -140,7 +140,7 @@
             // imageLargePictureBox
             // 
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.loginResultBindingSource, "LoggedInUser.ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(630, 43);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(514, 43);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
             this.imageLargePictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageLargePictureBox.TabIndex = 5;

@@ -64,7 +64,6 @@ namespace FacebookApp.UI.Forms
             countLabel.Size = new System.Drawing.Size(86, 25);
             countLabel.TabIndex = 0;
             countLabel.Text = "Amount:";
-            countLabel.Click += new System.EventHandler(this.countLabel_Click);
             // 
             // createdTimeLabel
             // 
@@ -98,7 +97,6 @@ namespace FacebookApp.UI.Forms
             locationLabel.Size = new System.Drawing.Size(92, 25);
             locationLabel.TabIndex = 8;
             locationLabel.Text = "Location:";
-            locationLabel.Click += new System.EventHandler(this.locationLabel_Click);
             // 
             // albumBindingSource
             // 
@@ -119,7 +117,7 @@ namespace FacebookApp.UI.Forms
             // 
             // panelAlbumDetails
             // 
-            this.panelAlbumDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelAlbumDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelAlbumDetails.Controls.Add(countLabel);
             this.panelAlbumDetails.Controls.Add(this.countTextBox);
             this.panelAlbumDetails.Controls.Add(createdTimeLabel);
@@ -141,7 +139,6 @@ namespace FacebookApp.UI.Forms
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(120, 22);
             this.countTextBox.TabIndex = 1;
-            this.countTextBox.TextChanged += new System.EventHandler(this.countTextBox_TextChanged);
             // 
             // createdTimeDateTimePicker
             // 
@@ -163,7 +160,7 @@ namespace FacebookApp.UI.Forms
             // imageAlbumPictureBox
             // 
             this.imageAlbumPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.albumBindingSource, "ImageAlbum", true));
-            this.imageAlbumPictureBox.Location = new System.Drawing.Point(624, 33);
+            this.imageAlbumPictureBox.Location = new System.Drawing.Point(561, 43);
             this.imageAlbumPictureBox.Name = "imageAlbumPictureBox";
             this.imageAlbumPictureBox.Size = new System.Drawing.Size(250, 250);
             this.imageAlbumPictureBox.TabIndex = 7;

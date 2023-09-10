@@ -6,29 +6,29 @@ namespace FacebookApp.UI.Forms
 {
     public partial class UserProfileForm : Form
     {
-        private readonly UserProfileFacade r_UserProfile;
+        private readonly UserProfileFacade r_UserProfileFacade;
 
         public UserProfileForm()
         {
             InitializeComponent();
-            r_UserProfile = new UserProfileFacade();
-            r_UserProfile.UserProfileUpdated += setUserProfile;
+            r_UserProfileFacade = new UserProfileFacade();
+            r_UserProfileFacade.UserProfileUpdated += setUserProfileFacade;
         }
 
         private void userProfileForm_Load(object i_Sender, EventArgs i_EventArgs)
         {
-            r_UserProfile.GetUserProfile();
+            r_UserProfileFacade.GetUserProfile();
         }
 
-        private void setUserProfile()
+        private void setUserProfileFacade()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setUserProfile);
+                Invoke((Action)setUserProfileFacade);
                 return;
             }
 
-            loginResultBindingSource.DataSource = r_UserProfile.LoginResult;
+            loginResultBindingSource.DataSource = r_UserProfileFacade.LoginResult;
         }
     }
 }

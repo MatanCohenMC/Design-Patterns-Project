@@ -120,19 +120,6 @@
     <Compile Include="Facades\UserProfileFacade.cs" />
     <Compile Include="Factory\ConcreteFormsFactory.cs" />
     <Compile Include="Factory\FormsFactory.cs" />
-    <Compile Include="Interfaces\IBirthdayHandler.cs" />
-    <Compile Include="Interfaces\ICaptionHandler.cs" />
-    <Compile Include="Interfaces\ICommentsHandler.cs" />
-    <Compile Include="Interfaces\IDateHandler.cs" />
-    <Compile Include="Interfaces\IDescriptionHandler.cs" />
-    <Compile Include="Interfaces\IFullNameHandler.cs" />
-    <Compile Include="Interfaces\IPictureByIndexHandler.cs" />
-    <Compile Include="Interfaces\ISetFetchAction.cs" />
-    <Compile Include="Interfaces\ILocationHandler.cs" />
-    <Compile Include="Interfaces\IPictureCountHandler.cs" />
-    <Compile Include="Interfaces\IPictureHandler.cs" />
-    <Compile Include="Interfaces\ISetSelectedIndexAction.cs" />
-    <Compile Include="Interfaces\ICreatedTimeHandler.cs" />
     <Compile Include="Models\Albums.cs" />
     <Compile Include="Models\eFormName.cs" />
     <Compile Include="Models\Events.cs" />
@@ -208,8 +195,6 @@
     <Compile Include="UI\Forms\PostsForm.Designer.cs">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IComponentHandler.cs" />
-    <Compile Include="Interfaces\IDataHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Forms\RandomMemoryForm.cs">
@@ -273,6 +258,7 @@
     <EmbeddedResource Include="UI\Forms\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FacebookWrapper.LoginResult.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Album.datasource" />

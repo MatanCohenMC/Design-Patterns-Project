@@ -32,25 +32,22 @@
             System.Windows.Forms.Label createdTimeLabel;
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label messageLabel;
-            System.Windows.Forms.Label pictureURLLabel;
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fetch_posts_button = new System.Windows.Forms.Button();
-            this.pictureBoxPosts = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelPostDetails = new System.Windows.Forms.Panel();
-            this.pictureURLTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBoxPost = new System.Windows.Forms.PictureBox();
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelLoading = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             createdTimeLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             messageLabel = new System.Windows.Forms.Label();
-            pictureURLLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).BeginInit();
             this.panelPostDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).BeginInit();
             this.SuspendLayout();
             // 
             // createdTimeLabel
@@ -86,17 +83,6 @@
             messageLabel.TabIndex = 15;
             messageLabel.Text = "Message:";
             // 
-            // pictureURLLabel
-            // 
-            pictureURLLabel.AutoSize = true;
-            pictureURLLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            pictureURLLabel.ForeColor = System.Drawing.SystemColors.Control;
-            pictureURLLabel.Location = new System.Drawing.Point(29, 230);
-            pictureURLLabel.Name = "pictureURLLabel";
-            pictureURLLabel.Size = new System.Drawing.Size(121, 25);
-            pictureURLLabel.TabIndex = 16;
-            pictureURLLabel.Text = "Picture URL:";
-            // 
             // listBoxPosts
             // 
             this.listBoxPosts.DataSource = this.postBindingSource;
@@ -108,6 +94,7 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(465, 329);
             this.listBoxPosts.TabIndex = 0;
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged_1);
             // 
             // postBindingSource
             // 
@@ -128,32 +115,10 @@
             this.fetch_posts_button.UseVisualStyleBackColor = true;
             this.fetch_posts_button.Click += new System.EventHandler(this.buttonFetchPosts_Click);
             // 
-            // pictureBoxPosts
-            // 
-            this.pictureBoxPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPosts.Location = new System.Drawing.Point(1065, 115);
-            this.pictureBoxPosts.Name = "pictureBoxPosts";
-            this.pictureBoxPosts.Size = new System.Drawing.Size(250, 250);
-            this.pictureBoxPosts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxPosts.TabIndex = 62;
-            this.pictureBoxPosts.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1133, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Post picture";
-            // 
             // panelPostDetails
             // 
-            this.panelPostDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panelPostDetails.Controls.Add(pictureURLLabel);
-            this.panelPostDetails.Controls.Add(this.pictureURLTextBox);
+            this.panelPostDetails.BackColor = System.Drawing.Color.Transparent;
+            this.panelPostDetails.Controls.Add(this.pictureBoxPost);
             this.panelPostDetails.Controls.Add(messageLabel);
             this.panelPostDetails.Controls.Add(this.messageTextBox);
             this.panelPostDetails.Controls.Add(nameLabel);
@@ -165,13 +130,15 @@
             this.panelPostDetails.Size = new System.Drawing.Size(900, 329);
             this.panelPostDetails.TabIndex = 78;
             // 
-            // pictureURLTextBox
+            // pictureBoxPost
             // 
-            this.pictureURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "PictureURL", true));
-            this.pictureURLTextBox.Location = new System.Drawing.Point(156, 230);
-            this.pictureURLTextBox.Name = "pictureURLTextBox";
-            this.pictureURLTextBox.Size = new System.Drawing.Size(100, 22);
-            this.pictureURLTextBox.TabIndex = 17;
+            this.pictureBoxPost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPost.Location = new System.Drawing.Point(559, 41);
+            this.pictureBoxPost.Name = "pictureBoxPost";
+            this.pictureBoxPost.Size = new System.Drawing.Size(250, 250);
+            this.pictureBoxPost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPost.TabIndex = 78;
+            this.pictureBoxPost.TabStop = false;
             // 
             // messageTextBox
             // 
@@ -190,7 +157,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(380, 50);
             this.nameTextBox.TabIndex = 15;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // createdTimeDateTimePicker
             // 
@@ -212,6 +178,17 @@
             this.labelLoading.Text = "Loading...";
             this.labelLoading.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(1133, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "Post picture";
+            // 
             // PostsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,7 +198,6 @@
             this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.panelPostDetails);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBoxPosts);
             this.Controls.Add(this.fetch_posts_button);
             this.Controls.Add(this.listBoxPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -229,9 +205,9 @@
             this.Name = "PostsForm";
             this.Text = "PostsForm";
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPosts)).EndInit();
             this.panelPostDetails.ResumeLayout(false);
             this.panelPostDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,13 +218,12 @@
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.Button fetch_posts_button;
         private System.Windows.Forms.BindingSource postBindingSource;
-        private System.Windows.Forms.PictureBox pictureBoxPosts;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelPostDetails;
         private System.Windows.Forms.DateTimePicker createdTimeDateTimePicker;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox messageTextBox;
-        private System.Windows.Forms.TextBox pictureURLTextBox;
         private System.Windows.Forms.Label labelLoading;
+        private System.Windows.Forms.PictureBox pictureBoxPost;
+        private System.Windows.Forms.Label label1;
     }
 }
