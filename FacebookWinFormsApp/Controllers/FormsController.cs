@@ -12,12 +12,16 @@ namespace FacebookApp.Controllers
     public class FormsController
     {
         private readonly Login r_Login;
+        private readonly ILoginStrategy r_LoginStrategy;
+        private readonly ILogoutStrategy r_LogoutStrategy;
         private Form m_CurrentForm;
         private Dictionary<eFormName, Form> m_EnumFormsDictionary;
 
         public FormsController()
         {
             r_Login = Login.Instance;
+            r_LoginStrategy = new FacebookLoginStrategy();
+            r_LogoutStrategy = new FacebookLogoutStrategy();
             initializeForms();
         }
 
@@ -40,41 +44,7 @@ namespace FacebookApp.Controllers
         {
             if (getForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
-                string appId = loginForm.TextBoxAppIdString;
-
-                r_Login.LoginToApp(appId);
-                try
-                {
-                    if (r_Login.LoginResult != null && r_Login.LoginResult.LoggedInUser != null)
-                    {
-                        loginForm.ButtonLogin.Text = "Logged in";
-                        loginForm.ButtonLogin.BackColor = Color.LightGreen;
-                        loginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
-                        loginForm.ButtonLogin.Enabled = false;
-                        loginForm.ButtonLogout.Enabled = true;
-                        NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                        navigationBarForm?.EnableNavigationBar();
-                        LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-                        loginBarForm?.EnableMyProfileButton();
-                    }
-                    else
-                    {
-                        if (String.IsNullOrEmpty(r_Login?.LoginResult?.ErrorMessage))
-                        {
-                            MessageBox.Show("Login Failed, try again");
-                        }
-                        else
-                        {
-                            MessageBox.Show(r_Login.LoginResult.ErrorMessage, "Login Failed");
-                        }
-
-                        loginForm.PictureBoxUserProfile.ImageLocation = null;
-                    }
-                }
-                catch (NullReferenceException)
-                {
-                    loginForm.PictureBoxUserProfile.ImageLocation = null;
-                }
+                r_LoginStrategy.ExecuteLogin(loginForm, this);
             }
         }
 
@@ -83,39 +53,49 @@ namespace FacebookApp.Controllers
             if (r_Login.IsLoggedIn())
             {
                 LoginBarForm loginForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-
-                if (loginForm != null)
-                {
-                    string appId = loginForm.TextBoxAppIdString;
-                    r_Login?.LoginToApp(appId);
-                    FacebookService.LogoutWithUI();
-                    loginForm.ButtonLogin.Text = "Login";
-                    loginForm.ButtonLogin.BackColor = loginForm.ButtonLogout.BackColor;
-                    loginForm.LoginResult = null;
-                    loginForm.ButtonLogin.Enabled = true;
-                    loginForm.ButtonLogout.Enabled = false;
-
-                    NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
-                    LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-                    Form appMainForm = getForm(eFormName.AppMainForm);
-
-                    navigationBarForm?.DisableNavigationBar();
-                    loginBarForm?.DisableMyProfileButton();
-                    loginForm.PictureBoxUserProfile.Image = null;
-                    if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
-                    {
-                        if (m_CurrentForm != null)
-                        {
-                            panelDisplay.Controls.Remove(m_CurrentForm);
-                        }
-                    }
-                }
+                r_LogoutStrategy.ExecuteLogout(loginForm, this);
             }
         }
 
         private Form getForm(eFormName i_EnumFormName)
         {
             return m_EnumFormsDictionary[i_EnumFormName];
+        }
+
+        public void EnableNavBar()
+        {
+            NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+            navigationBarForm?.EnableNavigationBar();
+        }
+
+        public void DisableNavBar()
+        {
+            NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+            navigationBarForm?.DisableNavigationBar();
+        }
+
+        public void EnableLoginBar()
+        {
+            LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+            loginBarForm?.EnableMyProfileButton();
+        }
+
+        public void DisableLoginBar()
+        {
+            LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+            loginBarForm?.DisableMyProfileButton();
+        }
+
+        public void RemoveCurrentDisplayForm()
+        {
+            Form appMainForm = getForm(eFormName.AppMainForm);
+            if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
+            {
+                if (m_CurrentForm != null)
+                {
+                    panelDisplay.Controls.Remove(m_CurrentForm);
+                }
+            }
         }
 
         private void setDisplayPanel(eFormName i_EnumFormName)

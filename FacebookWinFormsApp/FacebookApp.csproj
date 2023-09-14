@@ -118,8 +118,12 @@
     <Compile Include="Facades\LikedPagesFacade.cs" />
     <Compile Include="Facades\PostsFacade.cs" />
     <Compile Include="Facades\UserProfileFacade.cs" />
+    <Compile Include="Strategy\FacebookLoginStrategy.cs" />
+    <Compile Include="Strategy\FacebookLogoutStrategy.cs" />
     <Compile Include="Factory\ConcreteFormsFactory.cs" />
     <Compile Include="Factory\FormsFactory.cs" />
+    <Compile Include="Strategy\ILoginStrategy.cs" />
+    <Compile Include="Strategy\ILogoutStrategy.cs" />
     <Compile Include="Models\Albums.cs" />
     <Compile Include="Models\eFormName.cs" />
     <Compile Include="Models\Events.cs" />
