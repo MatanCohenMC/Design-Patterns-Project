@@ -109,6 +109,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Facades\AlbumsFacade.cs" />
     <Compile Include="Facades\EventsByLocationFacade.cs" />
@@ -118,12 +119,10 @@
     <Compile Include="Facades\LikedPagesFacade.cs" />
     <Compile Include="Facades\PostsFacade.cs" />
     <Compile Include="Facades\UserProfileFacade.cs" />
-    <Compile Include="Strategy\FacebookLoginStrategy.cs" />
-    <Compile Include="Strategy\FacebookLogoutStrategy.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Factory\ConcreteFormsFactory.cs" />
     <Compile Include="Factory\FormsFactory.cs" />
-    <Compile Include="Strategy\ILoginStrategy.cs" />
-    <Compile Include="Strategy\ILogoutStrategy.cs" />
     <Compile Include="Models\Albums.cs" />
     <Compile Include="Models\eFormName.cs" />
     <Compile Include="Models\Events.cs" />
