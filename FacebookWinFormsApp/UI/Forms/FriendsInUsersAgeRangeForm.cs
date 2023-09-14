@@ -15,7 +15,7 @@ namespace FacebookApp.UI.Forms
             r_FriendsInUsersAgeRangeFacade.FriendsInUserAgeRangeUpdated += setFriendsInUsersAgeRangeFacade;
         }
 
-        private void buttonFetchFriends_Click(object sender, EventArgs e)
+        private void buttonFetchFriends_Click(object i_Sender, EventArgs i_EventArgs)
         {
             labelLoading.Visible = true;
             r_FriendsInUsersAgeRangeFacade.UpdateFriendsInUsersAgeRange();

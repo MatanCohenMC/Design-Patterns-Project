@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using FacebookApp.Commands;
 using FacebookApp.Factory;
 using FacebookApp.Models;
 using FacebookApp.UI.Forms;
@@ -12,16 +12,13 @@ namespace FacebookApp.Controllers
     public class FormsController
     {
         private readonly Login r_Login;
-        private readonly ILoginStrategy r_LoginStrategy;
-        private readonly ILogoutStrategy r_LogoutStrategy;
+        private ICommand m_CurrentCommand;
         private Form m_CurrentForm;
         private Dictionary<eFormName, Form> m_EnumFormsDictionary;
 
         public FormsController()
         {
             r_Login = Login.Instance;
-            r_LoginStrategy = new FacebookLoginStrategy();
-            r_LogoutStrategy = new FacebookLogoutStrategy();
             initializeForms();
         }
 
@@ -44,7 +41,9 @@ namespace FacebookApp.Controllers
         {
             if (getForm(eFormName.LoginBarForm) is LoginBarForm loginForm)
             {
-                r_LoginStrategy.ExecuteLogin(loginForm, this);
+                ICommand loginCommand = new LoginCommand(loginForm, this);
+                SetCommand(loginCommand);
+                ExecuteCommand();
             }
         }
 
@@ -53,8 +52,20 @@ namespace FacebookApp.Controllers
             if (r_Login.IsLoggedIn())
             {
                 LoginBarForm loginForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-                r_LogoutStrategy.ExecuteLogout(loginForm, this);
+                ICommand logoutCommand = new LogoutCommand(loginForm, this);
+                SetCommand(logoutCommand);
+                ExecuteCommand();
             }
+        }
+
+        public void SetCommand(ICommand i_Command)
+        {
+            m_CurrentCommand = i_Command;
+        }
+
+        public void ExecuteCommand()
+        {
+            m_CurrentCommand?.Execute();
         }
 
         private Form getForm(eFormName i_EnumFormName)
@@ -135,18 +146,19 @@ namespace FacebookApp.Controllers
 
         private void setActionFunctions()
         {
-            NavigationBarForm curnNavigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
-            LoginBarForm curnLoginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
-            if (curnNavigationBarForm != null)
+            NavigationBarForm navigationBarForm = getForm(eFormName.NavigationBarForm) as NavigationBarForm;
+            LoginBarForm loginBarForm = getForm(eFormName.LoginBarForm) as LoginBarForm;
+
+            if (navigationBarForm != null)
             {
-                curnNavigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+                navigationBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
             }
 
-            if (curnLoginBarForm != null)
+            if (loginBarForm != null)
             {
-                curnLoginBarForm.m_LoginButtonPressed += loginToApp;
-                curnLoginBarForm.m_LogoutButtonPressed += logoutOfApp;
-                curnLoginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
+                loginBarForm.m_LoginButtonPressed += loginToApp;
+                loginBarForm.m_LogoutButtonPressed += logoutOfApp;
+                loginBarForm.m_OnSubFormButtonPressed += setDisplayPanel;
             }
         }
     }
