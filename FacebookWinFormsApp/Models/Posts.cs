@@ -8,7 +8,6 @@ namespace FacebookApp.Models
     public class Posts
     {
         private readonly Login r_Login = Login.Instance;
-
         public FacebookObjectCollection<Post> GetPosts()
         {
             return r_Login.LoggedInUser.Posts;
@@ -40,6 +39,22 @@ namespace FacebookApp.Models
                 if (post.CreatedTime != null && ((DateTime)post.CreatedTime >= i_DateTimeFrom && (DateTime)post.CreatedTime <= i_DateTimeTo))
                 {
                     posts.Add(post);
+                }
+            }
+
+            return posts;
+        }
+
+        public FacebookObjectCollection<Post> GetPostsByFilter(Func<Post, int, int, bool> i_Filter)
+        {
+            List<Post> postsList = r_Login.LoggedInUser.Posts.ToList();
+            FacebookObjectCollection<Post> posts = new FacebookObjectCollection<Post>();
+
+            foreach(var post in postsList.Select((value, index) => new { index, value, }))
+            {
+                if (i_Filter(post.value, post.index, postsList.Count))
+                {
+                    posts.Add(post.value);
                 }
             }
 
