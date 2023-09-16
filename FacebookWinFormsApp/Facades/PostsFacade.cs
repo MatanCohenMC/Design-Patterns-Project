@@ -43,7 +43,6 @@ namespace FacebookApp.Facades
                         randomPosts = this.r_Posts.GetPostsByFilter(
                             (i_Post, i_Index, i_Count) =>
                                 {
-                                    i_Post.
                                     if(!isRandomSet)
                                     {
                                         randomIndex = random.Next(0, i_Count);

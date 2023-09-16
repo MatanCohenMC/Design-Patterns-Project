@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using FacebookWrapper.ObjectModel;
 
+
+
 namespace FacebookApp.Models
 {
+    public static class EnumExtension
+    {
+        public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> self)
+            => self.Select((item, index) => (item, index));
+    }
     public class Posts
     {
         private readonly Login r_Login = Login.Instance;
@@ -50,11 +57,11 @@ namespace FacebookApp.Models
             List<Post> postsList = r_Login.LoggedInUser.Posts.ToList();
             FacebookObjectCollection<Post> posts = new FacebookObjectCollection<Post>();
 
-            foreach(var post in postsList.Select((value, index) => new { index, value, }))
+            foreach (var (post, index) in postsList.WithIndex())
             {
-                if (i_Filter(post.value, post.index, postsList.Count))
+                if (i_Filter(post, index, postsList.Count))
                 {
-                    posts.Add(post.value);
+                    posts.Add(post);
                 }
             }
 
