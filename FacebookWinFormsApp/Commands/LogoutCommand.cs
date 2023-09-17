@@ -9,13 +9,13 @@ namespace FacebookApp.Commands
     {
         private readonly Login r_Login;
         private readonly LoginBarForm r_LoginForm;
-        private readonly FormsController r_Controller;
+        private readonly FormsController r_FormsController;
 
-        public LogoutCommand(LoginBarForm i_LoginForm, FormsController i_Controller)
+        public LogoutCommand(LoginBarForm i_LoginForm, FormsController i_FormsController)
         {
             r_Login = Login.Instance;
             r_LoginForm = i_LoginForm;
-            r_Controller = i_Controller;
+            r_FormsController = i_FormsController;
         }
 
         public void Execute()
@@ -30,10 +30,10 @@ namespace FacebookApp.Commands
                 r_LoginForm.LoginResult = null;
                 r_LoginForm.ButtonLogin.Enabled = true;
                 r_LoginForm.ButtonLogout.Enabled = false;
-                r_Controller.DisableNavBar();
-                r_Controller.DisableLoginBar();
+                r_FormsController.DisableNavBar();
+                r_FormsController.DisableLoginBar();
                 r_LoginForm.PictureBoxUserProfile.Image = null;
-                r_Controller.RemoveCurrentDisplayForm();
+                r_FormsController.RemoveCurrentDisplayForm();
             }
         }
     }
