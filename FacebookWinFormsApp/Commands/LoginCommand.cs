@@ -11,13 +11,13 @@ namespace FacebookApp.Commands
     {
         private readonly Login r_Login;
         private readonly LoginBarForm r_LoginForm;
-        private readonly FormsController r_Controller;
+        private readonly FormsController r_FormsController;
 
-        public LoginCommand(LoginBarForm i_LoginForm, FormsController i_Controller)
+        public LoginCommand(LoginBarForm i_LoginForm, FormsController i_FormsController)
         {
             r_Login = Login.Instance;
             r_LoginForm = i_LoginForm;
-            r_Controller = i_Controller;
+            r_FormsController = i_FormsController;
         }
 
         public void Execute()
@@ -34,8 +34,8 @@ namespace FacebookApp.Commands
                     r_LoginForm.PictureBoxUserProfile.ImageLocation = r_Login.LoginResult.LoggedInUser.PictureNormalURL;
                     r_LoginForm.ButtonLogin.Enabled = false;
                     r_LoginForm.ButtonLogout.Enabled = true;
-                    r_Controller.EnableNavBar();
-                    r_Controller.EnableLoginBar();
+                    r_FormsController.EnableNavBar();
+                    r_FormsController.EnableLoginBar();
                 }
                 else
                 {

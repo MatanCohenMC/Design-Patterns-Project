@@ -132,6 +132,7 @@ namespace FacebookApp.Controllers
         private void addAllSubForms()
         {
             ConcreteFormsFactory concreteFormsFactory = new ConcreteFormsFactory(ref m_EnumFormsDictionary);
+
             foreach (eFormName formName in Enum.GetValues(typeof(eFormName)))
             {
                 Form formToAdd = concreteFormsFactory.FactoryMethod(formName);

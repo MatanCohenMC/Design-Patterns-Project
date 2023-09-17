@@ -17,6 +17,11 @@ namespace FacebookApp.UI.Forms
 
         private void buttonFetchPostsByDate_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            getPostsByDateRange();
+        }
+
+        private void getPostsByDateRange()
+        {
             labelLoading.Visible = true;
             DateTime dateTimeFrom = dateTimePickerFrom.Value;
             DateTime dateTimeTo = dateTimePickerTo.Value;

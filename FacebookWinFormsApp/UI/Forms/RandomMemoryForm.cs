@@ -12,19 +12,24 @@ namespace FacebookApp.UI.Forms
         {
             InitializeComponent();
             r_PostsFacade = new PostsFacade();
-            r_PostsFacade.PostsUpdated += setRandomMemory;
+            r_PostsFacade.PostsUpdated += setRandomPost;
         }
 
         private void buttonFetchMemory_Click(object i_Sender, EventArgs i_EventArgs)
         {
+            getRandomPost();
+        }
+
+        private void getRandomPost()
+        {
             r_PostsFacade.UpdateRandomPost();
         }
 
-        private void setRandomMemory()
+        private void setRandomPost()
         {
             if (InvokeRequired)
             {
-                Invoke((Action)setRandomMemory);
+                Invoke((Action)setRandomPost);
                 return;
             }
 
