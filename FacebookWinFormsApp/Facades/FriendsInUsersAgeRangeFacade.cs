@@ -8,7 +8,6 @@ namespace FacebookApp.Facades
     public class FriendsInUsersAgeRangeFacade
     {
         private readonly FriendsInUsersAgeRange r_FriendsInUsersAgeRange;
-
         public event Action FriendsInUserAgeRangeUpdated;
 
         public FriendsInUsersAgeRangeFacade()

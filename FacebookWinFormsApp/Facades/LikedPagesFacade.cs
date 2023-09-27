@@ -7,7 +7,6 @@ namespace FacebookApp.Facades
     public class LikedPagesFacade
     {
         private readonly LikedPages r_LikedPages;
-
         public event System.Action LikedPagesUpdated;
 
         public LikedPagesFacade()

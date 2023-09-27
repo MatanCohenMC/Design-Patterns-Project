@@ -8,7 +8,6 @@ namespace FacebookApp.Facades
     public class AlbumsFacade
     {
         private readonly Albums r_Albums;
-
         public event Action AlbumUpdated;
 
         public AlbumsFacade()
