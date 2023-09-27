@@ -100,6 +100,7 @@ namespace FacebookApp.Controllers
         public void RemoveCurrentDisplayForm()
         {
             Form appMainForm = getForm(eFormName.AppMainForm);
+
             if (appMainForm.Controls["panelDisplay"] is Panel panelDisplay)
             {
                 if (m_CurrentForm != null)

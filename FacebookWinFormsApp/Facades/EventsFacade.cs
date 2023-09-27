@@ -8,7 +8,6 @@ namespace FacebookApp.Facades
     public class EventsFacade
     {
         private readonly Events r_Events;
-
         public event Action EventsUpdated;
 
         public EventsFacade()

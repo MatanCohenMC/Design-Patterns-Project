@@ -8,7 +8,6 @@ namespace FacebookApp.Facades
     public class EventsByLocationFacade
     {
         private readonly Events r_Events;
-
         public event Action EventsByLocationUpdated;
 
         public EventsByLocationFacade()

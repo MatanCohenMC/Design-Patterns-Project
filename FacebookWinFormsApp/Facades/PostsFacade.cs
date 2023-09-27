@@ -8,14 +8,13 @@ namespace FacebookApp.Facades
     public class PostsFacade
     {
         private readonly Posts r_Posts;
+        public event Action PostsUpdated;
 
         public FacebookObjectCollection<Post> Posts { get; private set; }
 
         public FacebookObjectCollection<Post> PostsByDateRange { get; private set; }
 
         public Post RandomPost { get; private set; }
-
-        public event Action PostsUpdated;
 
         public PostsFacade()
         {

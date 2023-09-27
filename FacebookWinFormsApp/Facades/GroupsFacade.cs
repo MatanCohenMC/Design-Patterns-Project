@@ -8,7 +8,6 @@ namespace FacebookApp.Facades
     public class GroupsFacade
     {
         private readonly Groups r_Groups;
-
         public event Action GroupsUpdated;
 
         public GroupsFacade()
